@@ -9615,7 +9615,7 @@ body:not(.device-touch) .team-overlay {
 	content: '';
 	z-index: auto;
 	background-color: #FFF;
-	opacity: 0.75;
+	opacity: 0.9;
 }
 
 .team-overlay .social-icon {
