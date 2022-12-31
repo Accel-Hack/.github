@@ -19,7 +19,7 @@ on:
       ecrRepository: # set this to your Amazon ECR repository name
         required: true
         type: string
-      mavenRootPath: # set this to your root path to use mvn
+      pomDirectory: # set this to your root path to use mvn
         required: false
         type: string
         default: .
@@ -73,7 +73,7 @@ jobs:
           restore-keys: ${{ runner.os }}-maven-
 
       - name: maven build jar
-        run: GITHUB_TOKEN=${{ secrets.personalToken }} mvn -f "${DIR}/pom.xml" -s settings.xml -Dmaven.test.skip=true install
+        run: GITHUB_TOKEN=${{ secrets.personalToken }} mvn -f "${POM_DIRECTORY}/pom.xml" -s settings.xml -Dmaven.test.skip=true install
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -89,7 +89,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          MAVEN_ROOT_PATH: ${{ inputs.mavenRootPath }}
+          POM_DIRECTORY: ${{ inputs.pomDirectory }}
           DOCKER_FILE_PATH: ${{ inputs.dockerFilePath }}
           DOCKER_ROOT_PATH: ${{ inputs.dockerRootPath }}
           ECR_REPOSITORY: ${{ inputs.ecrRepository }}
