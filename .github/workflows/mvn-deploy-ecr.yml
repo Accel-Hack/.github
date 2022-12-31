@@ -73,6 +73,8 @@ jobs:
           restore-keys: ${{ runner.os }}-maven-
 
       - name: maven build jar
+        env:
+          POM_DIRECTORY: ${{ inputs.pomDirectory }}
         run: GITHUB_TOKEN=${{ secrets.personalToken }} mvn -f "${POM_DIRECTORY}/pom.xml" -s settings.xml -Dmaven.test.skip=true install
 
       - name: Configure AWS credentials
@@ -89,7 +91,6 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          POM_DIRECTORY: ${{ inputs.pomDirectory }}
           DOCKER_FILE_PATH: ${{ inputs.dockerFilePath }}
           DOCKER_ROOT_PATH: ${{ inputs.dockerRootPath }}
           ECR_REPOSITORY: ${{ inputs.ecrRepository }}
