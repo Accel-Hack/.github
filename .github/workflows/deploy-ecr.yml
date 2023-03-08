@@ -1,4 +1,4 @@
-name: Build Image by mvn and Deploy to Amazon ECR
+name: Deploy Image to Amazon ECR
 
 on:
   workflow_call:
@@ -19,28 +19,15 @@ on:
       ecrRepository: # set this to your Amazon ECR repository name
         required: true
         type: string
-      pomDirectory: # set this to your root path to use mvn
-        required: false
-        type: string
-        default: .
-      javaVersion: # set to java verion
-        required: true
-        type: number
-      javaDistribution: # https://github.com/actions/setup-java#supported-distributions
-        required: true
-        type: string
     secrets:
       awsAccessKeyId:
         required: true
       awsSecretAccessKey:
         required: true
-      personalToken:
-        required: true
     outputs:
       imageName:
         description: "Name of the uploaded image"
         value: ${{ jobs.deploy.outputs.image }}
-
 
 jobs:
   deploy:
@@ -57,25 +44,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ secrets.personalToken }}
-
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{ inputs.javaVersion }}
-          distribution: ${{ inputs.javaDistribution }}
-
-      - name: Cache local Maven repository
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
-
-      - name: maven build jar
-        env:
-          POM_DIRECTORY: ${{ inputs.pomDirectory }}
-        run: GITHUB_TOKEN=${{ secrets.personalToken }} mvn -f "${POM_DIRECTORY}/pom.xml" -s settings.xml -Dmaven.test.skip=true install
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

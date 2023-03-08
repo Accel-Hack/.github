@@ -1,0 +1,66 @@
+name: Deploy to Amazon ECS
+
+on:
+  workflow_call:
+    inputs:
+      awsRegion: # set this to your preferred AWS region, e.g. ap-northeast-1
+        required: true
+        type: string
+      ecsCluster: # set this to your Amazon ECS cluster name
+        required: true
+        type: string
+      ecsService: # set this to your Amazon ECS service name
+        required: true
+        type: string
+      ecsTaskDefinition: # set this to the path to your Amazon ECS task definition, e.g. .aws/task-definition.json
+        required: true
+        type: string
+      ecsContainerName: # set this to the name of the container in the containerDefinitions section of your task definition
+        required: true
+        type: string
+      imageName: # set this to the name of the image
+        required: true
+        type: string
+    secrets:
+      awsAccessKeyId:
+        required: true
+      awsSecretAccessKey:
+        required: true
+
+jobs:
+  deploy:
+    name: deploy-service
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.awsAccessKeyId }}
+          aws-secret-access-key: ${{ secrets.awsSecretAccessKey }}
+          aws-region: ${{ inputs.awsRegion }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ inputs.ecsTaskDefinition }}
+          container-name: ${{ inputs.ecsContainerName }}
+          image: ${{ steps.login-ecr.outputs.registry }}/${{ inputs.imageName }}
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ inputs.ecsService }}
+          cluster: ${{ inputs.ecsCluster }}

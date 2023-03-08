@@ -1,0 +1,44 @@
+name: Check branch of Tag
+
+on:
+  workflow_call:
+    inputs:
+      targetBranch: # set this to your branch, e.g. master
+        required: true
+        type: string
+    outputs:
+      success:
+        description: "Result of checking the branch name"
+        value: ${{ jobs.check.outputs.success }}
+
+jobs:
+  check:
+    name: check-branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    outputs:
+      success: ${{ steps.check.outputs.success }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get Branch Name
+        run: |
+          raw=$(git branch -r --contains ${{ github.ref }})
+          branch=${raw##*/}
+          echo "BRANCH=$branch" >> $GITHUB_ENV
+
+      - name: Check Branch Name
+        id: check
+        run: |
+          if [ "$BRANCH" == "$TARGET_BRANCH" ]; then
+              echo "success=1" >> $GITHUB_OUTPUT
+          else
+              echo "success=0" >> $GITHUB_OUTPUT
+          fi
+        env:
+          TARGET_BRANCH: ${{ inputs.targetBranch }}

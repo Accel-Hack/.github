@@ -1,0 +1,52 @@
+name: Slack chat.postMessage
+on:
+  workflow_call:
+    inputs:
+      channelId: # set your slack channelId
+        required: true
+        type: string
+      title: # set your message title
+        required: true
+        type: string
+      message: # set your message text
+        required: true
+        type: string
+    secrets:
+      botToken:
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Start a Slack workflow using a webhook trigger
+      # https://github.com/slackapi/slack-github-action
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          channel-id: ${{ inputs.channelId }}
+          payload: |
+            {
+              "text": "${{ inputs.title }}",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "${{ inputs.title }}"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ inputs.message }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.botToken }}
