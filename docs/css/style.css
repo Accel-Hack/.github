@@ -6,7 +6,7 @@
 common
  */
 .p-index-common__ttl-area {
-    margin-bottom: 54px;
+    padding-bottom: 54px;
 }
 .p-index-common__ttl {
     font-size: 46px;
@@ -16,7 +16,7 @@ common
 }
 @media screen and (max-width:1024px) {
     .p-index-common__ttl-area {
-        margin-bottom: 105px;
+        padding-bottom: 105px;
     }
 }
 @media screen and (max-width:768px) {
@@ -24,7 +24,7 @@ common
         font-size: 23px;
     }
     .p-index-common__ttl-area {
-        margin-bottom: 53px;
+        padding-bottom: 53px;
     }
 }
 /* 
@@ -1025,6 +1025,14 @@ work
     align-items: center;
     flex: 0 0 calc(33.33% - 100px); /* 3つのアイテムを1行に並べる */
 }
+.p-image-container {
+    position: relative;
+    display: inline-block; /* インラインブロックとして配置 */
+}
+.p-index-work__publish-item__link:hover img{
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    }
 @media screen and (max-width:842px) {
 .p-index-work__dummy{
     display: none;
@@ -1307,6 +1315,80 @@ career
     }
     .p-index-member__carrer-txt {
         font-size: 12px;
+    }
+}
+
+/* 
+recriut
+ */
+ .p-index-recruit__container {
+    background: #F5F4F2;
+}
+.p-index-recruit__inner {
+    padding: 100px 0 0px 0;
+    width: 1404px;
+    margin: 0 auto;
+}
+.p-index-recruit__contents {
+    margin-bottom: 204px;
+}
+.p-index-recruit__contents-area {
+    display: flex;
+    justify-content: space-between;
+    border-left: 2px solid #797979;
+    border-right: 2px solid #797979;
+    padding: 0 78px 0 33px;
+}
+.scroll-container {
+    display: flex; /* 子要素を横並びにするために flexbox を使用 */
+    overflow-x: auto; /* 子要素がコンテナからはみ出る場合にスクロールバーを表示 */
+    padding: 10px; /* コンテナの内側に余白を設定 */
+    margin: 50px 0px 20px 0px;
+    overflow-x: scroll; /* 横スクロールを有効にする */
+    white-space: nowrap; /* 子要素が横並びになるよう設定 */
+}
+
+.scroll-item {
+    flex: 0 0 auto; /* 子要素のサイズを固定し、コンテナからはみ出さないようにする */
+    width: 500px; /* 画面幅いっぱいに表示するため、viewportの幅を使用 */
+    height:350px; /* iframeの高さを設定 */
+    border: none;
+    margin-right: 10px; /* 各要素の右側に少し間隔を設ける */
+}
+@media screen and (max-width:1620px) {
+    .p-index-recruit__inner {
+        width: calc(1404 / 1920 * 100vw);
+    }
+}
+
+
+
+@media screen and (max-width:1024px) {
+    .p-index-recruit__inner {
+        width: auto;
+    }
+    .p-index-recruit__contents {
+        margin-bottom: 150px;
+    }
+    .p-index-recruit__contents:nth-last-of-type(1) {
+        margin-bottom: 11px;
+    }
+    .p-index-recruit__contents-area {
+        display: block;
+        padding: 0 45px 0 33px;
+        width: 65%;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width:768px) {
+    .p-index-recruit__inner {
+        padding: 85px 0 63px 0;
+    }
+    .p-index-recruit__contents-area {
+        padding: 0 22px 0 17px;
+    }
+    .p-index-recruit__contents {
+        margin-bottom: 75px;
     }
 }
 
