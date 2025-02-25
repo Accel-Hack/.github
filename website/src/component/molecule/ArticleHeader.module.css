@@ -1,0 +1,10 @@
+.article_header_container {
+  width: 100%;
+  background: #000000;
+}
+
+.article_header_caption {
+  font-family: Axia-Bold, serif;
+  font-size: 15px;
+  color: #ffffff;
+}
