@@ -2,6 +2,7 @@ import React from 'react';
 import MVVArticle from '@/component/article/MVVArticle';
 import AboutArticle from '@/component/article/AboutArticle';
 import ContentHeader from '@/component/molecule/ContentHeader';
+import AccessMap from '@/component/organism/AccessMap';
 
 const AboutPage: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const AboutPage: React.FC = () => {
         <ContentHeader caption="About" />
         <MVVArticle />
         <AboutArticle />
+        <AccessMap />
       </div>
     </div>
   );

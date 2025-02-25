@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+}
+
+.contents {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  width: 50%;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo {
+  width: 60%;
+  height: 60%;
+}

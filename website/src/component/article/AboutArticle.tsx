@@ -22,6 +22,11 @@ const AboutArticle: React.FC = () => {
           </tr>
         </tbody>
       </table>
+      <div>Service</div>
+      <hr />
+      <div>DX/システム導入コンサル</div>
+      <div>要件定義・基本設計支援</div>
+      <div>開発・保守業務</div>
     </Article>
   );
 };
