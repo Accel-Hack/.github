@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "category": "制作・開発",
+    "title": "Blog 1",
+    "thumbnail": "image1.jpg",
+    "description": "Description 1"
+  },
+  {
+    "id": 2,
+    "category": "勉強会",
+    "title": "Blog 2",
+    "thumbnail": "image2.jpg",
+    "description": "Description 2"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Service 1",
+    "thumbnail": "image1.jpg",
+    "summary": "Description 1",
+    "images": ["image11.jpg", "image12.jpg", "image13.jpg"],
+    "description": "Description 1"
+  },
+  {
+    "title": "Service 2",
+    "thumbnail": "image2.jpg",
+    "summary": "Description 2",
+    "images": ["image21.jpg", "image22.jpg", "image23.jpg"],
+    "description": "Description 2"
+  },
+  {
+    "title": "Service 3",
+    "thumbnail": "image3.jpg",
+    "summary": "Description 3",
+    "images": ["image31.jpg", "image32.jpg", "image33.jpg"],
+    "description": "Description 3"
+  }
+]

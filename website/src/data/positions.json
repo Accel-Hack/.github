@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Engineer",
+    "thumbnail": "image1.jpg"
+  },
+  {
+    "title": "Designer",
+    "thumbnail": "image2.jpg"
+  },
+  {
+    "title": "Manager",
+    "thumbnail": "image3.jpg"
+  }
+]
