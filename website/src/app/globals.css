@@ -3,8 +3,20 @@ body {
   padding: 0;
 }
 
-@property --logo-color {
-  syntax: '<color>';
+@property --header-height {
+  syntax: '*';
   inherits: false;
-  initial-value: #c0ffee;
+  initial-value: 9%;
+}
+
+@property --main-height {
+  syntax: '*';
+  inherits: false;
+  initial-value: 84.5%;
+}
+
+@property --footer-height {
+  syntax: '*';
+  inherits: false;
+  initial-value: 6.5%;
 }

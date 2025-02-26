@@ -1,21 +1,3 @@
-@property --header-height {
-  syntax: '*';
-  inherits: false;
-  initial-value: 9%;
-}
-
-@property --main-height {
-  syntax: '*';
-  inherits: false;
-  initial-value: 84.5%;
-}
-
-@property --footer-height {
-  syntax: '*';
-  inherits: false;
-  initial-value: 6.5%;
-}
-
 .body {
   position: absolute;
   width: 100%;

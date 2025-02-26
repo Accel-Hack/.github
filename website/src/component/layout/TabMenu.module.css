@@ -1,5 +1,15 @@
 .container {
+  z-index: 1000;
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  top: var(--header-height);
+  right: 0;
+  width: 150px;
+  height: var(--main-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.tab {
+  margin: 10% 0;
 }
