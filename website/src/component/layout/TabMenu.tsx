@@ -1,8 +1,9 @@
 import { Page } from '@/enum/Page';
+import styles from './TabMenu.module.css';
 
 const TabMenu: React.FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <a href={Page.ABOUT}>ABOUT</a> <br />
       <a href={Page.SERVICE}>SERVICE</a> <br />
       <a href={Page.RECRUIT}>RECRUIT</a> <br />

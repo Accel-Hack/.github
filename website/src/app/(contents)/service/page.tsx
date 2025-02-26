@@ -3,15 +3,18 @@ import SERVICES from '../../../data/services.json';
 import ServiceListArticle from '@/component/article/ServiceListArticle';
 import ServiceArticle from '@/component/article/ServiceArticle';
 import ContentHeader from '@/component/molecule/ContentHeader';
+import styles from '@/app/(contents)/about/page.module.css';
 
 const ServicePage: React.FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <ContentHeader caption="Service" />
-      <ServiceListArticle services={SERVICES} />
-      {SERVICES.map((service, i) => {
-        return <ServiceArticle key={i} service={service} />;
-      })}
+      <div className={styles.articles}>
+        <ServiceListArticle services={SERVICES} />
+        {SERVICES.map((service, i) => {
+          return <ServiceArticle key={i} service={service} />;
+        })}
+      </div>
     </div>
   );
 };

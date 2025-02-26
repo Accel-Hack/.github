@@ -13,7 +13,7 @@
 @property --footer-height {
   syntax: '*';
   inherits: false;
-  initial-value: 11%;
+  initial-value: 6.5%;
 }
 
 .body {

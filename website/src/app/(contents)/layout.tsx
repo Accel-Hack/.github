@@ -8,11 +8,11 @@ export default function ContentLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        {children}
-        <TabMenu />
+    <>
+      <div className={styles.container}>
+        <div className={styles.content}>{children}</div>
       </div>
-    </div>
+      <TabMenu />
+    </>
   );
 }

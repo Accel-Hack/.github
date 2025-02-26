@@ -8,8 +8,8 @@ import styles from './page.module.css';
 const AboutPage: React.FC = () => {
   return (
     <div className={styles.container}>
+      <ContentHeader caption="About" />
       <div className={styles.articles}>
-        <ContentHeader caption="About" />
         <MVVArticle />
         <AboutArticle />
         <AccessMap />
