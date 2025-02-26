@@ -1,5 +1,6 @@
 import React from 'react';
 import TabMenu from '@/component/layout/TabMenu';
+import styles from './layout.module.css';
 
 export default function ContentLayout({
   children,
@@ -7,9 +8,11 @@ export default function ContentLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      {children}
-      <TabMenu />
+    <div className={styles.container}>
+      <div className={styles.content}>
+        {children}
+        <TabMenu />
+      </div>
     </div>
   );
 }
