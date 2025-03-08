@@ -1,18 +1,15 @@
-'use client';
+'use server';
 import React from 'react';
-import { redirect } from 'next/navigation';
 import Image from 'next/legacy/image';
 import { Page } from '@/enum/Page';
 import HeaderLogo from '@/asset/img/layout/header_logo.png';
 import styles from './Header.module.css';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
-  const toTop = () => {
-    redirect(Page.TOP);
-  };
   return (
     <div className={styles.header}>
-      <div className={styles.logo_container} onClick={toTop}>
+      <Link className={styles.logo_container} href={Page.TOP}>
         <div className={styles.logo}>
           <Image
             src={HeaderLogo.src}
@@ -21,7 +18,7 @@ const Header: React.FC = () => {
             objectFit="contain"
           />
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

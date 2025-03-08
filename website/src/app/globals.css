@@ -6,17 +6,17 @@ body {
 @property --header-height {
   syntax: '*';
   inherits: false;
-  initial-value: 9%;
+  initial-value: 64px;
 }
 
-@property --main-height {
-  syntax: '*';
-  inherits: false;
-  initial-value: 84.5%;
-}
+/*@property --main-height {*/
+/*  syntax: '*';*/
+/*  inherits: false;*/
+/*  initial-value: 84.5%;*/
+/*}*/
 
 @property --footer-height {
   syntax: '*';
   inherits: false;
-  initial-value: 6.5%;
+  initial-value: 30px;
 }
