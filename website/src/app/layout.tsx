@@ -86,7 +86,7 @@ export default function RootLayout({
         </>
         {/* 左右のAccelHackのレイヤー */}
         <>
-          <div className={styles.background}>
+          <div className={`${styles.background} ${styles.bg_responsive}`}>
             <div className={styles.background_logo}>
               左背景
               <br />

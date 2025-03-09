@@ -94,8 +94,30 @@
   justify-content: space-between;
 }
 
-.background_logo {
-  height: 100%;
-  width: calc(10vh);
-  background-color: rgba(0, 255, 0, 1);
+@media (width <= 450px) {
+  .bg_responsive {
+    flex-direction: column;
+  }
+}
+
+@media (width > 450px) {
+  .bg_responsive {
+    flex-direction: row;
+  }
+}
+
+@media (width <= 450px) {
+  .background_logo {
+    height: calc(20vw);
+    width: 100%;
+    background-color: rgba(0, 255, 0, 1);
+  }
+}
+
+@media (width > 450px) {
+  .background_logo {
+    height: 100%;
+    width: calc(10vh);
+    background-color: rgba(0, 255, 0, 1);
+  }
 }
