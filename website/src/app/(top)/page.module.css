@@ -1,2 +1,151 @@
 .page {
+  padding: 5% 10%;
+  z-index: 10;
+}
+
+.left_container {
+  width: 35%;
+}
+
+.logo_img {
+  width: 100%;
+}
+
+.catch_copy {
+  font-size: 28px;
+  font-weight: bold;
+  /* TODO: Axiaインストールする*/
+  /* font-family: Axia; */
+  margin-top: 60px;
+}
+
+.catch_copy_sub {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.news_summary_container {
+  margin-top: 2rem;
+}
+
+.right_container {
+  flex: 1;
+  position: relative;
+  margin-left: 10%;
+}
+
+.link_box {
+  box-shadow: 10px 10px 6px 0 rgba(0, 0, 0, 0.16);
+  font-size: 40px;
+  background-color: var(--white);
+  opacity: 0.8;
+  display: flex;
+  position: relative;
+}
+
+.link_box:hover {
+  background-color: var(--company-color);
+  transition: background-color 0.3s ease;
+}
+
+.link_box_container_lg {
+  display: flex;
+}
+
+.link_box_lg {
+  max-width: 700px;
+  width: 50%;
+  aspect-ratio: 1/1;
+}
+
+.link_box_lg:last-child {
+  margin-left: 0.75rem;
+}
+
+.link_box_lg_text {
+  margin: auto;
+}
+
+.link_box_container_md {
+  display: flex;
+  height: 105px;
+  margin-top: 0.75rem;
+}
+
+.link_box_recruit {
+  max-width: 700px;
+  width: 50%;
+  margin-left: auto;
+}
+
+.link_box_blog {
+  max-width: 500px;
+  width: 40%;
+  margin-left: 0.75rem;
+}
+
+.link_box_md_text {
+  margin: auto auto auto 1rem;
+}
+.link_box_container_sm {
+  display: flex;
+  height: 36px;
+  margin-top: 1.5rem;
+}
+
+.link_box_sm {
+  background-color: var(--background-black);
+  opacity: 0.8;
+  color: var(--white);
+  font-size: 15px;
+  display: flex;
+}
+
+.link_box_contact {
+  width: 30%;
+  margin-left: auto;
+}
+
+.link_box_privacy {
+  width: 35%;
+  margin-left: 0.5rem;
+}
+
+.link_box_sm_text {
+  margin: auto auto auto 10px;
+}
+
+.background_box {
+  position: absolute;
+  background-color: var(--white);
+  opacity: 0.5;
+  box-shadow: 0.25rem 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.16);
+}
+
+.background_box_1 {
+  top: 60%;
+  left: 10%;
+  width: 20%;
+  aspect-ratio: 1/1;
+}
+
+.background_box_2 {
+  top: 26%;
+  left: 25%;
+  width: 32%;
+  aspect-ratio: 1/2;
+}
+
+.background_box_3 {
+  top: 24%;
+  left: 40%;
+  width: 52%;
+  aspect-ratio: 2/3;
+}
+
+.cursor {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 1.25rem;
 }

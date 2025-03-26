@@ -5,6 +5,12 @@ import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
 import './globals.css';
 import styles from './layout.module.css';
+import AccelHackLogo from '@/asset/img/layout/background_side_logo.svg';
+import FrameSideEndLine from '@/asset/img/layout/frame_side_end_line.svg';
+import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
+import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
+import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
+import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,49 +42,40 @@ export default function RootLayout({
           <main className={styles.main}>
             <div className={styles.content}>{children}</div>
             {/* メインページの枠 */}
-            <>
-              <div className={styles.frame}>
-                <div
-                  className={`${styles.frame_column} ${styles.frame_column_top}`}
-                >
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_left}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_middle}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_right}`}
-                  />
-                </div>
-                <div
-                  className={`${styles.frame_column} ${styles.frame_column_middle}`}
-                >
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_left}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_middle}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_right}`}
-                  />
-                </div>
-                <div
-                  className={`${styles.frame_column} ${styles.frame_column_bottom}`}
-                >
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_left}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_middle}`}
-                  />
-                  <div
-                    className={`${styles.frame_row} ${styles.frame_row_right}`}
-                  />
-                </div>
-              </div>
-            </>
+            <div className={styles.frame}>
+              <BackgroundLeftTopLine className={'absolute top-0 left-[60px]'} />
+              <FrameTopLine className={'absolute top-[-62px] left-[60px]'} />
+              <FrameCornerTriangle
+                className={`absolute top-0 left-0 ${styles.triangle}`}
+              />
+              <FrameCornerTriangle
+                className={`absolute top-0 right-0 ${styles.triangle}`}
+              />
+              <FrameCornerTriangle
+                className={`absolute bottom-0 left-0 ${styles.triangle}`}
+              />
+              <FrameCornerTriangle
+                className={`absolute bottom-0 right-0 ${styles.triangle}`}
+              />
+              <FrameSideEndLine
+                className={`absolute top-0 left-0 ${styles.side_end_line}`}
+              />
+              <FrameSideEndLine
+                className={`absolute top-0 right-0 ${styles.side_end_line}`}
+              />
+              <FrameSideEndLine
+                className={`absolute bottom-0 left-0 ${styles.side_end_line}`}
+              />
+              <FrameSideEndLine
+                className={`absolute bottom-0 right-0 ${styles.side_end_line}`}
+              />
+              <FrameSideMiddleLine
+                className={`absolute top-1/2 left-0 -translate-y-1/2 ${styles.side_middle_line}`}
+              />
+              <FrameSideMiddleLine
+                className={`absolute top-1/2 right-0 -translate-y-1/2 ${styles.side_middle_line}`}
+              />
+            </div>
           </main>
           <footer className={styles.footer}>
             <Footer />
@@ -88,14 +85,16 @@ export default function RootLayout({
         <>
           <div className={`${styles.background} ${styles.bg_responsive}`}>
             <div className={styles.background_logo}>
-              左背景
-              <br />
-              （幅固定）
+              <AccelHackLogo
+                aria-label="AccelHack"
+                className={styles.background_logo_img}
+              />
             </div>
             <div className={styles.background_logo}>
-              右背景
-              <br />
-              （幅固定）
+              <AccelHackLogo
+                aria-label="AccelHack"
+                className={`${styles.background_logo_img} ${styles.background_logo_img_rotate}`}
+              />
             </div>
           </div>
         </>

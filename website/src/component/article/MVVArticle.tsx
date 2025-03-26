@@ -20,7 +20,7 @@ const MVVArticle: React.FC = () => {
             </div>
           </div>
           <div className={styles.content}>
-            <p>
+            <p className={styles.catch_copy}>
               Accel Your Innovation. <br />
               Hack the Development.
             </p>
