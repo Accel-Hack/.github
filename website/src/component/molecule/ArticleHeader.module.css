@@ -4,7 +4,7 @@
 }
 
 .article_header_caption {
-  font-family: Axia-Bold, serif;
+  font-family: var(--font-axia);
   font-size: 15px;
   color: #ffffff;
 }

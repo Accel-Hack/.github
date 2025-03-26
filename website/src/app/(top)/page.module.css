@@ -14,8 +14,7 @@
 .catch_copy {
   font-size: 28px;
   font-weight: bold;
-  /* TODO: Axiaインストールする*/
-  /* font-family: Axia; */
+  font-family: var(--font-axia);
   margin-top: 60px;
 }
 

@@ -7,7 +7,6 @@ import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 
-
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
@@ -35,6 +34,7 @@ export default function Home() {
               href={Page.ABOUT}
               text="About"
               size="lg"
+              hoverIcon={true}
             />
             <LinkBox
               href={Page.SERVICE}
