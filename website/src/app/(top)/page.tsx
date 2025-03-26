@@ -4,7 +4,8 @@ import { Page } from '@/enum/Page';
 import NEWSES from '@/data/news.json';
 import AccelHackLogo from '@/asset/img/top/logo.svg';
 import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
-import Cursor from '@/asset/img/common/cursor.svg';
+import LinkBox from '@/component/molecule/LinkBox';
+import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 
 
 export default function Home() {
@@ -28,52 +29,51 @@ export default function Home() {
           <div className={`${styles.background_box} ${styles.background_box_1}`}></div>
           <div className={`${styles.background_box} ${styles.background_box_2}`}></div>
           <div className={`${styles.background_box} ${styles.background_box_3}`}></div>
-          <div className={styles.link_box_container_lg}>
-            <a
+          
+          <LinkBoxContainer size="lg">
+            <LinkBox
               href={Page.ABOUT}
-              className={`${styles.link_box} ${styles.link_box_lg} `}
-            >
-              <span className={styles.link_box_lg_text}>About</span>
-              <Cursor className={styles.cursor} />
-              </a>
-            <a
+              text="About"
+              size="lg"
+            />
+            <LinkBox
               href={Page.SERVICE}
-              className={`${styles.link_box} ${styles.link_box_lg}`}
-            >
-              <span className={styles.link_box_lg_text}>Service</span>
-              <Cursor className={styles.cursor} />
-            </a>
-          </div>
-          <div className={styles.link_box_container_md}>
-            <a
+              text="Service"
+              size="lg"
+            />
+          </LinkBoxContainer>
+          
+          <LinkBoxContainer size="md">
+            <LinkBox
               href={Page.RECRUIT}
-              className={`${styles.link_box} ${styles.link_box_recruit}`}
-            >
-              <span className={styles.link_box_md_text}>Recruit</span>
-              <Cursor className={styles.cursor} />
-            </a>
-            <a
+              text="Recruit"
+              size="md"
+              variant="recruit"
+            />
+            <LinkBox
               href={Page.BLOG}
-              className={`${styles.link_box} ${styles.link_box_blog}`}
-            >
-              <span className={styles.link_box_md_text}>Blog</span>
-              <Cursor className={styles.cursor} />
-            </a>
-          </div>
-          <div className={styles.link_box_container_sm}>
-            <a
+              text="Blog"
+              size="md"
+              variant="blog"
+            />
+          </LinkBoxContainer>
+          
+          <LinkBoxContainer size="sm">
+            <LinkBox
               href={Page.CONTACT}
-              className={`${styles.link_box_sm} ${styles.link_box_contact}`}
-            >
-              <span className={styles.link_box_sm_text}>Contact</span>
-            </a>
-            <a
+              text="Contact"
+              size="sm"
+              variant="contact"
+              showCursor={false}
+            />
+            <LinkBox
               href={Page.PRIVACY_POLICY}
-              className={`${styles.link_box_sm} ${styles.link_box_privacy}`}
-            >
-              <span className={styles.link_box_sm_text}>Privacy Policy</span>
-            </a>
-          </div>
+              text="Privacy Policy"
+              size="sm"
+              variant="privacy"
+              showCursor={false}
+            />
+          </LinkBoxContainer>
         </div>
       </div>
 
