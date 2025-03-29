@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Axiaフォントの読み込み */}
         <link rel="stylesheet" href="https://use.typekit.net/ulu1pwh.css" />
       </head>
       <body className={`${styles.body} ${geistSans.variable}`}>
