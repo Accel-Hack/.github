@@ -4,7 +4,6 @@ import styles from './layout.module.css';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
 import Squares from '@/asset/img/layout/squares.svg';
 
-
 export default function ContentLayout({
   children,
 }: Readonly<{

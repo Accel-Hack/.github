@@ -5,7 +5,12 @@ import Cursor from '@/asset/img/common/cursor.svg';
 import Logo from '@/asset/img/about/logo.svg';
 
 export type LinkBoxSize = 'lg' | 'md' | 'sm';
-export type LinkBoxVariant = 'default' | 'recruit' | 'blog' | 'contact' | 'privacy';
+export type LinkBoxVariant =
+  | 'default'
+  | 'recruit'
+  | 'blog'
+  | 'contact'
+  | 'privacy';
 
 type Props = {
   href: string;
@@ -24,12 +29,13 @@ const LinkBox: React.FC<Props> = ({
   variant = 'default',
   showCursor = true,
   className = '',
-  hoverIcon=false,
+  hoverIcon = false,
 }) => {
   const sizeClass = styles[`link_box_${size}`];
-  const variantClass = variant !== 'default' ? styles[`link_box_${variant}`] : '';
+  const variantClass =
+    variant !== 'default' ? styles[`link_box_${variant}`] : '';
   const textClass = styles[`link_box_${size}_text`];
-  
+
   // sm サイズには基本的にカーソルアイコンを表示しない
   const displayCursor = showCursor && size !== 'sm';
 
@@ -45,4 +51,4 @@ const LinkBox: React.FC<Props> = ({
   );
 };
 
-export default LinkBox; 
+export default LinkBox;

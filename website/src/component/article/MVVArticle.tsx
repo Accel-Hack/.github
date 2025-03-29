@@ -24,9 +24,11 @@ const MVVArticle: React.FC = () => {
               Accel Your Innovation. <br />
               Hack the Development.
             </p>
-            <p className={styles.catch_copy_jp}>イノベーションを加速させ、開発をハックせよ。</p>
+            <p className={styles.catch_copy_jp}>
+              イノベーションを加速させ、開発をハックせよ。
+            </p>
             <p className={styles.catch_copy_description}>
-              開発現場のあらゆる無駄がなくなり、 
+              開発現場のあらゆる無駄がなくなり、
               <br />
               最短・最速・最適な開発が当たり前である社会
               <br />

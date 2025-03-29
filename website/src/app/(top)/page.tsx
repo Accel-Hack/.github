@@ -26,10 +26,16 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.right_container}>
-          <div className={`${styles.background_box} ${styles.background_box_1}`}></div>
-          <div className={`${styles.background_box} ${styles.background_box_2}`}></div>
-          <div className={`${styles.background_box} ${styles.background_box_3}`}></div>
-          
+          <div
+            className={`${styles.background_box} ${styles.background_box_1}`}
+          ></div>
+          <div
+            className={`${styles.background_box} ${styles.background_box_2}`}
+          ></div>
+          <div
+            className={`${styles.background_box} ${styles.background_box_3}`}
+          ></div>
+
           <LinkBoxContainer size="lg">
             <LinkBox
               href={Page.ABOUT}
@@ -37,13 +43,9 @@ export default function Home() {
               size="lg"
               hoverIcon={true}
             />
-            <LinkBox
-              href={Page.SERVICE}
-              text="Service"
-              size="lg"
-            />
+            <LinkBox href={Page.SERVICE} text="Service" size="lg" />
           </LinkBoxContainer>
-          
+
           <LinkBoxContainer size="md">
             <LinkBox
               href={Page.RECRUIT}
@@ -51,14 +53,9 @@ export default function Home() {
               size="md"
               variant="recruit"
             />
-            <LinkBox
-              href={Page.BLOG}
-              text="Blog"
-              size="md"
-              variant="blog"
-            />
+            <LinkBox href={Page.BLOG} text="Blog" size="md" variant="blog" />
           </LinkBoxContainer>
-          
+
           <LinkBoxContainer size="sm">
             <LinkBox
               href={Page.CONTACT}

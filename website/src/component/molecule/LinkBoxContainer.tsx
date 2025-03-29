@@ -8,12 +8,18 @@ type Props = {
   className?: string;
 };
 
-const LinkBoxContainer: React.FC<Props> = ({ size, children, className = '' }) => {
+const LinkBoxContainer: React.FC<Props> = ({
+  size,
+  children,
+  className = '',
+}) => {
   return (
-    <div className={`${styles.container} ${styles[`container_${size}`]} ${className}`}>
+    <div
+      className={`${styles.container} ${styles[`container_${size}`]} ${className}`}
+    >
       {children}
     </div>
   );
 };
 
-export default LinkBoxContainer; 
+export default LinkBoxContainer;
