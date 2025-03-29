@@ -9,7 +9,6 @@ import AccelHackLogo from '@/asset/img/layout/background_side_logo.svg';
 import FrameSideEndLine from '@/asset/img/layout/frame_side_end_line.svg';
 import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
-import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
 
 const geistSans = Geist({
@@ -46,7 +45,6 @@ export default function RootLayout({
             <div className={styles.content}>{children}</div>
             {/* メインページの枠 */}
             <div className={styles.frame}>
-              <BackgroundLeftTopLine className={'absolute top-0 left-[60px]'} />
               <FrameTopLine className={'absolute top-[-62px] left-[60px]'} />
               <FrameCornerTriangle
                 className={`absolute top-0 left-0 ${styles.triangle}`}

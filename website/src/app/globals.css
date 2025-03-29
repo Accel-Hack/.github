@@ -39,8 +39,8 @@ body {
 
 :root {
   --white: #fafafa;
+  --gray: #707070;
   --background-black: #000000;
   --company-color: #21ffaa;
-  --border-color: #707070;
   --font-axia: 'axia', sans-serif;
 }

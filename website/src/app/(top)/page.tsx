@@ -6,6 +6,7 @@ import AccelHackLogo from '@/asset/img/top/logo.svg';
 import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
+import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
 
 export default function Home() {
   return (
@@ -81,6 +82,7 @@ export default function Home() {
         <TopDiagonalLine
           className={'absolute top-[20px] left-1/10 w-4/5 z-[-1]'}
         />
+        <BackgroundLeftTopLine className={styles.background_left_top_line} />
       </div>
     </div>
   );

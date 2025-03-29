@@ -1,5 +1,5 @@
 .content_header {
-  font-family: var(--font-axia);
   font-size: 40px;
-  color: #21ffaa;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
 }

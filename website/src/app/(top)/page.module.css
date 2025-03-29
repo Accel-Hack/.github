@@ -60,3 +60,11 @@
   width: 52%;
   aspect-ratio: 2/3;
 }
+
+.background_left_top_line {
+  position: absolute;
+  top: 0;
+  left: 4%;
+  width: 15%;
+  height: 15%;
+}

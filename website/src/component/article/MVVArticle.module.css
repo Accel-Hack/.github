@@ -4,7 +4,7 @@
 
 .contents {
   display: flex;
-  flex-direction: row;
+  padding: 2rem 0;
 }
 
 .content {
@@ -21,9 +21,19 @@
   height: 60%;
 }
 
-.catch_copy {
-  font-size: 1.5rem;
+.catch_copy_en {
+  font-size: 2rem;
+  font-family: var(--font-axia);
+  margin-bottom: 1rem;
+}
+
+.catch_copy_jp {
+  font-size: 1rem;
   font-weight: bold;
-  color: #000;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  margin-bottom: 1.25rem;
+}
+
+.catch_copy_description {
+  font-size: 0.625rem;
+  margin-bottom: 1rem;
 }

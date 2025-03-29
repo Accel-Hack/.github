@@ -22,7 +22,7 @@ module.exports = {
         footer: 'var(--footer-height)',
       },
       borderColor: {
-        border: 'var(--border-color)',
+        border: 'var(--gray)',
       },
     },
   },
