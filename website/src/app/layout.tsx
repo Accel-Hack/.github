@@ -46,36 +46,94 @@ export default function RootLayout({
             <div className={styles.content}>{children}</div>
             {/* メインページの枠 */}
             <div className={styles.frame}>
-              <FrameTopLine className={'absolute top-[-62px] left-[60px]'} />
-              <FrameCornerTriangle
-                className={`absolute top-0 left-0 ${styles.triangle}`}
+              <FrameTopLine
+                style={{
+                  position: 'absolute',
+                  top: '-62px',
+                  left: '60px',
+                }}
               />
               <FrameCornerTriangle
-                className={`absolute top-0 right-0 ${styles.triangle}`}
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                }}
+                className={styles.triangle}
               />
               <FrameCornerTriangle
-                className={`absolute bottom-0 left-0 ${styles.triangle}`}
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                }}
+                className={styles.triangle}
               />
               <FrameCornerTriangle
-                className={`absolute bottom-0 right-0 ${styles.triangle}`}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '0',
+                }}
+                className={styles.triangle}
+              />
+              <FrameCornerTriangle
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  right: '0',
+                }}
+                className={styles.triangle}
               />
               <FrameSideEndLine
-                className={`absolute top-0 left-0 ${styles.side_end_line}`}
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                }}
+                className={styles.side_end_line}
               />
               <FrameSideEndLine
-                className={`absolute top-0 right-0 ${styles.side_end_line}`}
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  right: '0',
+                }}
+                className={styles.side_end_line}
               />
               <FrameSideEndLine
-                className={`absolute bottom-0 left-0 ${styles.side_end_line}`}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '0',
+                }}
+                className={styles.side_end_line}
               />
               <FrameSideEndLine
-                className={`absolute bottom-0 right-0 ${styles.side_end_line}`}
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  right: '0',
+                }}
+                className={styles.side_end_line}
               />
               <FrameSideMiddleLine
-                className={`absolute top-1/2 left-0 -translate-y-1/2 ${styles.side_middle_line}`}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '0',
+                  transform: 'translateY(-50%)',
+                }}
+                className={styles.side_middle_line}
               />
               <FrameSideMiddleLine
-                className={`absolute top-1/2 right-0 -translate-y-1/2 ${styles.side_middle_line}`}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: '0',
+                  transform: 'translateY(-50%)',
+                }}
+                className={styles.side_middle_line}
               />
             </div>
           </main>

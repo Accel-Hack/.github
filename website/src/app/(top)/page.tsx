@@ -11,7 +11,7 @@ import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.sv
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
-      <div className="flex">
+      <div style={{ display: 'flex' }}>
         <div className={styles.left_container}>
           <AccelHackLogo className={styles.logo_img} />
           <p className={styles.catch_copy}>
@@ -77,7 +77,13 @@ export default function Home() {
 
       <div>
         <TopDiagonalLine
-          className={'absolute top-[20px] left-1/10 w-4/5 z-[-1]'}
+          style={{
+            position: 'absolute',
+            top: '20px',
+            left: '10%',
+            width: '4/5',
+            zIndex: -1,
+          }}
         />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
       </div>
