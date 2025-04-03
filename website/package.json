@@ -11,6 +11,7 @@
     "lint:fix": "prettier -w ./src && next lint --fix"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.0.15",
     "next": "15.1.7",
     "react": "^19.0.0",

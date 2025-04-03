@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.main_container {
+  width: 30%;
+}
+
+.main_container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.summary {
+  margin-top: 1rem;
+}
+
+.sub_container {
+  width: 65%;
+}
+
+.sub_image_container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.sub_image {
+  width: 32%;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.sub_image:hover {
+  transform: scale(1.05);
+}
+
+.description {
+  margin-top: 1rem;
+}

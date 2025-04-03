@@ -3,7 +3,7 @@ import SERVICES from '../../../data/services.json';
 import ServiceListArticle from '@/component/article/ServiceListArticle';
 import ServiceArticle from '@/component/article/ServiceArticle';
 import ContentHeader from '@/component/molecule/ContentHeader';
-import styles from '@/app/(contents)/about/page.module.css';
+import styles from './page.module.css';
 
 const ServicePage: React.FC = () => {
   return (
