@@ -2,14 +2,30 @@
   width: inherit;
   height: inherit;
   box-sizing: border-box;
-  padding: 1% 1.5% 2% 1.5%;
-  background-color: rgba(250, 250, 250, 1);
+  padding: 0.5rem 4rem 0.5rem 2rem;
+  background-color: var(--white);
+  opacity: 0.8;
 }
 
 .content {
-  top: 1%;
   width: inherit;
   height: inherit;
   box-sizing: border-box;
-  padding-right: 5%;
+}
+
+.background_left_top_line {
+  position: fixed;
+  top: 0;
+  left: 12rem;
+  width: 7rem;
+  height: 7rem;
+  z-index: -1;
+}
+
+.squares {
+  position: fixed;
+  top: 0.5rem;
+  right: 6rem;
+  height: 2.5rem;
+  z-index: -1;
 }

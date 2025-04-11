@@ -1,0 +1,16 @@
+.service_list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 4rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.thumbnail {
+  width: 100%;
+  object-fit: cover;
+}

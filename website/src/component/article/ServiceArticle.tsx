@@ -1,5 +1,6 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
+import styles from './ServiceArticle.module.css';
 
 type Props = {
   service: {
@@ -14,12 +15,27 @@ type Props = {
 const ServiceArticle: React.FC<Props> = ({ service }: Props) => {
   return (
     <Article caption={service.title}>
-      <div>{service.thumbnail}</div>
-      <div>{service.summary}</div>
-      {service.images.map((image, i) => {
-        return <div key={i}>image</div>;
-      })}
-      <div>{service.description}</div>
+      <div className={styles.container}>
+        <div className={styles.main_container}>
+          <img src={service.thumbnail} alt={service.title} />
+          <div className={styles.summary}>{service.summary}</div>
+        </div>
+        <div className={styles.sub_container}>
+          <div className={styles.sub_image_container}>
+            {service.images.map((image, i) => {
+              return (
+                <img
+                  key={i}
+                  className={styles.sub_image}
+                  src={image}
+                  alt={service.title}
+                />
+              );
+            })}
+          </div>
+          <div className={styles.description}>{service.description}</div>
+        </div>
+      </div>
     </Article>
   );
 };

@@ -9,9 +9,9 @@ type Props = {
 
 const NewsOneLine: React.FC<Props> = ({ news }: Props) => {
   return (
-    <div>
-      <div>{news.date}</div>
-      <div>{news.title}</div>
+    <div className={'flex flex-row text-xs'}>
+      <span className={'mr-2'}>{news.date}</span>
+      <span className={''}>{news.title}</span>
     </div>
   );
 };

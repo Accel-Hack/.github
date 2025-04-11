@@ -1,7 +1,10 @@
 .body {
+  --end-line-height: 240px;
+  --middle-line-height: 200px;
   position: absolute;
   width: 100%;
   height: 100%;
+  font-family: Noto Sans JP;
   overflow: hidden;
   overscroll-behavior: none;
 }
@@ -17,7 +20,6 @@
   height: calc(100% - var(--header-height) - var(--footer-height));
   width: calc(100% - 60px);
   margin: 0 30px;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .frame {
@@ -31,46 +33,6 @@
   flex-direction: column;
 }
 
-.frame_column {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.frame_column_top {
-  height: 60px;
-  background-color: rgba(0, 80, 0, 0.1);
-}
-
-.frame_column_middle {
-  flex-grow: 1;
-  background-color: rgba(0, 160, 0, 0.1);
-}
-
-.frame_column_bottom {
-  height: 100px;
-  background-color: rgba(0, 255, 0, 0.1);
-}
-
-.frame_row {
-  height: 100%;
-}
-
-.frame_row_left {
-  width: 60px;
-  background-color: rgba(0, 80, 0, 0.1);
-}
-
-.frame_row_middle {
-  flex-grow: 1;
-  background-color: rgba(0, 160, 0, 0.1);
-}
-
-.frame_row_right {
-  width: 100px;
-  background-color: rgba(0, 255, 0, 0.1);
-}
-
 .footer {
   position: relative;
   width: inherit;
@@ -80,7 +42,7 @@
 .content {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .background {
@@ -89,9 +51,20 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
+}
+
+.triangle {
+  width: 12px;
+}
+
+.side_end_line {
+  height: var(--end-line-height);
+}
+
+.side_middle_line {
+  height: var(--middle-line-height);
 }
 
 @media (width <= 450px) {
@@ -110,7 +83,7 @@
   .background_logo {
     height: calc(20vw);
     width: 100%;
-    background-color: rgba(0, 255, 0, 1);
+    /* background-color: rgba(0, 255, 0, 1); */
   }
 }
 
@@ -118,6 +91,17 @@
   .background_logo {
     height: 100%;
     width: calc(10vh);
-    background-color: rgba(0, 255, 0, 1);
+    /* background-color: rgba(0, 255, 0, 1); */
   }
+}
+
+/* SVGのスタイリング */
+.background_logo_img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 右側のSVGを180度回転 */
+.background_logo_img_rotate {
+  transform: rotate(180deg);
 }

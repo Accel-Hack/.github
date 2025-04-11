@@ -1,4 +1,4 @@
-body {
+:rootbody {
   margin: 0;
   padding: 0;
 }
@@ -19,4 +19,24 @@ body {
   syntax: '*';
   inherits: false;
   initial-value: 30px;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #f5f4f2;
+}
+
+:root {
+  --white: #fafafa;
+  --gray: #707070;
+  --background-black: #000000;
+  --company-color: #21ffaa;
+  --font-axia: 'axia', sans-serif;
 }
