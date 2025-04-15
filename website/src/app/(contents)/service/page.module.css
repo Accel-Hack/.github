@@ -1,6 +1,9 @@
 .container {
-  width: 100%;
-  padding: 20px;
+    width: inherit;
+    height: inherit;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: scroll;
 }
 
 .imageContainer {
@@ -10,5 +13,12 @@
 }
 
 .articles {
-  margin-top: 40px;
+    width: inherit;
+    height: inherit;
+    background-color: white;
+
+    box-sizing: border-box;
+    padding: 20px 48px;
+    overflow: auto;
+    scroll-behavior: smooth;
 }
