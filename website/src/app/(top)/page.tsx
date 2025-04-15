@@ -81,7 +81,7 @@ export default function Home() {
             position: 'absolute',
             top: '20px',
             left: '10%',
-            width: '4/5',
+            height: '100%',
             zIndex: -1,
           }}
         />

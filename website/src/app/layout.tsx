@@ -66,7 +66,8 @@ export default function RootLayout({
                 style={{
                   position: 'absolute',
                   top: '0',
-                  left: '0',
+                  right: '0',
+                  transform: 'scaleX(-1)',
                 }}
                 className={styles.triangle}
               />
@@ -75,6 +76,7 @@ export default function RootLayout({
                   position: 'absolute',
                   bottom: '0',
                   left: '0',
+                  transform: 'rotate(-180deg) scaleX(-1)',
                 }}
                 className={styles.triangle}
               />
@@ -83,13 +85,14 @@ export default function RootLayout({
                   position: 'absolute',
                   bottom: '0',
                   right: '0',
+                  transform: 'rotate(-180deg)'
                 }}
                 className={styles.triangle}
               />
               <FrameSideEndLine
                 style={{
                   position: 'absolute',
-                  top: '0',
+                  top: '7px',
                   left: '0',
                 }}
                 className={styles.side_end_line}
@@ -97,24 +100,27 @@ export default function RootLayout({
               <FrameSideEndLine
                 style={{
                   position: 'absolute',
-                  top: '0',
+                  top: '7px',
                   right: '0',
+                  transform: 'scaleX(-1)'
                 }}
                 className={styles.side_end_line}
               />
               <FrameSideEndLine
                 style={{
                   position: 'absolute',
-                  bottom: '0',
+                  bottom: '7px',
                   left: '0',
+                  transform: 'rotate(-180deg) scaleX(-1)',
                 }}
                 className={styles.side_end_line}
               />
               <FrameSideEndLine
                 style={{
                   position: 'absolute',
-                  bottom: '0',
+                  bottom: '7px',
                   right: '0',
+                  transform: 'rotate(-180deg)'
                 }}
                 className={styles.side_end_line}
               />
@@ -122,7 +128,6 @@ export default function RootLayout({
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  // width: '10px',
                   height: '80%',　
                   transform: 'translateY(-50%)',
                 }}
@@ -133,6 +138,7 @@ export default function RootLayout({
                   position: 'absolute',
                   top: '50%',
                   right: '0',
+                  height: '80%',
                   transform: 'translateY(-50%)',
                 }}
                 className={styles.side_middle_line}
