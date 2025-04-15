@@ -10,7 +10,8 @@ import { usePathname } from 'next/navigation';
 
 const titleMap: {[key: string]: string} = {
   '/about': 'About',
-  '/service': 'Service'
+  '/service': 'Service',
+  '/recruit': 'Recruit'
 }
 
 export default function ContentLayout({
