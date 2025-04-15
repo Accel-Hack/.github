@@ -16,12 +16,16 @@ const ServiceListArticle: React.FC<Props> = ({ services }: Props) => {
       <div className={styles.service_list}>
         {services.map((s, i) => {
           return (
-            <div key={i}>
-              <img
-                className={styles.thumbnail}
-                src={s.thumbnail}
-                alt={s.title}
-              />
+            <div key={i} className={styles.service_list_item}>
+              <div className={styles.thumbnail_wrapper} key={i}>
+                <div className={styles.image_wrapper}>
+                  <img
+                    className={styles.image}
+                    // src={s.thumbnail}
+                    alt={s.title}
+                  />
+                </div>
+              </div>
               <div className={styles.title}>{s.title}</div>
               <div className={styles.summary}>{s.summary}</div>
             </div>

@@ -36,6 +36,7 @@ body {
 :root {
   --white: #fafafa;
   --gray: #707070;
+  --background-yellow: #F5F4F2;
   --background-black: #000000;
   --company-color: #21ffaa;
   --font-axia: 'axia', sans-serif;

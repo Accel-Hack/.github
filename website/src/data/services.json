@@ -1,22 +1,22 @@
 [
   {
-    "title": "Service 1",
+    "title": "ADeT",
     "thumbnail": "image/dummy.png",
-    "summary": "Description 1",
+    "summary": "AccelHackが独自開発した要件定義ツールを使って、早く・効率的な開発を実現します。",
     "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
     "description": "Description 1"
   },
   {
-    "title": "Service 2",
+    "title": "受託開発・業務委託",
     "thumbnail": "image/dummy.png",
-    "summary": "Description 2",
+    "summary": "他にはいないハイレベルな人材が開発・プロジェクトの進行を支援します。",
     "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
     "description": "Description 2"
   },
   {
-    "title": "Service 3",
+    "title": "VR・AR",
     "thumbnail": "image/dummy.png",
-    "summary": "Description 3",
+    "summary": "AR・VR技術を絡めたシステムの開発を支援、一部独自サービスの提供もご紹介できます。",
     "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
     "description": "Description 3"
   }
