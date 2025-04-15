@@ -14,12 +14,13 @@ const MVVArticle: React.FC = () => {
               <Image
                 src={LOGO3D.src}
                 alt={'AccelHack'}
-                width={200}
-                height={200}
+                width={297}
+                height={353}
               />
             </div>
           </div>
           <div className={styles.content}>
+            <div className={styles.catch_copies}>
             <p className={styles.catch_copy_en}>
               Accel Your Innovation. <br />
               Hack the Development.
@@ -38,6 +39,7 @@ const MVVArticle: React.FC = () => {
               <br />
               煩雑な作業から解放されエンジニアがエンジニアらしくスキルを伸ばせる場所
             </p>
+            </div>
           </div>
         </div>
       </Article>

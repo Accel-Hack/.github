@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleHeader from '@/component/molecule/ArticleHeader';
+import styles from './Article.module.css'
 
 type Props = {
   caption: string;
@@ -8,9 +9,9 @@ type Props = {
 
 const Article: React.FC<Props> = ({ caption, children }: Props) => {
   return (
-    <div>
+    <div className={styles.container}>
       <ArticleHeader caption={caption} />
-      <div>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

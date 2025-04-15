@@ -49,8 +49,9 @@ export default function RootLayout({
               <FrameTopLine
                 style={{
                   position: 'absolute',
-                  top: '-62px',
-                  left: '60px',
+                  top: '0',
+                  left: '5%',
+                  width: '90%'
                 }}
               />
               <FrameCornerTriangle
@@ -121,7 +122,8 @@ export default function RootLayout({
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  left: '0',
+                  // width: '10px',
+                  height: '80%',　
                   transform: 'translateY(-50%)',
                 }}
                 className={styles.side_middle_line}

@@ -18,7 +18,7 @@
 @property --footer-height {
   syntax: '*';
   inherits: false;
-  initial-value: 30px;
+  initial-value: 80px;
 }
 
 @font-face {
@@ -39,4 +39,5 @@ body {
   --background-black: #000000;
   --company-color: #21ffaa;
   --font-axia: 'axia', sans-serif;
+  --font-weight-bold: 700;
 }

@@ -1,13 +1,21 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
+import styles from './AboutArticle.module.css';
+import AccessMap from '@/component/organism/AccessMap';
 
 const AboutArticle: React.FC = () => {
   return (
+    <div className={styles.container}>
+      <div className={styles.contents}>
     <Article caption="About">
-      <div>株式会社AccelHack</div>
-      <div>113-0033 東京都</div>
-      <table>
-        <tbody>
+      <div className={styles.content}>
+        <div>
+          <div>株式会社AccelHack</div>
+          <div>〒102-0072 東京都千代田飯田橋1-5-6 協和ビル 6A室</div>
+          <div>2022年11月 設立</div>
+        </div>
+        <table>
+          <tbody>
           <tr>
             <td>代表取締役</td>
             <td>石川貴大</td>
@@ -22,12 +30,24 @@ const AboutArticle: React.FC = () => {
           </tr>
         </tbody>
       </table>
-      <div>Service</div>
-      <hr />
-      <div>DX/システム導入コンサル</div>
-      <div>要件定義・基本設計支援</div>
-      <div>開発・保守業務</div>
+        <div>
+          <div className={styles.service_title}>
+            <p>Service</p>
+            <p className={styles.service_border}></p>
+          </div>
+          <div className={styles.service_contents}>
+            <p>DX/システム導入コンサル</p>
+            <p>要件定義・基本設計支援</p>
+            <p>開発・保守業務</p>
+          </div>
+        </div>
+      </div>
     </Article>
+      </div>
+      <div className={styles.contents}>
+        <AccessMap/>
+      </div>
+    </div>
   );
 };
 
