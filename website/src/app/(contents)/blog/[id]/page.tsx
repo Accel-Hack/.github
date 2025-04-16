@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import Article from '@/component/organism/Article';
 import styles from './page.module.css';
 import Acelhack1 from '@/asset/img/common/accelhack1.png';
-import Image from 'next/image';
 import BlogSection from '@/component/molecule/BlogSection';
 
 const BlogIdPage: React.FC = () => {
@@ -27,8 +26,8 @@ const BlogIdPage: React.FC = () => {
                   imageSide={index % 2 == 0 ? 'left' : 'right'}
                   content={content}
                   imgSrc={Acelhack1.src}
-                  title={index == 0 ? blog.title: undefined}
-                  date={index == 0 ? blog.date: undefined}
+                  title={index == 0 ? blog.title : undefined}
+                  date={index == 0 ? blog.date : undefined}
                 />
               ))}
             </div>

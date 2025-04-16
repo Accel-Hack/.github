@@ -10,6 +10,7 @@ import FrameSideEndLine from '@/asset/img/layout/frame_side_end_line.svg';
 import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
+import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -52,6 +53,14 @@ export default function RootLayout({
                   top: '0',
                   left: '5%',
                   width: '90%',
+                }}
+              />
+              <FrameBottomLine
+                style={{
+                  position: 'absolute',
+                  bottom: '21px',
+                  right: '5%',
+                  width: '50%',
                 }}
               />
               <FrameCornerTriangle

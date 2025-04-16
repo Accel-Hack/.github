@@ -1,6 +1,6 @@
 .container {
   display: flex;
-    justify-content: center;
+  justify-content: center;
   padding-top: 1.825rem;
   width: inherit;
 }
@@ -9,6 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-    width: 80%;
-    gap: 3.125rem;
+  width: 80%;
+  gap: 3.125rem;
 }
