@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleHeader from '@/component/molecule/ArticleHeader';
-import styles from './Article.module.css'
+import styles from './Article.module.css';
 
 type Props = {
   caption: string;

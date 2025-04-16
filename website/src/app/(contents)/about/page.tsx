@@ -6,9 +6,9 @@ import WorkArticle from '@/component/article/WorkArticle';
 const AboutPage: React.FC = () => {
   return (
     <>
-        <MVVArticle />
-        <AboutArticle />
-        <WorkArticle />
+      <MVVArticle />
+      <AboutArticle />
+      <WorkArticle />
     </>
   );
 };

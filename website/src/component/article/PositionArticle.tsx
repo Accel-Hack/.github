@@ -1,6 +1,6 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
-import styles from './PositionArticle.module.css'
+import styles from './PositionArticle.module.css';
 
 type Props = {
   positions: {
@@ -10,7 +10,7 @@ type Props = {
   conditions: {
     title: string;
     description: string;
-  }[]
+  }[];
 };
 
 const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
@@ -27,28 +27,32 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
             );
           })}
         </div>
-        <div className={styles.position_list} style={{marginTop: 26}}>
+        <div className={styles.position_list} style={{ marginTop: 26 }}>
           <div className={styles.position_list_item}>
             <table>
               <tbody>
-              {conditions.slice(0,5).map((item, i) => {
-                return <tr key={i}>
-                  <th className={styles.conditions_title}>{item.title}</th>
-                  <td>{item.description}</td>
-                </tr>
-              })}
+                {conditions.slice(0, 5).map((item, i) => {
+                  return (
+                    <tr key={i}>
+                      <th className={styles.conditions_title}>{item.title}</th>
+                      <td>{item.description}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
           <div className={styles.position_list_item}>
             <table>
               <tbody>
-              {conditions.slice(5,).map((item, i) => {
-                return <tr key={i}>
-                  <th className={styles.conditions_title}>{item.title}</th>
-                  <td>{item.description}</td>
-                </tr>
-              })}
+                {conditions.slice(5).map((item, i) => {
+                  return (
+                    <tr key={i}>
+                      <th className={styles.conditions_title}>{item.title}</th>
+                      <td>{item.description}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

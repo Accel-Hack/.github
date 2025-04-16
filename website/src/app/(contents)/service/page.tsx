@@ -6,10 +6,10 @@ import ServiceArticle from '@/component/article/ServiceArticle';
 const ServicePage: React.FC = () => {
   return (
     <>
-        <ServiceListArticle services={SERVICES} />
-        {SERVICES.map((service, i) => {
-          return <ServiceArticle key={i} service={service} />;
-        })}
+      <ServiceListArticle services={SERVICES} />
+      {SERVICES.map((service, i) => {
+        return <ServiceArticle key={i} service={service} />;
+      })}
     </>
   );
 };

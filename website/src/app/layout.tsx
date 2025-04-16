@@ -51,7 +51,7 @@ export default function RootLayout({
                   position: 'absolute',
                   top: '0',
                   left: '5%',
-                  width: '90%'
+                  width: '90%',
                 }}
               />
               <FrameCornerTriangle
@@ -85,7 +85,7 @@ export default function RootLayout({
                   position: 'absolute',
                   bottom: '0',
                   right: '0',
-                  transform: 'rotate(-180deg)'
+                  transform: 'rotate(-180deg)',
                 }}
                 className={styles.triangle}
               />
@@ -102,7 +102,7 @@ export default function RootLayout({
                   position: 'absolute',
                   top: '7px',
                   right: '0',
-                  transform: 'scaleX(-1)'
+                  transform: 'scaleX(-1)',
                 }}
                 className={styles.side_end_line}
               />
@@ -120,7 +120,7 @@ export default function RootLayout({
                   position: 'absolute',
                   bottom: '7px',
                   right: '0',
-                  transform: 'rotate(-180deg)'
+                  transform: 'rotate(-180deg)',
                 }}
                 className={styles.side_end_line}
               />
@@ -128,7 +128,7 @@ export default function RootLayout({
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  height: '80%',　
+                  height: '80%',
                   transform: 'translateY(-50%)',
                 }}
                 className={styles.side_middle_line}

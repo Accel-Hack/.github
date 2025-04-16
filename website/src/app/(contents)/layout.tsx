@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import TabMenu from '@/component/layout/TabMenu';
@@ -8,11 +8,12 @@ import Squares from '@/asset/img/layout/squares.svg';
 import ContentHeader from '@/component/molecule/ContentHeader';
 import { usePathname } from 'next/navigation';
 
-const titleMap: {[key: string]: string} = {
-  '/about': 'About',
-  '/service': 'Service',
-  '/recruit': 'Recruit'
-}
+const titleMap: { [key: string]: string } = {
+  about: 'About',
+  service: 'Service',
+  recruit: 'Recruit',
+  blog: 'Blog',
+};
 
 export default function ContentLayout({
   children,
@@ -21,7 +22,7 @@ export default function ContentLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const title = titleMap[pathname] || 'Accel Hack';
+  const title = titleMap[pathname.split('/')[1]] || 'Accel Hack';
 
   return (
     <>
@@ -29,9 +30,7 @@ export default function ContentLayout({
         <div className={styles.content}>
           <ContentHeader caption={title} />
           <div className={styles.article_container}>
-            <div className={styles.articles}>
-              {children}
-            </div>
+            <div className={styles.articles}>{children}</div>
           </div>
         </div>
       </div>

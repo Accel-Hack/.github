@@ -11,24 +11,24 @@ import styles from './page.module.css';
 
 const RecruitPage: React.FC = () => {
   return (
-   <>
-     <div className={styles.page}>
-       <div style={{width: 360}}>
-        <WhatIsArticle />
-       </div>
-       <div style={{flexGrow:1}}>
-        <PositionArticle positions={POSITIONS} conditions={CONDITIONS} />
-       </div>
-     </div>
+    <>
+      <div className={styles.page}>
+        <div style={{ width: 360 }}>
+          <WhatIsArticle />
+        </div>
+        <div style={{ flexGrow: 1 }}>
+          <PositionArticle positions={POSITIONS} conditions={CONDITIONS} />
+        </div>
+      </div>
       <EnvironmentArticle />
-     <div className={styles.page}>
-       <div style={{width: 360}}>
-        <SelectionFlowArticle />
-       </div>
-       <div style={{flexGrow:1}}>
-        <RecruitQAArticle qas={QAS} />
-       </div>
-     </div>
+      <div className={styles.page}>
+        <div style={{ width: 360 }}>
+          <SelectionFlowArticle />
+        </div>
+        <div style={{ flexGrow: 1 }}>
+          <RecruitQAArticle qas={QAS} />
+        </div>
+      </div>
     </>
   );
 };
