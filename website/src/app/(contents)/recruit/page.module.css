@@ -1,17 +1,5 @@
-.container {
-  width: inherit;
+.page {
   height: inherit;
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.articles {
-  width: inherit;
-  height: inherit;
-  background-color: white;
-
-  box-sizing: border-box;
-  padding: 20px 48px;
-  overflow: auto;
-  scroll-behavior: smooth;
+  display: flex;
+  gap: 1.875rem;
 }

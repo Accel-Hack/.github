@@ -1,20 +1,15 @@
 import React from 'react';
 import MVVArticle from '@/component/article/MVVArticle';
 import AboutArticle from '@/component/article/AboutArticle';
-import ContentHeader from '@/component/molecule/ContentHeader';
-import AccessMap from '@/component/organism/AccessMap';
-import styles from './page.module.css';
+import WorkArticle from '@/component/article/WorkArticle';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <ContentHeader caption="About" />
-      <div className={styles.articles}>
-        <MVVArticle />
-        <AboutArticle />
-        <AccessMap />
-      </div>
-    </div>
+    <>
+      <MVVArticle />
+      <AboutArticle />
+      <WorkArticle />
+    </>
   );
 };
 

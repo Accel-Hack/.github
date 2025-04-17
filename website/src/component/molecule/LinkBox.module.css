@@ -6,6 +6,7 @@
   display: flex;
   position: relative;
   text-decoration: none;
+  color: black;
 }
 
 .link_box:hover {

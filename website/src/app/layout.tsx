@@ -10,6 +10,8 @@ import FrameSideEndLine from '@/asset/img/layout/frame_side_end_line.svg';
 import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
+import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
+import Transition from '@/app/transition';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,107 +41,125 @@ export default function RootLayout({
       </head>
       <body className={`${styles.body} ${geistSans.variable}`}>
         <>
-          <header className={styles.header}>
-            <Header />
-          </header>
-          <main className={styles.main}>
-            <div className={styles.content}>{children}</div>
-            {/* メインページの枠 */}
-            <div className={styles.frame}>
-              <FrameTopLine
-                style={{
-                  position: 'absolute',
-                  top: '-62px',
-                  left: '60px',
-                }}
-              />
-              <FrameCornerTriangle
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  left: '0',
-                }}
-                className={styles.triangle}
-              />
-              <FrameCornerTriangle
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  left: '0',
-                }}
-                className={styles.triangle}
-              />
-              <FrameCornerTriangle
-                style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  left: '0',
-                }}
-                className={styles.triangle}
-              />
-              <FrameCornerTriangle
-                style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  right: '0',
-                }}
-                className={styles.triangle}
-              />
-              <FrameSideEndLine
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  left: '0',
-                }}
-                className={styles.side_end_line}
-              />
-              <FrameSideEndLine
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  right: '0',
-                }}
-                className={styles.side_end_line}
-              />
-              <FrameSideEndLine
-                style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  left: '0',
-                }}
-                className={styles.side_end_line}
-              />
-              <FrameSideEndLine
-                style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  right: '0',
-                }}
-                className={styles.side_end_line}
-              />
-              <FrameSideMiddleLine
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '0',
-                  transform: 'translateY(-50%)',
-                }}
-                className={styles.side_middle_line}
-              />
-              <FrameSideMiddleLine
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  right: '0',
-                  transform: 'translateY(-50%)',
-                }}
-                className={styles.side_middle_line}
-              />
-            </div>
-          </main>
-          <footer className={styles.footer}>
-            <Footer />
-          </footer>
+          <Transition>
+            <header className={styles.header}>
+              <Header />
+            </header>
+            <main className={styles.main}>
+              <div className={styles.content}>{children}</div>
+              {/* メインページの枠 */}
+              <div className={styles.frame}>
+                <FrameTopLine
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '5%',
+                    width: '90%',
+                  }}
+                />
+                <FrameBottomLine
+                  style={{
+                    position: 'absolute',
+                    bottom: '21px',
+                    right: '5%',
+                    width: '50%',
+                  }}
+                />
+                <FrameCornerTriangle
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                  }}
+                  className={styles.triangle}
+                />
+                <FrameCornerTriangle
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    right: '0',
+                    transform: 'scaleX(-1)',
+                  }}
+                  className={styles.triangle}
+                />
+                <FrameCornerTriangle
+                  style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    left: '0',
+                    transform: 'rotate(-180deg) scaleX(-1)',
+                  }}
+                  className={styles.triangle}
+                />
+                <FrameCornerTriangle
+                  style={{
+                    position: 'absolute',
+                    bottom: '0',
+                    right: '0',
+                    transform: 'rotate(-180deg)',
+                  }}
+                  className={styles.triangle}
+                />
+                <FrameSideEndLine
+                  style={{
+                    position: 'absolute',
+                    top: '7px',
+                    left: '0',
+                  }}
+                  className={styles.side_end_line}
+                />
+                <FrameSideEndLine
+                  style={{
+                    position: 'absolute',
+                    top: '7px',
+                    right: '0',
+                    transform: 'scaleX(-1)',
+                  }}
+                  className={styles.side_end_line}
+                />
+                <FrameSideEndLine
+                  style={{
+                    position: 'absolute',
+                    bottom: '7px',
+                    left: '0',
+                    transform: 'rotate(-180deg) scaleX(-1)',
+                  }}
+                  className={styles.side_end_line}
+                />
+                <FrameSideEndLine
+                  style={{
+                    position: 'absolute',
+                    bottom: '7px',
+                    right: '0',
+                    transform: 'rotate(-180deg)',
+                  }}
+                  className={styles.side_end_line}
+                />
+                <FrameSideMiddleLine
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    height: '80%',
+                    transform: 'translateY(-50%)',
+                  }}
+                  className={styles.side_middle_line}
+                />
+                <FrameSideMiddleLine
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    right: '0',
+                    height: '80%',
+                    transform: 'translateY(-50%)',
+                  }}
+                  className={styles.side_middle_line}
+                />
+              </div>
+            </main>
+            <footer className={styles.footer}>
+              <Footer />
+            </footer>
+          </Transition>
         </>
         {/* 左右のAccelHackのレイヤー */}
         <>

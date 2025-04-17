@@ -2,15 +2,21 @@
   width: inherit;
   height: inherit;
   box-sizing: border-box;
-  padding: 0.5rem 4rem 0.5rem 2rem;
+  padding: 0.5rem 4rem 3rem 3rem;
   background-color: var(--white);
   opacity: 0.8;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 10px 10px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .content {
   width: inherit;
   height: inherit;
   box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .background_left_top_line {
@@ -28,4 +34,22 @@
   right: 6rem;
   height: 2.5rem;
   z-index: -1;
+}
+
+.article_container {
+  width: inherit;
+  height: inherit;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.articles {
+  width: inherit;
+  height: inherit;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 20px 48px 0 48px;
+  overflow: auto;
+  scroll-behavior: smooth;
 }

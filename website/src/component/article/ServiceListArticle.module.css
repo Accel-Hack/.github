@@ -5,12 +5,45 @@
   padding: 2rem 4rem;
 }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: bold;
+.service_list_item {
+  width: 30%;
 }
 
-.thumbnail {
+.title {
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.summary {
+  font-size: 0.865rem;
+  margin-top: 0.5rem;
+}
+
+.thumbnail_wrapper {
+  position: relative;
+  aspect-ratio: 1;
+  background-color: var(--background-yellow);
+  overflow: hidden;
+}
+
+.thumbnail_wrapper:hover {
+  background-color: var(--company-color);
+  cursor: pointer;
+}
+
+.thumbnail_wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 30px solid white;
+  border-right: 30px solid transparent;
+}
+
+.image_wrapper {
+}
+
+.image {
   width: 100%;
   object-fit: cover;
 }

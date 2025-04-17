@@ -1,0 +1,33 @@
+.container {
+  padding: 1.6rem 1.6rem;
+}
+
+.blog_title {
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.blog_description {
+  font-size: 0.625rem;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 2rem;
+}
+
+.button {
+  background-color: var(--background-black);
+  width: 100px;
+  font-size: 0.625rem;
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  cursor: pointer;
+}

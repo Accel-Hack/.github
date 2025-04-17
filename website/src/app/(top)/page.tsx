@@ -4,6 +4,7 @@ import { Page } from '@/enum/Page';
 import NEWSES from '@/data/news.json';
 import AccelHackLogo from '@/asset/img/top/logo.svg';
 import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
+import Square from '@/asset/img/top/square.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
@@ -81,8 +82,26 @@ export default function Home() {
             position: 'absolute',
             top: '20px',
             left: '10%',
-            width: '4/5',
+            height: '100%',
             zIndex: -1,
+          }}
+        />
+        <Square
+          style={{
+            position: 'absolute',
+            bottom: '66px',
+            right: '120px',
+            width: '29.75px',
+            height: 'auto',
+          }}
+        />
+        <Square
+          style={{
+            position: 'absolute',
+            bottom: '66px',
+            right: '48%',
+            width: '29.75px',
+            height: 'auto',
           }}
         />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
