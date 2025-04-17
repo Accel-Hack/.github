@@ -92,7 +92,7 @@ export default function Home() {
             bottom: '66px',
             right: '120px',
             width: '29.75px',
-            height: 'auto'
+            height: 'auto',
           }}
         />
         <Square
@@ -101,7 +101,7 @@ export default function Home() {
             bottom: '66px',
             right: '48%',
             width: '29.75px',
-            height: 'auto'
+            height: 'auto',
           }}
         />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
