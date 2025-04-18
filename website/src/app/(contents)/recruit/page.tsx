@@ -20,9 +20,16 @@ const RecruitPage: React.FC = () => {
           <PositionArticle positions={POSITIONS} conditions={CONDITIONS} />
         </div>
       </div>
-      <EnvironmentArticle />
       <div className={styles.page}>
-        <div style={{ width: 360 }}>
+        <div
+          style={{
+            width: 360,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2rem',
+          }}
+        >
+          <EnvironmentArticle />
           <SelectionFlowArticle />
         </div>
         <div style={{ flexGrow: 1 }}>

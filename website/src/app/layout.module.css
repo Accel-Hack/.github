@@ -7,6 +7,9 @@
   font-family: Noto Sans JP;
   overflow: hidden;
   overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
 
 .header {
@@ -20,6 +23,7 @@
   height: calc(100% - var(--header-height) - var(--footer-height));
   width: calc(100% - 60px);
   margin: 0 30px;
+  flex: 1;
 }
 
 .frame {
@@ -31,6 +35,20 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.frame_top_line {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+}
+
+.frame_bottom_line {
+  position: absolute;
+  bottom: 21px;
+  right: 5%;
+  width: 50%;
 }
 
 .footer {
@@ -105,4 +123,53 @@
 /* 右側のSVGを180度回転 */
 .background_logo_img_rotate {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    height: var(--header-height-sm);
+  }
+
+  .main {
+    margin: 0 10px;
+    height: calc(
+      100% - var(--header-height-sm) - var(--footer-height-sm) - 60px
+    );
+    width: calc(100% - 20px);
+  }
+
+  .small_media_footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    height: 20px;
+  }
+
+  .frame_top_line {
+    width: 90%;
+    top: 0;
+    transform: rotate(
+      180deg
+    ); /* スマホサイズの時はボトムラインを上下反転させる */
+  }
+
+  .frame_bottom_line {
+    width: 90%;
+    bottom: 0;
+  }
+
+  .side_end_line {
+    height: calc(var(--end-line-height) * 0.7);
+  }
+
+  .triangle {
+    width: 11px;
+    height: 11px;
+  }
 }

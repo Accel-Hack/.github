@@ -93,3 +93,18 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+@media screen and (max-width: 576px) {
+  .link_box {
+    font-size: 24px;
+  }
+
+  .link_box_md {
+    height: 60px;
+    font-size: 20px;
+  }
+
+  .link_box_sm {
+    font-size: 12px;
+  }
+}

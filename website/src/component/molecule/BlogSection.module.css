@@ -16,3 +16,39 @@
 .date {
   font-size: 0.63rem;
 }
+
+.section_size {
+  width: 50%;
+}
+
+.image_left {
+  flex-direction: row;
+}
+
+.image_right {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    gap: 1.25rem;
+  }
+
+  .image_left {
+    flex-direction: column;
+  }
+
+  .image_right {
+    flex-direction: column;
+  }
+
+  .section_size {
+    width: 100%;
+  }
+
+  .title_wrapper {
+    flex-direction: column-reverse;
+    justify-content: revert;
+    margin-bottom: 0.6rem;
+  }
+}

@@ -21,8 +21,6 @@ const TabItem: React.FC<Props> = ({ page, type = 'primary' }: Props) => {
         return 'Blog';
       case Page.CONTACT:
         return 'Contact';
-      case Page.PRIVACY_POLICY:
-        return 'Privacy&Policy';
     }
   };
 

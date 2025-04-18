@@ -50,3 +50,36 @@
   font-size: 0.625rem;
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 576px) {
+  .contents {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    box-sizing: border-box;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .logo_container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo_container > image {
+    width: 200px !important;
+  }
+
+  .catch_copy_en {
+    font-size: 2rem;
+    font-family: var(--font-axia);
+    margin-bottom: 1.5rem;
+  }
+
+  .catch_copy_jp {
+    font-size: 0.8rem;
+    margin-bottom: 1.25rem;
+  }
+}

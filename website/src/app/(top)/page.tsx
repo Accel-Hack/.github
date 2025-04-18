@@ -12,9 +12,11 @@ import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.sv
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
-      <div style={{ display: 'flex' }}>
+      <div className={styles.container}>
         <div className={styles.left_container}>
-          <AccelHackLogo className={styles.logo_img} />
+          <div className={styles.image_container}>
+            <AccelHackLogo className={styles.logo_img} />
+          </div>
           <p className={styles.catch_copy}>
             Accel Your Innovation. <br />
             Hack the Development.
@@ -77,15 +79,7 @@ export default function Home() {
       </div>
 
       <div>
-        <TopDiagonalLine
-          style={{
-            position: 'absolute',
-            top: '20px',
-            left: '10%',
-            height: '100%',
-            zIndex: -1,
-          }}
-        />
+        <TopDiagonalLine className={styles.top_diagonal_line} />
         <Square
           style={{
             position: 'absolute',
@@ -94,6 +88,7 @@ export default function Home() {
             width: '29.75px',
             height: 'auto',
           }}
+          class={'small_media_hidden'}
         />
         <Square
           style={{
@@ -103,6 +98,7 @@ export default function Home() {
             width: '29.75px',
             height: 'auto',
           }}
+          class={'small_media_hidden'}
         />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
       </div>

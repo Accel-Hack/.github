@@ -17,52 +17,29 @@ const BlogSection: React.FC<Props> = ({
   title,
   date,
 }: Props) => {
-  function getContent() {
-    switch (imageSide) {
-      case 'left':
-        return (
-          <>
-            <Image
-              src={imgSrc}
-              alt={'img'}
-              width={500}
-              height={0}
-              style={{
-                width: '50%',
-                height: 'auto',
-              }}
-            />
-            <div style={{ width: '50%' }}>
-              <div className={styles.title_wrapper}>
-                {title && <div className={styles.title}>{title}</div>}
-                {date && <div className={styles.date}>{date}</div>}
-              </div>
-              <div>{content}</div>
-            </div>
-          </>
-        );
-      case 'right':
-        return (
-          <>
-            <div style={{ width: '50%' }}>
-              <div>{content}</div>
-            </div>
-            <Image
-              src={imgSrc}
-              alt={'img'}
-              width={500}
-              height={0}
-              style={{
-                width: '50%',
-                height: 'auto',
-              }}
-            />
-          </>
-        );
-    }
-  }
-
-  return <div className={styles.container}>{getContent()}</div>;
+  return (
+    <div className={`${styles.container} ${styles[`image_${imageSide}`]}`}>
+      <div className={styles.section_size}>
+        <Image
+          src={imgSrc}
+          alt={'img'}
+          width={500}
+          height={0}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
+      <div className={styles.section_size}>
+        <div className={styles.title_wrapper}>
+          {title && <div className={styles.title}>{title}</div>}
+          {date && <div className={styles.date}>{date}</div>}
+        </div>
+        <div>{content}</div>
+      </div>
+    </div>
+  );
 };
 
 export default BlogSection;

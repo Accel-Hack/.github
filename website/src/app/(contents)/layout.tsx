@@ -36,7 +36,7 @@ export default function ContentLayout({
       </div>
       <TabMenu />
       <BackgroundLeftTopLine className={styles.background_left_top_line} />
-      <Squares className={styles.squares} />
+      <Squares className={`${styles.squares} small_media_hidden`} />
     </>
   );
 }
