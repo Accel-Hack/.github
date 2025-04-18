@@ -7,3 +7,13 @@
 .content {
   width: 46%;
 }
+
+@media screen and (max-width: 576px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+  }
+}

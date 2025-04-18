@@ -21,6 +21,18 @@
   initial-value: 80px;
 }
 
+@property --header-height-sm {
+  syntax: '*';
+  inherits: false;
+  initial-value: 48px;
+}
+
+@property --footer-height-sm {
+  syntax: '*';
+  inherits: false;
+  initial-value: 20px;
+}
+
 @font-face {
   font-family: 'Noto Sans JP';
   src: url('/font/NotoSansJP-Regular.ttf') format('truetype');
@@ -33,6 +45,20 @@ body {
   background-color: #f5f4f2;
 }
 
+.small_media_visible {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .small_media_hidden {
+    display: none;
+  }
+
+  .small_media_visible {
+    display: block;
+  }
+}
+
 :root {
   --white: #fafafa;
   --gray: #707070;
@@ -41,4 +67,6 @@ body {
   --company-color: #21ffaa;
   --font-axia: 'axia', sans-serif;
   --font-weight-bold: 700;
+  --width-sm: 576px;
+  --background-navbar: rgba(55, 55, 55, 0.98);
 }

@@ -12,3 +12,9 @@
   color: var(--white);
   margin: auto 0;
 }
+
+@media (max-width: 576px) {
+  .article_header_container {
+    padding: 0.2rem;
+  }
+}

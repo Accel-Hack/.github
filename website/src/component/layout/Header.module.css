@@ -24,3 +24,14 @@
   height: 100%;
   position: relative;
 }
+
+@media screen and (max-width: 576px) {
+  .logo_container {
+    width: 30%;
+  }
+
+  .logo {
+    max-height: 40px;
+    max-width: 200px;
+  }
+}

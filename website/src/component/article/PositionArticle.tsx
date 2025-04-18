@@ -27,7 +27,7 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
             );
           })}
         </div>
-        <div className={styles.position_list} style={{ marginTop: 26 }}>
+        <div className={styles.position_list_table} style={{ marginTop: 26 }}>
           <div className={styles.position_list_item}>
             <table>
               <tbody>

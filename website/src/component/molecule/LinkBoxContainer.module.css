@@ -16,3 +16,13 @@
   height: 36px;
   margin-top: 1.5rem;
 }
+
+@media screen and (max-width: 576px) {
+  .container_md {
+    height: auto;
+  }
+
+  .container_sm {
+    height: auto;
+  }
+}

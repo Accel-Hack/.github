@@ -16,6 +16,7 @@ const MVVArticle: React.FC = () => {
                 alt={'AccelHack'}
                 width={297}
                 height={353}
+                style={{ width: '60%', height: 'auto' }}
               />
             </div>
           </div>

@@ -11,6 +11,7 @@ import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
 import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
+import Square from '@/asset/img/top/square.svg';
 import Transition from '@/app/transition';
 
 const geistSans = Geist({
@@ -50,21 +51,12 @@ export default function RootLayout({
               {/* メインページの枠 */}
               <div className={styles.frame}>
                 <FrameTopLine
-                  style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '5%',
-                    width: '90%',
-                  }}
+                  className={`${styles.frame_top_line} small_media_hidden`}
                 />
                 <FrameBottomLine
-                  style={{
-                    position: 'absolute',
-                    bottom: '21px',
-                    right: '5%',
-                    width: '50%',
-                  }}
+                  className={`${styles.frame_top_line} small_media_visible`}
                 />
+                <FrameBottomLine className={styles.frame_bottom_line} />
                 <FrameCornerTriangle
                   style={{
                     position: 'absolute',
@@ -156,6 +148,22 @@ export default function RootLayout({
                 />
               </div>
             </main>
+            <div className={styles.small_media_footer}>
+              <Square
+                style={{
+                  width: '29.75px',
+                  height: 'auto',
+                }}
+                class={'small_media_visible'}
+              />
+              <Square
+                style={{
+                  width: '29.75px',
+                  height: 'auto',
+                }}
+                class={'small_media_visible'}
+              />
+            </div>
             <footer className={styles.footer}>
               <Footer />
             </footer>

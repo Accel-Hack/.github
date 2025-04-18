@@ -45,3 +45,33 @@
   height: 1.1rem;
   margin-bottom: 0.5rem;
 }
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  .contents {
+    width: 100%;
+  }
+
+  .content {
+    font-size: 0.8rem;
+    gap: 1rem;
+  }
+
+  .service_contents {
+    padding-top: 1rem;
+  }
+
+  .service_contents > p {
+    margin-top: 0;
+    font-size: 0.8rem;
+    height: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
