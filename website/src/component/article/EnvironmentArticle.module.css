@@ -1,0 +1,28 @@
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 0.5rem;
+}
+
+.content {
+  display: flex;
+}
+
+.heading {
+  min-width: 70px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-top: 0.1rem;
+}
+
+.text {
+  font-size: 1rem;
+  padding: 0.1rem 0.5rem;
+  text-wrap: wrap;
+}
+
+.text > ul {
+  margin: 0;
+  padding-left: 1rem;
+}

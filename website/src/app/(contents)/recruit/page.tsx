@@ -13,26 +13,19 @@ const RecruitPage: React.FC = () => {
   return (
     <>
       <div className={styles.page}>
-        <div style={{ width: 360 }}>
+        <div className={styles.left_container}>
           <WhatIsArticle />
         </div>
-        <div style={{ flexGrow: 1 }}>
+        <div className={styles.right_container}>
           <PositionArticle positions={POSITIONS} conditions={CONDITIONS} />
         </div>
       </div>
       <div className={styles.page}>
-        <div
-          style={{
-            width: 360,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2rem',
-          }}
-        >
+        <div className={styles.left_container}>
           <EnvironmentArticle />
           <SelectionFlowArticle />
         </div>
-        <div style={{ flexGrow: 1 }}>
+        <div className={styles.right_container}>
           <RecruitQAArticle qas={QAS} />
         </div>
       </div>

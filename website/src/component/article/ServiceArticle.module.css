@@ -1,11 +1,11 @@
 .container {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding: 2rem 1rem;
 }
 
 .main_container {
-  width: 30%;
+  width: 40%;
 }
 
 .main_container img {

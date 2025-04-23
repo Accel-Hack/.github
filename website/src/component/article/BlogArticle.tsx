@@ -6,18 +6,23 @@ import styles from './BlogArticle.module.css';
 import Link from 'next/link';
 
 type Props = {
+  category: string;
   blog: {
     id: string;
-    category: string;
     title: string;
     thumbnail: string;
     description: string;
+    blocks: {
+      type: string;
+      imgSrc: string;
+      text: string;
+    }[];
   };
 };
 
-const BlogArticle: React.FC<Props> = ({ blog }: Props) => {
+const BlogArticle: React.FC<Props> = ({ category, blog }: Props) => {
   return (
-    <Article caption={blog.category}>
+    <Article caption={category}>
       <div className={styles.container}>
         <Image
           src={Accelhack1.src}

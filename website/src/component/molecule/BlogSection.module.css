@@ -14,11 +14,7 @@
 }
 
 .date {
-  font-size: 0.63rem;
-}
-
-.section_size {
-  width: 50%;
+  font-size: 0.8rem;
 }
 
 .image_left {
@@ -27,6 +23,30 @@
 
 .image_right {
   flex-direction: row-reverse;
+}
+
+.image_none {
+  justify-content: center;
+}
+
+.image_center {
+  justify-content: center;
+}
+
+.image_left > .section_size {
+  width: 50%;
+}
+
+.image_right > .section_size {
+  width: 50%;
+}
+
+.image_none > .section_size {
+  width: 70%;
+}
+
+.image_center > .section_size {
+  width: 100%;
 }
 
 @media screen and (max-width: 576px) {
@@ -50,5 +70,9 @@
     flex-direction: column-reverse;
     justify-content: revert;
     margin-bottom: 0.6rem;
+  }
+
+  .image_none > .section_size {
+    width: 100%;
   }
 }

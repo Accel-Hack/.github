@@ -4,8 +4,27 @@
   gap: 1.875rem;
 }
 
+.left_container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.right_container {
+  width: calc(100% - 400px);
+}
+
 @media screen and (max-width: 576px) {
   .page {
     flex-direction: column;
+  }
+
+  .left_container {
+    width: 100%;
+  }
+
+  .right_container {
+    width: 100%;
   }
 }

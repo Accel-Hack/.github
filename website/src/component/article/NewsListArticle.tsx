@@ -13,7 +13,7 @@ type Props = {
 
 const NewsListArticle: React.FC<Props> = ({ newses }: Props) => {
   return (
-    <Article caption="What's AccelHack">
+    <Article caption="ニュースリリース">
       <NewsList newses={newses} />
     </Article>
   );

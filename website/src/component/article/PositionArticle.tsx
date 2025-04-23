@@ -35,7 +35,9 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
                   return (
                     <tr key={i}>
                       <th className={styles.conditions_title}>{item.title}</th>
-                      <td>{item.description}</td>
+                      <td className={styles.conditions_description}>
+                        {item.description}
+                      </td>
                     </tr>
                   );
                 })}
@@ -49,7 +51,9 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
                   return (
                     <tr key={i}>
                       <th className={styles.conditions_title}>{item.title}</th>
-                      <td>{item.description}</td>
+                      <td className={styles.conditions_description}>
+                        {item.description}
+                      </td>
                     </tr>
                   );
                 })}

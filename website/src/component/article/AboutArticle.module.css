@@ -3,10 +3,12 @@
   height: inherit;
   display: flex;
   gap: 2.2rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .contents {
-  width: 40%;
+  width: 50%;
 }
 
 .content {

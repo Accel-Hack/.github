@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem 4rem;
+  padding: 2rem 1rem;
 }
 
 .service_list_item {

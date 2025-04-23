@@ -1,5 +1,7 @@
 .news_summary_container {
   padding: 0.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
   background-color: var(--white);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -19,8 +21,24 @@
 .news_one_line {
   font-size: 0.8rem;
   padding: 0 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news_one_line > span {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 576px) {
+  .news_one_line {
+    font-size: 0.7rem;
+    padding: 0 0.5rem;
+  }
+
+  .cursor {
+    width: 1rem;
+    margin-left: auto;
+    transform: rotate(90deg);
+  }
 }

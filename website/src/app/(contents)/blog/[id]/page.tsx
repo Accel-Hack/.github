@@ -6,28 +6,36 @@ import { usePathname } from 'next/navigation';
 import Article from '@/component/organism/Article';
 import styles from './page.module.css';
 import Acelhack1 from '@/asset/img/common/accelhack1.png';
-import BlogSection from '@/component/molecule/BlogSection';
+import BlogSection, { BlogSectionType } from '@/component/molecule/BlogSection';
 
 const BlogIdPage: React.FC = () => {
   const pathname = usePathname();
   const id = pathname.split('/').pop();
 
-  const blog = BLOGS.find((blog) => blog.id === id);
+  const article = BLOGS.flatMap((blog) => blog.articles).find(
+    (b) => b.id === id,
+  );
 
   return (
     <>
-      {blog ? (
-        <Article caption={blog.category}>
+      {article ? (
+        <Article caption={article?.category ?? ''}>
           <div className={styles.container}>
             <div className={styles.content}>
-              {blog.section.map((content, index) => (
+              {article.blocks.map((content, index) => (
                 <BlogSection
                   key={index}
-                  imageSide={index % 2 == 0 ? 'left' : 'right'}
-                  content={content}
-                  imgSrc={Acelhack1.src}
-                  title={index == 0 ? blog.title : undefined}
-                  date={index == 0 ? blog.date : undefined}
+                  blockType={content.type as BlogSectionType}
+                  content={content.text !== '' ? content.text : undefined}
+                  imgSrc={
+                    content.imgSrc != ''
+                      ? content.imgSrc == 'default'
+                        ? Acelhack1.src
+                        : content.imgSrc
+                      : undefined
+                  }
+                  title={index == 0 ? article.title : undefined}
+                  date={index == 0 ? article.date : undefined}
                 />
               ))}
             </div>

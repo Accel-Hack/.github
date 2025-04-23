@@ -1,10 +1,10 @@
 const AccessMap: React.FC = () => {
   return (
-    <div>
+    <div style={{ height: 'inherit' }}>
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.123435298826!2d139.7465067119046!3d35.698579972467364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188dfcb414068b%3A0x5ee8b5584a10bfa7!2z5qCq5byP5Lya56S-QWNjZWxIYWNr!5e0!3m2!1sja!2sjp!4v1744709048186!5m2!1sja!2sjp"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12960.493736720286!2d139.749087!3d35.69858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188dfcb414068b%3A0x5ee8b5584a10bfa7!2z5qCq5byP5Lya56S-QWNjZWxIYWNr!5e0!3m2!1sja!2sjp!4v1745401652619!5m2!1sja!2sjp"
         width="100%"
-        height="auto"
+        height="40%"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
