@@ -12,7 +12,11 @@ type Props = {
     title: string;
     thumbnail: string;
     description: string;
-    section: string[];
+    blocks: {
+      type: string;
+      imgSrc: string;
+      text: string;
+    }[];
   };
 };
 
@@ -28,7 +32,7 @@ const BlogArticle: React.FC<Props> = ({ category, blog }: Props) => {
           style={{ width: '100%', height: 'auto' }}
         />
         <div className={styles.blog_title}>{blog.title}</div>
-        <div className={styles.blog_description}>{blog.section[0]}</div>
+        <div className={styles.blog_description}>{blog.description}</div>
         <div className={styles.button_container}>
           <Link href={`/blog/${blog.id}`} className={styles.button}>
             詳細

@@ -2,8 +2,14 @@ import React from 'react';
 import styles from './BlogSection.module.css';
 import Image from 'next/image';
 
+export type BlogSectionType =
+  | 'text'
+  | 'image_center'
+  | 'image_left'
+  | 'image_right';
+
 type Props = {
-  imageSide: 'left' | 'right' | 'none' | 'center';
+  blockType: BlogSectionType;
   content?: string;
   imgSrc?: string;
   title?: string;
@@ -11,15 +17,15 @@ type Props = {
 };
 
 const BlogSection: React.FC<Props> = ({
-  imageSide,
+  blockType,
   content,
   imgSrc,
   title,
   date,
 }: Props) => {
   return (
-    <div className={`${styles.container} ${styles[`image_${imageSide}`]}`}>
-      {imageSide != 'none' && imgSrc && (
+    <div className={`${styles.container} ${styles[`${blockType}`]}`}>
+      {blockType != 'text' && imgSrc && (
         <div className={styles.section_size}>
           <Image
             src={imgSrc}
