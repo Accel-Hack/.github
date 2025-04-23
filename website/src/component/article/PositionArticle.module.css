@@ -34,13 +34,13 @@
   text-align: left;
   font-size: 0.8rem;
   font-weight: 700;
-    width: 80px;
+  width: 80px;
 }
 
 .conditions_description {
-    text-align: left;
-    font-size: 0.8rem;
-    font-weight: 400;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 576px) {
@@ -49,12 +49,12 @@
     gap: 0;
   }
 
-    .conditions_title {
-        font-size: 0.6rem;
-        width: 70px;
-    }
+  .conditions_title {
+    font-size: 0.6rem;
+    width: 70px;
+  }
 
-    .conditions_description {
-        font-size: 0.6rem;
-    }
+  .conditions_description {
+    font-size: 0.6rem;
+  }
 }

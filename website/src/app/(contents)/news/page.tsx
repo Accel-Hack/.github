@@ -5,9 +5,9 @@ import styles from '@/app/(contents)/about/page.module.css';
 
 const NewsPage: React.FC = () => {
   return (
-      <div className={styles.articles}>
-        <NewsListArticle newses={NEWSES} />
-      </div>
+    <div className={styles.articles}>
+      <NewsListArticle newses={NEWSES} />
+    </div>
   );
 };
 

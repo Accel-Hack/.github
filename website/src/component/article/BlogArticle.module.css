@@ -9,13 +9,13 @@
 }
 
 .blog_description {
-    display: -webkit-box;
-    font-size: 0.8rem;
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  display: -webkit-box;
+  font-size: 0.8rem;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .button_container {

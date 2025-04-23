@@ -19,7 +19,7 @@ const BlogSection: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={`${styles.container} ${styles[`image_${imageSide}`]}`}>
-      {(imageSide != 'none' && imgSrc) &&
+      {imageSide != 'none' && imgSrc && (
         <div className={styles.section_size}>
           <Image
             src={imgSrc}
@@ -32,21 +32,23 @@ const BlogSection: React.FC<Props> = ({
             }}
           />
         </div>
-      }
-      {content &&
+      )}
+      {content && (
         <div className={styles.section_size}>
           <div className={styles.title_wrapper}>
             {title && <div className={styles.title}>{title}</div>}
             {date && <div className={styles.date}>{date}</div>}
           </div>
-          <div>{content.split('\n').map((line, index) => (
-            <React.Fragment key={index}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))}</div>
+          <div>
+            {content.split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </div>
         </div>
-      }
+      )}
     </div>
   );
 };

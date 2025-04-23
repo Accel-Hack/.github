@@ -1,6 +1,6 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
-import styles from './RecruitQAArticle.module.css'
+import styles from './RecruitQAArticle.module.css';
 
 type Props = {
   qas: {

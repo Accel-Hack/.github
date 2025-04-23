@@ -6,17 +6,17 @@ import styles from './BlogArticle.module.css';
 import Link from 'next/link';
 
 type Props = {
-  category: string,
+  category: string;
   blog: {
     id: string;
     title: string;
     thumbnail: string;
     description: string;
-    section: string[]
+    section: string[];
   };
 };
 
-const BlogArticle: React.FC<Props> = ({category, blog }: Props) => {
+const BlogArticle: React.FC<Props> = ({ category, blog }: Props) => {
   return (
     <Article caption={category}>
       <div className={styles.container}>

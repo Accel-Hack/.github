@@ -99,7 +99,7 @@
   }
 
   .catch_copy {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
     margin-top: 20px;
     margin-bottom: 0;
   }
@@ -109,9 +109,9 @@
     margin-top: 20px;
   }
 
-.news_summary_container {
+  .news_summary_container {
     margin-top: 1rem;
-}
+  }
 
   .left_container {
     width: 100%;

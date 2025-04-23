@@ -35,7 +35,12 @@ const ServiceArticle: React.FC<Props> = ({ service }: Props) => {
           </div>
           <div className={styles.description}>
             {service.description.map((description, i) => {
-              return <span key={i}>{description}<br/></span>;
+              return (
+                <span key={i}>
+                  {description}
+                  <br />
+                </span>
+              );
             })}
           </div>
         </div>

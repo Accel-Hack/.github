@@ -1,6 +1,6 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
-import styles from './SelectionFlowArticle.module.css'
+import styles from './SelectionFlowArticle.module.css';
 
 const SelectionFlowArticle: React.FC = () => {
   return (
