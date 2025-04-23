@@ -13,6 +13,7 @@ const titleMap: { [key: string]: string } = {
   service: 'Service',
   recruit: 'Recruit',
   blog: 'Blog',
+  news: 'News'
 };
 
 export default function ContentLayout({

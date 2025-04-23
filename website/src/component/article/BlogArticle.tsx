@@ -6,18 +6,19 @@ import styles from './BlogArticle.module.css';
 import Link from 'next/link';
 
 type Props = {
+  category: string,
   blog: {
     id: string;
-    category: string;
     title: string;
     thumbnail: string;
     description: string;
+    section: string[]
   };
 };
 
-const BlogArticle: React.FC<Props> = ({ blog }: Props) => {
+const BlogArticle: React.FC<Props> = ({category, blog }: Props) => {
   return (
-    <Article caption={blog.category}>
+    <Article caption={category}>
       <div className={styles.container}>
         <Image
           src={Accelhack1.src}
@@ -27,7 +28,7 @@ const BlogArticle: React.FC<Props> = ({ blog }: Props) => {
           style={{ width: '100%', height: 'auto' }}
         />
         <div className={styles.blog_title}>{blog.title}</div>
-        <div className={styles.blog_description}>{blog.description}</div>
+        <div className={styles.blog_description}>{blog.section[0]}</div>
         <div className={styles.button_container}>
           <Link href={`/blog/${blog.id}`} className={styles.button}>
             詳細

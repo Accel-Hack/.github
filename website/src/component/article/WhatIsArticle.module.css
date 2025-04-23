@@ -1,0 +1,15 @@
+.image_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    box-sizing: border-box;
+}
+
+.text_wrapper {
+    width: 100%;
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsItem from '@/component/molecule/NewsItem';
+import styles from './NewsList.module.css';
 
 type Props = {
   newses: {
@@ -12,7 +13,7 @@ type Props = {
 
 const NewsList: React.FC<Props> = ({ newses }: Props) => {
   return (
-    <div>
+    <div className={styles.container}>
       {newses.map((news, i) => {
         return <NewsItem key={i} news={news} />;
       })}

@@ -12,22 +12,23 @@ const BlogIdPage: React.FC = () => {
   const pathname = usePathname();
   const id = pathname.split('/').pop();
 
-  const blog = BLOGS.find((blog) => blog.id === id);
+  const article = BLOGS.flatMap((blog) => blog.articles).find((b) => b.id === id);
 
   return (
     <>
-      {blog ? (
-        <Article caption={blog.category}>
+      {article ? (
+        <Article caption={article?.category ?? ''}>
           <div className={styles.container}>
             <div className={styles.content}>
-              {blog.section.map((content, index) => (
+              <BlogSection imageSide={'center'} content={''} imgSrc={Acelhack1.src} />
+              {article.section.map((content, index) => (
                 <BlogSection
                   key={index}
-                  imageSide={index % 2 == 0 ? 'left' : 'right'}
+                  imageSide={'none'}
                   content={content}
                   imgSrc={Acelhack1.src}
-                  title={index == 0 ? blog.title : undefined}
-                  date={index == 0 ? blog.date : undefined}
+                  title={index == 0 ? article.title : undefined}
+                  date={index == 0 ? article.date : undefined}
                 />
               ))}
             </div>

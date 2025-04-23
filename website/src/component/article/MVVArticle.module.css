@@ -40,14 +40,14 @@
 }
 
 .catch_copy_jp {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 2.25rem;
 }
 
 .catch_copy_description {
-  font-size: 0.625rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -79,7 +79,13 @@
   }
 
   .catch_copy_jp {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 1.25rem;
   }
+
+
+    .catch_copy_description {
+        font-size: .8rem;
+        margin-bottom: 1rem;
+    }
 }

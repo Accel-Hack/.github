@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion {
+    overflow: hidden;
+    transition: max-height 1s ease;
+    max-height: 2.5em;
+}
+
+.accordion[open] {
+    max-height: 100vh;
+}
+
+.accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0.5em 0.5em;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid #cfcfcf;
+    border-right: 3px solid #cfcfcf;
+    content: '';
+    transition: transform .3s;
+}
+
+.accordion[open] summary::after {
+    transform: translateY(-25%) rotate(225deg);
+}
+
+.accordion p {
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    padding: .3em 1em;
+    color: #333333;
+    transition: transform .5s, opacity .5s;
+}
+
+.accordion[open] p {
+    transform: none;
+    opacity: 1;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}

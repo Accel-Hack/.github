@@ -3,9 +3,9 @@ import styles from './BlogSection.module.css';
 import Image from 'next/image';
 
 type Props = {
-  imageSide: 'left' | 'right';
-  content: string;
-  imgSrc: string;
+  imageSide: 'left' | 'right' | 'none' | 'center';
+  content?: string;
+  imgSrc?: string;
   title?: string;
   date?: string;
 };
@@ -19,25 +19,34 @@ const BlogSection: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={`${styles.container} ${styles[`image_${imageSide}`]}`}>
-      <div className={styles.section_size}>
-        <Image
-          src={imgSrc}
-          alt={'img'}
-          width={500}
-          height={0}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-        />
-      </div>
-      <div className={styles.section_size}>
-        <div className={styles.title_wrapper}>
-          {title && <div className={styles.title}>{title}</div>}
-          {date && <div className={styles.date}>{date}</div>}
+      {(imageSide != 'none' && imgSrc) &&
+        <div className={styles.section_size}>
+          <Image
+            src={imgSrc}
+            alt={'img'}
+            width={500}
+            height={0}
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
         </div>
-        <div>{content}</div>
-      </div>
+      }
+      {content &&
+        <div className={styles.section_size}>
+          <div className={styles.title_wrapper}>
+            {title && <div className={styles.title}>{title}</div>}
+            {date && <div className={styles.date}>{date}</div>}
+          </div>
+          <div>{content.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}</div>
+        </div>
+      }
     </div>
   );
 };

@@ -8,7 +8,7 @@ type Props = {
     thumbnail: string;
     summary: string;
     images: string[];
-    description: string;
+    description: string[];
   };
 };
 
@@ -33,7 +33,11 @@ const ServiceArticle: React.FC<Props> = ({ service }: Props) => {
               );
             })}
           </div>
-          <div className={styles.description}>{service.description}</div>
+          <div className={styles.description}>
+            {service.description.map((description, i) => {
+              return <span key={i}>{description}<br/></span>;
+            })}
+          </div>
         </div>
       </div>
     </Article>
