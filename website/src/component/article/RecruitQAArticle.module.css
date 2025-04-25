@@ -6,7 +6,6 @@
 .accordion {
   overflow: hidden;
   transition: max-height 1s ease;
-  max-height: 2.5em;
 }
 
 .accordion[open] {

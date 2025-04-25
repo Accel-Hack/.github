@@ -30,7 +30,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .news_one_line {
     font-size: 0.7rem;
     padding: 0 0.5rem;

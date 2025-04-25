@@ -41,6 +41,10 @@
   font-display: swap;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: #f5f4f2;
 }
@@ -49,13 +53,29 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
   .small_media_hidden {
     display: none;
   }
 
   .small_media_visible {
     display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
   }
 }
 
@@ -67,6 +87,6 @@ body {
   --company-color: #21ffaa;
   --font-axia: 'axia', sans-serif;
   --font-weight-bold: 700;
-  --width-sm: 576px;
+  --width-sm: 768px;
   --background-navbar: rgba(55, 55, 55, 0.98);
 }

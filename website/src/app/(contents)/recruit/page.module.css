@@ -1,11 +1,12 @@
 .page {
-  height: inherit;
+  /*height: inherit;*/
+  min-height: 100%;
   display: flex;
   gap: 1.875rem;
 }
 
 .left_container {
-  width: 400px;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -15,7 +16,7 @@
   width: calc(100% - 400px);
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .page {
     flex-direction: column;
   }

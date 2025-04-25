@@ -22,7 +22,7 @@ const RecruitPage: React.FC = () => {
       </div>
       <div className={styles.page}>
         <div className={styles.left_container}>
-          <EnvironmentArticle />
+          <EnvironmentArticle />`
           <SelectionFlowArticle />
         </div>
         <div className={styles.right_container}>

@@ -42,7 +42,7 @@
   line-height: 21px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .container {
     height: auto;
   }

@@ -16,6 +16,10 @@
   flex: 1;
 }
 
+.position_list_item > tr {
+  text-align: start;
+}
+
 .image_mock {
   aspect-ratio: 1;
   background-color: var(--background-yellow);
@@ -43,7 +47,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .position_list_table {
     flex-direction: column;
     gap: 0;
