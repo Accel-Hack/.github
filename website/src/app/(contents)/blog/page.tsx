@@ -9,7 +9,11 @@ const BlogPage: React.FC = () => {
       {BLOGS.map((blog, i) => {
         return (
           <div key={i} className={styles.content}>
-            <BlogArticle category={blog.category} blog={blog.articles[0]} />
+            <BlogArticle
+              category_code={blog.category_code}
+              category={blog.category}
+              blog={blog.articles[0]}
+            />
           </div>
         );
       })}

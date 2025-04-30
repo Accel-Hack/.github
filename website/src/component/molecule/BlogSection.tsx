@@ -35,6 +35,8 @@ const BlogSection: React.FC<Props> = ({
             style={{
               width: '100%',
               height: 'auto',
+              maxHeight: '300px',
+              objectFit: 'cover',
             }}
           />
         </div>

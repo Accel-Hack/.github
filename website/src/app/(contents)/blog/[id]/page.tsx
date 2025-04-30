@@ -7,6 +7,7 @@ import Article from '@/component/organism/Article';
 import styles from './page.module.css';
 import Acelhack1 from '@/asset/img/common/accelhack1.png';
 import BlogSection, { BlogSectionType } from '@/component/molecule/BlogSection';
+import PublicDirPathUtil from '@/utils/PublicDirPathUtil';
 
 const BlogIdPage: React.FC = () => {
   const pathname = usePathname();
@@ -31,7 +32,11 @@ const BlogIdPage: React.FC = () => {
                     content.imgSrc != ''
                       ? content.imgSrc == 'default'
                         ? Acelhack1.src
-                        : content.imgSrc
+                        : PublicDirPathUtil.getBlogImage(
+                            article?.category_code,
+                            article?.id,
+                            content.imgSrc,
+                          )
                       : undefined
                   }
                   title={index == 0 ? article.title : undefined}
