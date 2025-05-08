@@ -1,9 +1,9 @@
 [
   {
     "title": "ADeT",
-    "thumbnail": "image/dummy.png",
+    "thumbnail": "adet",
     "summary": "AccelHack独自開発の要件定義ツール",
-    "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
+    "images": ["adet1", "adet2"],
     "description": [
       "ADeTは、弊社が独自に開発した要件定義支援ツールです。",
       "",
@@ -18,9 +18,9 @@
   },
   {
     "title": "即日MockAppサービス",
-    "thumbnail": "image/dummy.png",
+    "thumbnail": "mockapp",
     "summary": "ヒアリングから最短即日でお試しアプリを即リリース",
-    "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
+    "images": ["mockapp1", "mockapp2"],
     "description": [
       "弊社サービスADeTを使ったサービスになります。",
       "",
@@ -33,9 +33,9 @@
   },
   {
     "title": "受託開発・業務委託",
-    "thumbnail": "image/dummy.png",
+    "thumbnail": "development",
     "summary": "",
-    "images": ["image/dummy.png", "image/dummy.png", "image/dummy.png"],
+    "images": ["development1", "development2"],
     "description": [
       "ADeT上に作成した要件定義情報・設計情報を元にシステムの開発を行います。",
       "もちろん、すでに開発ずみのシステムの改修や、すでに要件定義・詳細設計までは終わっているが純粋にエンジニアの手が必要な場合にも対応可能です。",

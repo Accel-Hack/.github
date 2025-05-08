@@ -25,7 +25,7 @@
   position: relative;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .logo_container {
     width: 30%;
   }

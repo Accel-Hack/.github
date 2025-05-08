@@ -109,7 +109,7 @@
 @media (width > 450px) {
   .background_logo {
     height: 100%;
-    width: calc(10vh);
+    width: calc(20vh);
     /* background-color: rgba(0, 255, 0, 1); */
   }
 }
@@ -125,7 +125,7 @@
   transform: rotate(180deg);
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .header {
     height: var(--header-height-sm);
   }

@@ -21,33 +21,16 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
           {positions.map((p, i) => {
             return (
               <div key={i} className={styles.position_list_item}>
-                <div className={styles.image_mock}>{p.thumbnail}</div>
-                <div className={styles.image_label}>{p.title}</div>
+                {p.title}
               </div>
             );
           })}
         </div>
         <div className={styles.position_list_table} style={{ marginTop: 26 }}>
-          <div className={styles.position_list_item}>
+          <div>
             <table>
               <tbody>
-                {conditions.slice(0, 5).map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      <th className={styles.conditions_title}>{item.title}</th>
-                      <td className={styles.conditions_description}>
-                        {item.description}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <div className={styles.position_list_item}>
-            <table>
-              <tbody>
-                {conditions.slice(5).map((item, i) => {
+                {conditions.map((item, i) => {
                   return (
                     <tr key={i}>
                       <th className={styles.conditions_title}>{item.title}</th>

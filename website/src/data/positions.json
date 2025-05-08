@@ -1,14 +1,14 @@
 [
   {
     "title": "エンジニア",
-    "thumbnail": "image1.jpg"
+    "thumbnail": "engineer"
   },
   {
     "title": "PM",
-    "thumbnail": "image2.jpg"
+    "thumbnail": "pm"
   },
   {
     "title": "インターン",
-    "thumbnail": "image3.jpg"
+    "thumbnail": "intern"
   }
 ]

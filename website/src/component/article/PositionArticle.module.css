@@ -3,8 +3,6 @@
 }
 
 .position_list {
-  display: flex;
-  gap: 0.625rem;
 }
 
 .position_list_table {
@@ -13,7 +11,26 @@
 }
 
 .position_list_item {
-  flex: 1;
+  padding: 1.5rem 1.6rem;
+  border-bottom: 1px solid #000;
+  text-align: start;
+  line-height: 1rem;
+  position: relative;
+}
+
+.position_list_item:hover {
+  cursor: pointer;
+  background-color: var(--background-yellow);
+}
+
+.position_list_item::after {
+  content: '→';
+  position: absolute;
+  right: 0.5rem;
+}
+
+.position_list_item > tr {
+  text-align: start;
 }
 
 .image_mock {
@@ -43,7 +60,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .position_list_table {
     flex-direction: column;
     gap: 0;

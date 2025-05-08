@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
 import styles from './ServiceListArticle.module.css';
+import ServiceImgSrcUtil from '@/utils/ServiceImgSrcUtil';
 
 type Props = {
   services: {
@@ -21,13 +22,11 @@ const ServiceListArticle: React.FC<Props> = ({ services }: Props) => {
                 <div className={styles.image_wrapper}>
                   <img
                     className={styles.image}
-                    // src={s.thumbnail}
+                    src={ServiceImgSrcUtil.convertServiceImageSrc(s.thumbnail)}
                     alt={s.title}
                   />
                 </div>
               </div>
-              <div className={styles.title}>{s.title}</div>
-              <div className={styles.summary}>{s.summary}</div>
             </div>
           );
         })}

@@ -19,6 +19,18 @@ const EnvironmentArticle: React.FC = () => {
           <div className={styles.text}>Engineer 21名 / Back Office 1名</div>
         </div>
         <div className={styles.content}>
+          <div className={styles.heading}>休日</div>
+          <div className={styles.text}>
+            完全週休2日制（土・日）/ 祝日・夏休み・年末年始
+          </div>
+        </div>
+        <div className={styles.content}>
+          <div className={styles.heading}>福利厚生</div>
+          <div className={styles.text}>
+            念10日の有給付与 / 看護休暇・育児休暇など
+          </div>
+        </div>
+        <div className={styles.content}>
           <div className={styles.heading}>教育制度</div>
           <div className={styles.text}>
             <ul>

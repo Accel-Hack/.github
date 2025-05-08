@@ -1,6 +1,6 @@
 .container {
   width: inherit;
-  height: inherit;
+  min-height: 100%;
   box-sizing: border-box;
   padding: 10px;
   overflow: scroll;
