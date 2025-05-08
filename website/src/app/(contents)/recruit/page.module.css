@@ -6,10 +6,14 @@
 }
 
 .left_container {
-  width: 40%;
+  width: 48%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+}
+
+.left_sub_container {
+  display: flex;
+  gap: 0.3rem;
 }
 
 .right_container {

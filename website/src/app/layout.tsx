@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         {/* Axiaフォントの読み込み */}
         <link rel="stylesheet" href="https://use.typekit.net/ulu1pwh.css" />

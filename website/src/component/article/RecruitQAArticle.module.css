@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 0.5em 0.5em;
+  padding: 1rem 0.5rem;
   color: #333333;
   font-weight: 600;
   cursor: pointer;
@@ -28,7 +28,7 @@
 }
 
 .accordion summary::after {
-  transform: translateY(-25%) rotate(45deg);
+  transform: translateX(-10px) translateY(-25%) rotate(45deg);
   width: 7px;
   height: 7px;
   margin-left: 10px;
@@ -39,7 +39,7 @@
 }
 
 .accordion[open] summary::after {
-  transform: translateY(-25%) rotate(225deg);
+  transform: translateX(-10px) translateY(-25%) rotate(225deg);
 }
 
 .accordion p {

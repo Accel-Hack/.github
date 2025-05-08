@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 2.25rem;
+  width: 100%;
 }
 
 .title_wrapper {

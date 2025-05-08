@@ -14,6 +14,10 @@
   object-fit: cover;
 }
 
+.main_image_container {
+  background-color: var(--background-yellow);
+}
+
 .summary {
   margin-top: 1rem;
 }
@@ -25,11 +29,11 @@
 .sub_image_container {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .sub_image {
-  width: 32%;
+  width: 40%;
   object-fit: cover;
   border-radius: 4px;
   transition: transform 0.3s ease;

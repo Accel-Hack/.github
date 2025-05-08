@@ -3,6 +3,9 @@
   justify-content: center;
   gap: 1rem;
   padding: 2rem 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  align-items: center;
 }
 
 .service_list_item {
@@ -41,6 +44,9 @@
 }
 
 .image_wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .image {
@@ -58,7 +64,6 @@
   }
 
   .thumbnail_wrapper {
-    height: 100px;
     object-fit: cover;
     aspect-ratio: auto;
   }

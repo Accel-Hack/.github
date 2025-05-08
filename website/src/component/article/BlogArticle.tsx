@@ -42,7 +42,8 @@ const BlogArticle: React.FC<Props> = ({
           style={{
             width: '100%',
             height: 'auto',
-            minHeight: '300px',
+            minHeight: '24rem',
+            maxHeight: '24rem',
             objectFit: 'cover',
           }}
         />

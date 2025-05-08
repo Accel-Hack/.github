@@ -35,7 +35,8 @@ const BlogSection: React.FC<Props> = ({
             style={{
               width: '100%',
               height: 'auto',
-              maxHeight: '300px',
+              minHeight: '23rem',
+              maxHeight: '23rem',
               objectFit: 'cover',
             }}
           />
