@@ -1,0 +1,24 @@
+.container {
+  width: inherit;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.imageContainer {
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.articles {
+  width: inherit;
+  height: inherit;
+  background-color: white;
+
+  box-sizing: border-box;
+  padding: 20px 48px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}

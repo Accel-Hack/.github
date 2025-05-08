@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="46.39 62 594.05 15">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: #707070;
+            }
+
+            .cls-1, .cls-2 {
+            stroke: #707070;
+            stroke-miterlimit: 10;
+            stroke-width: .8px;
+            }
+
+            .cls-2 {
+            fill: none;
+            }
+        </style>
+    </defs>
+    <!-- 180度回転 -->
+    <g transform="rotate(180, 343.415, 69.46)">
+        <rect class="cls-1" x="46.39" y="65.52" width="23.61" height="3.94"/>
+        <g>
+            <line class="cls-2" x1="640.44" y1="69.46" x2="46.39" y2="69.46"/>
+            <path class="cls-2" d="M529.31,69.46l-4.8,4.8c-.76.76-1.79,1.19-2.87,1.19h-60.47c-1.08,0-2.11-.43-2.87-1.19l-4.77-4.77"/>
+        </g>
+    </g>
+</svg>
