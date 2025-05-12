@@ -33,14 +33,6 @@
   initial-value: 20px;
 }
 
-@font-face {
-  font-family: 'Noto Sans JP';
-  src: url('/font/NotoSansJP-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 html {
   font-size: 16px;
 }

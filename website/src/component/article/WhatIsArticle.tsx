@@ -17,7 +17,7 @@ const WhatIsArticle: React.FC = () => {
         />
       </div>
       <div className={styles.text_wrapper}>
-        <span style={{ fontWeight: 800 }}>
+        <span style={{ fontWeight: 700 }}>
           エンジニアを煩雑な作業から解放し
           <br />
           『エンジニア』を再評価する
