@@ -2,7 +2,6 @@ import React from 'react';
 import Article from '@/component/organism/Article';
 import styles from './ServiceArticle.module.css';
 import ServiceImgSrcUtil from '@/utils/ServiceImgSrcUtil';
-import { s } from 'framer-motion/dist/types.d-B50aGbjN';
 
 type Props = {
   service: {
