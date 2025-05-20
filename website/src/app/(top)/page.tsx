@@ -81,11 +81,13 @@ export default function Home() {
 
       <div>
         <TopDiagonalLine className={styles.top_diagonal_line} />
-        <COLOR_SQUARES style={{
-          position: 'absolute',
-          left: '69px',
-          top: '22px'
-        }} />
+        <COLOR_SQUARES
+          style={{
+            position: 'absolute',
+            left: '69px',
+            top: '22px',
+          }}
+        />
         <Square
           style={{
             position: 'absolute',

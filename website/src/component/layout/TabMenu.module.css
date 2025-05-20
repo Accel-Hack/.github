@@ -19,9 +19,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        width: 180px;
-    }
+  .container {
+    width: 180px;
+  }
 }
 
 @media screen and (max-width: 768px) {

@@ -24,7 +24,7 @@ const WorkArticle: React.FC = () => {
     {
       src: LogoRealight.src,
       label: '経理DX支援事業',
-      link: 'https://realight.co.jp/'
+      link: 'https://realight.co.jp/',
     },
   ];
 
@@ -33,7 +33,12 @@ const WorkArticle: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.contents}>
           {companies.map((item, index) => (
-            <WorksCompany key={index} src={item.src} label={item.label} link={item.link!}/>
+            <WorksCompany
+              key={index}
+              src={item.src}
+              label={item.label}
+              link={item.link!}
+            />
           ))}
         </div>
       </div>

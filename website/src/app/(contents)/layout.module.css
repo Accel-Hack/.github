@@ -39,19 +39,19 @@
 .article_container {
   width: inherit;
   height: inherit;
-    background-color: white;
+  background-color: white;
   box-sizing: border-box;
   padding: 10px;
   overflow: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .articles {
   width: inherit;
   height: inherit;
-    width: 90%;
+  width: 90%;
   box-sizing: border-box;
   padding: 20px 48px;
   overflow: auto;

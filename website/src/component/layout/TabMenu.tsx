@@ -9,8 +9,8 @@ const MainTabs = [Page.ABOUT, Page.SERVICE, Page.RECRUIT, Page.BLOG];
 const SubTabs = [Page.CONTACT];
 
 const TabMenu: React.FC = () => {
-  const pathname  = usePathname();
-  const displayedTabs = MainTabs.filter((tab) => tab != pathname)
+  const pathname = usePathname();
+  const displayedTabs = MainTabs.filter((tab) => tab != pathname);
 
   return (
     <>

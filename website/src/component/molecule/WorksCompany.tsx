@@ -11,19 +11,19 @@ type WorksCompanyProps = {
 const WorksCompany: React.FC<WorksCompanyProps> = ({
   src,
   label,
-  link
+  link,
 }: WorksCompanyProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.image_wrapper}>
         <a href={link} target="_blank" rel="noopener noreferrer">
-        <Image
-          src={src}
-          alt={label}
-          width={500}
-          height={0}
-          style={{ height: 'auto', width: '100%' }}
-        />
+          <Image
+            src={src}
+            alt={label}
+            width={500}
+            height={0}
+            style={{ height: 'auto', width: '100%' }}
+          />
         </a>
       </div>
       <p>{label}</p>

@@ -39,7 +39,7 @@ const MVVArticle: React.FC = () => {
               </p>
               <p className={styles.catch_copy_description}>
                 最新技術に常に関心を持ち新しいもの好きであり続けることのできる開発環境
-                </p>
+              </p>
               <p className={styles.catch_copy_description}>
                 煩雑な作業から解放されエンジニアがエンジニアらしくスキルを伸ばせる場所
               </p>

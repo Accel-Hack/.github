@@ -10,7 +10,7 @@ type Props = {
     summary: string;
     images: string[];
     description: string[];
-    id: string
+    id: string;
   };
 };
 

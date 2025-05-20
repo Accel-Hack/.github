@@ -16,12 +16,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-    font-size: 1.25rem;
-    font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
-.content:hover{
-    background-color: var(--company-color);
+.content:hover {
+  background-color: var(--company-color);
 }
 
 .primary {
@@ -34,7 +34,7 @@
   background: rgba(112, 112, 112, 1) 0% 0% no-repeat padding-box;
   box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.16);
   opacity: 0.8;
-    color: white;
+  color: white;
 }
 
 .arrow {
@@ -49,10 +49,10 @@
   line-height: 21px;
 }
 
-@media screen and (min-width: 1440px){
-    .container {
-        height: 70px;
-    }
+@media screen and (min-width: 1440px) {
+  .container {
+    height: 70px;
+  }
 }
 
 @media screen and (max-width: 768px) {

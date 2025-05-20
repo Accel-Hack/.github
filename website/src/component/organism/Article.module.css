@@ -32,7 +32,7 @@
 }
 
 @media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
-    .container {
-        height: auto;
-    }
+  .container {
+    height: auto;
+  }
 }
