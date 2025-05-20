@@ -9,7 +9,6 @@
 
 .logo_container {
   margin: 0 1%;
-  width: 16%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -17,9 +16,9 @@
 }
 
 .copyright {
-  max-width: 240px;
-  max-height: 24px;
+  height: 24px;
+    line-height: 24px;
   width: 100%;
-  height: 100%;
   position: relative;
+    font-size: .5rem;
 }

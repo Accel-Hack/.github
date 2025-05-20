@@ -48,6 +48,14 @@
   margin-bottom: 0.5rem;
 }
 
+@media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
+    .container {
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 2rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;

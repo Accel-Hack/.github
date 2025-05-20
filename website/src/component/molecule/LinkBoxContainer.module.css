@@ -1,14 +1,13 @@
 .container {
+    width: 480px;
   display: flex;
 }
 
 .container_lg {
-  width: 100%;
   gap: 1rem;
 }
 
 .container_md {
-  height: 105px;
   margin-top: 0.75rem;
 }
 

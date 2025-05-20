@@ -2,6 +2,7 @@ import React from 'react';
 import Article from '@/component/organism/Article';
 import styles from './ServiceArticle.module.css';
 import ServiceImgSrcUtil from '@/utils/ServiceImgSrcUtil';
+import { s } from 'framer-motion/dist/types.d-B50aGbjN';
 
 type Props = {
   service: {
@@ -10,13 +11,14 @@ type Props = {
     summary: string;
     images: string[];
     description: string[];
+    id: string
   };
 };
 
 const ServiceArticle: React.FC<Props> = ({ service }: Props) => {
   return (
     <Article caption={service.title}>
-      <div className={styles.container}>
+      <div className={styles.container} id={service.id}>
         <div className={styles.main_container}>
           <div className={styles.main_image_container}>
             <img

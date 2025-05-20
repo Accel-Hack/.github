@@ -36,9 +36,12 @@ const AboutArticle: React.FC = () => {
                 <p className={styles.service_border}></p>
               </div>
               <div className={styles.service_contents}>
-                <p>DX/システム導入コンサル</p>
+                <p>要件定義支援ツール：ADeT</p>
+                <p>即日MockAppサービス</p>
                 <p>要件定義・基本設計支援</p>
                 <p>開発・保守業務</p>
+                <p>DXコンサルタント</p>
+                <p>and more ...</p>
               </div>
             </div>
           </div>

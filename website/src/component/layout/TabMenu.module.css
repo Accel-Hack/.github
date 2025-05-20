@@ -1,7 +1,7 @@
 .container {
   z-index: 1000;
   position: fixed;
-  top: calc(var(--header-height) + 60px);
+  top: calc(var(--header-height) + 30px);
   right: 0;
   width: 150px;
   height: var(--main-height);
@@ -11,11 +11,17 @@
 }
 
 .tab {
-  margin: 10% 0;
+  margin: 15px 0;
 }
 
 .menu_btn {
   display: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        width: 180px;
+    }
 }
 
 @media screen and (max-width: 768px) {

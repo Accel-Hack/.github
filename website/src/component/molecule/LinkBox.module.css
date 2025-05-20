@@ -1,6 +1,7 @@
 .link_box {
   box-shadow: 10px 10px 6px 0 rgba(0, 0, 0, 0.16);
-  font-size: 40px;
+  font-size: 2rem;
+    font-weight: 500;
   background-color: var(--white);
   opacity: 0.8;
   display: flex;
@@ -28,7 +29,7 @@
 
 /* 中サイズ（md）のスタイル */
 .link_box_md {
-  height: 105px;
+  height: 90px;
 }
 
 .link_box_md_text {

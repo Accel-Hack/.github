@@ -30,3 +30,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
+    .container {
+        height: auto;
+    }
+}

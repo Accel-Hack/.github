@@ -33,11 +33,14 @@ const MVVArticle: React.FC = () => {
                 開発現場のあらゆる無駄がなくなり、
                 <br />
                 最短・最速・最適な開発が当たり前である社会
-                <br />
+              </p>
+              <p className={styles.catch_copy_description}>
                 最大効率の開発は何たるかを常に追い求め続ける集団
-                <br />
+              </p>
+              <p className={styles.catch_copy_description}>
                 最新技術に常に関心を持ち新しいもの好きであり続けることのできる開発環境
-                <br />
+                </p>
+              <p className={styles.catch_copy_description}>
                 煩雑な作業から解放されエンジニアがエンジニアらしくスキルを伸ばせる場所
               </p>
             </div>

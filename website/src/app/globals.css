@@ -18,13 +18,13 @@
 @property --footer-height {
   syntax: '*';
   inherits: false;
-  initial-value: 80px;
+  initial-value: 44px;
 }
 
 @property --header-height-sm {
   syntax: '*';
   inherits: false;
-  initial-value: 48px;
+  initial-value: 33px;
 }
 
 @property --footer-height-sm {

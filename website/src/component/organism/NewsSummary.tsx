@@ -23,7 +23,7 @@ const NewsSummary: React.FC<Props> = ({ newses }: Props) => {
           </div>
         );
       })}
-      <div style={{ display: 'flex', justifyContent: 'end' }}>
+      <div style={{ display: 'flex', justifyContent: 'end', marginTop: '5px' }}>
         <Link href={Page.NEWS}>
           <Cursor className={styles.cursor} />
         </Link>

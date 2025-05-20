@@ -27,7 +27,7 @@ const EnvironmentArticle: React.FC = () => {
         <div className={styles.content}>
           <div className={styles.heading}>福利厚生</div>
           <div className={styles.text}>
-            念10日の有給付与 / 看護休暇・育児休暇など
+            年10日の有給付与 / 看護休暇・育児休暇など
           </div>
         </div>
         <div className={styles.content}>
