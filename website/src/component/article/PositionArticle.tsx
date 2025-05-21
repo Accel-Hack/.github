@@ -1,6 +1,7 @@
 import React from 'react';
 import Article from '@/component/organism/Article';
 import styles from './PositionArticle.module.css';
+import RecruitPosition from '@/component/article/RecruitPosition';
 
 type Props = {
   positions: {
@@ -20,9 +21,7 @@ const PositionArticle: React.FC<Props> = ({ positions, conditions }: Props) => {
         <div className={styles.position_list}>
           {positions.map((p, i) => {
             return (
-              <div key={i} className={styles.position_list_item}>
-                {p.title}
-              </div>
+              <RecruitPosition key={i} label={p.title} imgSrc={p.thumbnail} />
             );
           })}
         </div>

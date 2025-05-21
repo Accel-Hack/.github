@@ -3,6 +3,9 @@
 }
 
 .position_list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .position_list_table {

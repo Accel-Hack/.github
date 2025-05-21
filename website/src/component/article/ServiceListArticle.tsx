@@ -19,9 +19,9 @@ const ServiceListArticle: React.FC<Props> = ({ services }: Props) => {
         {services.map((s, i) => {
           return (
             <div key={i} className={styles.service_list_item}>
-              <div className={styles.thumbnail_wrapper} key={i}>
-                <div className={styles.image_wrapper}>
-                  <a href={`#${s.id}`}>
+              <div className={styles.thumbnail_wrapper}>
+                <a href={`#${s.id}`}>
+                  <div className={styles.image_wrapper}>
                     <img
                       className={styles.image}
                       src={ServiceImgSrcUtil.convertServiceImageSrc(
@@ -29,8 +29,8 @@ const ServiceListArticle: React.FC<Props> = ({ services }: Props) => {
                       )}
                       alt={s.title}
                     />
-                  </a>
-                </div>
+                  </div>
+                </a>
               </div>
             </div>
           );

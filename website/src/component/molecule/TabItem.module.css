@@ -49,7 +49,7 @@
   line-height: 21px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1800px) {
   .container {
     height: 70px;
   }

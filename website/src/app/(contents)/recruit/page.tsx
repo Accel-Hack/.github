@@ -22,8 +22,12 @@ const RecruitPage: React.FC = () => {
       </div>
       <div className={styles.page}>
         <div className={styles.left_container}>
-          <EnvironmentArticle />
-          <SelectionFlowArticle />
+          <div style={{ marginBottom: '2rem' }}>
+            <EnvironmentArticle />
+          </div>
+          <div>
+            <SelectionFlowArticle />
+          </div>
         </div>
         <div className={styles.right_container}>
           <RecruitQAArticle qas={QAS} />
