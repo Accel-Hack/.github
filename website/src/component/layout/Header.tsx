@@ -1,4 +1,3 @@
-'use server';
 import React from 'react';
 import Image from 'next/legacy/image';
 import { Page } from '@/enum/Page';

@@ -6,7 +6,9 @@
     "ci": "yarn --frozen-lock",
     "dev": "next dev",
     "build": "next build",
+    "export": "yarn run build && next export -o ../docs",
     "start": "next start",
+    "homepage": "npx serve out",
     "typecheck": "tsc --noEmit",
     "lint": "prettier -c ./src && next lint",
     "lint:fix": "prettier -w ./src && next lint --fix"
@@ -14,7 +16,7 @@
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^12.7.3",
-    "next": "15.1.7",
+    "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

@@ -6,6 +6,12 @@ import Acelhack1 from '@/asset/img/common/accelhack1.png';
 import BlogSection, { BlogSectionType } from '@/component/molecule/BlogSection';
 import PublicDirPathUtil from '@/utils/PublicDirPathUtil';
 
+export async function generateStaticParams(): Promise<{ id: string }[]> {
+  return BLOGS.flatMap((blog) => blog.articles).map((b) => {
+    return { id: b.id };
+  });
+}
+
 const BlogIdPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
