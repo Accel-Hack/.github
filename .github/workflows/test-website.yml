@@ -30,7 +30,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd ./app
     - run: yarn install
     - run: yarn lint
     - run: yarn typecheck

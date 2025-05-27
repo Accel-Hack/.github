@@ -2,14 +2,13 @@
 
 以下がインストールされていることを前提とする。
 
-- Node.js v22
-- yarn
-    - バージョンは問わない。[`.yarnrc.yml`](./.yarnrc.yml) の yarnPath に書かれているものが自動で選択されるため
+- Node.js v20.11.x
+- yarn v1.22.22
 
 依存パッケージをインストールする
 
 ```shell
-$ yarn install
+$ yarn ci
 ```
 
 ## Getting Started
