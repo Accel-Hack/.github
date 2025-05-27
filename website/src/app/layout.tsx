@@ -45,134 +45,132 @@ export default function RootLayout({
         />
       </head>
       <body className={`${styles.body} ${geistSans.variable}`}>
-        <>
-          <Transition>
-            <header className={styles.header}>
-              <Header />
-            </header>
-            <main className={styles.main}>
-              <div className={styles.content}>{children}</div>
-              {/* メインページの枠 */}
-              <div className={styles.frame}>
-                <FrameTopLine
-                  className={`${styles.frame_top_line} small_media_hidden`}
-                />
-                <FrameBottomLine
-                  className={`${styles.frame_top_line} small_media_visible`}
-                />
-                <FrameBottomLine className={styles.frame_bottom_line} />
-                <FrameCornerTriangle
-                  style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '0',
-                  }}
-                  className={styles.triangle}
-                />
-                <FrameCornerTriangle
-                  style={{
-                    position: 'absolute',
-                    top: '0',
-                    right: '0',
-                    transform: 'scaleX(-1)',
-                  }}
-                  className={styles.triangle}
-                />
-                <FrameCornerTriangle
-                  style={{
-                    position: 'absolute',
-                    bottom: '0',
-                    left: '0',
-                    transform: 'rotate(-180deg) scaleX(-1)',
-                  }}
-                  className={styles.triangle}
-                />
-                <FrameCornerTriangle
-                  style={{
-                    position: 'absolute',
-                    bottom: '0',
-                    right: '0',
-                    transform: 'rotate(-180deg)',
-                  }}
-                  className={styles.triangle}
-                />
-                <FrameSideEndLine
-                  style={{
-                    position: 'absolute',
-                    top: '7px',
-                    left: '0',
-                  }}
-                  className={styles.side_end_line}
-                />
-                <FrameSideEndLine
-                  style={{
-                    position: 'absolute',
-                    top: '7px',
-                    right: '0',
-                    transform: 'scaleX(-1)',
-                  }}
-                  className={styles.side_end_line}
-                />
-                <FrameSideEndLine
-                  style={{
-                    position: 'absolute',
-                    bottom: '7px',
-                    left: '0',
-                    transform: 'rotate(-180deg) scaleX(-1)',
-                  }}
-                  className={styles.side_end_line}
-                />
-                <FrameSideEndLine
-                  style={{
-                    position: 'absolute',
-                    bottom: '7px',
-                    right: '0',
-                    transform: 'rotate(-180deg)',
-                  }}
-                  className={styles.side_end_line}
-                />
-                <FrameSideMiddleLine
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    height: '80%',
-                    transform: 'translateY(-50%)',
-                  }}
-                  className={styles.side_middle_line}
-                />
-                <FrameSideMiddleLine
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    right: '0',
-                    height: '80%',
-                    transform: 'translateY(-50%)',
-                  }}
-                  className={styles.side_middle_line}
-                />
-              </div>
-            </main>
-            <div className={styles.small_media_footer}>
-              <Square
-                style={{
-                  width: '29.75px',
-                  height: 'auto',
-                }}
-                class={'small_media_visible'}
+        <Transition>
+          <header className={styles.header}>
+            <Header />
+          </header>
+          <main className={styles.main}>
+            <div className={styles.content}>{children}</div>
+            {/* メインページの枠 */}
+            <div className={styles.frame}>
+              <FrameTopLine
+                className={`${styles.frame_top_line} small_media_hidden`}
               />
-              <Square
+              <FrameBottomLine
+                className={`${styles.frame_top_line} small_media_visible`}
+              />
+              <FrameBottomLine className={styles.frame_bottom_line} />
+              <FrameCornerTriangle
                 style={{
-                  width: '29.75px',
-                  height: 'auto',
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
                 }}
-                class={'small_media_visible'}
+                className={styles.triangle}
+              />
+              <FrameCornerTriangle
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  right: '0',
+                  transform: 'scaleX(-1)',
+                }}
+                className={styles.triangle}
+              />
+              <FrameCornerTriangle
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  left: '0',
+                  transform: 'rotate(-180deg) scaleX(-1)',
+                }}
+                className={styles.triangle}
+              />
+              <FrameCornerTriangle
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  right: '0',
+                  transform: 'rotate(-180deg)',
+                }}
+                className={styles.triangle}
+              />
+              <FrameSideEndLine
+                style={{
+                  position: 'absolute',
+                  top: '7px',
+                  left: '0',
+                }}
+                className={styles.side_end_line}
+              />
+              <FrameSideEndLine
+                style={{
+                  position: 'absolute',
+                  top: '7px',
+                  right: '0',
+                  transform: 'scaleX(-1)',
+                }}
+                className={styles.side_end_line}
+              />
+              <FrameSideEndLine
+                style={{
+                  position: 'absolute',
+                  bottom: '7px',
+                  left: '0',
+                  transform: 'rotate(-180deg) scaleX(-1)',
+                }}
+                className={styles.side_end_line}
+              />
+              <FrameSideEndLine
+                style={{
+                  position: 'absolute',
+                  bottom: '7px',
+                  right: '0',
+                  transform: 'rotate(-180deg)',
+                }}
+                className={styles.side_end_line}
+              />
+              <FrameSideMiddleLine
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  height: '80%',
+                  transform: 'translateY(-50%)',
+                }}
+                className={styles.side_middle_line}
+              />
+              <FrameSideMiddleLine
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: '0',
+                  height: '80%',
+                  transform: 'translateY(-50%)',
+                }}
+                className={styles.side_middle_line}
               />
             </div>
-            <footer className={styles.footer}>
-              <Footer />
-            </footer>
-          </Transition>
-        </>
+          </main>
+          <div className={styles.small_media_footer}>
+            <Square
+              style={{
+                width: '29.75px',
+                height: 'auto',
+              }}
+              className={'small_media_visible'}
+            />
+            <Square
+              style={{
+                width: '29.75px',
+                height: 'auto',
+              }}
+              className={'small_media_visible'}
+            />
+          </div>
+          <footer className={styles.footer}>
+            <Footer />
+          </footer>
+        </Transition>
         {/* 左右のAccelHackのレイヤー */}
         <>
           <div className={`${styles.background} ${styles.bg_responsive}`}>

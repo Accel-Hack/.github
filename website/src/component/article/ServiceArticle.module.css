@@ -29,7 +29,7 @@
 .sub_image_container {
   display: flex;
   gap: 1rem;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .sub_image {

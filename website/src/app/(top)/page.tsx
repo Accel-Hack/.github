@@ -96,7 +96,7 @@ export default function Home() {
             width: '29.75px',
             height: 'auto',
           }}
-          class={'small_media_hidden'}
+          className={'small_media_hidden'}
         />
         <Square
           style={{
@@ -106,7 +106,7 @@ export default function Home() {
             width: '29.75px',
             height: 'auto',
           }}
-          class={'small_media_hidden'}
+          className={'small_media_hidden'}
         />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
       </div>
