@@ -5,6 +5,6 @@ export enum Page {
   RECRUIT = '/recruit',
   BLOG = '/blog',
   NEWS = '/news',
-  CONTACT = '/contact',
+  CONTACT = 'https://docs.google.com/forms/d/e/1FAIpQLSdSTDPgMCzw7rfAHZYNcFkWGfUCLMzpeeUzxpad_9Pg_TVB1A/viewform',
   PRIVACY_POLICY = '/privacy-policy',
 }

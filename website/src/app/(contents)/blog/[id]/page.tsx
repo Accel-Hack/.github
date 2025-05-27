@@ -1,17 +1,13 @@
-'use client';
-
 import React from 'react';
 import BLOGS from '@/data/blogs.json';
-import { usePathname } from 'next/navigation';
 import Article from '@/component/organism/Article';
 import styles from './page.module.css';
 import Acelhack1 from '@/asset/img/common/accelhack1.png';
 import BlogSection, { BlogSectionType } from '@/component/molecule/BlogSection';
 import PublicDirPathUtil from '@/utils/PublicDirPathUtil';
 
-const BlogIdPage: React.FC = () => {
-  const pathname = usePathname();
-  const id = pathname.split('/').pop();
+const BlogIdPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
 
   const article = BLOGS.flatMap((blog) => blog.articles).find(
     (b) => b.id === id,
