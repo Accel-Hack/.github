@@ -68,13 +68,13 @@ export default function Home() {
               variant="contact"
               showCursor={false}
             />
-            <LinkBox
-              href={Page.PRIVACY_POLICY}
-              text="Privacy Policy"
-              size="sm"
-              variant="privacy"
-              showCursor={false}
-            />
+            {/*<LinkBox*/}
+            {/*  href={Page.PRIVACY_POLICY}*/}
+            {/*  text="Privacy Policy"*/}
+            {/*  size="sm"*/}
+            {/*  variant="privacy"*/}
+            {/*  showCursor={false}*/}
+            {/*/>*/}
           </LinkBoxContainer>
         </div>
       </div>
