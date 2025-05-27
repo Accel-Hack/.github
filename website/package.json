@@ -1,8 +1,9 @@
 {
   "name": "ui",
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@1.22.22",
   "version": "0.1.0",
   "scripts": {
+    "ci": "yarn --frozen-lock",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
