@@ -1,0 +1,29 @@
+<svg id="グループ_186" data-name="グループ 186" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45.114" height="9.821" viewBox="0 0 45.114 9.821">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_353" data-name="長方形 353" width="45.114" height="9.821" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="長方形_352" data-name="長方形 352" width="45.114" height="9.821" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="長方形_351" data-name="長方形 351" width="9.822" height="9.821" transform="translate(35.293 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_185" data-name="グループ 185" clip-path="url(#clip-path)">
+    <rect id="長方形_347" data-name="長方形 347" width="9.822" height="9.822" transform="translate(0 -0.001)"/>
+    <rect id="長方形_348" data-name="長方形 348" width="9.822" height="9.822" transform="translate(11.764 -0.001)" fill="#707070"/>
+    <rect id="長方形_349" data-name="長方形 349" width="9.821" height="9.822" transform="translate(23.529 -0.001)" fill="#21ffaa"/>
+    <g id="グループ_184" data-name="グループ 184">
+      <g id="グループ_183" data-name="グループ 183" clip-path="url(#clip-path-2)">
+        <g id="グループ_182" data-name="グループ 182" opacity="0.8">
+          <g id="グループ_181" data-name="グループ 181">
+            <g id="グループ_180" data-name="グループ 180" clip-path="url(#clip-path-3)">
+              <rect id="長方形_350" data-name="長方形 350" width="9.821" height="9.821" transform="translate(35.293 0)" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

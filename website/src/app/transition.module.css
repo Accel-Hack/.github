@@ -1,0 +1,18 @@
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: var(--company-color);
+  pointer-events: none;
+}
+
+.topRight {
+  clip-path: polygon(100% 0, 0% 0, 100% 100%);
+  transform-origin: top right;
+}
+
+.bottomLeft {
+  clip-path: polygon(0% 100%, 100% 100%, 0% 0);
+  transform-origin: bottom left;
+}

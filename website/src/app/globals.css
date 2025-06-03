@@ -1,0 +1,90 @@
+:rootbody {
+  margin: 0;
+  padding: 0;
+}
+
+@property --header-height {
+  syntax: '*';
+  inherits: false;
+  initial-value: 64px;
+}
+
+/*@property --main-height {*/
+/*  syntax: '*';*/
+/*  inherits: false;*/
+/*  initial-value: 84.5%;*/
+/*}*/
+
+@property --footer-height {
+  syntax: '*';
+  inherits: false;
+  initial-value: 44px;
+}
+
+@property --header-height-sm {
+  syntax: '*';
+  inherits: false;
+  initial-value: 33px;
+}
+
+@property --footer-height-sm {
+  syntax: '*';
+  inherits: false;
+  initial-value: 20px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #f5f4f2;
+}
+
+.small_media_visible {
+  display: none;
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .small_media_hidden {
+    display: none;
+  }
+
+  .small_media_visible {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+:root {
+  --white: #fafafa;
+  --gray: #707070;
+  --background-yellow: #f5f4f2;
+  --background-black: #000000;
+  --company-color: #21ffaa;
+  --font-axia: 'axia', sans-serif;
+  --font-weight-bold: 700;
+  --width-sm: 768px;
+  --background-navbar: rgba(55, 55, 55, 0.98);
+}

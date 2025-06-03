@@ -1,0 +1,38 @@
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll > p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.icon {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: var(--background-black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
+  .container {
+    height: auto;
+  }
+}

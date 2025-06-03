@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  /*width: 480px;*/
+  display: flex;
+}
+
+.container_lg {
+  gap: 1rem;
+}
+
+.container_md {
+  margin-top: 0.75rem;
+}
+
+.container_sm {
+  height: 36px;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container_md {
+    height: auto;
+  }
+
+  .container_sm {
+    height: auto;
+  }
+}

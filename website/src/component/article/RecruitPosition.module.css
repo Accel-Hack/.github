@@ -1,0 +1,31 @@
+.container {
+  width: 33%;
+  aspect-ratio: 1 / 1;
+  padding: 0.5rem;
+  background-color: var(--background-yellow);
+  position: relative;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.icon_container {
+  content: '';
+  width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
+  position: absolute;
+  bottom: 0.5rem;
+  background-color: #707070;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .label {
+    font-size: 0.8rem;
+  }
+}

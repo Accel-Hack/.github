@@ -1,0 +1,128 @@
+.container {
+  z-index: 1000;
+  position: fixed;
+  top: calc(var(--header-height) + 30px);
+  right: 0;
+  width: 150px;
+  height: var(--main-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.tab {
+  margin: 15px 0;
+}
+
+.menu_btn {
+  display: none;
+}
+
+@media screen and (min-width: 1800px) {
+  .container {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    z-index: 1000;
+    position: fixed;
+    top: calc(var(--header-height));
+    right: 0;
+    width: 80px;
+    height: var(--main-height);
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .main_tabs {
+    display: none;
+  }
+
+  .menu_btn:checked ~ .main_tabs {
+    display: block;
+  }
+
+  .sub_tabs {
+    display: none;
+  }
+
+  .menu_btn:checked ~ .sub_tabs {
+    display: block;
+    transition-duration: 0.2s;
+  }
+
+  /* ハンバーガー開いた時のメニュー表示 */
+  .menu {
+    background-color: var(--background-black);
+    aspect-ratio: 2/ 1;
+    text-align: center;
+    line-height: 20px;
+  }
+
+  /* ハンバーガーのトグルボタン非表示 */
+
+  /* メニューアイコン自体 */
+  .menu_icon {
+    background-color: var(--background-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  /* 3本線 */
+  .navicon {
+    background: #ddd;
+    display: block;
+    height: 3px;
+    width: 26px;
+    position: relative;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  .navicon:before,
+  .navicon:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #ddd;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  .navicon:before {
+    top: 9px;
+  }
+
+  .navicon:after {
+    bottom: 9px;
+  }
+
+  /* ハンバーガーアニメーション */
+  .menu_btn:checked ~ .menu_icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .menu_btn:checked ~ .menu_icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:before {
+    top: 0;
+  }
+
+  .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:after {
+    bottom: 0;
+  }
+
+  .menu_btn:checked ~ .menu_icon .navicon {
+    background: rgba(0, 0, 0, 0);
+    transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+}
