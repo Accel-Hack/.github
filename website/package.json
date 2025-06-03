@@ -6,7 +6,7 @@
     "ci": "yarn --frozen-lock",
     "dev": "next dev",
     "build": "next build",
-    "export": "yarn run build && next export -o ../docs",
+    "export": "yarn run build && next export -o ../docs_old",
     "start": "next start",
     "homepage": "npx serve out",
     "typecheck": "tsc --noEmit",
