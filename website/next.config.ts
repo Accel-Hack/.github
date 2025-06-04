@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '',
-  assetPrefix: '/',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
