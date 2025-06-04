@@ -45,9 +45,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: yarn ci
+        run: cd website && yarn ci
       - name: Build with Next.js
-        run: yarn run build
+        run: cd website && yarn run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -60,9 +60,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    defaults:
-      run:
-        working-directory: ./website
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
