@@ -70,9 +70,13 @@
     width: 100%;
   }
 
+  .image_wrapper{
+      height: auto;
+  }
+
   .thumbnail_wrapper {
     object-fit: cover;
-    aspect-ratio: auto;
+    aspect-ratio: 1;
   }
 
   .title {
@@ -83,4 +87,5 @@
   .summary {
     display: none;
   }
+
 }
