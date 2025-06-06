@@ -26,7 +26,7 @@ const AboutArticle: React.FC = () => {
                 </tr>
                 <tr>
                   <td>取締役</td>
-                  <td>渡辺健悟</td>
+                  <td>渡邊健悟</td>
                 </tr>
               </tbody>
             </table>
