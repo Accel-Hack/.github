@@ -11,7 +11,7 @@ const AboutArticle: React.FC = () => {
           <div className={styles.content}>
             <div>
               <div>株式会社AccelHack</div>
-              <div>〒102-0072 東京都千代田飯田橋1-5-6 協和ビル 6A室</div>
+              <div>〒102-0072 東京都千代田区飯田橋1-5-6 協和ビル 6A室</div>
               <div>2022年11月 設立</div>
             </div>
             <table>
