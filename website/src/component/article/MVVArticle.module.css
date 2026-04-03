@@ -26,17 +26,57 @@
   height: 60%;
 }
 
-.catch_copies {
+.mvv_sections {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 2rem;
+}
+
+.mvv_section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mvv_label {
+  font-family: var(--font-axia);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--company-color-text);
+  border-left: 2px solid var(--company-color-text);
+  padding-left: 0.5rem;
+}
+
+.values_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.values_list li {
+  font-size: 1rem;
+  padding-left: 1em;
+  position: relative;
+}
+
+.values_list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--company-color-text);
 }
 
 .catch_copy_en {
   font-size: 2.25rem;
   font-family: var(--font-axia);
-  margin-bottom: 1.875rem;
+  margin: 0.5rem 0;
 }
 
 .catch_copy_jp {
@@ -84,7 +124,7 @@
   .catch_copy_en {
     font-size: 2rem;
     font-family: var(--font-axia);
-    margin-bottom: 1.5rem;
+    margin: 1rem;
   }
 
   .catch_copy_jp {
