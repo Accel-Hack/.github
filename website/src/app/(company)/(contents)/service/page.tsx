@@ -1,5 +1,5 @@
 import React from 'react';
-import SERVICES from '../../../data/services.json';
+import SERVICES from '../../../../data/services.json';
 import ServiceListArticle from '@/component/article/ServiceListArticle';
 import ServiceArticle from '@/component/article/ServiceArticle';
 

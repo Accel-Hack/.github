@@ -4,9 +4,9 @@ import PositionArticle from '@/component/article/PositionArticle';
 import EnvironmentArticle from '@/component/article/EnvironmentArticle';
 import SelectionFlowArticle from '@/component/article/SelectionFlowArticle';
 import RecruitQAArticle from '@/component/article/RecruitQAArticle';
-import POSITIONS from '../../../data/positions.json';
-import CONDITIONS from '../../../data/conditions.json';
-import QAS from '../../../data/qas.json';
+import POSITIONS from '../../../../data/positions.json';
+import CONDITIONS from '../../../../data/conditions.json';
+import QAS from '../../../../data/qas.json';
 import styles from './page.module.css';
 
 const RecruitPage: React.FC = () => {

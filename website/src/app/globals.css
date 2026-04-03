@@ -1,6 +1,8 @@
-:rootbody {
+html,
+body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 @property --header-height {
@@ -8,12 +10,6 @@
   inherits: false;
   initial-value: 64px;
 }
-
-/*@property --main-height {*/
-/*  syntax: '*';*/
-/*  inherits: false;*/
-/*  initial-value: 84.5%;*/
-/*}*/
 
 @property --footer-height {
   syntax: '*';
