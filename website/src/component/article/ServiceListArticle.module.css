@@ -70,8 +70,8 @@
     width: 100%;
   }
 
-  .image_wrapper{
-      height: auto;
+  .image_wrapper {
+    height: auto;
   }
 
   .thumbnail_wrapper {
@@ -87,5 +87,4 @@
   .summary {
     display: none;
   }
-
 }

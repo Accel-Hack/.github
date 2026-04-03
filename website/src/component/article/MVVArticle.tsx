@@ -21,28 +21,32 @@ const MVVArticle: React.FC = () => {
             </div>
           </div>
           <div className={styles.content}>
-            <div className={styles.catch_copies}>
-              <p className={styles.catch_copy_en}>
-                Accel Your Innovation. <br />
-                Hack the Development.
-              </p>
-              <p className={styles.catch_copy_jp}>
-                イノベーションを加速させ、開発をハックせよ。
-              </p>
-              <p className={styles.catch_copy_description}>
-                開発現場のあらゆる無駄がなくなり、
-                <br />
-                最短・最速・最適な開発が当たり前である社会
-              </p>
-              <p className={styles.catch_copy_description}>
-                最大効率の開発は何たるかを常に追い求め続ける集団
-              </p>
-              <p className={styles.catch_copy_description}>
-                最新技術に常に関心を持ち新しいもの好きであり続けることのできる開発環境
-              </p>
-              <p className={styles.catch_copy_description}>
-                煩雑な作業から解放されエンジニアがエンジニアらしくスキルを伸ばせる場所
-              </p>
+            <div className={styles.mvv_sections}>
+              <div className={styles.mvv_section}>
+                <span className={styles.mvv_label}>Mission</span>
+                <p className={styles.catch_copy_en}>
+                  テクノロジーの恩恵を、
+                  <br />
+                  すべての企業に届ける
+                </p>
+              </div>
+              <div className={styles.mvv_section}>
+                <span className={styles.mvv_label}>Vision</span>
+                <p className={styles.catch_copy_description}>
+                  最良のタイミング・最高の品質・最適な価格を、
+                  <br />
+                  テクノロジーに関わる全ての人が享受できる社会
+                </p>
+              </div>
+              <div className={styles.mvv_section}>
+                <span className={styles.mvv_label}>Values</span>
+                <ul className={styles.values_list}>
+                  <li>システム開発の既存コストの壁を壊す自社プロダクト</li>
+                  <li>
+                    「AIに使われる」のではなく「AIを使いこなす」AIネイティブ人材
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

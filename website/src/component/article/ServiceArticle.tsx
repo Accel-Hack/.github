@@ -11,6 +11,7 @@ type Props = {
     images: string[];
     description: string[];
     id: string;
+    link?: string;
   };
 };
 
@@ -49,6 +50,16 @@ const ServiceArticle: React.FC<Props> = ({ service }: Props) => {
                 </span>
               );
             })}
+            {service.link && (
+              <a
+                href={service.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                詳細はこちら
+              </a>
+            )}
           </div>
         </div>
       </div>

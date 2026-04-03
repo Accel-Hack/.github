@@ -18,7 +18,8 @@
 .catch_copy {
   font-size: 1.75rem;
   line-height: 1.8rem;
-  font-family: var(--font-axia);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
   margin-top: 30px;
 }
 
@@ -71,6 +72,24 @@
   left: 4%;
   width: 15%;
   height: 15%;
+}
+
+.background_text {
+  position: absolute;
+  bottom: -100px;
+  left: 223px;
+  font-size: clamp(5rem, 18vw, 18rem);
+  font-family: var(--font-axia);
+  font-weight: bold;
+  color: var(--background-black);
+  opacity: 0.04;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  line-height: 1;
 }
 
 .top_diagonal_line {
@@ -130,5 +149,12 @@
     width: 100%;
     left: -10%;
     zindex: -1;
+  }
+
+  .background_text {
+    top: 80px;
+    bottom: auto;
+    left: 60px;
+    transform: rotate(-20deg);
   }
 }

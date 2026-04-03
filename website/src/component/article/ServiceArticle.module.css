@@ -47,6 +47,19 @@
   margin-top: 1rem;
 }
 
+.link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--company-color-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;

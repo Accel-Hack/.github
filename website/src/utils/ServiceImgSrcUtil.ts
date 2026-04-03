@@ -7,6 +7,7 @@ import MOCK2 from '@/asset/img/service/mockapp2.jpeg';
 import DEV from '@/asset/img/service/develop.png';
 import DEV1 from '@/asset/img/service/dev1.jpeg';
 import DEV2 from '@/asset/img/service/dev2.jpg';
+import TENPLA from '@/asset/img/service/tenpla.png';
 
 export default class ServiceImgSrcUtil {
   static convertServiceImageSrc(name: string): string {
@@ -29,6 +30,8 @@ export default class ServiceImgSrcUtil {
         return DEV1.src;
       case 'development2':
         return DEV2.src;
+      case 'tenpla':
+        return TENPLA.src;
       default:
         return '';
     }
