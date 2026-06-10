@@ -10,12 +10,33 @@ const GAS_URL =
 const ASSET_BASE = '/image/services/adet-lp';
 
 const concernItems = [
-  '仕様書が古く、実装とずれている',
-  '仕様書コードやAPIを探すのに時間がかかる',
-  '影響範囲の確認が属人化している',
-  '口頭確認が増え、レビューが止まりやすい',
-  'どの仕様が正しいのか判断できない',
-  'ナレッジが散らばり引き継ぎに時間がかかる',
+  [
+    { text: '仕様書作成で' },
+    { text: '開発工数が2倍', accent: true },
+    { text: 'に膨らんでいる' },
+  ],
+  [
+    { text: '仕様書とコードが乖離して' },
+    { text: 'ドキュメントが負債化', accent: true },
+    { text: 'している' },
+  ],
+  [
+    { text: '属人化', accent: true },
+    { text: 'していて仕様書が' },
+    { text: 'スピーディーに更新できていない' },
+  ],
+  [{ text: '仕様書変更', accent: true }, { text: 'の影響範囲が追えない' }],
+  [
+    { text: 'いまだに' },
+    { text: '紙の業務', accent: true },
+    { text: 'を' },
+    { text: 'システム化できていない' },
+  ],
+  [
+    { text: 'システム変更の度に' },
+    { text: '要件整理や見積もり', accent: true },
+    { text: 'に時間がかかる' },
+  ],
 ];
 
 const changeCards = [
@@ -103,6 +124,26 @@ function ArrowIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 12h14" />
       <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
+
+function FileIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+      <path d="M14 3v5h5" />
+      <path d="M9 13h6" />
+      <path d="M9 17h4" />
     </svg>
   );
 }
@@ -343,10 +384,16 @@ export default function ADetLpPage() {
       <header className={styles.header}>
         <Logo />
         <div className={styles.headerActions}>
-          <a href="#flow">ご利用の流れ</a>
+          <a href="#contact" onClick={openModal}>
+            <MailIcon />
+            <span>お問い合わせ</span>
+          </a>
           <button onClick={openModal} type="button">
-            <span>資料請求</span>
-            <ArrowIcon />
+            <FileIcon />
+            <span className={styles.headerButtonText}>
+              <span>資料請求</span>
+              <span>してみる</span>
+            </span>
           </button>
         </div>
       </header>
@@ -365,6 +412,9 @@ export default function ADetLpPage() {
 
         <section className={styles.intro}>
           <div className={styles.wrap}>
+            <p className={`${styles.introLead} ${styles.reveal}`}>
+              「あの人に聞かなきゃわからない」仕様書をいますぐ一元管理！
+            </p>
             <div className={`${styles.concernBlock} ${styles.reveal}`}>
               <h2>あなたのチームにも、こんな現象はありませんか?</h2>
               <div className={styles.concernPanel}>
@@ -378,16 +428,18 @@ export default function ADetLpPage() {
                   />
                 </div>
                 <div className={styles.concernGrid}>
-                  {concernItems.map((item) => (
-                    <div key={item}>
-                      <Image
-                        src={`${ASSET_BASE}/Solution_merit_icon.png`}
-                        alt=""
-                        width={40}
-                        height={40}
-                        aria-hidden="true"
-                      />
-                      <span>{item}</span>
+                  {concernItems.map((item, index) => (
+                    <div key={index}>
+                      {item.map((part, partIndex) => (
+                        <span
+                          className={
+                            part.accent ? styles.accentText : undefined
+                          }
+                          key={`${part.text}-${partIndex}`}
+                        >
+                          {part.text}
+                        </span>
+                      ))}
                     </div>
                   ))}
                 </div>

@@ -63,6 +63,9 @@
 }
 
 .headerActions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--t2);
   font-size: 12px;
   font-weight: 700;
@@ -84,8 +87,8 @@
   justify-content: center;
   gap: 8px;
   min-width: 190px;
-  min-height: 38px;
-  padding: 10px 24px;
+  min-height: 52px;
+  padding: 9px 24px;
   color: #fff;
   background: #1086f5;
   border-radius: 999px;
@@ -98,6 +101,22 @@
     background 0.2s ease;
 }
 
+.headerButtonText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.05;
+}
+
+.headerButtonText span:first-child {
+  font-size: 13px;
+}
+
+.headerButtonText span:last-child {
+  font-size: 11px;
+}
+
 .headerActions button:hover,
 .ctaBand button:hover {
   background: var(--blue);
@@ -105,7 +124,8 @@
   transform: translateY(-1px);
 }
 
-.headerActions svg,
+.headerActions a svg,
+.headerActions button svg,
 .ctaBand svg {
   width: 16px;
   height: 16px;
@@ -411,9 +431,17 @@
 }
 
 .intro {
-  padding: 56px 0 86px;
+  padding: 44px 0 96px;
   background: #fff;
   text-align: center;
+}
+
+.introLead {
+  margin: 0 auto 68px;
+  color: #050505;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .introHead p:first-child {
@@ -446,34 +474,51 @@
 }
 
 .concernBlock {
-  margin: 54px auto 0;
+  margin: 0 auto;
 }
 
 .concernBlock h2 {
-  margin-bottom: 22px;
-  font-size: clamp(20px, 2.4vw, 27px);
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 34px;
+  padding-bottom: 16px;
+  font-size: 32px;
   font-weight: 800;
+  line-height: 1.35;
+}
+
+.concernBlock h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 158px;
+  height: 5px;
+  background: #095fac;
+  transform: translateX(-50%);
 }
 
 .concernPanel {
   display: grid;
-  grid-template-columns: minmax(220px, 0.9fr) 1fr;
-  gap: 18px;
-  width: min(720px, 100%);
+  grid-template-columns: 300px 1fr;
+  align-items: center;
+  gap: 34px;
+  width: min(1040px, 100%);
   margin: 0 auto;
-  padding: 18px;
+  padding: 34px 46px 38px;
   background: #fff;
-  border: 3px solid #c6d2df;
-  border-radius: 20px;
-  box-shadow: 0 7px 0 rgba(52, 86, 118, 0.12);
+  border: 6px solid #c4cfdd;
+  border-radius: 50px;
+  box-shadow: none;
 }
 
 .concernImage {
   display: grid;
   place-items: center;
-  min-height: 150px;
-  background: #eef8ff;
-  border-radius: 14px;
+  min-height: 220px;
+  background: transparent;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -517,21 +562,22 @@
 .concernGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 10px 12px;
 }
 
 .concernGrid div {
-  display: flex;
-  align-items: center;
+  display: grid;
+  align-content: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 46px;
-  padding: 8px 12px;
-  background: #f2f4f7;
+  min-height: 58px;
+  padding: 9px 16px;
+  background: #e8e8e8;
   border-radius: 8px;
-  color: #414b57;
-  font-size: 13px;
+  color: #050505;
+  font-size: 16px;
   font-weight: 800;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .concernGrid div img {
@@ -542,39 +588,44 @@
 }
 
 .concernGrid div span {
-  display: block;
+  display: inline;
 }
 
-.concernGrid div:nth-child(odd) {
-  color: #e84b4b;
+.accentText {
+  color: #ff4f56;
 }
 
 .blueLead {
   position: relative;
   width: max-content;
   max-width: 100%;
-  margin: 38px auto 0;
+  margin: 30px auto 0;
   color: var(--blue);
-  font-size: clamp(20px, 3vw, 30px);
+  font-size: 34px;
   font-weight: 800;
-  line-height: 1.55;
+  line-height: 1.35;
+}
+
+.blueLead::first-line {
+  color: #050505;
+  font-size: 32px;
 }
 
 .blueLead::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -54px;
+  bottom: -80px;
   width: 0;
   height: 0;
-  border-left: 170px solid transparent;
-  border-right: 170px solid transparent;
-  border-top: 42px solid #0066ae;
+  border-left: 235px solid transparent;
+  border-right: 235px solid transparent;
+  border-top: 58px solid #075caf;
   transform: translateX(-50%);
 }
 
 .autoSection {
-  padding: 96px 0 70px;
+  padding: 116px 0 70px;
   background: #eaf8ff;
 }
 
@@ -1256,8 +1307,8 @@
 
   .headerActions button {
     min-width: 130px;
-    min-height: 34px;
-    padding: 8px 14px;
+    min-height: 42px;
+    padding: 7px 14px;
     font-size: 12px;
   }
 
@@ -1319,34 +1370,66 @@
     padding: 44px 0 70px;
   }
 
+  .introLead {
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
   .lead {
     font-size: 13px;
   }
 
   .concernBlock {
-    margin-top: 38px;
+    margin-top: 0;
+  }
+
+  .concernBlock h2 {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    font-size: 22px;
+  }
+
+  .concernBlock h2::after {
+    width: 108px;
+    height: 4px;
   }
 
   .concernPanel {
     grid-template-columns: 1fr;
-    padding: 14px;
-    border-width: 2px;
+    gap: 18px;
+    padding: 18px 14px 22px;
+    border-width: 4px;
+    border-radius: 30px;
+  }
+
+  .concernImage {
+    min-height: 0;
+  }
+
+  .concernImage img {
+    max-width: 260px;
   }
 
   .concernGrid {
     grid-template-columns: 1fr;
   }
 
+  .concernGrid div {
+    min-height: 54px;
+    font-size: 14px;
+  }
+
   .blueLead {
     margin-top: 28px;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .blueLead::after {
-    bottom: -42px;
-    border-left-width: 90px;
-    border-right-width: 90px;
-    border-top-width: 28px;
+    bottom: -48px;
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-top-width: 32px;
   }
 
   .autoSection {
