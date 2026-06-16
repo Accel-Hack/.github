@@ -8,32 +8,33 @@ const GAS_URL =
   'https://script.google.com/macros/s/AKfycbwiOBKtWYW0vBbsbbjpskKQ_u6Q7NPsfmfgX6bNL_SmGnu9gF-j30BjbtUndlUDgjPv/exec';
 
 const ASSET_BASE = '/image/services/adet-lp';
+const LOGO_SRC = `${ASSET_BASE}/adet-logo-transparent.png`;
 
 const concernItems = [
   [
-    { text: '仕様書作成で' },
+    { text: '仕様書作成で', breakAfter: true },
     { text: '開発工数が2倍', accent: true },
     { text: 'に膨らんでいる' },
   ],
   [
-    { text: '仕様書とコードが乖離して' },
+    { text: '仕様書とコードが乖離して', breakAfter: true },
     { text: 'ドキュメントが負債化', accent: true },
     { text: 'している' },
   ],
   [
     { text: '属人化', accent: true },
-    { text: 'していて仕様書が' },
+    { text: 'していて仕様書が', breakAfter: true },
     { text: 'スピーディーに更新できていない' },
   ],
   [{ text: '仕様書変更', accent: true }, { text: 'の影響範囲が追えない' }],
   [
     { text: 'いまだに' },
     { text: '紙の業務', accent: true },
-    { text: 'を' },
+    { text: 'を', breakAfter: true },
     { text: 'システム化できていない' },
   ],
   [
-    { text: 'システム変更の度に' },
+    { text: 'システム変更の度に', breakAfter: true },
     { text: '要件整理や見積もり', accent: true },
     { text: 'に時間がかかる' },
   ],
@@ -43,47 +44,43 @@ const changeCards = [
   {
     type: 'before',
     image: 'BeforeAfter_img_illust02.jpg',
-    text: '仕様書が Excel や Word に散らばっていて、どれが最新かわからない。',
+    text: '仕様書がExcelやWordに散在していて、どれが最新かわからない',
   },
   {
     type: 'before',
     image: 'BeforeAfter_img_illust03.jpg',
-    text: '仕様変更やレビュー内容が残りづらく、今ある仕様までたどれない。',
+    text: '仕様書がないまま開発が進んでいて、今さら書き起こす時間もない',
   },
   {
     type: 'after',
     image: 'BeforeAfter_img_illust02-1.jpg',
-    title: '検索・画面・API・DBをひとつの領域で一元管理',
-    text: '仕様と関連情報をまとめて確認できる。',
+    title:
+      '機能・画面・API・DBをひとつの構造で一元管理！修正漏れも二重管理もゼロに。',
   },
   {
     type: 'after',
     image: 'BeforeAfter_img_illust04.jpg',
-    title: '既存コードをADeTに連携し仕様書を自動作成',
-    text: '今日から仕様書のある状態へ。',
+    title:
+      '既存コードをADeTに連携し仕様書を自動作成！今日から仕様書のある状態へ。',
   },
 ];
 
 const flows = [
   {
-    label: '現状',
-    before: '仕様書が古く、探すだけで終わっている',
-    after: '既存コードを解析し、仕様書を自動生成・更新',
+    before: '仕様書が古く、実態とズレている',
+    after: '既存コードを解析し、仕様書を自動生成・更新！',
   },
   {
-    label: '検索',
-    before: '必要な仕様がどこにあるかわからない',
-    after: '画面・API・DB・業務単位でまとめて検索',
+    before: '変更時の影響範囲がわからない',
+    after: '画面・API・DB・機能のつながりを可視化！',
   },
   {
-    label: '変更',
-    before: '変更の影響範囲を、人手で洗い出している',
-    after: 'AIが仕様を横断し、気づきにくい影響を整理',
+    before: '仕様が属人化し、引き継げない',
+    after: 'AIが仕様を構造化し、誰でも読める形に整理！',
   },
   {
-    label: '共有',
-    before: '担当者に何度も確認しながら進めている',
-    after: '仕様情報をチームで共有し、確認待ちを削減',
+    before: '要件整理や見積もりに時間がかかる',
+    after: '影響範囲と現状仕様を把握し、判断材料を明確に！',
   },
 ];
 
@@ -91,17 +88,17 @@ const steps = [
   {
     step: 'STEP1',
     title: 'デモアカウントの発行',
-    text: '資料請求後、担当者より利用方法をご案内します。',
+    text: '資料請求をしていただいた方に、デモアカウントを発行いたします。',
   },
   {
     step: 'STEP2',
     title: '本登録',
-    text: 'チーム情報を設定し、プロジェクトを登録します。',
+    text: 'デモ環境確認後、本番アカウントへ移行します。',
   },
   {
     step: 'STEP3',
     title: 'ご契約',
-    text: 'プランを選択いただき、継続利用を開始できます。',
+    text: 'プランをお選びいただき、ご契約完了。その日からご利用ができます。',
   },
 ];
 
@@ -110,7 +107,7 @@ function Logo() {
     <a className={styles.logo} href="#">
       <Image
         className={styles.logoImage}
-        src={`${ASSET_BASE}/adet-logo.jpg`}
+        src={LOGO_SRC}
         alt="ADeT"
         width={690}
         height={240}
@@ -119,11 +116,30 @@ function Logo() {
   );
 }
 
-function ArrowIcon() {
+function ProductLogo() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
+    <div className={styles.productLogo} aria-label="ADeT アデット">
+      <Image
+        className={styles.productLogoImage}
+        src={LOGO_SRC}
+        alt="ADeT"
+        width={690}
+        height={240}
+      />
+      <span className={styles.productLogoKana}>
+        <span>ア</span>デット
+      </span>
+    </div>
+  );
+}
+
+function DownloadCircleIcon() {
+  return (
+    <svg className={styles.downloadIcon} viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 6v8" />
+      <path d="m8.5 10.8 3.5 3.5 3.5-3.5" />
+      <path d="M8 17h8" />
     </svg>
   );
 }
@@ -139,7 +155,7 @@ function MailIcon() {
 
 function FileIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={styles.fileIcon} viewBox="0 0 24 24" aria-hidden="true">
       <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
       <path d="M14 3v5h5" />
       <path d="M9 13h6" />
@@ -391,8 +407,8 @@ export default function ADetLpPage() {
           <button onClick={openModal} type="button">
             <FileIcon />
             <span className={styles.headerButtonText}>
-              <span>資料請求</span>
-              <span>してみる</span>
+              <h2>資料請求</h2>
+              <h3>してみる</h3>
             </span>
           </button>
         </div>
@@ -430,24 +446,28 @@ export default function ADetLpPage() {
                 <div className={styles.concernGrid}>
                   {concernItems.map((item, index) => (
                     <div key={index}>
-                      {item.map((part, partIndex) => (
-                        <span
-                          className={
-                            part.accent ? styles.accentText : undefined
-                          }
-                          key={`${part.text}-${partIndex}`}
-                        >
-                          {part.text}
-                        </span>
-                      ))}
+                      <span className={styles.concernText}>
+                        {item.map((part, partIndex) => (
+                          <React.Fragment key={`${part.text}-${partIndex}`}>
+                            <span
+                              className={
+                                part.accent ? styles.accentText : undefined
+                              }
+                            >
+                              {part.text}
+                            </span>
+                            {part.breakAfter && <br />}
+                          </React.Fragment>
+                        ))}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
               <p className={styles.blueLead}>
-                毎日どこかのチームで、起きている
+                <span>毎日どこかのチームで、起きている</span>
                 <br />
-                仕様書の問題を一気に解決します!
+                <strong>仕様書の問題を一気に解決します!</strong>
               </p>
             </div>
           </div>
@@ -456,7 +476,7 @@ export default function ADetLpPage() {
         <section className={styles.autoSection} id="what">
           <div className={styles.wrap}>
             <div className={`${styles.productLine} ${styles.reveal}`}>
-              <Logo />
+              <ProductLogo />
               <p>
                 仕様書の作成からメンテナンス、
                 <br />
@@ -465,10 +485,14 @@ export default function ADetLpPage() {
             </div>
             <div className={`${styles.demoCard} ${styles.reveal}`}>
               <p className={styles.ribbon}>
-                既存ソースコードと連携して仕様書のないプロジェクトに仕様書を導入できます
+                既存ソースコードと連携して仕様書のないプロジェクトに仕様書を導入することも可能！
               </p>
-              <h2>ADeTならGitHubと連携</h2>
-              <p>いまあるコードをもとに、仕様書づくりをすぐ始められます。</p>
+              <h2>ADeTをGitHubと連携</h2>
+              <p>リポジトリをつなぐだけで、仕様書の初稿を作成</p>
+              <h2 className={styles.pcCaption}>
+                <span aria-hidden="true" />
+                既存コードをADeTが自動解析。仕様の初稿を即生成
+              </h2>
               <Image
                 className={styles.solutionPc}
                 src={`${ASSET_BASE}/Solution_img_PC.jpg`}
@@ -476,19 +500,30 @@ export default function ADetLpPage() {
                 width={430}
                 height={340}
               />
-              <div className={styles.memo}>
-                <Image
-                  src={`${ASSET_BASE}/Detail_img_illust.jpg`}
-                  alt=""
-                  width={194}
-                  height={200}
-                  aria-hidden="true"
-                />
-                <p>
-                  これまでドキュメント化しづらかった変更点も、コードと仕様をつなげて整理できます。
-                </p>
-              </div>
             </div>
+            <div className={styles.memo}>
+              <Image
+                src={`${ASSET_BASE}/Detail_img_illust.jpg`}
+                alt=""
+                width={194}
+                height={200}
+                aria-hidden="true"
+              />
+              <p>
+                GitHubアカウントを接続し、対象リポジトリを選ぶだけ。
+                <br />
+                <span>
+                  ADeTがコードを解析し、機能・API・DBの仕様書を自動で生成します。
+                </span>
+                <br />
+                ゼロから書く手間はありません。
+              </p>
+            </div>
+            <p className={styles.engineerSupport}>
+              また、ご不明な点があっても
+              <strong>弊社エンジニアが伴走し、しっかりサポート</strong>
+              いたします！
+            </p>
           </div>
         </section>
 
@@ -496,7 +531,9 @@ export default function ADetLpPage() {
 
         <section className={styles.changeSection}>
           <div className={styles.wrap}>
-            <div className={`${styles.sectionTitle} ${styles.reveal}`}>
+            <div
+              className={`${styles.sectionTitle} ${styles.changeTitle} ${styles.reveal}`}
+            >
               <h2>ADeTを入れると、チームはこう変わる。</h2>
               <div className={styles.miniVisual}>
                 <Image
@@ -515,8 +552,7 @@ export default function ADetLpPage() {
                   className={`${styles.changeCard} ${styles[card.type]} ${styles.reveal}`}
                   key={`${card.type}-${index}`}
                 >
-                  {card.title && <h3>{card.title}</h3>}
-                  <p>{card.text}</p>
+                  {card.type === 'after' && card.title && <h3>{card.title}</h3>}
                   <div className={styles.cardVisual}>
                     <Image
                       src={`${ASSET_BASE}/${card.image}`}
@@ -526,6 +562,7 @@ export default function ADetLpPage() {
                       aria-hidden="true"
                     />
                   </div>
+                  {card.type === 'before' && <p>{card.text}</p>}
                 </article>
               ))}
             </div>
@@ -535,17 +572,20 @@ export default function ADetLpPage() {
         <section className={styles.flowImprove}>
           <div className={styles.wrap}>
             <div className={`${styles.sectionTitle} ${styles.reveal}`}>
-              <p>ADeTでここは変わる</p>
+              <p>
+                ＼ <span className={styles.blueInitial}>A</span>
+                DeTですぐに変わる ／
+              </p>
               <h2>仕様書業務改善フロー</h2>
             </div>
             <div className={styles.flowList}>
-              {flows.map((flow) => (
+              {flows.map((flow, index) => (
                 <article
                   className={`${styles.flowRow} ${styles.reveal}`}
-                  key={flow.label}
+                  key={`${flow.before}-${index}`}
                 >
                   <div className={styles.flowBefore}>
-                    <span>{flow.label}</span>
+                    <span>改善前</span>
                     <p>{flow.before}</p>
                   </div>
                   <div className={styles.flowAfter}>
@@ -599,10 +639,12 @@ export default function ADetLpPage() {
 function CtaBand({ onClick }: { onClick: () => void }) {
   return (
     <section className={styles.ctaBand}>
-      <p>詳しい導入方法・事例を資料はこちら</p>
+      <p>
+        詳しい導入方法・<span>無料デモ</span>体験はこちら
+      </p>
       <button onClick={onClick} type="button">
         資料を受け取る
-        <ArrowIcon />
+        <DownloadCircleIcon />
       </button>
       <span>しつこい営業はありません。ご相談はお気軽に</span>
     </section>
