@@ -1558,12 +1558,16 @@
 @media (max-width: 860px) {
   .wrap {
     width: min(100%, var(--lp-content-max));
-    padding: 0 18px;
+    padding: 0 min(6.67vw, 50px);
   }
 
   .header {
-    height: 92px;
-    padding: 8px 14px;
+    height: min(22.27vw, 167px);
+    padding: 0 min(4vw, 30px) 0 min(6.27vw, 47px);
+  }
+
+  .logo {
+    margin-top: min(6.4vw, 48px);
   }
 
   .logoImage {
@@ -1573,30 +1577,50 @@
 
   .headerActions {
     position: absolute;
-    top: 8px;
-    right: 14px;
+    top: min(4.4vw, 33px);
+    right: min(4vw, 30px);
+    width: min(43.33vw, 325px);
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: min(3.2vw, 24px);
   }
 
   .headerActions a {
     display: inline-flex;
     justify-content: center;
-    width: 130px;
+    width: 100%;
     gap: 4px;
-    font-size: clamp(10px, 1.6vw, 12px);
+    font-size: clamp(10px, 2.93vw, 22px);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .headerActions a svg {
+    width: min(2.67vw, 20px);
+    height: min(2vw, 15px);
   }
 
   .headerActions button {
-    min-width: 130px;
-    min-height: 42px;
+    width: 100%;
+    height: min(9.33vw, 70px);
+    flex-shrink: 0;
+    min-width: 0;
+    min-height: 0;
     padding: 7px 14px;
     font-size: clamp(11px, 1.73vw, 13px);
   }
 
+  .headerActions button .fileIcon {
+    width: min(2.8vw, 21px);
+    height: min(3.73vw, 28px);
+  }
+
   .headerButtonText {
     align-items: center;
+  }
+
+  .headerButtonText h2 {
+    font-size: clamp(12px, 3.2vw, 24px);
   }
 
   .headerButtonText h3 {
@@ -1818,7 +1842,7 @@
   }
 
   .ctaBand {
-    padding: 26px 16px;
+    padding: 26px min(6.67vw, 50px);
   }
 
   .ctaBand p {
@@ -1828,6 +1852,10 @@
 
   .ctaBand p span {
     font-size: inherit;
+  }
+
+  .ctaBand > span {
+    font-size: clamp(9px, 2.4vw, 18px);
   }
 
   .ctaBand button {
@@ -1993,17 +2021,16 @@
     width: 74px;
     height: 74px;
     margin-bottom: 18px;
-      font-size: clamp(9px, 2.4vw, 18px);
+    font-size: clamp(9px, 2.4vw, 18px);
   }
 
   .stepCard h3 {
     margin-bottom: 12px;
-      font-size: clamp(15px, 4vw, 30px);
-
+    font-size: clamp(15px, 4vw, 30px);
   }
 
   .stepCard p {
-      font-size: clamp(12px, 3.2vw, 24px);
+    font-size: clamp(12px, 3.2vw, 24px);
   }
 
   .footer {
