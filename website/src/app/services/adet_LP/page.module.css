@@ -735,8 +735,9 @@
 .pcCaption {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
   margin: 22px auto 0;
+  padding: 0 12px;
   color: #152033;
   font-size: 14px;
   font-weight: bold;
@@ -745,8 +746,8 @@
 .pcCaption span {
   position: relative;
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #1c5da8;
   border-radius: 3px;
   flex: 0 0 auto;
@@ -755,10 +756,10 @@
 .pcCaption span::after {
   content: '';
   position: absolute;
-  left: 3px;
-  top: 1px;
-  width: 7px;
-  height: 10px;
+  left: 4px;
+  top: 2px;
+  width: 8px;
+  height: 12px;
   border-right: 2px solid #1c5da8;
   border-bottom: 2px solid #1c5da8;
   transform: rotate(45deg);
@@ -1584,14 +1585,14 @@
     justify-content: center;
     width: 130px;
     gap: 4px;
-    font-size: 11px;
+    font-size: clamp(10px, 1.6vw, 12px);
   }
 
   .headerActions button {
     min-width: 130px;
     min-height: 42px;
     padding: 7px 14px;
-    font-size: 12px;
+    font-size: clamp(11px, 1.73vw, 13px);
   }
 
   .headerButtonText {
@@ -1620,7 +1621,7 @@
     top: 16px;
     padding: 13px 16px;
     border-width: 3px;
-    font-size: 18px;
+    font-size: clamp(16px, 2.67vw, 20px);
   }
 
   .heroQuestion::after {
@@ -1633,7 +1634,7 @@
   .bubble {
     width: min(290px, 92%);
     padding: 13px 14px;
-    font-size: 12px;
+    font-size: clamp(11px, 1.73vw, 13px);
   }
 
   .docCluster,
@@ -1662,12 +1663,12 @@
 
   .introLead {
     margin-bottom: 40px;
-    font-size: 16px;
+    font-size: clamp(18px, 4.8vw, 36px);
     line-height: 1.8;
   }
 
   .lead {
-    font-size: 13px;
+    font-size: clamp(12px, 1.87vw, 14px);
   }
 
   .concernBlock {
@@ -1677,7 +1678,7 @@
   .concernBlock h2 {
     margin-bottom: 24px;
     padding-bottom: 12px;
-    font-size: 22px;
+    font-size: clamp(25px, 6.4vw, 48px);
   }
 
   .concernBlock h2::after {
@@ -1709,8 +1710,12 @@
   .concernGrid div {
     min-height: 118px;
     padding: 12px 10px;
-    font-size: 16px;
+    font-size: clamp(12px, 3.2vw, 24px);
     line-height: 1.55;
+  }
+
+  .concernText br {
+    display: none;
   }
 
   .blueLead {
@@ -1719,11 +1724,11 @@
   }
 
   .blueLead span {
-    font-size: 18px;
+    font-size: clamp(16px, 4.27vw, 32px);
   }
 
   .blueLead strong {
-    font-size: 24px;
+    font-size: clamp(21px, 5.6vw, 42px);
   }
 
   .blueLead::after {
@@ -1744,8 +1749,16 @@
     text-align: center;
   }
 
+  .productLine p {
+    font-size: clamp(15px, 4vw, 30px);
+  }
+
   .productLogoImage {
-    width: 118px;
+    width: min(32.8vw, 246px);
+  }
+
+  .productLogoKana {
+    font-size: clamp(12px, 3.2vw, 24px);
   }
 
   .demoCard {
@@ -1754,8 +1767,21 @@
   }
 
   .ribbon {
-    padding: 8px 12px;
-    font-size: 11px;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: clamp(13px, 3.47vw, 26px);
+  }
+
+  .demoCard h2 {
+    font-size: clamp(15px, 4vw, 30px);
+  }
+
+  .demoCard > p:not(.ribbon) {
+    font-size: clamp(12px, 3.2vw, 24px);
+  }
+
+  .demoCard .pcCaption {
+    font-size: clamp(13px, 3.47vw, 26px);
   }
 
   .laptopScreen {
@@ -1770,33 +1796,54 @@
 
   .memo {
     align-items: flex-start;
-    padding: 13px;
+    padding: min(4vw, 30px) 13px;
+  }
+
+  .memo p {
+    font-size: clamp(11px, 2.93vw, 22px);
+  }
+
+  .memo br {
+    display: none;
   }
 
   .memo img {
-    width: 48px;
-    height: 48px;
+    width: min(13.33vw, 100px);
+    height: min(13.33vw, 100px);
   }
 
   .engineerSupport {
     margin-top: 24px;
-    font-size: 15px;
+    font-size: clamp(14px, 2.27vw, 17px);
   }
 
   .ctaBand {
     padding: 26px 16px;
   }
 
+  .ctaBand p {
+    font-size: clamp(13px, 3.47vw, 26px);
+    white-space: nowrap;
+  }
+
+  .ctaBand p span {
+    font-size: inherit;
+  }
+
   .ctaBand button {
-    width: min(100%, 310px);
+    width: min(84vw, 630px);
     min-width: 0;
-    min-height: 48px;
-    font-size: 15px;
+    min-height: min(16vw, 120px);
+    font-size: clamp(17px, 4.53vw, 34px);
   }
 
   .changeSection,
   .flowImprove {
     padding: 54px 0;
+  }
+
+  .changeTitle h2 {
+    font-size: clamp(24px, 6.4vw, 48px);
   }
 
   .changeGrid {
@@ -1835,13 +1882,17 @@
   }
 
   .changeCard h3 {
-    font-size: 22px;
+    font-size: clamp(15px, 4vw, 30px);
     line-height: 1.45;
   }
 
   .changeCard p {
-    font-size: 20px;
+    font-size: clamp(13px, 3.47vw, 26px);
     line-height: 1.55;
+  }
+
+  .changeCard.before p {
+    font-size: clamp(13px, 3.47vw, 26px);
   }
 
   .cardVisual,
@@ -1863,7 +1914,12 @@
     text-align: center;
   }
 
+  .flowBefore {
+    grid-template-columns: auto auto;
+  }
+
   .flowAfter {
+    grid-template-columns: auto auto;
     padding-top: 28px;
   }
 
@@ -1872,15 +1928,39 @@
     justify-self: center;
   }
 
+  .flowBefore span {
+    font-size: clamp(9px, 2.4vw, 18px);
+  }
+
+  .flowAfter span {
+    font-size: clamp(11px, 2.93vw, 22px);
+  }
+
   .flowAfter::before {
     border-left-width: 56px;
     border-right-width: 56px;
     border-top-width: 20px;
   }
 
+  .flowImprove .sectionTitle p {
+    font-size: clamp(13px, 3.47vw, 26px);
+  }
+
+  .flowImprove .sectionTitle h2 {
+    font-size: clamp(24px, 6.4vw, 48px);
+  }
+
   .flowBefore p,
   .flowAfter p {
-    font-size: 14px;
+    font-size: clamp(13px, 2.13vw, 16px);
+  }
+
+  .flowBefore p {
+    font-size: clamp(12px, 3.2vw, 24px);
+  }
+
+  .flowAfter p {
+    font-size: clamp(13px, 3.47vw, 26px);
   }
 
   .usageSection {
@@ -1913,16 +1993,17 @@
     width: 74px;
     height: 74px;
     margin-bottom: 18px;
-    font-size: 14px;
+      font-size: clamp(9px, 2.4vw, 18px);
   }
 
   .stepCard h3 {
     margin-bottom: 12px;
-    font-size: 18px;
+      font-size: clamp(15px, 4vw, 30px);
+
   }
 
   .stepCard p {
-    font-size: 14px;
+      font-size: clamp(12px, 3.2vw, 24px);
   }
 
   .footer {
