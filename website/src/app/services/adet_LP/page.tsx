@@ -308,6 +308,7 @@ export default function ADetLpPage() {
                       style={inputStyle('name')}
                       autoComplete="name"
                       placeholder="山田 太郎"
+                      data-clarity-mask="true"
                     />
                   </label>
                   <label className={styles.formField}>
@@ -319,6 +320,7 @@ export default function ADetLpPage() {
                       className={styles.formInput}
                       style={inputStyle('kana')}
                       placeholder="ヤマダ タロウ"
+                      data-clarity-mask="true"
                     />
                   </label>
                 </div>
@@ -333,6 +335,7 @@ export default function ADetLpPage() {
                     type="email"
                     autoComplete="email"
                     placeholder="example@company.co.jp"
+                    data-clarity-mask="true"
                   />
                 </label>
                 <div className={styles.formRow}>
@@ -346,6 +349,7 @@ export default function ADetLpPage() {
                       style={inputStyle('company')}
                       autoComplete="organization"
                       placeholder="株式会社サンプル"
+                      data-clarity-mask="true"
                     />
                   </label>
                   <label className={styles.formField}>
@@ -356,6 +360,7 @@ export default function ADetLpPage() {
                       type="tel"
                       autoComplete="tel"
                       placeholder="03-1234-5678"
+                      data-clarity-mask="true"
                     />
                   </label>
                 </div>
@@ -365,6 +370,7 @@ export default function ADetLpPage() {
                     ref={messageRef}
                     className={styles.formTextarea}
                     placeholder="現在の課題や、確認したい内容をご記入ください。"
+                    data-clarity-mask="true"
                   />
                 </label>
                 <button
