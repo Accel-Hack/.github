@@ -21,11 +21,9 @@ export default function Home() {
             <AccelHackLogo className={styles.logo_img} />
           </div>
           <p className={styles.catch_copy}>
-            Accel Your Innovation. <br />
-            Hack the Development.
-          </p>
-          <p className={styles.catch_copy_sub}>
-            イノベーションを加速させ、開発をハックせよ。
+            テクノロジーの恩恵を、
+            <br />
+            すべての企業に届ける
           </p>
           <div className={styles.news_summary_container}>
             <NewsSummary newses={NEWSES} />
@@ -82,6 +80,9 @@ export default function Home() {
       </div>
 
       <div className={styles.decorations}>
+        <span className={styles.background_text} aria-hidden="true">
+          踏み込め
+        </span>
         <TopDiagonalLine className={styles.top_diagonal_line} />
         <COLOR_SQUARES
           style={{
