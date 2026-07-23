@@ -1,0 +1,68 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background:
+    linear-gradient(135deg, rgba(33, 255, 170, 0.12), transparent 38%), #101311;
+}
+
+.panelLeft {
+  left: 0;
+  border-right: 1px solid rgba(33, 255, 170, 0.2);
+}
+
+.panelRight {
+  right: 0;
+  border-left: 1px solid rgba(33, 255, 170, 0.2);
+}
+
+.brand {
+  position: relative;
+  z-index: 1;
+  width: min(26vw, 260px);
+  color: var(--company-color);
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+.rule {
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin: 18px auto 13px;
+  background: currentColor;
+}
+
+.copy {
+  font-family: var(--font-axia);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .brand {
+    width: min(42vw, 210px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}

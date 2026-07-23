@@ -1,5 +1,7 @@
 .link_box {
-  box-shadow: 10px 10px 6px 0 rgba(0, 0, 0, 0.16);
+  box-shadow:
+    10px 12px 16px rgba(0, 0, 0, 0.13),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
   font-size: 2rem;
   font-weight: 500;
   background-color: var(--white);
@@ -8,11 +10,24 @@
   position: relative;
   text-decoration: none;
   color: black;
+  transform: translateZ(0);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.3s ease;
 }
 
 .link_box:hover {
   background-color: var(--company-color);
-  transition: background-color 0.3s ease;
+  transform: translate3d(-3px, -5px, 0);
+  box-shadow:
+    17px 20px 24px rgba(0, 0, 0, 0.17),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+.link_box:focus-visible {
+  outline: 3px solid var(--company-color);
+  outline-offset: 4px;
 }
 
 /* 大サイズ（lg）のスタイル */

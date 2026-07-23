@@ -4,6 +4,20 @@
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  position: relative;
+  width: fit-content;
+  text-shadow: 0 1px 0 white;
+}
+
+.content_header::after {
+  content: '';
+  display: block;
+  width: 44%;
+  min-width: 2.5rem;
+  height: 3px;
+  margin-top: 0.35rem;
+  background: linear-gradient(90deg, var(--company-color), transparent);
+  box-shadow: 0 3px 8px rgba(33, 255, 170, 0.24);
 }
 
 @media screen and (max-width: 768px) {
