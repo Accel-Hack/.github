@@ -1,0 +1,11 @@
+.content {
+  box-sizing: border-box;
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+}

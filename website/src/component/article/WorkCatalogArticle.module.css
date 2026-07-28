@@ -1,0 +1,705 @@
+.page {
+  width: 100%;
+  min-width: 0;
+}
+
+.catalog,
+.selectedWork {
+  border: 1px solid rgba(17, 19, 17, 0.18);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.sectionBar {
+  min-height: 2rem;
+  padding: 0.45rem 0.8rem;
+  background: var(--background-black);
+  color: var(--white);
+  font-family: var(--font-axia);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+.catalogHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(22rem, 0.98fr);
+  border-bottom: 1px solid rgba(17, 19, 17, 0.18);
+}
+
+.introduction {
+  padding: clamp(2rem, 4vw, 4.5rem);
+}
+
+.eyebrow,
+.filterLabel,
+.cardNumber,
+.caseNumber {
+  font-family: var(--font-axia);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+.eyebrow,
+.caseNumber {
+  margin: 0 0 1.5rem;
+  color: var(--company-color-text);
+}
+
+.introduction h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4.5vw, 5.25rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.065em;
+}
+
+.introduction > p:last-child {
+  max-width: 34rem;
+  margin: 2rem 0 0;
+  color: var(--gray);
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  line-height: 2;
+}
+
+.filters {
+  display: grid;
+  align-content: center;
+  gap: 1.8rem;
+  padding: clamp(2rem, 4vw, 4rem);
+  border-left: 1px solid rgba(17, 19, 17, 0.18);
+  background: rgba(247, 248, 246, 0.7);
+}
+
+.filterRow {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.filterLabel {
+  color: var(--gray);
+}
+
+.filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.filterButton {
+  min-height: 2.35rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(17, 19, 17, 0.18);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--background-black);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--company-color);
+}
+
+.filterButton:focus-visible,
+.cardAction:focus-visible,
+.projectIndex button:focus-visible,
+.modalHeader button:focus-visible {
+  outline: 3px solid var(--company-color);
+  outline-offset: 2px;
+}
+
+.activeFilter {
+  border-color: var(--background-black);
+  background: var(--background-black);
+  color: var(--white);
+}
+
+.activeFilter::before {
+  margin-right: 0.45rem;
+  color: var(--company-color);
+  content: '•';
+}
+
+.projectIndex {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  min-height: 4rem;
+  border-bottom: 1px solid rgba(17, 19, 17, 0.18);
+}
+
+.indexCount {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-right: 1px solid rgba(17, 19, 17, 0.18);
+  font-family: var(--font-axia);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.indexItems {
+  display: flex;
+  overflow-x: auto;
+}
+
+.projectIndex button {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  flex: 1 0 12rem;
+  min-height: 4rem;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-right: 1px solid rgba(17, 19, 17, 0.18);
+  background: transparent;
+  color: var(--background-black);
+  cursor: pointer;
+  text-align: left;
+}
+
+.projectIndex button:hover {
+  background: rgba(33, 255, 170, 0.08);
+}
+
+.projectIndex button span {
+  overflow: hidden;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+}
+
+.projectIndex button b {
+  color: var(--company-color-text);
+  font-size: 0.9rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(17, 19, 17, 0.18);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 31rem;
+  padding: clamp(1rem, 2vw, 1.8rem);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.card:nth-child(even) {
+  background: rgba(240, 255, 249, 0.9);
+}
+
+.selectedCard {
+  box-shadow: 0 -4px 0 var(--company-color) inset;
+}
+
+.cardNumber {
+  color: var(--gray);
+  font-style: italic;
+}
+
+.clientName {
+  margin: 1.25rem 0 0.55rem;
+  color: var(--company-color-text);
+  font-family: var(--font-axia);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.card h2 {
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.035em;
+}
+
+.cardMeta {
+  margin: auto 2.8rem 0 0;
+  color: var(--gray);
+  font-family: var(--font-axia);
+  font-size: 0.62rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cardAction {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1.35rem;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(17, 19, 17, 0.25);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--background-black);
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.cardAction:hover {
+  border-color: var(--company-color);
+  background: var(--company-color);
+}
+
+.visual {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(17, 19, 17, 0.82);
+  background: repeating-linear-gradient(
+    90deg,
+    #edf0ed 0,
+    #edf0ed 3.25rem,
+    #ffffff 3.3rem
+  );
+}
+
+.cardVisual {
+  height: 12rem;
+  margin-top: 1rem;
+}
+
+.detail {
+  min-height: 33rem;
+  border-width: 0 0 0 1px;
+}
+
+.modalVisual {
+  height: 25rem;
+  margin: 0 clamp(1.5rem, 5vw, 5rem);
+}
+
+.visualNumber {
+  position: absolute;
+  right: 1.25rem;
+  bottom: -3.8rem;
+  color: rgba(33, 255, 170, 0.2);
+  font-family: var(--font-axia);
+  font-size: clamp(8rem, 16vw, 17rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.11em;
+}
+
+.visualShape {
+  position: absolute;
+  top: 31%;
+  left: 16%;
+  width: 58%;
+  height: 29%;
+  border: clamp(0.9rem, 2vw, 2rem) solid var(--background-black);
+  border-right-color: var(--company-color);
+  transform: skew(-16deg);
+}
+
+.visual[data-visual='diamond'] .visualShape {
+  top: 23%;
+  left: 33%;
+  width: 34%;
+  height: 50%;
+  border: 0;
+  background: var(--company-color);
+  transform: rotate(45deg);
+}
+
+.visual[data-visual='beam'] .visualShape {
+  top: 39%;
+  left: 14%;
+  width: 69%;
+  height: 16%;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    var(--background-black) 0 58%,
+    var(--company-color) 58%
+  );
+  transform: skew(-18deg);
+}
+
+.visual[data-visual='flow'] .visualShape {
+  top: 27%;
+  left: 14%;
+  width: 66%;
+  height: 38%;
+  border: 0;
+  background:
+    linear-gradient(var(--company-color), var(--company-color)) 0 0 / 54% 32%
+      no-repeat,
+    linear-gradient(var(--background-black), var(--background-black)) 100% 50% /
+      72% 32% no-repeat,
+    linear-gradient(var(--company-color), var(--company-color)) 0 100% / 42% 32%
+      no-repeat;
+  transform: none;
+}
+
+.visual[data-visual='orbit'] .visualShape {
+  top: 23%;
+  left: 26%;
+  width: 48%;
+  height: 48%;
+  border-color: var(--background-black);
+  border-right-color: var(--company-color);
+  border-radius: 50%;
+  transform: none;
+}
+
+.visualCaption {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.9rem;
+  color: var(--gray);
+  font-family: var(--font-axia);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+}
+
+.emptyState {
+  margin: 0;
+  padding: 5rem 2rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+.selectedWork {
+  margin-top: clamp(5rem, 10vw, 10rem);
+  scroll-margin-top: 1.5rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.selectedWork:hover {
+  border-color: var(--company-color);
+  box-shadow: 0 20px 42px rgba(24, 29, 26, 0.08);
+}
+
+.selectedWork:focus-visible {
+  outline: 3px solid var(--company-color);
+  outline-offset: 4px;
+}
+
+.selectedLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  min-height: 33rem;
+}
+
+.selectedCopy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(2rem, 4vw, 4rem);
+}
+
+.clientRow,
+.modalClient {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(17, 19, 17, 0.18);
+  border-bottom: 1px solid rgba(17, 19, 17, 0.18);
+  font-size: 0.75rem;
+}
+
+.clientRow span,
+.modalClient span {
+  color: var(--gray);
+  font-family: var(--font-axia);
+  letter-spacing: 0.14em;
+}
+
+.selectedCopy h2 {
+  margin: clamp(2rem, 4vw, 3.5rem) 0 1.5rem;
+  font-size: clamp(2rem, 3.5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.055em;
+}
+
+.summary {
+  margin: 0;
+  color: var(--gray);
+  font-size: clamp(0.82rem, 1vw, 1rem);
+  line-height: 2;
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 2rem;
+  font-family: var(--font-axia);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+
+.readMore b {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(17, 19, 17, 0.24);
+  border-radius: 50%;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.selectedWork:hover .readMore b {
+  border-color: var(--company-color);
+  background: var(--company-color);
+}
+
+.modal {
+  width: min(92vw, 70rem);
+  max-width: none;
+  max-height: 88vh;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #f8f9f7;
+  color: var(--background-black);
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.34);
+}
+
+.modal::backdrop {
+  background: rgba(12, 16, 14, 0.68);
+  backdrop-filter: blur(7px);
+}
+
+.modal[open] {
+  animation: modalIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modalHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.8rem;
+  padding: 0 1.4rem;
+  background: var(--background-black);
+  color: var(--white);
+}
+
+.modalHeader span {
+  font-family: var(--font-axia);
+  font-size: 0.66rem;
+  letter-spacing: 0.17em;
+}
+
+.modalHeader button {
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid #5d625f;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.modalHeader button:hover {
+  border-color: var(--company-color);
+  color: var(--company-color);
+}
+
+.modalScroll {
+  max-height: calc(88vh - 3.8rem);
+  overflow-y: auto;
+}
+
+.modalIntroduction {
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.modalIntroduction h2 {
+  max-width: 54rem;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 1.5rem;
+  font-size: clamp(2rem, 4vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.32;
+  letter-spacing: -0.055em;
+}
+
+.modalIntroduction > p {
+  max-width: 50rem;
+  margin: 0;
+  color: var(--gray);
+  font-size: clamp(0.9rem, 1.15vw, 1.1rem);
+  line-height: 2;
+}
+
+.modalStory {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.modalStory p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.85rem;
+  line-height: 2;
+}
+
+.modalStory p:first-child {
+  color: var(--background-black);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .catalogHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    border-top: 1px solid rgba(17, 19, 17, 0.18);
+    border-left: 0;
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .selectedLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail {
+    min-height: 26rem;
+    border-width: 1px 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sectionBar {
+    font-size: 0.62rem;
+  }
+
+  .introduction,
+  .filters {
+    padding: 1.5rem;
+  }
+
+  .introduction h1 {
+    font-size: clamp(2.2rem, 12vw, 4rem);
+  }
+
+  .filterRow {
+    grid-template-columns: 1fr;
+  }
+
+  .projectIndex {
+    grid-template-columns: 1fr;
+  }
+
+  .indexCount {
+    min-height: 3rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 19, 17, 0.18);
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 27rem;
+  }
+
+  .selectedWork {
+    margin-top: 5rem;
+  }
+
+  .selectedCopy {
+    padding: 1.75rem;
+  }
+
+  .selectedCopy h2 {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .detail {
+    min-height: 20rem;
+  }
+
+  .modal {
+    width: 94vw;
+    max-height: 92vh;
+  }
+
+  .modalScroll {
+    max-height: calc(92vh - 3.8rem);
+  }
+
+  .modal {
+    height: auto;
+    margin: auto;
+  }
+
+  .modalStory {
+    grid-template-columns: 1fr;
+  }
+
+  .modalVisual {
+    height: 16rem;
+    margin: 0 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterButton,
+  .cardAction,
+  .selectedWork,
+  .readMore b {
+    transition: none;
+  }
+
+  .modal[open] {
+    animation: none;
+  }
+}

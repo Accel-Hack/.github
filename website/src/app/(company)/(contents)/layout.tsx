@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 
 const titleMap: { [key: string]: string } = {
   about: 'About',
-  service: 'Service',
+  service: 'Works',
   recruit: 'Recruit',
   blog: 'Blog',
   news: 'News',
@@ -22,7 +22,9 @@ export default function ContentLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const title = titleMap[pathname.split('/')[1]] || 'Accel Hack';
+  const pathSegments = pathname.split('/').filter(Boolean);
+  const page = pathSegments[0] || '';
+  const title = titleMap[page] || 'Accel Hack';
 
   const updateParallax = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === 'touch') return;
@@ -50,7 +52,7 @@ export default function ContentLayout({
         <div className={styles.container}>
           <div className={styles.content}>
             <ContentHeader caption={title} />
-            <div className={styles.article_container}>
+            <div className={styles.article_container} data-article-container>
               <div className={styles.articles}>{children}</div>
             </div>
           </div>

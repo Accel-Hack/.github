@@ -1,0 +1,294 @@
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+.instruction {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin: 0 0 0.65rem;
+  color: var(--gray);
+  font-family: var(--font-axia);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.instruction::before {
+  width: 1.75rem;
+  height: 1px;
+  background: var(--company-color);
+  content: '';
+}
+
+.cycleFrame {
+  position: relative;
+  box-sizing: border-box;
+  padding: clamp(1rem, 2vw, 2rem);
+  border: 1px solid rgba(17, 19, 17, 0.78);
+  background:
+    linear-gradient(rgba(17, 19, 17, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 19, 17, 0.025) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.66);
+  background-size: 20px 20px;
+}
+
+.phaseRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.3rem, 2.5vw, 3rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.implementationRow {
+  width: 76%;
+  margin-left: auto;
+  padding: clamp(0.7rem, 1.2vw, 1.2rem);
+  border: 1px solid var(--company-color-text);
+  background: rgba(33, 255, 170, 0.075);
+}
+
+.phaseItem {
+  position: relative;
+  min-width: 0;
+  perspective: 900px;
+}
+
+.phaseItem:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: calc(clamp(1.3rem, 2.5vw, 3rem) * -0.72);
+  color: var(--background-black);
+  content: '→';
+  font-family: var(--font-axia);
+  font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+  transform: translate(50%, -50%);
+}
+
+.implementationRow .phaseItem:not(:last-child)::after {
+  color: var(--company-color-text);
+}
+
+.phaseCard {
+  display: block;
+  width: 100%;
+  height: clamp(7.8rem, 11vw, 10.5rem);
+  padding: 0;
+  color: inherit;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.implementationRow .phaseCard {
+  height: clamp(6.6rem, 8vw, 8rem);
+}
+
+.cardInner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.isFlipped .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.75rem, 1.3vw, 1.25rem);
+  overflow: hidden;
+  border: 1px solid rgba(17, 19, 17, 0.72);
+  background: rgba(255, 255, 255, 0.94);
+  backface-visibility: hidden;
+}
+
+.cardFront::before,
+.cardBack::before {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-bottom: 1px solid currentColor;
+  background: var(--background-yellow);
+  content: '';
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+.cardBack {
+  color: var(--background-black);
+  border-color: var(--company-color-text);
+  background: var(--company-color);
+  transform: rotateY(180deg);
+}
+
+.implementationRow .cardFront {
+  border-color: rgba(10, 122, 82, 0.65);
+  background: rgba(247, 255, 251, 0.95);
+}
+
+.implementationRow .cardBack {
+  background: rgba(33, 255, 170, 0.92);
+}
+
+.phaseCard:focus-visible {
+  outline: 3px solid var(--background-black);
+  outline-offset: 4px;
+}
+
+.phaseNumber {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.75rem;
+  color: var(--company-color-text);
+  font-family: var(--font-axia);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.cardFront strong,
+.cardBack strong {
+  display: block;
+  font-size: clamp(1rem, 1.45vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.cardFront small {
+  margin-top: 0.35rem;
+  color: var(--gray);
+  font-size: clamp(0.58rem, 0.72vw, 0.7rem);
+  line-height: 1.5;
+}
+
+.detail {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
+  line-height: 1.65;
+}
+
+.flipHint {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.5rem;
+  color: rgba(17, 19, 17, 0.46);
+  font-family: var(--font-axia);
+  font-size: 0.46rem;
+  letter-spacing: 0.12em;
+}
+
+.nestConnector {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: clamp(1.2rem, 2vw, 2rem);
+  margin-left: 88%;
+  background: var(--company-color-text);
+}
+
+.nestConnector::after {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 1px solid var(--company-color-text);
+  border-bottom: 1px solid var(--company-color-text);
+  content: '';
+  transform: translate(-50%, 0) rotate(45deg);
+}
+
+@media screen and (max-width: 1024px) {
+  .phaseRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .implementationRow {
+    width: auto;
+    margin-left: clamp(2rem, 8vw, 6rem);
+  }
+
+  .phaseItem:nth-child(2)::after {
+    top: auto;
+    right: 50%;
+    bottom: calc(clamp(1.3rem, 2.5vw, 3rem) * -0.72);
+    content: '↓';
+    transform: translate(50%, 50%);
+  }
+
+  .phaseItem:nth-child(2) {
+    margin-bottom: clamp(1.3rem, 2.5vw, 3rem);
+  }
+
+  .phaseCard,
+  .implementationRow .phaseCard {
+    height: 9rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .instruction {
+    justify-content: flex-start;
+  }
+
+  .cycleFrame {
+    padding: 1rem;
+  }
+
+  .phaseRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .implementationRow {
+    width: auto;
+    margin-left: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .phaseItem:not(:last-child)::after,
+  .phaseItem:nth-child(2)::after {
+    top: auto;
+    right: 50%;
+    bottom: -1.15rem;
+    content: '↓';
+    transform: translate(50%, 50%);
+  }
+
+  .phaseItem:nth-child(2) {
+    margin-bottom: 0;
+  }
+
+  .phaseCard,
+  .implementationRow .phaseCard {
+    height: 8.5rem;
+  }
+
+  .nestConnector {
+    height: 1.5rem;
+    margin-left: 88%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardInner {
+    transition: none;
+  }
+}

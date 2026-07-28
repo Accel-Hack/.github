@@ -8,12 +8,15 @@ const BlogPage: React.FC = () => {
     <div className={styles.container}>
       {BLOGS.map((blog, i) => {
         return (
-          <div key={i} className={styles.content}>
+          <div key={i} className={styles.content} id={blog.category_code}>
             <BlogArticle
               category_code={blog.category_code}
               category={blog.category}
               blog={blog.articles[0]}
             />
+            <div>
+            </div>
+            <script async src="https://note.com/scripts/embed.js" charSet="utf-8"></script>
           </div>
         );
       })}

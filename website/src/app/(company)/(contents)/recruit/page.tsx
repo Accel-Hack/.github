@@ -4,6 +4,8 @@ import PositionArticle from '@/component/article/PositionArticle';
 import EnvironmentArticle from '@/component/article/EnvironmentArticle';
 import SelectionFlowArticle from '@/component/article/SelectionFlowArticle';
 import RecruitQAArticle from '@/component/article/RecruitQAArticle';
+import RecruitPhaseArticle from '@/component/article/RecruitPhaseArticle';
+import RecruitGrowthArticle from '@/component/article/RecruitGrowthArticle';
 import POSITIONS from '../../../../data/positions.json';
 import CONDITIONS from '../../../../data/conditions.json';
 import QAS from '../../../../data/qas.json';
@@ -12,7 +14,9 @@ import styles from './page.module.css';
 const RecruitPage: React.FC = () => {
   return (
     <>
-      <div className={styles.page}>
+      <RecruitPhaseArticle />
+      <RecruitGrowthArticle />
+      <div className={styles.page} id="recruit-overview">
         <div className={styles.left_container}>
           <WhatIsArticle />
         </div>
@@ -20,7 +24,7 @@ const RecruitPage: React.FC = () => {
           <PositionArticle positions={POSITIONS} conditions={CONDITIONS} />
         </div>
       </div>
-      <div className={styles.page}>
+      <div className={styles.page} id="recruit-process">
         <div className={styles.left_container}>
           <div style={{ marginBottom: '2rem' }}>
             <EnvironmentArticle />

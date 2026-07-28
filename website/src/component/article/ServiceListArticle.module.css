@@ -4,8 +4,8 @@
   gap: 1rem;
   padding: 2rem 1rem;
   box-sizing: border-box;
-  height: 100%;
-  align-items: center;
+  min-height: 0;
+  align-items: stretch;
 }
 
 .service_list_item {

@@ -1,11 +1,10 @@
 .container {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: 0;
+  display: block;
 }
 
 .content {
-  flex-grow: 1;
+  min-width: 0;
 }
 
 .scroll {
@@ -29,10 +28,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
-  .container {
-    height: auto;
-  }
 }

@@ -1,12 +1,12 @@
 .container {
   width: 100%;
-  min-height: 100%;
+  min-height: 0;
 }
 
 .contents {
   display: flex;
   padding: 2rem 0;
-  height: 100%;
+  min-height: 0;
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
 .logo_container {
   display: flex;
   justify-content: space-around;
-  height: 100%;
+  min-height: 22rem;
   align-items: center;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .mvv_sections {
-  height: 100%;
+  min-height: 22rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

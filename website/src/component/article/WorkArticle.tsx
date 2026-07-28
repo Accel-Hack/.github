@@ -29,7 +29,7 @@ const WorkArticle: React.FC = () => {
   ];
 
   return (
-    <Article caption={'Work'}>
+    <Article id="work" caption={'Work'}>
       <div className={styles.container}>
         <div className={styles.contents}>
           {companies.map((item, index) => (

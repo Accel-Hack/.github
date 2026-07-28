@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccelHack Content Reference C — Cinematic Contrast</title>
+  <style>
+    :root {
+      --paper: #f5f4f2;
+      --white: #ffffff;
+      --black: #101311;
+      --gray: #777d79;
+      --line: #d9ddda;
+      --green: #21ffaa;
+      --green-deep: #0c9d67;
+      --panel-x: clamp(10px, 3.25vw, 52px);
+      --panel-y: clamp(10px, 2.6vw, 42px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--paper);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--black);
+      background:
+        linear-gradient(rgba(16, 19, 17, .025) 1px, transparent 1px) 0 0 / 100% 80px,
+        var(--paper);
+      font-family:
+        "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+        "Noto Sans JP", Arial, sans-serif;
+    }
+
+    .main-panel {
+      position: relative;
+      width: calc(100% - (var(--panel-x) * 2));
+      max-width: 1496px;
+      margin: var(--panel-y) auto;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(16, 19, 17, .08);
+      box-shadow:
+        0 32px 70px rgba(16, 19, 17, .14),
+        0 3px 12px rgba(16, 19, 17, .07);
+    }
+
+    .main-panel::before {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 42%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      box-shadow: 0 0 16px rgba(33, 255, 170, .5);
+      content: "";
+    }
+
+    .slide {
+      position: relative;
+      min-height: calc(100svh - (var(--panel-y) * 2));
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .slide + .slide {
+      border-top: 1px solid rgba(16, 19, 17, .12);
+    }
+
+    .section-number {
+      position: absolute;
+      z-index: -1;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(280px, 36vw, 580px);
+      font-weight: 500;
+      line-height: .72;
+      letter-spacing: -.12em;
+      user-select: none;
+    }
+
+    .caption {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 0;
+      font-size: clamp(10px, .75vw, 12px);
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .caption::before {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 2px;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(33, 255, 170, .58);
+      content: "";
+    }
+
+    .headline {
+      margin: 0;
+      font-size: clamp(34px, 4.1vw, 66px);
+      font-weight: 500;
+      line-height: 1.28;
+      letter-spacing: -.045em;
+    }
+
+    .body-copy {
+      margin: 0;
+      font-size: clamp(13px, 1.02vw, 16px);
+      line-height: 2;
+      letter-spacing: .045em;
+    }
+
+    /* Slide 01 — black thesis field / white answer field. */
+    .thesis-slide {
+      display: grid;
+      grid-template-columns: 57% 43%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .thesis-slide::after {
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      bottom: 0;
+      left: calc(57% - 2px);
+      width: 4px;
+      background:
+        linear-gradient(180deg,
+          transparent 0 15%,
+          var(--green) 31% 69%,
+          transparent 85% 100%);
+      box-shadow:
+        0 0 14px rgba(33, 255, 170, .66),
+        0 0 38px rgba(33, 255, 170, .28);
+      content: "";
+      animation: light-breathe 4.5s ease-in-out infinite;
+    }
+
+    .thesis-slide .section-number {
+      top: 2%;
+      left: -5%;
+      color: rgba(255, 255, 255, .045);
+    }
+
+    .thesis-copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(60px, 7.5vw, 120px);
+      padding-right: clamp(50px, 6vw, 96px);
+    }
+
+    .thesis-copy .caption {
+      margin-bottom: clamp(44px, 7vh, 70px);
+      color: #bec4c0;
+    }
+
+    .thesis-copy .headline {
+      max-width: 790px;
+    }
+
+    .thesis-copy .body-copy {
+      max-width: 650px;
+      margin-top: clamp(34px, 5vh, 52px);
+      color: #c6cbc8;
+    }
+
+    .answer-field {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(54px, 5.4vw, 86px);
+      color: var(--black);
+      background:
+        linear-gradient(135deg, rgba(33, 255, 170, .055), transparent 48%),
+        var(--white);
+    }
+
+    .answer-field::before,
+    .answer-field::after {
+      position: absolute;
+      content: "";
+      pointer-events: none;
+    }
+
+    .answer-field::before {
+      top: 8%;
+      right: 9%;
+      width: 72px;
+      height: 72px;
+      border-top: 1px solid rgba(16, 19, 17, .2);
+      border-right: 1px solid rgba(16, 19, 17, .2);
+    }
+
+    .answer-field::after {
+      right: 8%;
+      bottom: 7%;
+      left: 8%;
+      height: 1px;
+      background:
+        linear-gradient(90deg, var(--green) 0 12%, var(--line) 12% 100%);
+    }
+
+    .answer-kicker {
+      margin: 0 0 36px;
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: answer;
+    }
+
+    .answers li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 47px 1fr;
+      align-items: center;
+      min-height: clamp(88px, 11vh, 112px);
+      border-top: 1px solid var(--line);
+      font-size: clamp(18px, 1.55vw, 25px);
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: -.02em;
+      counter-increment: answer;
+    }
+
+    .answers li:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .answers li::before {
+      color: var(--green-deep);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: .08em;
+      content: "0" counter(answer);
+    }
+
+    .answers li::after {
+      position: absolute;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(33, 255, 170, .55);
+      content: "";
+    }
+
+    /* Slide 02 — white proposition field / black film-strip field. */
+    .process-slide {
+      display: grid;
+      grid-template-rows: 45% 55%;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    .process-slide .section-number {
+      top: -4%;
+      right: -2%;
+      color: rgba(16, 19, 17, .036);
+    }
+
+    .process-intro {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 33% 67%;
+      align-items: center;
+      padding: clamp(52px, 5.7vw, 91px) clamp(58px, 7.5vw, 120px);
+    }
+
+    .process-intro .caption {
+      align-self: start;
+      margin-top: .8em;
+      color: #5d635f;
+    }
+
+    .process-intro .headline {
+      max-width: 870px;
+    }
+
+    .film-strip {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      padding: clamp(42px, 4.7vw, 75px) clamp(58px, 7.5vw, 120px);
+      color: var(--white);
+      background: var(--black);
+    }
+
+    .film-strip::before,
+    .film-strip::after {
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: 10px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 26px,
+          rgba(245, 244, 242, .23) 26px 56px,
+          transparent 56px 82px
+        );
+      content: "";
+    }
+
+    .film-strip::before {
+      top: 17px;
+    }
+
+    .film-strip::after {
+      bottom: 17px;
+    }
+
+    .light-band {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      right: 7%;
+      left: 7%;
+      height: 2px;
+      background:
+        linear-gradient(90deg,
+          transparent,
+          rgba(33, 255, 170, .45) 8%,
+          var(--green) 48%,
+          rgba(33, 255, 170, .45) 92%,
+          transparent);
+      box-shadow:
+        0 0 12px rgba(33, 255, 170, .9),
+        0 0 34px rgba(33, 255, 170, .38);
+    }
+
+    .step {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      padding: 0 clamp(18px, 2.2vw, 35px);
+      border-left: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .step:first-of-type {
+      border-left: 0;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      margin-bottom: clamp(29px, 4vh, 42px);
+      color: var(--black);
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 6px rgba(33, 255, 170, .1),
+        0 0 22px rgba(33, 255, 170, .35);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .step h2 {
+      margin: 0;
+      font-size: clamp(22px, 2vw, 32px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .step p {
+      max-width: 250px;
+      margin: 17px 0 0;
+      color: #bec4c0;
+      font-size: clamp(12px, .9vw, 14px);
+      line-height: 1.85;
+      letter-spacing: .035em;
+    }
+
+    .step:nth-of-type(even) {
+      padding-top: 28px;
+    }
+
+    @keyframes light-breathe {
+      0%, 100% {
+        opacity: .72;
+        filter: brightness(.9);
+      }
+      50% {
+        opacity: 1;
+        filter: brightness(1.18);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .main-panel {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+      }
+
+      .slide {
+        min-height: auto;
+      }
+
+      .thesis-slide {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-slide::after {
+        top: calc(52% - 2px);
+        right: 0;
+        bottom: auto;
+        left: 0;
+        width: auto;
+        height: 4px;
+        background:
+          linear-gradient(90deg,
+            transparent 0 8%,
+            var(--green) 28% 72%,
+            transparent 92% 100%);
+      }
+
+      .thesis-copy {
+        min-height: 700px;
+        padding: 84px clamp(34px, 8vw, 72px) 92px;
+      }
+
+      .answer-field {
+        min-height: 650px;
+        padding: 80px clamp(34px, 8vw, 72px);
+      }
+
+      .process-slide {
+        grid-template-rows: auto auto;
+      }
+
+      .process-intro {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        min-height: 470px;
+        padding: 80px clamp(34px, 8vw, 72px);
+      }
+
+      .process-intro .caption {
+        margin: 0;
+      }
+
+      .film-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        padding: 80px clamp(28px, 7vw, 65px);
+      }
+
+      .light-band {
+        top: 50%;
+        right: 5%;
+        left: 5%;
+      }
+
+      .step {
+        min-height: 250px;
+        padding: 25px 30px 35px;
+        border-bottom: 1px solid rgba(255, 255, 255, .18);
+      }
+
+      .step:nth-of-type(even) {
+        padding-top: 25px;
+      }
+
+      .step:nth-of-type(odd) {
+        border-left: 0;
+      }
+
+      .step:nth-last-of-type(-n + 2) {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .main-panel {
+        width: calc(100% - 12px);
+        margin: 6px auto;
+        box-shadow: 0 14px 35px rgba(16, 19, 17, .11);
+      }
+
+      .section-number {
+        font-size: 250px;
+      }
+
+      .thesis-copy {
+        min-height: 610px;
+        padding: 74px 28px 82px;
+      }
+
+      .thesis-copy .caption {
+        margin-bottom: 42px;
+      }
+
+      .thesis-copy .body-copy {
+        margin-top: 30px;
+      }
+
+      .answer-field {
+        min-height: 590px;
+        padding: 72px 28px;
+      }
+
+      .answer-kicker {
+        margin-bottom: 26px;
+      }
+
+      .answers li {
+        grid-template-columns: 39px 1fr;
+        min-height: 100px;
+        padding-right: 15px;
+        font-size: 18px;
+      }
+
+      .process-intro {
+        gap: 38px;
+        min-height: 520px;
+        padding: 72px 28px;
+      }
+
+      .process-intro .headline {
+        font-size: 34px;
+        line-height: 1.42;
+      }
+
+      .film-strip {
+        grid-template-columns: 1fr;
+        padding: 72px 24px;
+      }
+
+      .light-band {
+        top: 7%;
+        right: auto;
+        bottom: 7%;
+        left: 41px;
+        width: 2px;
+        height: auto;
+      }
+
+      .step,
+      .step:nth-of-type(even) {
+        min-height: 0;
+        padding: 30px 16px 38px 64px;
+        border-bottom: 1px solid rgba(255, 255, 255, .17);
+        border-left: 0;
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .step-number {
+        position: absolute;
+        top: 28px;
+        left: 0;
+      }
+
+      .step p {
+        margin-top: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-panel">
+    <section class="slide thesis-slide" aria-labelledby="thesis-heading">
+      <p class="section-number" aria-hidden="true">01</p>
+
+      <div class="thesis-copy">
+        <p class="caption">生成AI時代のシステム開発</p>
+        <h1 class="headline" id="thesis-heading">「実装」だけでは<br>もう価値にはならない</h1>
+        <p class="body-copy">
+          AIによる実装が当たり前になるほど、作ること自体の価値は相対的に小さくなります。<br>
+          これから必要なのは、事業の本質を見極め、解くべき問いから設計する力です。
+        </p>
+      </div>
+
+      <div class="answer-field">
+        <p class="answer-kicker">THREE QUESTIONS / OUR STARTING POINT</p>
+        <ol class="answers">
+          <li>何を解決したらいいのか</li>
+          <li>何を作ればいいのか</li>
+          <li>作ったものをどう維持するのか</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide process-slide" aria-labelledby="process-heading">
+      <p class="section-number" aria-hidden="true">02</p>
+
+      <div class="process-intro">
+        <p class="caption">AccelHackの課題解決プロセス</p>
+        <h1 class="headline" id="process-heading">「見つける」「深ぼる」<br>「解を出す」「実装する」</h1>
+      </div>
+
+      <div class="film-strip">
+        <div class="light-band" aria-hidden="true"></div>
+
+        <article class="step">
+          <span class="step-number" aria-hidden="true">01</span>
+          <h2>見つける</h2>
+          <p>対話と観察から、事業を前に進める本当の課題を捉えます。</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number" aria-hidden="true">02</span>
+          <h2>深ぼる</h2>
+          <p>背景・制約・優先順位を整理し、課題の構造を明らかにします。</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number" aria-hidden="true">03</span>
+          <h2>解を出す</h2>
+          <p>技術と事業の両面から、成果につながる最適な解を設計します。</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number" aria-hidden="true">04</span>
+          <h2>実装する</h2>
+          <p>小さく速く形にし、検証と改善を重ねながら価値を届けます。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
