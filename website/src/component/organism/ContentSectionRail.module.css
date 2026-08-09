@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 10;
   top: 50%;
-  right: 4.7rem;
+  right: clamp(7.2rem, 8vw, 8.5rem);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

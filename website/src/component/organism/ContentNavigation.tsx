@@ -23,13 +23,13 @@ export const navigationContents: Record<string, NavigationContent> = {
       '「実装する会社」に留まらず、見つけるところから維持するところまで、課題解決の全てに答えを出します。',
     links: [
       { label: '生成AI時代のシステム開発', href: '#ai-development' },
-      { label: 'AccelHackの課題解決プロセス', href: '#process' },
+      { label: '私たちのできること', href: '#capabilities' },
       { label: 'メンバー', href: '#members' },
       { label: '沿革・主な取引先', href: '#history' },
     ],
     sectionLinks: [
       { label: '生成AI時代のシステム開発', href: '#ai-development' },
-      { label: 'AccelHackの課題解決プロセス', href: '#process' },
+      { label: '私たちのできること', href: '#capabilities' },
       { label: 'メンバー', href: '#members' },
       { label: '沿革・主な取引先', href: '#history' },
     ],
@@ -54,12 +54,20 @@ export const navigationContents: Record<string, NavigationContent> = {
     description:
       'AIと共に、技術者にしか生み出せない価値を追求する仲間を探しています。',
     links: [
-      { label: 'AccelHackについて', href: '#recruit-overview' },
-      { label: '募集ポジション・選考', href: '#recruit-process' },
+      { label: '課題解決フレームワーク', href: '#recruit-framework' },
+      { label: '課題解決人材への成長', href: '#recruit-growth' },
+      { label: 'AccelHackで働く', href: '#recruit-information' },
+      { label: '成長実例', href: '#recruit-growth-case' },
       { label: '私たちについて', href: Page.ABOUT },
       { label: '事業内容', href: Page.SERVICE },
       { label: 'ブログ', href: Page.BLOG },
       { label: 'お問い合わせ', href: Page.CONTACT },
+    ],
+    sectionLinks: [
+      { label: '課題解決フレームワーク', href: '#recruit-framework' },
+      { label: '課題解決人材への成長', href: '#recruit-growth' },
+      { label: 'AccelHackで働く', href: '#recruit-information' },
+      { label: '成長実例', href: '#recruit-growth-case' },
     ],
   },
   blog: {
@@ -68,8 +76,8 @@ export const navigationContents: Record<string, NavigationContent> = {
     description:
       '開発の舞台裏、技術への考え、私たちが挑戦していることを発信します。',
     links: [
-      { label: '代表ブログ', href: '#boards' },
-      { label: '制作・開発', href: '#development' },
+      { label: 'noteの記事一覧', href: '#note-articles' },
+      { label: 'noteですべて見る', href: 'https://note.com/accelhack' },
       { label: '私たちについて', href: Page.ABOUT },
       { label: '事業内容', href: Page.SERVICE },
       { label: '採用情報', href: Page.RECRUIT },

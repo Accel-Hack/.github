@@ -1,69 +1,60 @@
 .container {
   z-index: 1000;
   position: fixed;
-  top: calc(var(--header-height) + 30px);
+  top: 50%;
   right: 0;
-  width: 150px;
-  height: var(--main-height);
+  width: clamp(152px, 10vw, 194px);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  transform: translateY(-50%);
+  perspective: 900px;
 }
 
 .tab {
-  margin: 15px 0;
+  width: 100%;
+}
+
+.main_tabs,
+.sub_tabs {
+  display: grid;
+  gap: 5px;
+}
+
+.sub_tabs {
+  margin-top: 5px;
 }
 
 .menu_btn {
   display: none;
 }
 
-@media screen and (min-width: 1800px) {
-  .container {
-    width: 180px;
-  }
+.menu_icon {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    z-index: 1000;
-    position: fixed;
-    top: calc(var(--header-height));
+    top: var(--header-height-sm);
     right: 0;
-    width: 80px;
-    height: var(--main-height);
+    width: 76px;
+    height: auto;
     flex-direction: column;
-    justify-content: space-around;
+    transform: none;
   }
 
-  .main_tabs {
-    display: none;
-  }
-
-  .menu_btn:checked ~ .main_tabs {
-    display: block;
-  }
-
+  .main_tabs,
   .sub_tabs {
     display: none;
   }
 
+  .menu_btn:checked ~ .main_tabs {
+    display: grid;
+  }
+
   .menu_btn:checked ~ .sub_tabs {
-    display: block;
-    transition-duration: 0.2s;
+    display: grid;
   }
 
-  /* ハンバーガー開いた時のメニュー表示 */
-  .menu {
-    background-color: var(--background-black);
-    aspect-ratio: 2/ 1;
-    text-align: center;
-    line-height: 20px;
-  }
-
-  /* ハンバーガーのトグルボタン非表示 */
-
-  /* メニューアイコン自体 */
   .menu_icon {
     background-color: var(--background-black);
     display: flex;
@@ -75,7 +66,6 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  /* 3本線 */
   .navicon {
     background: #ddd;
     display: block;
@@ -104,7 +94,6 @@
     bottom: 9px;
   }
 
-  /* ハンバーガーアニメーション */
   .menu_btn:checked ~ .menu_icon .navicon:before {
     transform: rotate(-45deg);
   }

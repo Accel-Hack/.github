@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useMemo, useRef, useState } from 'react';
 import {
   WORK_CASES,
@@ -13,7 +14,7 @@ import styles from './WorkCatalogArticle.module.css';
 
 type CategoryFilter = 'すべて' | WorkCategory;
 
-const WorkVisual: React.FC<{
+const WorkImage: React.FC<{
   work: WorkCase;
   size: 'card' | 'detail' | 'modal';
 }> = ({ work, size }) => {
@@ -25,24 +26,41 @@ const WorkVisual: React.FC<{
         : styles.modalVisual;
 
   return (
-    <div
-      className={`${styles.visual} ${sizeClass}`}
-      data-visual={work.visualVariant}
-      aria-hidden="true"
-    >
-      <span className={styles.visualNumber}>{work.number}</span>
-      <span className={styles.visualShape} />
-      <span className={styles.visualCaption}>
+    <figure className={`${styles.visual} ${sizeClass}`}>
+      {work.image ? (
+        <Image
+          fill
+          className={styles.projectPhoto}
+          src={work.image.src}
+          alt={work.image.alt}
+          sizes={
+            size === 'card'
+              ? '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+              : '(max-width: 1024px) 100vw, 57vw'
+          }
+          style={{ objectPosition: work.image.objectPosition ?? 'center' }}
+        />
+      ) : (
+        <div
+          className={styles.photoPlaceholder}
+          role="img"
+          aria-label={`${work.headline}の実績写真は準備中です`}
+        >
+          <span className={styles.placeholderNumber}>{work.number}</span>
+          <span className={styles.placeholderText}>IMAGE PENDING</span>
+        </div>
+      )}
+      <figcaption className={styles.visualCaption}>
         PROJECT IMAGE / {work.number}
-      </span>
-    </div>
+      </figcaption>
+    </figure>
   );
 };
 
 const WorkCatalogArticle: React.FC = () => {
   const [category, setCategory] = useState<CategoryFilter>('すべて');
   const [support, setSupport] = useState<WorkSupport | null>(null);
-  const [selectedWork, setSelectedWork] = useState<WorkCase>(WORK_CASES[0]);
+  const [modalWork, setModalWork] = useState<WorkCase>(WORK_CASES[0]);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const modalTriggerRef = useRef<HTMLElement | null>(null);
 
@@ -55,18 +73,16 @@ const WorkCatalogArticle: React.FC = () => {
     });
   }, [category, support]);
 
-  const selectWork = (work: WorkCase) => {
-    setSelectedWork(work);
-    window.requestAnimationFrame(() => {
-      document
-        .getElementById('selected-work')
-        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  const scrollToWork = (work: WorkCase) => {
+    document
+      .getElementById(`work-${work.id}`)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const openModal = (trigger: HTMLElement) => {
+  const openModal = (work: WorkCase, trigger: HTMLElement) => {
+    setModalWork(work);
     modalTriggerRef.current = trigger;
-    dialogRef.current?.showModal();
+    window.requestAnimationFrame(() => dialogRef.current?.showModal());
   };
 
   const closeModal = () => {
@@ -75,10 +91,11 @@ const WorkCatalogArticle: React.FC = () => {
 
   const handleDetailKeyDown = (
     event: React.KeyboardEvent<HTMLElement>,
+    work: WorkCase,
   ) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault();
-    openModal(event.currentTarget);
+    openModal(work, event.currentTarget);
   };
 
   return (
@@ -131,9 +148,7 @@ const WorkCatalogArticle: React.FC = () => {
                     }`}
                     aria-pressed={support === item}
                     onClick={() =>
-                      setSupport((current) =>
-                        current === item ? null : item,
-                      )
+                      setSupport((current) => (current === item ? null : item))
                     }
                   >
                     {item}
@@ -153,7 +168,7 @@ const WorkCatalogArticle: React.FC = () => {
               <button
                 key={work.id}
                 type="button"
-                onClick={() => selectWork(work)}
+                onClick={() => scrollToWork(work)}
               >
                 <span>{work.headline}</span>
                 <b aria-hidden="true">↗</b>
@@ -165,14 +180,9 @@ const WorkCatalogArticle: React.FC = () => {
         {filteredWorks.length > 0 ? (
           <div className={styles.cardGrid} aria-live="polite">
             {filteredWorks.map((work) => (
-              <article
-                key={work.id}
-                className={`${styles.card} ${
-                  selectedWork.id === work.id ? styles.selectedCard : ''
-                }`}
-              >
+              <article key={work.id} className={styles.card}>
                 <span className={styles.cardNumber}>{work.number}</span>
-                <WorkVisual work={work} size="card" />
+                <WorkImage work={work} size="card" />
                 {work.client && (
                   <p className={styles.clientName}>{work.client}</p>
                 )}
@@ -184,7 +194,7 @@ const WorkCatalogArticle: React.FC = () => {
                   type="button"
                   className={styles.cardAction}
                   aria-label={`${work.headline}の概要を見る`}
-                  onClick={() => selectWork(work)}
+                  onClick={() => scrollToWork(work)}
                 >
                   ↗
                 </button>
@@ -198,41 +208,44 @@ const WorkCatalogArticle: React.FC = () => {
         )}
       </section>
 
-      <section
-        className={styles.selectedWork}
-        id="selected-work"
-        role="button"
-        tabIndex={0}
-        aria-haspopup="dialog"
-        aria-controls="work-case-modal"
-        aria-label={`${selectedWork.headline}を詳しく見る`}
-        onClick={(event) => openModal(event.currentTarget)}
-        onKeyDown={handleDetailKeyDown}
-      >
-        <div className={styles.sectionBar}>
-          SELECTED WORK / {selectedWork.number}
-        </div>
-        <div className={styles.selectedLayout}>
-          <div className={styles.selectedCopy}>
-            <p className={styles.caseNumber}>
-              CASE {selectedWork.number} / {selectedWork.category}
-            </p>
-            {selectedWork.client && (
-              <div className={styles.clientRow}>
-                <span>CLIENT</span>
-                <strong>{selectedWork.client}</strong>
+      <div className={styles.workDetails} aria-label="実績詳細一覧">
+        {WORK_CASES.map((work) => (
+          <section
+            key={work.id}
+            className={styles.workDetail}
+            id={`work-${work.id}`}
+            role="button"
+            tabIndex={0}
+            aria-haspopup="dialog"
+            aria-controls="work-case-modal"
+            aria-label={`${work.headline}を詳しく見る`}
+            onClick={(event) => openModal(work, event.currentTarget)}
+            onKeyDown={(event) => handleDetailKeyDown(event, work)}
+          >
+            <div className={styles.sectionBar}>PROJECT / {work.number}</div>
+            <div className={styles.detailLayout}>
+              <div className={styles.detailCopy}>
+                <p className={styles.caseNumber}>
+                  CASE {work.number} / {work.category}
+                </p>
+                {work.client && (
+                  <div className={styles.clientRow}>
+                    <span>CLIENT</span>
+                    <strong>{work.client}</strong>
+                  </div>
+                )}
+                <h2 id={`work-${work.id}-title`}>{work.headline}</h2>
+                <p className={styles.summary}>{work.summary}</p>
+                <span className={styles.readMore}>
+                  INSIDE THE PROJECT
+                  <b aria-hidden="true">↗</b>
+                </span>
               </div>
-            )}
-            <h2>{selectedWork.headline}</h2>
-            <p className={styles.summary}>{selectedWork.summary}</p>
-            <span className={styles.readMore}>
-              INSIDE THE PROJECT
-              <b aria-hidden="true">↗</b>
-            </span>
-          </div>
-          <WorkVisual work={selectedWork} size="detail" />
-        </div>
-      </section>
+              <WorkImage work={work} size="detail" />
+            </div>
+          </section>
+        ))}
+      </div>
 
       <dialog
         ref={dialogRef}
@@ -245,9 +258,7 @@ const WorkCatalogArticle: React.FC = () => {
         }}
       >
         <div className={styles.modalHeader}>
-          <span>
-            INSIDE THE PROJECT / {selectedWork.number}
-          </span>
+          <span>INSIDE THE PROJECT / {modalWork.number}</span>
           <button
             type="button"
             aria-label="モーダルを閉じる"
@@ -257,20 +268,29 @@ const WorkCatalogArticle: React.FC = () => {
           </button>
         </div>
         <div className={styles.modalScroll}>
+          {modalWork.interview && (
+            <blockquote className={styles.modalVoice}>
+              <span className={styles.voiceLabel}>
+                CUSTOMER VOICE / INTERVIEW
+              </span>
+              <p>{modalWork.interview.quote}</p>
+              <footer>{modalWork.interview.attribution}</footer>
+            </blockquote>
+          )}
           <div className={styles.modalIntroduction}>
-            {selectedWork.client && (
+            {modalWork.client && (
               <div className={styles.modalClient}>
                 <span>CLIENT</span>
-                <strong>{selectedWork.client}</strong>
+                <strong>{modalWork.client}</strong>
               </div>
             )}
-            <h2 id="work-modal-title">{selectedWork.headline}</h2>
-            <p>{selectedWork.summary}</p>
+            <h2 id="work-modal-title">{modalWork.headline}</h2>
+            <p>{modalWork.summary}</p>
           </div>
-          <WorkVisual work={selectedWork} size="modal" />
+          <WorkImage work={modalWork} size="modal" />
           <div className={styles.modalStory}>
-            {selectedWork.story.map((paragraph, index) => (
-              <p key={`${selectedWork.id}-${index}`}>{paragraph}</p>
+            {modalWork.story.map((paragraph, index) => (
+              <p key={`${modalWork.id}-${index}`}>{paragraph}</p>
             ))}
           </div>
         </div>

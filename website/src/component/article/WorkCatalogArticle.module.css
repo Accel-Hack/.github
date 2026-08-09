@@ -4,7 +4,7 @@
 }
 
 .catalog,
-.selectedWork {
+.workDetail {
   border: 1px solid rgba(17, 19, 17, 0.18);
   background: rgba(255, 255, 255, 0.94);
 }
@@ -204,10 +204,6 @@
   background: rgba(240, 255, 249, 0.9);
 }
 
-.selectedCard {
-  box-shadow: 0 -4px 0 var(--company-color) inset;
-}
-
 .cardNumber {
   color: var(--gray);
   font-style: italic;
@@ -268,14 +264,10 @@
 .visual {
   position: relative;
   min-width: 0;
+  margin: 0;
   overflow: hidden;
   border: 1px solid rgba(17, 19, 17, 0.82);
-  background: repeating-linear-gradient(
-    90deg,
-    #edf0ed 0,
-    #edf0ed 3.25rem,
-    #ffffff 3.3rem
-  );
+  background: #e8ebe8;
 }
 
 .cardVisual {
@@ -293,78 +285,51 @@
   margin: 0 clamp(1.5rem, 5vw, 5rem);
 }
 
-.visualNumber {
+.projectPhoto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .projectPhoto,
+.workDetail:hover .projectPhoto {
+  transform: scale(1.025);
+}
+
+.photoPlaceholder {
   position: absolute;
-  right: 1.25rem;
-  bottom: -3.8rem;
-  color: rgba(33, 255, 170, 0.2);
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, transparent 49.8%, rgba(17, 19, 17, 0.12) 50%),
+    linear-gradient(45deg, transparent 49.8%, rgba(17, 19, 17, 0.08) 50%),
+    #edf0ed;
+}
+
+.placeholderNumber {
+  position: absolute;
+  right: 1rem;
+  bottom: -0.2em;
+  color: rgba(33, 255, 170, 0.32);
   font-family: var(--font-axia);
-  font-size: clamp(8rem, 16vw, 17rem);
+  font-size: clamp(5rem, 13vw, 13rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.11em;
+  letter-spacing: -0.1em;
 }
 
-.visualShape {
-  position: absolute;
-  top: 31%;
-  left: 16%;
-  width: 58%;
-  height: 29%;
-  border: clamp(0.9rem, 2vw, 2rem) solid var(--background-black);
-  border-right-color: var(--company-color);
-  transform: skew(-16deg);
-}
-
-.visual[data-visual='diamond'] .visualShape {
-  top: 23%;
-  left: 33%;
-  width: 34%;
-  height: 50%;
-  border: 0;
-  background: var(--company-color);
-  transform: rotate(45deg);
-}
-
-.visual[data-visual='beam'] .visualShape {
-  top: 39%;
-  left: 14%;
-  width: 69%;
-  height: 16%;
-  border: 0;
-  background: linear-gradient(
-    90deg,
-    var(--background-black) 0 58%,
-    var(--company-color) 58%
-  );
-  transform: skew(-18deg);
-}
-
-.visual[data-visual='flow'] .visualShape {
-  top: 27%;
-  left: 14%;
-  width: 66%;
-  height: 38%;
-  border: 0;
-  background:
-    linear-gradient(var(--company-color), var(--company-color)) 0 0 / 54% 32%
-      no-repeat,
-    linear-gradient(var(--background-black), var(--background-black)) 100% 50% /
-      72% 32% no-repeat,
-    linear-gradient(var(--company-color), var(--company-color)) 0 100% / 42% 32%
-      no-repeat;
-  transform: none;
-}
-
-.visual[data-visual='orbit'] .visualShape {
-  top: 23%;
-  left: 26%;
-  width: 48%;
-  height: 48%;
-  border-color: var(--background-black);
-  border-right-color: var(--company-color);
-  border-radius: 50%;
-  transform: none;
+.placeholderText {
+  position: relative;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(17, 19, 17, 0.32);
+  background: rgba(250, 250, 250, 0.86);
+  font-family: var(--font-axia);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
 }
 
 .visualCaption {
@@ -372,6 +337,8 @@
   bottom: 0.8rem;
   left: 0.9rem;
   color: var(--gray);
+  padding: 0.35rem 0.5rem;
+  background: rgba(250, 250, 250, 0.82);
   font-family: var(--font-axia);
   font-size: 0.55rem;
   letter-spacing: 0.16em;
@@ -384,8 +351,13 @@
   text-align: center;
 }
 
-.selectedWork {
+.workDetails {
+  display: grid;
+  gap: clamp(5rem, 9vw, 9rem);
   margin-top: clamp(5rem, 10vw, 10rem);
+}
+
+.workDetail {
   scroll-margin-top: 1.5rem;
   cursor: pointer;
   transition:
@@ -393,23 +365,23 @@
     box-shadow 0.2s ease;
 }
 
-.selectedWork:hover {
+.workDetail:hover {
   border-color: var(--company-color);
   box-shadow: 0 20px 42px rgba(24, 29, 26, 0.08);
 }
 
-.selectedWork:focus-visible {
+.workDetail:focus-visible {
   outline: 3px solid var(--company-color);
   outline-offset: 4px;
 }
 
-.selectedLayout {
+.detailLayout {
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
   min-height: 33rem;
 }
 
-.selectedCopy {
+.detailCopy {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -434,7 +406,7 @@
   letter-spacing: 0.14em;
 }
 
-.selectedCopy h2 {
+.detailCopy h2 {
   margin: clamp(2rem, 4vw, 3.5rem) 0 1.5rem;
   font-size: clamp(2rem, 3.5vw, 4.4rem);
   font-weight: 500;
@@ -472,7 +444,7 @@
     background 0.2s ease;
 }
 
-.selectedWork:hover .readMore b {
+.workDetail:hover .readMore b {
   border-color: var(--company-color);
   background: var(--company-color);
 }
@@ -561,23 +533,76 @@
 }
 
 .modalStory {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: 52rem;
+  margin: 0 auto;
   padding: clamp(2rem, 5vw, 4.5rem);
 }
 
 .modalStory p {
   margin: 0;
   color: var(--gray);
-  font-size: 0.85rem;
-  line-height: 2;
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  line-height: 2.15;
 }
 
-.modalStory p:first-child {
-  color: var(--background-black);
-  font-size: 1rem;
+.modalStory p + p {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid rgba(17, 19, 17, 0.14);
+}
+
+.modalVoice {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: clamp(2.25rem, 5vw, 4rem);
+  overflow: hidden;
+  border: 0;
+  border-left: 6px solid var(--company-color);
+  background: var(--background-black);
+  color: var(--white);
+  box-shadow: 18px 22px 36px rgba(17, 19, 17, 0.18);
+}
+
+.modalVoice::before {
+  position: absolute;
+  top: -2rem;
+  right: 1.5rem;
+  color: rgba(33, 255, 170, 0.18);
+  content: '“';
+  font-family: Georgia, serif;
+  font-size: clamp(9rem, 18vw, 15rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.voiceLabel {
+  position: relative;
+  display: block;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--company-color);
+  font-family: var(--font-axia);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.modalVoice p {
+  position: relative;
+  max-width: 44rem;
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.75rem);
   font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: -0.025em;
+}
+
+.modalVoice footer {
+  position: relative;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
 }
 
 @keyframes modalIn {
@@ -605,7 +630,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .selectedLayout {
+  .detailLayout {
     grid-template-columns: 1fr;
   }
 
@@ -651,15 +676,16 @@
     min-height: 27rem;
   }
 
-  .selectedWork {
+  .workDetails {
     margin-top: 5rem;
+    gap: 5rem;
   }
 
-  .selectedCopy {
+  .detailCopy {
     padding: 1.75rem;
   }
 
-  .selectedCopy h2 {
+  .detailCopy h2 {
     font-size: clamp(2rem, 9vw, 3.2rem);
   }
 
@@ -681,8 +707,15 @@
     margin: auto;
   }
 
+  .modalStory,
+  .modalVoice {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
   .modalStory {
-    grid-template-columns: 1fr;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .modalVisual {
@@ -694,7 +727,7 @@
 @media (prefers-reduced-motion: reduce) {
   .filterButton,
   .cardAction,
-  .selectedWork,
+  .workDetail,
   .readMore b {
     transition: none;
   }

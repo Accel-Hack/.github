@@ -1,4 +1,5 @@
 .container {
+  counter-increment: article-section;
   min-height: 0;
   display: block;
 }

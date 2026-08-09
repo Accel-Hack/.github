@@ -1,42 +1,55 @@
 'use client';
 import { Page } from '@/enum/Page';
 import styles from './TabItem.module.css';
-import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 type Props = {
   page: Page;
   type: 'primary' | 'secondary';
+  isCurrent?: boolean;
 };
 
-const TabItem: React.FC<Props> = ({ page, type = 'primary' }: Props) => {
-  const caption = (page: Page) => {
+const TabItem: React.FC<Props> = ({
+  page,
+  type = 'primary',
+  isCurrent = false,
+}: Props) => {
+  const item = (page: Page) => {
     switch (page) {
       case Page.ABOUT:
-        return 'About';
+        return { caption: 'About', detail: '01 / COMPANY' };
       case Page.SERVICE:
-        return 'Service';
+        return { caption: 'Works', detail: '02 / PROJECTS' };
       case Page.RECRUIT:
-        return 'Recruit';
+        return { caption: 'Recruit', detail: '03 / PEOPLE' };
       case Page.BLOG:
-        return 'Blog';
+        return { caption: 'Blog', detail: '04 / JOURNAL' };
       case Page.CONTACT:
-        return 'Contact';
+        return { caption: 'Contact', detail: '05 / CONNECT' };
+      default:
+        return { caption: '', detail: '' };
     }
   };
 
-  const segue = () => {
-    redirect(page);
-  };
+  const { caption, detail } = item(page);
 
   return (
-    <div className={styles.container} onClick={segue}>
+    <Link
+      href={page}
+      className={`${styles.container} ${isCurrent ? styles.current : ''}`}
+      aria-current={isCurrent ? 'page' : undefined}
+    >
       <div
         className={`${styles.content} ${type == 'primary' ? styles.primary : styles.secondary}`}
       >
-        <div>{caption(page)}</div>
+        <span className={styles.label}>
+          <strong>{caption}</strong>
+          <small>{detail}</small>
+        </span>
         <div className={styles.arrow}>→</div>
+        {isCurrent && <span className={styles.current_label}>CURRENT</span>}
       </div>
-    </div>
+    </Link>
   );
 };
 

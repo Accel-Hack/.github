@@ -8,29 +8,25 @@ import LogoRelate from '@/asset/img/about/logo_relate.png';
 import LogoWkogyo from '@/asset/img/about/logo_wkogyo.png';
 import styles from './AboutSections.module.css';
 
-const solutionSteps = [
+const capabilityGroups = [
   {
     number: '01',
-    title: '見つける',
-    description: '現場・経営、さまざまな視点から、何が課題なのかを発見します。',
+    title: 'システム開発',
+    label: 'DEVELOPMENT',
+    requests: [
+      '生成AIを組み込んだシステムを一から開発したい',
+      'ベンダーロックされてしまったシステムの新しい保守先を探したい',
+      'システム開発の見積もりが高すぎる。もっと安く効率的に作れるベンダーに頼みたい',
+    ],
   },
   {
     number: '02',
-    title: '深ぼる',
-    description:
-      'クライアントごとの事情やドメインにとことん深入りし、課題の原因を突き止めます。',
-  },
-  {
-    number: '03',
-    title: '解を出す',
-    description:
-      '歴戦のエンジニアと生成AIのタッグが、課題解決につながるソリューションを提案します。',
-  },
-  {
-    number: '04',
-    title: '実装する',
-    description:
-      '選んだソリューションを、使い続けられるシステムとして組み立てます。',
+    title: 'AI導入支援',
+    label: 'AI ENABLEMENT',
+    requests: [
+      '今契約しているMicrosoftだけでAI効率化を図りたい',
+      'CLaude / ClaudeCodeを安全に会社に導入したい',
+    ],
   },
 ];
 
@@ -113,35 +109,35 @@ const AboutSections: React.FC = () => {
         </section>
       </Article>
 
-      <Article id="process" caption="AccelHackの課題解決プロセス">
-        <section className={styles.processSection}>
+      <Article id="capabilities" caption="私たちのできること">
+        <section className={styles.capabilitiesSection}>
           <span className={styles.ghostType} aria-hidden="true">
-            04
+            05
           </span>
           <span className={styles.greenPlane} aria-hidden="true" />
           <span className={styles.slideIndex}>02 / 04</span>
-          <div className={styles.processHeading}>
-            <p className={styles.kicker}>OUR PROCESS</p>
-            <h2 className={styles.processTitle}>
-              <span className={styles.highlight}>見つける</span>・深ぼる
-              <br />
-              解を出す ・実装する
-            </h2>
-            <p>私たちはお客様の課題を、この4つのプロセスで解消します。</p>
-          </div>
-          <ol className={styles.processList}>
-            {solutionSteps.map((step) => (
-              <li key={step.number} className={styles.processItem}>
-                <span className={styles.processNumber}>{step.number}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </li>
+          <div className={styles.capabilityRoute}>
+            {capabilityGroups.map((group) => (
+              <section key={group.number} className={styles.capabilityGroup}>
+                <header className={styles.capabilityHeading}>
+                  <span className={styles.capabilityNumber}>
+                    {group.number}
+                  </span>
+                  <h2>{group.title}</h2>
+                  <small>{group.label}</small>
+                </header>
+                <ul className={styles.requestList}>
+                  {group.requests.map((request) => (
+                    <li key={request} className={styles.requestItem}>
+                      {request}
+                    </li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </ol>
-          <a className={styles.recruitLink} href={Page.RECRUIT}>
-            AccelHackの考える課題解決エンジニアとは
+          </div>
+          <a className={styles.worksLink} href={Page.SERVICE}>
+            実績を確認
             <span aria-hidden="true">→</span>
           </a>
         </section>
@@ -234,8 +230,8 @@ const AboutSections: React.FC = () => {
                   />
                 </div>
               ))}
-              <div className={styles.clientName}>東京テアトル</div>
-              <div className={styles.clientName}>BALMUDA</div>
+              {/*<div className={styles.clientName}>東京テアトル</div>*/}
+              {/*<div className={styles.clientName}>BALMUDA</div>*/}
             </div>
           </div>
         </section>

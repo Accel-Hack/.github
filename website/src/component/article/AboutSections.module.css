@@ -8,7 +8,7 @@
 }
 
 .aiSection,
-.processSection,
+.capabilitiesSection,
 .membersSection,
 .historySection {
   position: relative;
@@ -155,130 +155,141 @@
   font-weight: 700;
 }
 
-.processSection {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  align-content: center;
-  padding: clamp(2rem, 3vw, 3.5rem);
+.capabilitiesSection {
+  position: relative;
+  padding: clamp(2rem, 4vw, 4.5rem);
 }
 
-.processSection > .ghostType {
-  right: -2%;
-  bottom: -10%;
+.capabilitiesSection > .ghostType {
+  right: -1%;
+  bottom: -8%;
 }
 
-.processSection > .greenPlane {
-  bottom: 8%;
-  left: 14%;
-  width: 43%;
-  height: 34%;
+.capabilitiesSection > .greenPlane {
+  bottom: 5%;
+  left: 6%;
+  width: 34%;
+  height: 40%;
   transform: skewX(-10deg) rotate(1.5deg);
 }
 
-.processHeading,
-.processList,
-.recruitLink {
+.capabilityRoute,
+.worksLink {
   position: relative;
   z-index: 2;
 }
 
-.processHeading {
+.capabilityRoute {
+  width: min(100%, 61rem);
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.capabilityRoute::before {
+  position: absolute;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  left: clamp(0.35rem, 1vw, 0.85rem);
+  width: 1px;
+  background: linear-gradient(
+    var(--company-color),
+    rgba(17, 19, 17, 0.22) 72%,
+    transparent
+  );
+  content: '';
+}
+
+.capabilityGroup + .capabilityGroup {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.capabilityHeading {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-bottom: 1rem;
+}
+
+.capabilityNumber {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
-  gap: 2rem;
-  align-items: end;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--company-color);
+  font-family: var(--font-axia);
+  font-size: 0.58rem;
 }
 
-.processHeading .kicker {
-  grid-column: 1 / -1;
-  margin-bottom: -0.5rem;
-}
-
-.processTitle {
+.capabilityHeading h2 {
   margin: 0;
-  font-size: clamp(2.4rem, 4.5vw, 5.1rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
   font-weight: 500;
-  line-height: 1.17;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
 }
 
-.processHeading > p:last-child {
-  max-width: 25rem;
-  margin: 0 0 0.4rem;
+.capabilityHeading small {
+  margin-left: auto;
   color: var(--gray);
-  line-height: 1.9;
+  font-family: var(--font-axia);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
 }
 
-.processList {
+.requestList {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-self: end;
-  margin: clamp(1.5rem, 3vw, 3rem) 0 0;
+  gap: 0.65rem;
+  margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(17, 19, 17, 0.78);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
   list-style: none;
 }
 
-.processItem {
-  position: relative;
+.requestItem {
+  display: flex;
   box-sizing: border-box;
-  min-height: 12rem;
-  padding: 4.3rem clamp(1rem, 1.7vw, 1.8rem) 1.4rem;
-  overflow: hidden;
-  border-right: 1px solid rgba(17, 19, 17, 0.15);
-}
-
-.processItem:last-child {
-  border-right: 0;
-}
-
-.processNumber {
-  position: absolute;
-  top: -0.25em;
-  left: 0.08em;
-  color: rgba(33, 255, 170, 0.46);
-  font-family: var(--font-axia);
-  font-size: clamp(3.7rem, 6vw, 6.8rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.08em;
-}
-
-.processItem h3 {
-  position: relative;
-  margin: 0 0 0.6rem;
-  font-size: 1.05rem;
-}
-
-.processItem p {
-  position: relative;
-  margin: 0;
-  color: var(--gray);
-  font-size: 0.75rem;
+  min-height: 5.35rem;
+  align-items: center;
+  padding: 1.25rem clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid rgba(17, 19, 17, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 7px 7px 0 rgba(233, 237, 233, 0.88);
+  font-size: clamp(0.78rem, 1vw, 0.94rem);
   line-height: 1.75;
 }
 
-.recruitLink {
+.worksLink {
   display: flex;
   box-sizing: border-box;
-  width: min(100%, 31rem);
+  width: min(100%, 28rem);
   align-items: center;
   justify-content: space-between;
-  justify-self: end;
-  margin-top: 0.85rem;
-  padding: 0.85rem 1.2rem;
+  margin: clamp(2rem, 4vw, 3.5rem) max(0px, calc((100% - 61rem) / 2)) 0 auto;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(17, 19, 17, 0.28);
   color: var(--background-black);
-  border-bottom: 1px solid var(--background-black);
-  background: rgba(33, 255, 170, 0.72);
+  background: rgba(255, 255, 255, 0.94);
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
 }
 
-.recruitLink:focus-visible {
-  outline: 3px solid var(--background-black);
+.worksLink span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid rgba(17, 19, 17, 0.24);
+  border-radius: 50%;
+}
+
+.worksLink:hover {
+  border-color: var(--company-color);
+  background: rgba(33, 255, 170, 0.08);
+}
+
+.worksLink:focus-visible {
+  outline: 3px solid var(--company-color);
   outline-offset: 3px;
 }
 
@@ -556,26 +567,6 @@
     margin-left: auto;
   }
 
-  .processHeading {
-    grid-template-columns: 1fr;
-  }
-
-  .processHeading > p:last-child {
-    margin-top: 0;
-  }
-
-  .processList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .processItem:nth-child(2) {
-    border-right: 0;
-  }
-
-  .processItem:nth-child(-n + 2) {
-    border-bottom: 1px solid rgba(17, 19, 17, 0.15);
-  }
-
   .membersSection,
   .historySection {
     grid-template-columns: 1fr;
@@ -598,7 +589,7 @@
 
 @media screen and (max-width: 768px) {
   .aiSection,
-  .processSection,
+  .capabilitiesSection,
   .membersSection,
   .historySection {
     min-height: auto;
@@ -626,18 +617,30 @@
     display: none;
   }
 
-  .processList {
-    grid-template-columns: 1fr;
+  .capabilitiesSection {
+    padding: 1.5rem 1rem;
   }
 
-  .processItem {
-    min-height: 10rem;
-    border-right: 0;
-    border-bottom: 1px solid rgba(17, 19, 17, 0.15);
+  .capabilityRoute {
+    padding-left: 1.35rem;
   }
 
-  .recruitLink {
+  .capabilityRoute::before {
+    left: 0.2rem;
+  }
+
+  .capabilityHeading small {
+    display: none;
+  }
+
+  .requestItem {
+    min-height: 4.75rem;
+    padding: 1rem;
+  }
+
+  .worksLink {
     width: 100%;
+    margin-right: 0;
   }
 
   .member {

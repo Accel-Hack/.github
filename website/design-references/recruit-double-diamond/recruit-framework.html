@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Recruit｜Nested Double Diamond</title>
+    <style>
+      :root {
+        --green: #21ffaa;
+        --green-ink: #107f59;
+        --ink: #171b18;
+        --muted: #68706b;
+        --line: #d6dcd8;
+        --paper: #fff;
+        --canvas: #f1f3f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(135deg, rgba(33, 255, 170, 0.06), transparent 34%),
+          var(--canvas);
+        font-family:
+          'Helvetica Neue', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN',
+          sans-serif;
+      }
+      .site-head {
+        height: 52px;
+        padding: 0 34px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid #d6dbd7;
+        background: rgba(248, 249, 247, 0.92);
+        backdrop-filter: blur(12px);
+      }
+      .logo {
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+      .logo small {
+        margin-left: 2px;
+        font-size: 8px;
+        font-weight: 500;
+      }
+      .option {
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+      .frame {
+        min-height: calc(100vh - 52px);
+        margin: 0 clamp(8px, 1.25vw, 24px) 24px;
+        padding: clamp(8px, 1.35vw, 24px) clamp(10px, 2.4vw, 42px) 60px;
+        border-left: 4px solid #737875;
+        border-right: 4px solid #737875;
+        background: rgba(255, 255, 255, 0.42);
+      }
+      .panel {
+        min-height: calc(100vh - 88px);
+        padding: clamp(14px, 2vw, 32px) clamp(18px, 4vw, 64px) 120px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.99),
+          rgba(246, 248, 245, 0.95)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.12);
+      }
+      .page-head {
+        max-width: 1240px;
+        margin: 0 auto clamp(64px, 9vw, 116px);
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      .page-head h1 {
+        margin: 0;
+        color: #747a76;
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+      .section {
+        max-width: 1240px;
+        margin: 0 auto clamp(100px, 14vw, 190px);
+        position: relative;
+      }
+      .floating-title {
+        width: min(720px, calc(100% - 48px));
+        min-height: 70px;
+        margin: 0 0 clamp(34px, 5vw, 64px) 18px;
+        padding: 15px 22px 15px 28px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        position: relative;
+        z-index: 5;
+        border: 1px solid rgba(178, 188, 182, 0.72);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow:
+          0 14px 30px rgba(29, 38, 32, 0.09),
+          7px 7px 0 #eef1ee;
+      }
+      .floating-title::before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        bottom: -1px;
+        width: 5px;
+        background: var(--green);
+      }
+      .floating-title .number {
+        min-width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border: 1px solid #aeb7b1;
+        border-radius: 50%;
+        color: var(--green-ink);
+        font-size: 9px;
+      }
+      .floating-title h2 {
+        margin: 0;
+        flex: 1;
+        font-size: clamp(19px, 2vw, 28px);
+        font-weight: 500;
+        letter-spacing: -0.025em;
+      }
+      .floating-title small {
+        color: #747c77;
+        font-size: 8px;
+        letter-spacing: 0.16em;
+      }
+      .framework-intro {
+        display: block;
+      }
+      .statement {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr);
+        gap: clamp(20px, 4vw, 64px);
+        width: min(100%, 1040px);
+        margin: 0 auto clamp(32px, 5vw, 58px);
+        padding: clamp(24px, 4vw, 50px);
+        border-left: 1px solid var(--green);
+        background: rgba(255, 255, 255, 0.64);
+      }
+      .statement b {
+        grid-column: 1 / -1;
+        display: block;
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.18em;
+      }
+      .statement p {
+        margin: 0;
+        font-size: clamp(20px, 2.6vw, 35px);
+        line-height: 1.55;
+        letter-spacing: -0.035em;
+      }
+      .statement p:first-of-type {
+        grid-column: 1 / -1;
+        white-space: nowrap;
+      }
+      .statement p + p {
+        margin-top: 0;
+        align-self: end;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 2;
+        letter-spacing: 0;
+      }
+      .statement p:only-of-type {
+        grid-column: 1 / -1;
+      }
+      .statement .annotation {
+        grid-column: 1 / -1;
+        max-width: 760px;
+      }
+      .annotation strong {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--ink);
+        font-size: 0.72em;
+        letter-spacing: 0.04em;
+      }
+      .macro {
+        position: relative;
+        min-height: 650px;
+        padding: 40px clamp(20px, 4vw, 52px) 34px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+        overflow: hidden;
+      }
+      .macro-label {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 8px;
+        letter-spacing: 0.16em;
+      }
+      .diamonds {
+        height: 350px;
+        margin: 26px auto 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        max-width: 980px;
+      }
+      .diamond {
+        height: 310px;
+        position: relative;
+        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+        background: linear-gradient(
+          135deg,
+          #1c211e 0 49.6%,
+          var(--green) 50% 50.5%,
+          #e7ece8 50.8%
+        );
+      }
+      .diamond::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        clip-path: inherit;
+        background: rgba(250, 251, 249, 0.96);
+      }
+      .phase-cell {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 12px;
+        transform: translateY(-50%);
+        text-align: center;
+      }
+      .phase-cell strong {
+        font-size: 9px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .phase-cell:first-child {
+        left: 0;
+      }
+      .phase-cell:last-child {
+        right: 0;
+      }
+      .phase-cell small {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 7px;
+        letter-spacing: 0.1em;
+      }
+      .inner-diamonds {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: clamp(64px, 9vw, 116px);
+        margin-top: 13px;
+        filter: drop-shadow(0 6px 6px rgba(17, 19, 17, 0.16));
+      }
+      .inner-diamonds i {
+        display: block;
+        height: clamp(30px, 4.5vw, 58px);
+        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+        background: linear-gradient(
+          135deg,
+          #2a302c 0 47.5%,
+          var(--green) 49% 52%,
+          #d9e2dc 53.5%
+        );
+      }
+      .figure-legend {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        width: min(100%, 980px);
+        margin: 12px auto 0;
+        color: var(--muted);
+        font-size: 8px;
+        letter-spacing: 0.12em;
+      }
+      .scale-intro {
+        max-width: 880px;
+        margin: 0 auto 40px;
+        padding: 0 20px;
+      }
+      .scale-block {
+        margin-top: clamp(52px, 8vw, 96px);
+        padding-top: clamp(42px, 6vw, 72px);
+        border-top: 1px solid var(--line);
+      }
+      .scale-intro p {
+        margin: 0;
+        font-size: clamp(21px, 3vw, 42px);
+        line-height: 1.55;
+        letter-spacing: -0.04em;
+      }
+      .scale-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+      .scale-card {
+        min-height: 320px;
+        padding: 26px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .scale-card:nth-child(2) {
+        background: #f1fff8;
+      }
+      .scale-card header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .scale-card header span {
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.15em;
+      }
+      .scale-card h3 {
+        margin: 25px 0 8px;
+        font-size: clamp(24px, 2.7vw, 38px);
+        font-weight: 500;
+      }
+      .scale-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.8;
+      }
+      .scale-visual {
+        margin: auto 0 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .scale-card:nth-child(2) .scale-visual {
+        width: 74%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .scale-card:nth-child(3) .scale-visual {
+        width: 48%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .scale-visual i {
+        display: block;
+        height: 92px;
+        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+        background: linear-gradient(
+          135deg,
+          #1f2421 0 49%,
+          var(--green) 50% 51%,
+          #eef2ef 52%
+        );
+      }
+      .growth {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+        gap: clamp(34px, 6vw, 90px);
+      }
+      .growth-copy {
+        padding: 20px 0;
+      }
+      .growth-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 2;
+      }
+      .growth-copy h3 {
+        margin: 0 0 24px;
+        font-size: clamp(28px, 3.6vw, 52px);
+        line-height: 1.35;
+        font-weight: 500;
+        letter-spacing: -0.05em;
+      }
+      .growth-track {
+        display: grid;
+        gap: 10px;
+      }
+      .growth-step {
+        min-height: 106px;
+        padding: 22px;
+        display: grid;
+        grid-template-columns: 70px 1fr auto;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid var(--line);
+        background: #fff;
+        box-shadow: 7px 7px 0 #edf0ed;
+      }
+      .growth-step span {
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+      .growth-step strong {
+        font-size: 17px;
+      }
+      .growth-step small {
+        color: var(--muted);
+        font-size: 8px;
+        letter-spacing: 0.12em;
+      }
+      .growth-step:nth-child(2) {
+        margin-left: 7%;
+      }
+      .growth-step:nth-child(3) {
+        margin-left: 14%;
+        border-color: rgba(33, 255, 170, 0.8);
+        background: #effff7;
+      }
+      .recruit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+      .recruit-card {
+        min-height: 220px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .recruit-card:first-child {
+        grid-column: 1/-1;
+        min-height: 260px;
+        background: linear-gradient(
+          120deg,
+          #fff 0 68%,
+          rgba(33, 255, 170, 0.18) 68%
+        );
+      }
+      .recruit-card span {
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.16em;
+      }
+      .recruit-card h3 {
+        margin: 24px 0 14px;
+        font-size: clamp(22px, 2.7vw, 36px);
+        font-weight: 500;
+      }
+      .recruit-card p {
+        max-width: 680px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.9;
+      }
+      .positions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .positions b {
+        padding: 11px 15px;
+        border: 1px solid #bdc5c0;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+      .case-study {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #aeb7b1;
+        background:
+          linear-gradient(118deg, #fff 0 58%, rgba(33, 255, 170, 0.18) 58%),
+          #fff;
+        box-shadow: 0 24px 58px rgba(25, 34, 28, 0.08);
+      }
+      .case-study::after {
+        position: absolute;
+        right: -0.04em;
+        bottom: -0.23em;
+        z-index: 0;
+        color: rgba(33, 255, 170, 0.13);
+        font-size: clamp(150px, 25vw, 330px);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.1em;
+        content: '200';
+        pointer-events: none;
+      }
+      .case-meta {
+        min-height: 42px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+        border-bottom: 1px solid var(--line);
+        font-size: 8px;
+        letter-spacing: 0.16em;
+      }
+      .case-meta span:first-child {
+        color: var(--green-ink);
+      }
+      .case-layout {
+        min-height: 430px;
+        padding: clamp(30px, 5vw, 64px);
+        display: grid;
+        grid-template-columns:
+          minmax(230px, 0.82fr) minmax(180px, 0.36fr)
+          minmax(260px, 0.82fr);
+        gap: clamp(20px, 4vw, 54px);
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .case-stage small {
+        color: var(--green-ink);
+        font-size: 8px;
+        letter-spacing: 0.18em;
+      }
+      .case-stage h3 {
+        margin: 22px 0 0;
+        font-size: clamp(25px, 3vw, 43px);
+        line-height: 1.4;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+      }
+      .case-stage strong {
+        display: block;
+        margin-top: 26px;
+        font-size: clamp(44px, 6vw, 84px);
+        line-height: 1;
+        letter-spacing: -0.07em;
+      }
+      .case-stage strong span {
+        margin-left: 8px;
+        color: var(--green-ink);
+        font-size: 0.34em;
+        letter-spacing: 0;
+      }
+      .case-path {
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+      }
+      .case-path-diamonds {
+        width: 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .case-path-diamonds i {
+        display: block;
+        height: 70px;
+        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+        background: linear-gradient(
+          135deg,
+          #1f2421 0 49%,
+          var(--green) 50% 51%,
+          #eef2ef 52%
+        );
+      }
+      .case-path b {
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+      .case-path span {
+        font-size: 30px;
+      }
+      .mini-nav {
+        position: fixed;
+        right: 0;
+        top: 110px;
+        z-index: 10;
+        display: grid;
+        gap: 8px;
+      }
+      .mini-nav a {
+        width: 106px;
+        padding: 12px 14px;
+        color: #2c322e;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .mini-nav a::before {
+        content: '•';
+        color: var(--green);
+        margin-right: 8px;
+      }
+      @media (max-width: 900px) {
+        .growth {
+          grid-template-columns: 1fr;
+        }
+        .statement {
+          grid-template-columns: 1fr;
+          max-width: 760px;
+        }
+        .statement p + p {
+          margin-top: 4px;
+        }
+        .scale-grid {
+          grid-template-columns: 1fr;
+        }
+        .scale-card {
+          min-height: 260px;
+        }
+        .scale-card:nth-child(2) .scale-visual,
+        .scale-card:nth-child(3) .scale-visual {
+          width: 100%;
+        }
+        .growth-step:nth-child(2),
+        .growth-step:nth-child(3) {
+          margin-left: 0;
+        }
+        .case-layout {
+          grid-template-columns: 1fr;
+        }
+        .case-path {
+          padding: 12px 0;
+        }
+        .case-path span {
+          transform: rotate(90deg);
+        }
+      }
+      @media (max-width: 760px) {
+        .site-head {
+          padding: 0 18px;
+        }
+        .frame {
+          padding: 7px 7px 40px;
+        }
+        .panel {
+          padding: 24px 18px 72px;
+        }
+        .page-head {
+          margin-bottom: 68px;
+        }
+        .floating-title {
+          width: calc(100% - 10px);
+          margin-left: 5px;
+          padding: 12px 14px 12px 18px;
+        }
+        .floating-title small,
+        .mini-nav {
+          display: none;
+        }
+        .macro {
+          padding: 20px 12px;
+          min-height: 0;
+        }
+        .statement p:first-of-type {
+          white-space: normal;
+        }
+        .diamonds {
+          height: 190px;
+        }
+        .diamond {
+          height: 160px;
+        }
+        .phase-cell {
+          padding: 0 3px;
+        }
+        .phase-cell small {
+          font-size: 6px;
+        }
+        .scale-intro {
+          padding: 0;
+        }
+        .growth-step {
+          grid-template-columns: 48px 1fr;
+        }
+        .growth-step small {
+          display: none;
+        }
+        .recruit-grid {
+          grid-template-columns: 1fr;
+        }
+        .recruit-card:first-child {
+          grid-column: auto;
+        }
+        .case-layout {
+          min-height: 0;
+          padding: 28px 20px 42px;
+        }
+        .case-path-diamonds {
+          width: 120px;
+        }
+        .case-path-diamonds i {
+          height: 56px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="logo">ACCELHACK<small>.inc</small></div>
+      <div class="option">RECRUIT / FRAMEWORK PROPOSAL</div>
+    </header>
+    <main class="frame">
+      <div class="panel">
+        <header class="page-head"><h1>Recruit</h1></header>
+        <section class="section" id="framework">
+          <header class="floating-title">
+            <span class="number">01</span>
+            <h2>AccelHackの課題解決フレームワーク</h2>
+            <small>DOUBLE DIAMOND</small>
+          </header>
+          <div class="framework-intro">
+            <div class="statement">
+              <b>MACRO / MICRO</b>
+              <p>フラクタルダイヤモンドフレームワーク</p>
+              <p class="annotation">
+                <strong>「ダブルダイヤモンド」とは</strong>
+                課題の探索と解決策の検討において、発散と収束を二度繰り返す課題解決のフレームワークです。
+              </p>
+            </div>
+            <div class="macro">
+              <div class="macro-label">
+                <span>PROBLEM SPACE</span><span>SOLUTION SPACE</span>
+              </div>
+              <div class="diamonds">
+                <div class="diamond">
+                  <div class="phase-cell">
+                    <strong>見つける</strong><small>DISCOVER</small>
+                    <span class="inner-diamonds" aria-hidden="true"
+                      ><i></i><i></i
+                    ></span>
+                  </div>
+                  <div class="phase-cell">
+                    <strong>深ぼる</strong><small>DEFINE</small>
+                    <span class="inner-diamonds" aria-hidden="true"
+                      ><i></i><i></i
+                    ></span>
+                  </div>
+                </div>
+                <div class="diamond">
+                  <div class="phase-cell">
+                    <strong>解を出す</strong><small>DEVELOP</small>
+                    <span class="inner-diamonds" aria-hidden="true"
+                      ><i></i><i></i
+                    ></span>
+                  </div>
+                  <div class="phase-cell">
+                    <strong>実装する</strong><small>DELIVER</small>
+                    <span class="inner-diamonds" aria-hidden="true"
+                      ><i></i><i></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-legend" aria-hidden="true">
+                <span>PROJECT / MACRO</span>
+                <span>PHASE / FRACTAL DIAMOND</span>
+              </div>
+            </div>
+          </div>
+          <div class="scale-block" id="scale">
+            <div class="scale-intro">
+              <p>
+                何かを「見つけ」ようと思えば、さらにこのダイヤモンドが現れ、「実装する」にもこのダイヤモンドが現れます。
+              </p>
+            </div>
+            <div class="scale-grid">
+              <article class="scale-card">
+                <header><span>MACRO / 01</span><small>PROJECT</small></header>
+                <h3>プロジェクト全体</h3>
+                <p>課題の発見から、解決策を届けるまで。</p>
+                <div class="scale-visual"><i></i><i></i></div>
+              </article>
+              <article class="scale-card">
+                <header><span>MESO / 02</span><small>PHASE</small></header>
+                <h3>一つの工程</h3>
+                <p>「見つける」「実装する」それぞれの中にも。</p>
+                <div class="scale-visual"><i></i><i></i></div>
+              </article>
+              <article class="scale-card">
+                <header><span>MICRO / 03</span><small>TASK</small></header>
+                <h3>一つの判断</h3>
+                <p>小さな技術選定や改善の中にも。</p>
+                <div class="scale-visual"><i></i><i></i></div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="growth">
+          <header class="floating-title">
+            <span class="number">02</span>
+            <h2>課題解決人材への成長</h2>
+            <small>GROWTH</small>
+          </header>
+          <div class="growth">
+            <div class="growth-copy">
+              <h3>
+                今あなたはどこにいますか？<br />そして、どこに行きたいですか？
+              </h3>
+              <p>
+                個別の実装から工程全体へ、工程全体からプロジェクト全体へ。扱うダイヤモンドの範囲を広げます。
+              </p>
+            </div>
+            <div class="growth-track">
+              <div class="growth-step">
+                <span>01 / MICRO</span><strong>個別の実装・判断</strong
+                ><small>TASK</small>
+              </div>
+              <div class="growth-step">
+                <span>02 / PHASE</span><strong>一つの工程を設計する</strong
+                ><small>PHASE</small>
+              </div>
+              <div class="growth-step">
+                <span>03 / MACRO</span><strong>課題解決全体を動かす</strong
+                ><small>PROJECT</small>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="recruit">
+          <header class="floating-title">
+            <span class="number">03</span>
+            <h2>AccelHackで働く</h2>
+            <small>RECRUIT INFORMATION</small>
+          </header>
+          <div class="recruit-grid">
+            <article class="recruit-card">
+              <span>WHAT'S ACCELHACK</span>
+              <h3>
+                エンジニアを煩雑な作業から解放し<br />『エンジニア』を再評価する
+              </h3>
+              <p>
+                AccelHackは、最新のAIエージェントをフル活用し、AIにできることはAIに任せ、人にしかできないことを最大化する取り組みを続けます。
+              </p>
+            </article>
+            <article class="recruit-card">
+              <span>OPEN POSITIONS</span>
+              <h3>募集中のポジション</h3>
+              <div class="positions">
+                <b>ENGINEER</b><b>PROJECT MANAGER</b><b>INTERN</b>
+              </div>
+            </article>
+            <article class="recruit-card">
+              <span>WORKING AT ACCELHACK</span>
+              <h3>働く環境・FAQ</h3>
+              <p>働く環境、教育制度、採用に関するよくある質問を案内します。</p>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="case-study">
+          <header class="floating-title">
+            <span class="number">04</span>
+            <h2>成長実例</h2>
+            <small>GROWTH CASE</small>
+          </header>
+          <article class="case-study">
+            <header class="case-meta">
+              <span>CASE 01 / ENGINEER</span><span>DOUBLE DIAMOND GROWTH</span>
+            </header>
+            <div class="case-layout">
+              <div class="case-stage">
+                <small>BEFORE / MICRO</small>
+                <h3>ただの「実装する」<br />Engineer</h3>
+              </div>
+              <div class="case-path" aria-hidden="true">
+                <div class="case-path-diamonds"><i></i><i></i></div>
+                <b>FRAMEWORK</b>
+                <span>→</span>
+              </div>
+              <div class="case-stage">
+                <small>AFTER / MACRO</small>
+                <h3>上流エンジニア<br />として成功</h3>
+                <strong>+200<span>万円 / 年収</span></strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <nav class="mini-nav" aria-label="セクション移動">
+      <a href="#framework">Framework</a><a href="#growth">Growth</a
+      ><a href="#recruit">Recruit</a><a href="#case-study">Case</a>
+    </nav>
+  </body>
+</html>
