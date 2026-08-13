@@ -119,9 +119,8 @@ const ContentNavigation: React.FC<Props> = ({ page }) => {
       <div className={styles.message}>
         <p className={styles.eyebrow}>{content.eyebrow}</p>
         <h2 className={styles.title} id={`${page}-navigation-title`}>
-          {content.message[0]}
-          <br />
-          {content.message[1]}
+          <span className={styles.titleLine}>{content.message[0]}</span>
+          <span className={styles.titleLine}>{content.message[1]}</span>
         </h2>
         <p className={styles.description}>{content.description}</p>
       </div>
