@@ -329,31 +329,10 @@
 }
 
 .memberPhoto {
-  display: flex;
+  position: relative;
+  overflow: hidden;
   min-height: 24rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--background-black);
-  background:
-    linear-gradient(145deg, rgba(33, 255, 170, 0.48), rgba(33, 255, 170, 0.04)),
-    rgba(239, 241, 234, 0.9);
-}
-
-.memberPhoto span {
-  font-family: var(--font-axia);
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.08em;
-}
-
-.memberPhoto small {
-  margin-top: 1rem;
-  color: var(--gray);
-  font-family: var(--font-axia);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  background: rgba(239, 241, 234, 0.9);
 }
 
 .memberProfile {

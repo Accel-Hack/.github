@@ -6,6 +6,8 @@ import LogoEucalia from '@/asset/img/about/logo_eucalia.png';
 import LogoRealight from '@/asset/img/about/logo_realight.png';
 import LogoRelate from '@/asset/img/about/logo_relate.png';
 import LogoWkogyo from '@/asset/img/about/logo_wkogyo.png';
+import MemberIshikawa from '@/asset/img/about/member_ishikawa.jpg';
+import MemberKawamura from '@/asset/img/about/member_kawamura.jpg';
 import styles from './AboutSections.module.css';
 
 const capabilityGroups = [
@@ -32,20 +34,20 @@ const capabilityGroups = [
 
 const members = [
   {
-    initials: 'TI',
     role: '代表取締役',
     name: '石川 貴大',
+    photo: MemberIshikawa,
     career:
       '東京大学大学院を卒業後、ダイキン工業株式会社に入社。学生時代よりAIに関わる研究をする傍ら、個人事業主としてシステム開発やサイト開発を手がける。東大アメフト部WARRIORSではSE（システムエンジニア）パートのコーチを務める。',
     specialty: 'メーカーDX',
   },
   {
-    initials: 'KK',
     role: '代表取締役',
     name: '河村 京介',
+    photo: MemberKawamura,
     career:
-      '東京大学大学院を卒業後、ダイキン工業株式会社に入社。学生時代よりAIに関わる研究をする傍ら、個人事業主としてシステム開発やサイト開発を手がける。東大アメフト部WARRIORSではSE（システムエンジニア）パートのコーチを務める。',
-    specialty: 'メーカーDX',
+      '東京大学大学院を卒業後、ヤフー株式会社（現LINEヤフー株式会社）に入社。学生時代から、複雑なアプリケーションやネットワークの実装に長け、その後、金融システムなど大規模かつ要求値の高いシステムにもユニットマネージャーとして従事',
+    specialty: 'WEB/iOS/Androidアプリケーション、セキュリティ、クラウドエンジニアリング',
   },
 ];
 
@@ -152,13 +154,13 @@ const AboutSections: React.FC = () => {
           <span className={styles.slideIndex}>03 / 04</span>
           {members.map((member) => (
             <article key={member.name} className={styles.member}>
-              <div
-                className={styles.memberPhoto}
-                role="img"
-                aria-label={`${member.name}のプロフィール写真準備中`}
-              >
-                <span>{member.initials}</span>
-                <small>PHOTO</small>
+              <div className={styles.memberPhoto}>
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className={styles.memberProfile}>
                 <p className={styles.memberRole}>{member.role}</p>
