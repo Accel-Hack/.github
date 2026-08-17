@@ -14,12 +14,12 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: calc(1.5rem + var(--font-size-adjustment));
   margin-top: 1.2rem;
 }
 
 .summary {
-  font-size: 0.865rem;
+  font-size: calc(0.865rem + var(--font-size-adjustment));
   margin-top: 0.5rem;
 }
 
@@ -81,7 +81,7 @@
 
   .title {
     margin-top: 0.2rem;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem + var(--font-size-adjustment));
   }
 
   .summary {

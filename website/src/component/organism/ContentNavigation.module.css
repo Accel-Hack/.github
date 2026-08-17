@@ -69,7 +69,7 @@
 .indexLabel,
 .number {
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
   letter-spacing: 0.18em;
 }
 
@@ -90,7 +90,7 @@
 
 .title {
   margin: 0;
-  font-size: clamp(2.15rem, 4.2vw, 6.6rem);
+  font-size: calc(clamp(2.15rem, 4.2vw, 6.6rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.065em;
@@ -105,7 +105,7 @@
   max-width: 32rem;
   margin: clamp(1.5rem, 4vh, 3rem) 0 0;
   color: var(--gray);
-  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  font-size: calc(clamp(0.8rem, 1.1vw, 1rem) + var(--font-size-adjustment));
   line-height: 2;
 }
 
@@ -179,11 +179,11 @@
 
 .label {
   min-width: 0;
-  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-size: calc(clamp(0.78rem, 1vw, 0.95rem) + var(--font-size-adjustment));
 }
 
 .arrow {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem + var(--font-size-adjustment));
   transition: transform 0.25s ease;
 }
 
@@ -225,7 +225,7 @@
   }
 
   .title {
-    font-size: clamp(1.75rem, 9vw, 4rem);
+    font-size: calc(clamp(1.75rem, 9vw, 4rem) + var(--font-size-adjustment));
   }
 
   .description {

@@ -67,7 +67,7 @@
 
   .menuButtonLabel {
     font-family: var(--font-axia);
-    font-size: 0.54rem;
+    font-size: calc(0.54rem + var(--font-size-adjustment));
     font-weight: 700;
     letter-spacing: 0.18em;
   }
@@ -144,7 +144,7 @@
 
   .mobileBrand {
     font-family: var(--font-axia);
-    font-size: 0.72rem;
+    font-size: calc(0.72rem + var(--font-size-adjustment));
     font-weight: 700;
     letter-spacing: -0.03em;
   }
@@ -152,7 +152,7 @@
   .mobileIndex {
     color: rgba(255, 255, 255, 0.5);
     font-family: var(--font-axia);
-    font-size: 0.48rem;
+    font-size: calc(0.48rem + var(--font-size-adjustment));
     letter-spacing: 0.16em;
   }
 
@@ -217,7 +217,7 @@
   .mobileNumber {
     color: var(--company-color);
     font-family: var(--font-axia);
-    font-size: 0.62rem;
+    font-size: calc(0.62rem + var(--font-size-adjustment));
     letter-spacing: 0.12em;
   }
 
@@ -227,7 +227,7 @@
   }
 
   .mobileLabel strong {
-    font-size: clamp(1.45rem, 7vw, 2rem);
+    font-size: calc(clamp(1.45rem, 7vw, 2rem) + var(--font-size-adjustment));
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -237,7 +237,7 @@
     margin-top: 0.35rem;
     color: rgba(255, 255, 255, 0.46);
     font-family: var(--font-axia);
-    font-size: 0.44rem;
+    font-size: calc(0.44rem + var(--font-size-adjustment));
     letter-spacing: 0.18em;
   }
 
@@ -245,7 +245,7 @@
     min-width: 3.6rem;
     color: var(--company-color);
     font-family: var(--font-axia);
-    font-size: 0.48rem;
+    font-size: calc(0.48rem + var(--font-size-adjustment));
     font-weight: 700;
     letter-spacing: 0.14em;
     text-align: right;
@@ -267,7 +267,7 @@
   }
 
   .contactLink span {
-    font-size: 1.25rem;
+    font-size: calc(1.25rem + var(--font-size-adjustment));
     font-weight: 600;
   }
 
@@ -275,12 +275,12 @@
     display: block;
     margin-bottom: 0.25rem;
     font-family: var(--font-axia);
-    font-size: 0.42rem;
+    font-size: calc(0.42rem + var(--font-size-adjustment));
     letter-spacing: 0.16em;
   }
 
   .contactLink b {
-    font-size: 1.4rem;
+    font-size: calc(1.4rem + var(--font-size-adjustment));
   }
 
   .contactLink:focus-visible {
@@ -292,7 +292,7 @@
     margin: 0.75rem 0 0;
     color: rgba(255, 255, 255, 0.38);
     font-family: var(--font-axia);
-    font-size: 0.44rem;
+    font-size: calc(0.44rem + var(--font-size-adjustment));
     letter-spacing: 0.19em;
     text-align: right;
   }

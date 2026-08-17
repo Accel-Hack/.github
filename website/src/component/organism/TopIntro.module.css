@@ -50,7 +50,7 @@
 
 .copy {
   font-family: var(--font-axia);
-  font-size: 0.65rem;
+  font-size: calc(0.65rem + var(--font-size-adjustment));
   letter-spacing: 0.28em;
   white-space: nowrap;
 }

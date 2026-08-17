@@ -42,7 +42,7 @@
 
 .mvv_label {
   font-family: var(--font-axia);
-  font-size: 0.75rem;
+  font-size: calc(0.75rem + var(--font-size-adjustment));
   font-weight: bold;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -61,7 +61,7 @@
 }
 
 .values_list li {
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
   padding-left: 1em;
   position: relative;
 }
@@ -74,20 +74,20 @@
 }
 
 .catch_copy_en {
-  font-size: 2.25rem;
+  font-size: calc(2.25rem + var(--font-size-adjustment));
   font-family: var(--font-axia);
   margin: 0.5rem 0;
 }
 
 .catch_copy_jp {
-  font-size: 1.2rem;
+  font-size: calc(1.2rem + var(--font-size-adjustment));
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 2.25rem;
 }
 
 .catch_copy_description {
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
   margin-bottom: 0.5rem;
   margin-top: 0rem;
 }
@@ -122,18 +122,18 @@
   }
 
   .catch_copy_en {
-    font-size: 2rem;
+    font-size: calc(2rem + var(--font-size-adjustment));
     font-family: var(--font-axia);
     margin: 1rem;
   }
 
   .catch_copy_jp {
-    font-size: 1rem;
+    font-size: calc(1rem + var(--font-size-adjustment));
     margin-bottom: 1.25rem;
   }
 
   .catch_copy_description {
-    font-size: 0.8rem;
+    font-size: calc(0.8rem + var(--font-size-adjustment));
     margin-bottom: 1rem;
   }
 }

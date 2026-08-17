@@ -8,7 +8,11 @@ const AccessMap: React.FC = () => {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
-      <div style={{ fontSize: '1rem' }}>
+      <div
+        style={{
+          fontSize: 'calc(1rem + var(--font-size-adjustment))',
+        }}
+      >
         〒1010072 東京都千代田区飯田橋1-5-6 協和ビル6A室
       </div>
     </div>

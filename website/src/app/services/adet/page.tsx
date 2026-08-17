@@ -3010,7 +3010,7 @@ export default function ADetPage() {
           <p
             className={styles['pricing-note-top']}
             style={{
-              fontSize: 16,
+              fontSize: 'calc(16px + var(--font-size-adjustment))',
               color: 'var(--t2)',
               marginTop: 20,
               lineHeight: 2,

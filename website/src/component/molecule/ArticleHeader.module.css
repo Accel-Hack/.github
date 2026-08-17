@@ -40,7 +40,7 @@
   border-radius: 50%;
   color: #168b64;
   font-family: var(--font-axia);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem + var(--font-size-adjustment));
   letter-spacing: 0.04em;
 }
 
@@ -52,7 +52,9 @@
   font-family: var(--font-axia);
   min-width: 0;
   color: #202521;
-  font-size: clamp(0.94rem, 1.35vw, 1.18rem);
+  font-size: calc(
+    clamp(0.94rem, 1.35vw, 1.18rem) + var(--font-size-adjustment)
+  );
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.015em;
@@ -74,11 +76,11 @@
   .article_header_index {
     width: 1.9rem;
     height: 1.9rem;
-    font-size: 0.56rem;
+    font-size: calc(0.56rem + var(--font-size-adjustment));
   }
 
   .article_header_caption {
-    font-size: 0.9rem;
+    font-size: calc(0.9rem + var(--font-size-adjustment));
   }
 }
 

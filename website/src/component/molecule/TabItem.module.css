@@ -69,7 +69,7 @@
 
 .label strong {
   display: block;
-  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-size: calc(clamp(0.9rem, 1vw, 1rem) + var(--font-size-adjustment));
   font-weight: 600;
   line-height: 1.15;
 }
@@ -78,7 +78,7 @@
   display: block;
   margin-top: 0.35rem;
   color: var(--gray);
-  font-size: 0.45rem;
+  font-size: calc(0.45rem + var(--font-size-adjustment));
   letter-spacing: 0.13em;
   line-height: 1;
 }
@@ -95,7 +95,7 @@
   opacity: 1;
   border-radius: 50%;
   text-align: center;
-  font-size: 0.6rem;
+  font-size: calc(0.6rem + var(--font-size-adjustment));
   line-height: 18px;
 }
 
@@ -128,7 +128,7 @@
   right: 0.85rem;
   bottom: 0.45rem;
   color: var(--company-color-text);
-  font-size: 0.38rem;
+  font-size: calc(0.38rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.16em;
 }

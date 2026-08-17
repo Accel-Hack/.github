@@ -24,7 +24,7 @@
 }
 
 .catch_copy {
-  font-size: 1.75rem;
+  font-size: calc(1.75rem + var(--font-size-adjustment));
   line-height: 1.8rem;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
@@ -32,7 +32,7 @@
 }
 
 .catch_copy_sub {
-  font-size: 12px;
+  font-size: calc(12px + var(--font-size-adjustment));
   margin-top: 20px;
 }
 
@@ -164,7 +164,7 @@
   position: absolute;
   bottom: -100px;
   left: 223px;
-  font-size: clamp(5rem, 18vw, 18rem);
+  font-size: calc(clamp(5rem, 18vw, 18rem) + var(--font-size-adjustment));
   font-family: var(--font-axia);
   font-weight: bold;
   color: var(--background-black);
@@ -210,13 +210,13 @@
   }
 
   .catch_copy {
-    font-size: 1.2rem;
+    font-size: calc(1.2rem + var(--font-size-adjustment));
     margin-top: 20px;
     margin-bottom: 0;
   }
 
   .catch_copy_sub {
-    font-size: 10px;
+    font-size: calc(10px + var(--font-size-adjustment));
     margin-top: 20px;
   }
 

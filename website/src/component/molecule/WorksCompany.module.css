@@ -12,5 +12,5 @@
 
 .container > p {
   margin-top: 11px;
-  font-size: 0.75rem;
+  font-size: calc(0.75rem + var(--font-size-adjustment));
 }

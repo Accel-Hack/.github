@@ -43,7 +43,7 @@
 
 .service_contents > p {
   margin-top: 0;
-  font-size: 0.865rem;
+  font-size: calc(0.865rem + var(--font-size-adjustment));
   height: 1.1rem;
   margin-bottom: 0.5rem;
 }
@@ -70,7 +70,7 @@
   }
 
   .content {
-    font-size: 0.8rem;
+    font-size: calc(0.8rem + var(--font-size-adjustment));
     gap: 1rem;
   }
 
@@ -80,7 +80,7 @@
 
   .service_contents > p {
     margin-top: 0;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem + var(--font-size-adjustment));
     height: 1.1rem;
     margin-bottom: 0.5rem;
   }

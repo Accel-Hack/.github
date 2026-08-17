@@ -11,11 +11,11 @@
 }
 
 .title {
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
 }
 
 .date {
-  font-size: 0.8rem;
+  font-size: calc(0.8rem + var(--font-size-adjustment));
 }
 
 .image_left {

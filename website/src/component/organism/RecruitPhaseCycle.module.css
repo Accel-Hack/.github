@@ -11,7 +11,7 @@
   margin: 0 0 0.65rem;
   color: var(--gray);
   font-family: var(--font-axia);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem + var(--font-size-adjustment));
   letter-spacing: 0.12em;
 }
 
@@ -64,7 +64,7 @@
   color: var(--background-black);
   content: '→';
   font-family: var(--font-axia);
-  font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+  font-size: calc(clamp(1.1rem, 1.8vw, 1.8rem) + var(--font-size-adjustment));
   transform: translate(50%, -50%);
 }
 
@@ -157,7 +157,7 @@
   left: 0.75rem;
   color: var(--company-color-text);
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -165,7 +165,7 @@
 .cardFront strong,
 .cardBack strong {
   display: block;
-  font-size: clamp(1rem, 1.45vw, 1.35rem);
+  font-size: calc(clamp(1rem, 1.45vw, 1.35rem) + var(--font-size-adjustment));
   font-weight: 600;
   letter-spacing: -0.03em;
 }
@@ -173,14 +173,16 @@
 .cardFront small {
   margin-top: 0.35rem;
   color: var(--gray);
-  font-size: clamp(0.58rem, 0.72vw, 0.7rem);
+  font-size: calc(clamp(0.58rem, 0.72vw, 0.7rem) + var(--font-size-adjustment));
   line-height: 1.5;
 }
 
 .detail {
   display: block;
   margin-top: 0.45rem;
-  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
+  font-size: calc(
+    clamp(0.58rem, 0.72vw, 0.72rem) + var(--font-size-adjustment)
+  );
   line-height: 1.65;
 }
 
@@ -190,7 +192,7 @@
   bottom: 0.5rem;
   color: rgba(17, 19, 17, 0.46);
   font-family: var(--font-axia);
-  font-size: 0.46rem;
+  font-size: calc(0.46rem + var(--font-size-adjustment));
   letter-spacing: 0.12em;
 }
 

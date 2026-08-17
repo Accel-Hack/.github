@@ -9,7 +9,7 @@
 
 .message h2 {
   margin: 0 0 1.5rem;
-  font-size: clamp(2rem, 3.5vw, 4.1rem);
+  font-size: calc(clamp(2rem, 3.5vw, 4.1rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.055em;
@@ -18,7 +18,7 @@
 .message p {
   margin: 0;
   color: var(--gray);
-  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-size: calc(clamp(0.78rem, 1vw, 0.92rem) + var(--font-size-adjustment));
   line-height: 2;
 }
 
@@ -55,18 +55,18 @@
 .track span {
   color: var(--company-color-text);
   font-family: var(--font-axia);
-  font-size: 0.58rem;
+  font-size: calc(0.58rem + var(--font-size-adjustment));
   letter-spacing: 0.12em;
 }
 
 .track strong {
-  font-size: clamp(0.9rem, 1.2vw, 1.08rem);
+  font-size: calc(clamp(0.9rem, 1.2vw, 1.08rem) + var(--font-size-adjustment));
 }
 
 .track small {
   color: var(--gray);
   font-family: var(--font-axia);
-  font-size: 0.52rem;
+  font-size: calc(0.52rem + var(--font-size-adjustment));
   letter-spacing: 0.12em;
 }
 
@@ -87,7 +87,7 @@
   }
 
   .message h2 {
-    font-size: 1.8rem;
+    font-size: calc(1.8rem + var(--font-size-adjustment));
   }
 
   .track li {

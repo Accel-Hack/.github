@@ -2,7 +2,7 @@
   margin: 0 0 1rem;
   color: var(--company-color-text);
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.18em;
 }
@@ -24,7 +24,7 @@
   z-index: -2;
   color: rgba(16, 18, 16, 0.04);
   font-family: var(--font-axia);
-  font-size: clamp(11rem, 25vw, 27rem);
+  font-size: calc(clamp(11rem, 25vw, 27rem) + var(--font-size-adjustment));
   font-weight: 800;
   line-height: 0.78;
   letter-spacing: -0.09em;
@@ -57,7 +57,7 @@
   right: clamp(1.2rem, 2vw, 2rem);
   color: rgba(17, 19, 17, 0.46);
   font-family: var(--font-axia);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem + var(--font-size-adjustment));
   letter-spacing: 0.16em;
 }
 
@@ -97,7 +97,7 @@
 .headline {
   max-width: 9.5em;
   margin: 0;
-  font-size: clamp(2.7rem, 3.5vw, 5.6rem);
+  font-size: calc(clamp(2.7rem, 3.5vw, 5.6rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.13;
   letter-spacing: -0.06em;
@@ -117,7 +117,7 @@
 .lead {
   margin: 0;
   color: var(--gray);
-  font-size: clamp(0.8rem, 1.05vw, 0.96rem);
+  font-size: calc(clamp(0.8rem, 1.05vw, 0.96rem) + var(--font-size-adjustment));
 }
 
 .brandStatement {
@@ -145,13 +145,13 @@
 .answerList span {
   color: var(--company-color-text);
   font-family: var(--font-axia);
-  font-size: 0.66rem;
+  font-size: calc(0.66rem + var(--font-size-adjustment));
   letter-spacing: 0.08em;
 }
 
 .conclusion {
   margin: 1.4rem 0 0;
-  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-size: calc(clamp(1rem, 1.4vw, 1.3rem) + var(--font-size-adjustment));
   font-weight: 700;
 }
 
@@ -219,12 +219,12 @@
   border-radius: 50%;
   background: var(--company-color);
   font-family: var(--font-axia);
-  font-size: 0.58rem;
+  font-size: calc(0.58rem + var(--font-size-adjustment));
 }
 
 .capabilityHeading h2 {
   margin: 0;
-  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+  font-size: calc(clamp(1.45rem, 2.4vw, 2.25rem) + var(--font-size-adjustment));
   font-weight: 500;
   letter-spacing: -0.04em;
 }
@@ -233,7 +233,7 @@
   margin-left: auto;
   color: var(--gray);
   font-family: var(--font-axia);
-  font-size: 0.58rem;
+  font-size: calc(0.58rem + var(--font-size-adjustment));
   letter-spacing: 0.16em;
 }
 
@@ -254,7 +254,7 @@
   border: 1px solid rgba(17, 19, 17, 0.15);
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 7px 7px 0 rgba(233, 237, 233, 0.88);
-  font-size: clamp(0.78rem, 1vw, 0.94rem);
+  font-size: calc(clamp(0.78rem, 1vw, 0.94rem) + var(--font-size-adjustment));
   line-height: 1.75;
 }
 
@@ -269,7 +269,7 @@
   border: 1px solid rgba(17, 19, 17, 0.28);
   color: var(--background-black);
   background: rgba(255, 255, 255, 0.94);
-  font-size: 0.82rem;
+  font-size: calc(0.82rem + var(--font-size-adjustment));
   font-weight: 700;
   text-decoration: none;
 }
@@ -343,14 +343,14 @@
 .memberRole {
   margin: 0 0 0.65rem;
   color: var(--company-color-text);
-  font-size: 0.7rem;
+  font-size: calc(0.7rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.06em;
 }
 
 .memberProfile h2 {
   margin: 0 0 1.7rem;
-  font-size: clamp(1.8rem, 2.4vw, 2.8rem);
+  font-size: calc(clamp(1.8rem, 2.4vw, 2.8rem) + var(--font-size-adjustment));
   font-weight: 500;
   letter-spacing: -0.04em;
 }
@@ -372,12 +372,12 @@
 .memberProfile dt {
   margin-bottom: 0.45rem;
   color: var(--gray);
-  font-size: 0.66rem;
+  font-size: calc(0.66rem + var(--font-size-adjustment));
   font-weight: 700;
 }
 
 .memberProfile dd {
-  font-size: 0.73rem;
+  font-size: calc(0.73rem + var(--font-size-adjustment));
   line-height: 1.85;
 }
 
@@ -428,14 +428,14 @@
 .historyHeading h2,
 .clients h2 {
   margin: 0;
-  font-size: clamp(1.5rem, 2vw, 2.3rem);
+  font-size: calc(clamp(1.5rem, 2vw, 2.3rem) + var(--font-size-adjustment));
   font-weight: 500;
 }
 
 .historyHeading > p:last-child {
   margin: 0;
   color: var(--gray);
-  font-size: 0.63rem;
+  font-size: calc(0.63rem + var(--font-size-adjustment));
 }
 
 .historyList {
@@ -461,12 +461,12 @@
 
 .year strong {
   font-family: var(--font-axia);
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
 }
 
 .year span {
   color: var(--gray);
-  font-size: 0.63rem;
+  font-size: calc(0.63rem + var(--font-size-adjustment));
 }
 
 .barArea {
@@ -494,7 +494,7 @@
   justify-content: space-between;
   padding: 0 1rem;
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
 }
 
 .clients {
@@ -533,7 +533,7 @@
 
 .clientName {
   font-family: var(--font-axia);
-  font-size: 0.82rem;
+  font-size: calc(0.82rem + var(--font-size-adjustment));
 }
 
 @media screen and (max-width: 1100px) {
@@ -576,7 +576,7 @@
   }
 
   .ghostType {
-    font-size: clamp(9rem, 54vw, 16rem);
+    font-size: calc(clamp(9rem, 54vw, 16rem) + var(--font-size-adjustment));
   }
 
   .slideIndex {

@@ -15,7 +15,7 @@
   background: var(--background-black);
   color: var(--white);
   font-family: var(--font-axia);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + var(--font-size-adjustment));
   letter-spacing: 0.14em;
 }
 
@@ -34,7 +34,7 @@
 .cardNumber,
 .caseNumber {
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
   letter-spacing: 0.18em;
 }
 
@@ -46,7 +46,7 @@
 
 .introduction h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 4.5vw, 5.25rem);
+  font-size: calc(clamp(2.4rem, 4.5vw, 5.25rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.065em;
@@ -56,7 +56,7 @@
   max-width: 34rem;
   margin: 2rem 0 0;
   color: var(--gray);
-  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-size: calc(clamp(0.8rem, 1vw, 1rem) + var(--font-size-adjustment));
   line-height: 2;
 }
 
@@ -95,7 +95,7 @@
   color: var(--background-black);
   cursor: pointer;
   font: inherit;
-  font-size: 0.76rem;
+  font-size: calc(0.76rem + var(--font-size-adjustment));
   transition:
     color 0.2s ease,
     border-color 0.2s ease,
@@ -139,7 +139,7 @@
   padding: 0 1rem;
   border-right: 1px solid rgba(17, 19, 17, 0.18);
   font-family: var(--font-axia);
-  font-size: 0.7rem;
+  font-size: calc(0.7rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -171,7 +171,7 @@
 
 .projectIndex button span {
   overflow: hidden;
-  font-size: 0.7rem;
+  font-size: calc(0.7rem + var(--font-size-adjustment));
   font-weight: 700;
   line-height: 1.5;
   text-overflow: ellipsis;
@@ -179,7 +179,7 @@
 
 .projectIndex button b {
   color: var(--company-color-text);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem + var(--font-size-adjustment));
 }
 
 .cardGrid {
@@ -213,7 +213,7 @@
   margin: 1.25rem 0 0.55rem;
   color: var(--company-color-text);
   font-family: var(--font-axia);
-  font-size: 0.66rem;
+  font-size: calc(0.66rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.14em;
 }
@@ -221,7 +221,7 @@
 .card h2 {
   max-width: calc(100% - 2rem);
   margin: 0;
-  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-size: calc(clamp(1.2rem, 1.8vw, 1.75rem) + var(--font-size-adjustment));
   font-weight: 600;
   line-height: 1.55;
   letter-spacing: -0.035em;
@@ -231,7 +231,7 @@
   margin: auto 2.8rem 0 0;
   color: var(--gray);
   font-family: var(--font-axia);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem + var(--font-size-adjustment));
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -250,7 +250,7 @@
   background: var(--white);
   color: var(--background-black);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
   transition:
     border-color 0.2s ease,
     background 0.2s ease;
@@ -315,7 +315,7 @@
   bottom: -0.2em;
   color: rgba(33, 255, 170, 0.32);
   font-family: var(--font-axia);
-  font-size: clamp(5rem, 13vw, 13rem);
+  font-size: calc(clamp(5rem, 13vw, 13rem) + var(--font-size-adjustment));
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.1em;
@@ -327,7 +327,7 @@
   border: 1px solid rgba(17, 19, 17, 0.32);
   background: rgba(250, 250, 250, 0.86);
   font-family: var(--font-axia);
-  font-size: 0.58rem;
+  font-size: calc(0.58rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.18em;
 }
@@ -340,7 +340,7 @@
   padding: 0.35rem 0.5rem;
   background: rgba(250, 250, 250, 0.82);
   font-family: var(--font-axia);
-  font-size: 0.55rem;
+  font-size: calc(0.55rem + var(--font-size-adjustment));
   letter-spacing: 0.16em;
 }
 
@@ -396,7 +396,7 @@
   padding: 1rem 0;
   border-top: 1px solid rgba(17, 19, 17, 0.18);
   border-bottom: 1px solid rgba(17, 19, 17, 0.18);
-  font-size: 0.75rem;
+  font-size: calc(0.75rem + var(--font-size-adjustment));
 }
 
 .clientRow span,
@@ -408,7 +408,7 @@
 
 .detailCopy h2 {
   margin: clamp(2rem, 4vw, 3.5rem) 0 1.5rem;
-  font-size: clamp(2rem, 3.5vw, 4.4rem);
+  font-size: calc(clamp(2rem, 3.5vw, 4.4rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.055em;
@@ -417,7 +417,7 @@
 .summary {
   margin: 0;
   color: var(--gray);
-  font-size: clamp(0.82rem, 1vw, 1rem);
+  font-size: calc(clamp(0.82rem, 1vw, 1rem) + var(--font-size-adjustment));
   line-height: 2;
 }
 
@@ -428,7 +428,7 @@
   margin-top: auto;
   padding-top: 2rem;
   font-family: var(--font-axia);
-  font-size: 0.68rem;
+  font-size: calc(0.68rem + var(--font-size-adjustment));
   letter-spacing: 0.14em;
 }
 
@@ -486,7 +486,7 @@
 
 .modalHeader span {
   font-family: var(--font-axia);
-  font-size: 0.66rem;
+  font-size: calc(0.66rem + var(--font-size-adjustment));
   letter-spacing: 0.17em;
 }
 
@@ -498,7 +498,7 @@
   background: transparent;
   color: var(--white);
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: calc(1.3rem + var(--font-size-adjustment));
 }
 
 .modalHeader button:hover {
@@ -518,7 +518,7 @@
 .modalIntroduction h2 {
   max-width: 54rem;
   margin: clamp(2rem, 4vw, 3.5rem) 0 1.5rem;
-  font-size: clamp(2rem, 4vw, 4.6rem);
+  font-size: calc(clamp(2rem, 4vw, 4.6rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.32;
   letter-spacing: -0.055em;
@@ -528,7 +528,7 @@
   max-width: 50rem;
   margin: 0;
   color: var(--gray);
-  font-size: clamp(0.9rem, 1.15vw, 1.1rem);
+  font-size: calc(clamp(0.9rem, 1.15vw, 1.1rem) + var(--font-size-adjustment));
   line-height: 2;
 }
 
@@ -541,7 +541,7 @@
 .modalStory p {
   margin: 0;
   color: var(--gray);
-  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  font-size: calc(clamp(0.9rem, 1.05vw, 1rem) + var(--font-size-adjustment));
   line-height: 2.15;
 }
 
@@ -571,7 +571,7 @@
   color: rgba(33, 255, 170, 0.18);
   content: '“';
   font-family: Georgia, serif;
-  font-size: clamp(9rem, 18vw, 15rem);
+  font-size: calc(clamp(9rem, 18vw, 15rem) + var(--font-size-adjustment));
   line-height: 1;
   pointer-events: none;
 }
@@ -582,7 +582,7 @@
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   color: var(--company-color);
   font-family: var(--font-axia);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem + var(--font-size-adjustment));
   font-weight: 700;
   letter-spacing: 0.18em;
 }
@@ -591,7 +591,7 @@
   position: relative;
   max-width: 44rem;
   margin: 0;
-  font-size: clamp(1.15rem, 2vw, 1.75rem);
+  font-size: calc(clamp(1.15rem, 2vw, 1.75rem) + var(--font-size-adjustment));
   font-weight: 500;
   line-height: 1.8;
   letter-spacing: -0.025em;
@@ -601,7 +601,7 @@
   position: relative;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem + var(--font-size-adjustment));
   letter-spacing: 0.08em;
 }
 
@@ -642,7 +642,7 @@
 
 @media screen and (max-width: 768px) {
   .sectionBar {
-    font-size: 0.62rem;
+    font-size: calc(0.62rem + var(--font-size-adjustment));
   }
 
   .introduction,
@@ -651,7 +651,7 @@
   }
 
   .introduction h1 {
-    font-size: clamp(2.2rem, 12vw, 4rem);
+    font-size: calc(clamp(2.2rem, 12vw, 4rem) + var(--font-size-adjustment));
   }
 
   .filterRow {
@@ -686,7 +686,7 @@
   }
 
   .detailCopy h2 {
-    font-size: clamp(2rem, 9vw, 3.2rem);
+    font-size: calc(clamp(2rem, 9vw, 3.2rem) + var(--font-size-adjustment));
   }
 
   .detail {
