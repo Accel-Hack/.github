@@ -30,7 +30,7 @@ body {
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -49,13 +49,13 @@ body {
 
 @media screen and (max-width: 1280px) {
   html {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .small_media_hidden {
@@ -69,7 +69,7 @@ body {
 
 @media screen and (max-width: 480px) {
   html {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
