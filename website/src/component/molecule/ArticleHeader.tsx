@@ -8,6 +8,7 @@ type Props = {
 const ArticleHeader: React.FC<Props> = ({ caption }: Props) => {
   return (
     <div className={styles.article_header_container}>
+      <span className={styles.article_header_index} aria-hidden="true" />
       <span className={styles.article_header_caption}>{caption}</span>
     </div>
   );

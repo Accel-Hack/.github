@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccelHack Navigation Reference C — Orbit Rail</title>
+  <style>
+    :root {
+      --bg: #f5f4f2;
+      --ink: #171a18;
+      --gray: #737875;
+      --pale: #c9cecb;
+      --line: #aeb4b0;
+      --green: #21ffaa;
+      --green-dark: #0a9b65;
+      --side: clamp(20px, 4.25vw, 68px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+      background: var(--bg);
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(23, 26, 24, .026) 1px, transparent 1px) 0 0 / 100% 80px,
+        radial-gradient(circle at 72% 36%, rgba(33, 255, 170, .07), transparent 26%),
+        var(--bg);
+      font-family:
+        "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+        "Noto Sans JP", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .orbit-section {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      width: 100%;
+      min-height: 100svh;
+      padding: clamp(26px, 4.8vh, 48px) var(--side) clamp(30px, 5vh, 50px);
+      isolation: isolate;
+    }
+
+    .orbit-section::before,
+    .orbit-section::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+    }
+
+    .orbit-section::before {
+      inset: 20px 28px;
+      border-left: 1px solid rgba(23, 26, 24, .58);
+      border-right: 1px solid rgba(23, 26, 24, .58);
+    }
+
+    .orbit-section::after {
+      top: 20px;
+      right: 8%;
+      left: 8%;
+      height: 1px;
+      background:
+        linear-gradient(90deg,
+          var(--ink) 0 17%,
+          transparent 17% 19%,
+          var(--green) 19% 25%,
+          transparent 25% 27%,
+          var(--ink) 27% 100%);
+      opacity: .62;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 14px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0;
+      color: #555b57;
+      font-weight: 600;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 3px;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(33, 255, 170, .5);
+      content: "";
+    }
+
+    .coordinate {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #8b908d;
+    }
+
+    .coordinate i {
+      width: 5px;
+      height: 5px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(33, 255, 170, .7);
+    }
+
+    .hero-copy {
+      align-self: center;
+      width: min(1050px, 82%);
+      margin: clamp(70px, 12vh, 120px) auto clamp(92px, 14vh, 150px);
+    }
+
+    .hero-copy h1 {
+      position: relative;
+      max-width: 950px;
+      margin: 0;
+      font-size: clamp(46px, 6.25vw, 100px);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -.055em;
+    }
+
+    .hero-copy h1::after {
+      position: absolute;
+      right: clamp(-10px, -4vw, -60px);
+      bottom: -.18em;
+      width: clamp(66px, 8vw, 130px);
+      height: clamp(66px, 8vw, 130px);
+      border: 1px solid rgba(23, 26, 24, .13);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-copy h1 span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-copy h1 span::after {
+      position: absolute;
+      right: -.06em;
+      bottom: .12em;
+      width: .2em;
+      height: .2em;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(33, 255, 170, .65);
+      content: "";
+      transform: translate(100%, 20%);
+    }
+
+    .submessage {
+      display: flex;
+      align-items: flex-start;
+      gap: 19px;
+      max-width: 610px;
+      margin: clamp(24px, 3.6vh, 36px) 0 0 auto;
+      color: #666c68;
+      font-size: clamp(13px, 1.1vw, 17px);
+      line-height: 1.85;
+      letter-spacing: .05em;
+    }
+
+    .submessage::before {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 1px;
+      margin-top: .85em;
+      background: var(--green-dark);
+      content: "";
+    }
+
+    .rail-navigation {
+      position: relative;
+      align-self: end;
+      width: 100%;
+      padding-top: 30px;
+    }
+
+    .rail {
+      position: absolute;
+      top: 52px;
+      right: 4%;
+      left: 4%;
+      height: 2px;
+      background:
+        linear-gradient(90deg,
+          var(--green) 0 17%,
+          rgba(33, 255, 170, .32) 17% 24%,
+          var(--line) 24% 100%);
+    }
+
+    .rail::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 7px rgba(33, 255, 170, .12),
+        0 0 22px rgba(33, 255, 170, .58);
+      content: "";
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    .rail::after {
+      position: absolute;
+      top: -5px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #7e8580;
+      background: var(--bg);
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .nav-list {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+      padding-top: var(--step, 0px);
+    }
+
+    .nav-item:nth-child(2) { --step: 14px; }
+    .nav-item:nth-child(3) { --step: 0px; }
+    .nav-item:nth-child(4) { --step: 14px; }
+    .nav-item:nth-child(5) { --step: 0px; }
+    .nav-item:nth-child(6) { --step: 14px; }
+
+    .nav-link {
+      position: relative;
+      display: grid;
+      grid-template-rows: 44px auto;
+      justify-items: center;
+      min-height: 105px;
+      padding: 0 8px 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .node {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      align-self: start;
+      width: 31px;
+      height: 31px;
+      background: var(--bg);
+      border: 1px solid #8d938f;
+      border-radius: 50%;
+      color: #686e6a;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: .05em;
+      transition:
+        color 220ms ease,
+        background-color 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease,
+        transform 220ms ease;
+    }
+
+    .nav-link::before {
+      position: absolute;
+      z-index: 1;
+      top: 15px;
+      left: 50%;
+      width: 1px;
+      height: calc(29px + var(--step, 0px));
+      background: #a7adaa;
+      content: "";
+    }
+
+    .nav-label {
+      align-self: end;
+      color: #5b615d;
+      font-size: clamp(11px, .94vw, 15px);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: .04em;
+      transition: color 220ms ease, transform 220ms ease;
+    }
+
+    .nav-link:hover .node,
+    .nav-link:focus-visible .node {
+      color: var(--ink);
+      background: var(--green);
+      border-color: var(--green);
+      box-shadow:
+        0 0 0 6px rgba(33, 255, 170, .13),
+        0 0 22px rgba(33, 255, 170, .42);
+      transform: scale(1.16);
+    }
+
+    .nav-link:hover .nav-label,
+    .nav-link:focus-visible .nav-label {
+      color: var(--ink);
+      transform: translateY(-3px);
+    }
+
+    .nav-link:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 5px;
+    }
+
+    .nav-item:first-child .node {
+      color: var(--ink);
+      background: var(--green);
+      border-color: var(--green);
+      box-shadow:
+        0 0 0 6px rgba(33, 255, 170, .12),
+        0 0 18px rgba(33, 255, 170, .42);
+    }
+
+    .nav-item:first-child .nav-label {
+      color: var(--ink);
+    }
+
+    .footer-index {
+      position: absolute;
+      right: var(--side);
+      bottom: 25px;
+      color: #8e9490;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 5px rgba(33, 255, 170, .1),
+          0 0 14px rgba(33, 255, 170, .42);
+      }
+      50% {
+        box-shadow:
+          0 0 0 10px rgba(33, 255, 170, .06),
+          0 0 28px rgba(33, 255, 170, .68);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .orbit-section {
+        grid-template-rows: auto auto 1fr;
+        min-height: auto;
+        padding-bottom: 54px;
+      }
+
+      .coordinate {
+        display: none;
+      }
+
+      .hero-copy {
+        align-self: auto;
+        width: 100%;
+        margin: 82px 0 80px;
+      }
+
+      .hero-copy h1 {
+        max-width: 730px;
+      }
+
+      .submessage {
+        max-width: 520px;
+      }
+
+      .rail-navigation {
+        align-self: auto;
+        padding: 0 0 0 clamp(18px, 4vw, 42px);
+      }
+
+      .rail {
+        top: 14px;
+        right: auto;
+        bottom: 14px;
+        left: clamp(31px, calc(4vw + 15px), 57px);
+        width: 2px;
+        height: auto;
+        background:
+          linear-gradient(180deg,
+            var(--green) 0 15%,
+            rgba(33, 255, 170, .32) 15% 23%,
+            var(--line) 23% 100%);
+      }
+
+      .rail::before {
+        top: 0;
+        left: -6px;
+      }
+
+      .rail::after {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: -5px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-item,
+      .nav-item:nth-child(n) {
+        --step: 0px;
+        padding: 0;
+      }
+
+      .nav-link {
+        grid-template-rows: none;
+        grid-template-columns: 44px 1fr;
+        justify-items: start;
+        align-items: center;
+        min-height: 66px;
+        padding: 6px 8px;
+        text-align: left;
+      }
+
+      .nav-link::before {
+        top: 50%;
+        left: 15px;
+        width: 30px;
+        height: 1px;
+      }
+
+      .node {
+        align-self: center;
+      }
+
+      .nav-label {
+        align-self: center;
+        padding-left: 18px;
+        font-size: 14px;
+      }
+
+      .footer-index {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        background:
+          linear-gradient(rgba(23, 26, 24, .022) 1px, transparent 1px) 0 0 / 100% 64px,
+          radial-gradient(circle at 90% 28%, rgba(33, 255, 170, .07), transparent 30%),
+          var(--bg);
+      }
+
+      .orbit-section {
+        padding-top: 26px;
+      }
+
+      .orbit-section::before {
+        inset: 14px 11px;
+      }
+
+      .orbit-section::after {
+        top: 14px;
+        right: 11%;
+        left: 11%;
+      }
+
+      .topline {
+        padding-top: 8px;
+        font-size: 9px;
+        letter-spacing: .16em;
+      }
+
+      .eyebrow {
+        gap: 9px;
+      }
+
+      .eyebrow::before {
+        width: 18px;
+        height: 2px;
+      }
+
+      .hero-copy {
+        margin: 66px 0 66px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(36px, 12.8vw, 58px);
+        line-height: 1.28;
+        letter-spacing: -.06em;
+      }
+
+      .hero-copy h1::after {
+        right: -6px;
+        bottom: -.42em;
+        width: 60px;
+        height: 60px;
+      }
+
+      .submessage {
+        display: block;
+        margin-top: 29px;
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      .submessage::before {
+        display: block;
+        width: 32px;
+        margin: 0 0 15px;
+      }
+
+      .rail-navigation {
+        padding-left: 0;
+      }
+
+      .rail {
+        left: 15px;
+      }
+
+      .nav-link {
+        min-height: 62px;
+      }
+
+      .nav-label {
+        padding-left: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="orbit-section" aria-labelledby="orbit-title">
+    <div class="topline">
+      <p class="eyebrow">ACCELHACK / ABOUT</p>
+      <div class="coordinate" aria-hidden="true">
+        <i></i>
+        <span>SECTION ORBIT 01—06</span>
+      </div>
+    </div>
+
+    <div class="hero-copy">
+      <h1 id="orbit-title">まだ見ぬ価値を、<br><span>最短距離で。</span></h1>
+      <p class="submessage">技術と対話で、事業と社会の可能性を加速させます。</p>
+    </div>
+
+    <nav class="rail-navigation" aria-label="About セクションナビゲーション">
+      <div class="rail" aria-hidden="true"></div>
+      <ol class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#about" aria-current="page">
+            <span class="node" aria-hidden="true">01</span>
+            <span class="nav-label">私たちについて</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mvv">
+            <span class="node" aria-hidden="true">02</span>
+            <span class="nav-label">Mission・Vision・Value</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#business">
+            <span class="node" aria-hidden="true">03</span>
+            <span class="nav-label">事業内容</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#members">
+            <span class="node" aria-hidden="true">04</span>
+            <span class="nav-label">メンバー</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#recruit">
+            <span class="node" aria-hidden="true">05</span>
+            <span class="nav-label">採用情報</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">
+            <span class="node" aria-hidden="true">06</span>
+            <span class="nav-label">お問い合わせ</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <div class="footer-index" aria-hidden="true">SCROLL / EXPLORE THE SECTIONS</div>
+  </section>
+</body>
+</html>

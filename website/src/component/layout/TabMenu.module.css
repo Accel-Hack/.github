@@ -1,128 +1,335 @@
 .container {
-  z-index: 1000;
   position: fixed;
-  top: calc(var(--header-height) + 30px);
+  top: 50%;
   right: 0;
-  width: 150px;
-  height: var(--main-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  z-index: 1000;
+  width: clamp(152px, 10vw, 194px);
+  perspective: 900px;
+  transform: translateY(-50%);
 }
 
 .tab {
-  margin: 15px 0;
+  width: 100%;
 }
 
-.menu_btn {
+.mainTabs,
+.subTabs {
+  display: grid;
+  gap: 5px;
+}
+
+.subTabs {
+  margin-top: 5px;
+}
+
+.menuButton,
+.mobileMenu {
   display: none;
-}
-
-@media screen and (min-width: 1800px) {
-  .container {
-    width: 180px;
-  }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    z-index: 1000;
-    position: fixed;
-    top: calc(var(--header-height));
+    top: 0;
     right: 0;
-    width: 80px;
-    height: var(--main-height);
-    flex-direction: column;
-    justify-content: space-around;
+    width: auto;
+    transform: none;
+    perspective: none;
   }
 
-  .main_tabs {
+  .desktopMenu {
     display: none;
   }
 
-  .menu_btn:checked ~ .main_tabs {
-    display: block;
-  }
-
-  .sub_tabs {
-    display: none;
-  }
-
-  .menu_btn:checked ~ .sub_tabs {
-    display: block;
-    transition-duration: 0.2s;
-  }
-
-  /* ハンバーガー開いた時のメニュー表示 */
-  .menu {
-    background-color: var(--background-black);
-    aspect-ratio: 2/ 1;
-    text-align: center;
-    line-height: 20px;
-  }
-
-  /* ハンバーガーのトグルボタン非表示 */
-
-  /* メニューアイコン自体 */
-  .menu_icon {
-    background-color: var(--background-black);
-    display: flex;
+  .menuButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1002;
+    display: grid;
+    grid-template-columns: auto 26px;
+    gap: 0.7rem;
     align-items: center;
-    justify-content: center;
-    height: 40px;
-    position: relative;
+    min-width: 92px;
+    min-height: 44px;
+    padding: 0 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 0;
+    background: var(--background-black);
+    color: var(--white);
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* 3本線 */
-  .navicon {
-    background: #ddd;
+  .menuButton:focus-visible {
+    outline: 3px solid var(--company-color);
+    outline-offset: 2px;
+  }
+
+  .menuButtonLabel {
+    font-family: var(--font-axia);
+    font-size: calc(0.54rem + var(--font-size-adjustment));
+    font-weight: 700;
+    letter-spacing: 0.18em;
+  }
+
+  .navicon,
+  .navicon::before,
+  .navicon::after {
     display: block;
-    height: 3px;
     width: 26px;
+    height: 2px;
+    background: currentColor;
+    transition:
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.18s ease;
+  }
+
+  .navicon {
     position: relative;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   }
 
-  .navicon:before,
-  .navicon:after {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
+  .navicon::before,
+  .navicon::after {
     position: absolute;
-    background: #ddd;
-    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    left: 0;
+    content: '';
   }
 
-  .navicon:before {
-    top: 9px;
+  .navicon::before {
+    transform: translateY(-8px);
   }
 
-  .navicon:after {
-    bottom: 9px;
+  .navicon::after {
+    transform: translateY(8px);
   }
 
-  /* ハンバーガーアニメーション */
-  .menu_btn:checked ~ .menu_icon .navicon:before {
-    transform: rotate(-45deg);
+  .menuButtonOpen .navicon {
+    background: transparent;
   }
 
-  .menu_btn:checked ~ .menu_icon .navicon:after {
+  .menuButtonOpen .navicon::before {
     transform: rotate(45deg);
   }
 
-  .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:before {
-    top: 0;
+  .menuButtonOpen .navicon::after {
+    transform: rotate(-45deg);
   }
 
-  .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:after {
-    bottom: 0;
+  .mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    width: 100vw;
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 /
+        100% 3.5rem,
+      var(--background-black);
+    color: var(--white);
+    animation: menuEnter 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  .menu_btn:checked ~ .menu_icon .navicon {
-    background: rgba(0, 0, 0, 0);
-    transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  .mobileHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 1.25rem 7.2rem 1rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mobileBrand {
+    font-family: var(--font-axia);
+    font-size: calc(0.72rem + var(--font-size-adjustment));
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .mobileIndex {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-axia);
+    font-size: calc(0.48rem + var(--font-size-adjustment));
+    letter-spacing: 0.16em;
+  }
+
+  .mobileLinks {
+    display: grid;
+    align-content: center;
+    padding: clamp(1rem, 4vh, 2.5rem) 0;
+  }
+
+  .mobileLink {
+    --menu-order: 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    gap: 0.8rem;
+    align-items: center;
+    min-height: clamp(4.35rem, 11vh, 6rem);
+    margin-left: 1.25rem;
+    padding: 0.8rem 1.25rem 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    text-decoration: none;
+    animation: linkEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.06s + var(--menu-order) * 0.045s);
+  }
+
+  .mobileLink:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mobileLink::before {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1.25rem;
+    width: 4px;
+    background: var(--company-color);
+    opacity: 0;
+    content: '';
+  }
+
+  .mobileLink:focus-visible {
+    outline: 3px solid var(--company-color);
+    outline-offset: -3px;
+  }
+
+  .mobileLinkCurrent {
+    left: 0.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 1.25rem;
+    background:
+      linear-gradient(90deg, rgba(33, 255, 170, 0.25), transparent 82%),
+      rgba(255, 255, 255, 0.08);
+  }
+
+  .mobileLinkCurrent::before {
+    left: 0;
+    opacity: 1;
+  }
+
+  .mobileNumber {
+    color: var(--company-color);
+    font-family: var(--font-axia);
+    font-size: calc(0.62rem + var(--font-size-adjustment));
+    letter-spacing: 0.12em;
+  }
+
+  .mobileLabel strong,
+  .mobileLabel small {
+    display: block;
+  }
+
+  .mobileLabel strong {
+    font-size: calc(clamp(1.45rem, 7vw, 2rem) + var(--font-size-adjustment));
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .mobileLabel small {
+    margin-top: 0.35rem;
+    color: rgba(255, 255, 255, 0.46);
+    font-family: var(--font-axia);
+    font-size: calc(0.44rem + var(--font-size-adjustment));
+    letter-spacing: 0.18em;
+  }
+
+  .mobileStatus {
+    min-width: 3.6rem;
+    color: var(--company-color);
+    font-family: var(--font-axia);
+    font-size: calc(0.48rem + var(--font-size-adjustment));
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-align: right;
+  }
+
+  .mobileFooter {
+    padding: 0 1.25rem max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .contactLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.5rem;
+    padding: 0.9rem 1rem;
+    background: var(--company-color);
+    color: var(--background-black);
+    text-decoration: none;
+  }
+
+  .contactLink span {
+    font-size: calc(1.25rem + var(--font-size-adjustment));
+    font-weight: 600;
+  }
+
+  .contactLink small {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-axia);
+    font-size: calc(0.42rem + var(--font-size-adjustment));
+    letter-spacing: 0.16em;
+  }
+
+  .contactLink b {
+    font-size: calc(1.4rem + var(--font-size-adjustment));
+  }
+
+  .contactLink:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: -5px;
+  }
+
+  .mobileFooter p {
+    margin: 0.75rem 0 0;
+    color: rgba(255, 255, 255, 0.38);
+    font-family: var(--font-axia);
+    font-size: calc(0.44rem + var(--font-size-adjustment));
+    letter-spacing: 0.19em;
+    text-align: right;
+  }
+}
+
+@keyframes menuEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes linkEnter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuButton,
+  .navicon,
+  .navicon::before,
+  .navicon::after {
+    transition: none;
+  }
+
+  .mobileMenu,
+  .mobileLink {
+    animation: none;
   }
 }

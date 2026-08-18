@@ -6,16 +6,16 @@
 }
 
 .date {
-  font-size: 0.8rem;
+  font-size: calc(0.8rem + var(--font-size-adjustment));
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: calc(1.2rem + var(--font-size-adjustment));
   font-weight: 700;
   margin-top: 0.6rem;
   margin-bottom: 1.2rem;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: calc(1rem + var(--font-size-adjustment));
 }

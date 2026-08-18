@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AccelHack Navigation — Modular Grid</title>
+    <style>
+      :root {
+        --background: #f5f4f2;
+        --surface: #fbfbfa;
+        --ink: #111311;
+        --gray: #707070;
+        --line: rgba(17, 19, 17, 0.24);
+        --line-soft: rgba(17, 19, 17, 0.11);
+        --green: #21ffaa;
+        --green-dark: #08754e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background:
+          linear-gradient(rgba(17, 19, 17, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(17, 19, 17, 0.025) 1px, transparent 1px),
+          var(--background);
+        background-size: 40px 40px;
+        color: var(--ink);
+        font-family:
+          "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+          "Noto Sans JP", sans-serif;
+      }
+
+      .modular-nav {
+        position: relative;
+        width: min(100%, 1600px);
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 54px 68px 64px;
+        overflow: hidden;
+      }
+
+      .modular-nav::before,
+      .modular-nav::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        pointer-events: none;
+      }
+
+      .modular-nav::before {
+        top: 0;
+        left: 0;
+        width: 175px;
+        height: 175px;
+        border-top: 1px solid var(--ink);
+        border-left: 1px solid var(--ink);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+        background: repeating-linear-gradient(
+          135deg,
+          transparent 0 14px,
+          rgba(33, 255, 170, 0.25) 14px 15px
+        );
+      }
+
+      .modular-nav::after {
+        right: 22px;
+        bottom: 20px;
+        width: 128px;
+        height: 128px;
+        border-right: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .frame {
+        position: absolute;
+        inset: 28px 30px 30px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        pointer-events: none;
+      }
+
+      .frame::before,
+      .frame::after {
+        position: absolute;
+        top: 30px;
+        bottom: 30px;
+        width: 1px;
+        content: "";
+        background: linear-gradient(
+          transparent,
+          var(--line) 12%,
+          var(--line) 88%,
+          transparent
+        );
+      }
+
+      .frame::before {
+        left: 0;
+      }
+
+      .frame::after {
+        right: 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 30px;
+        margin-bottom: 58px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--ink);
+        place-items: center;
+        transform: rotate(45deg);
+      }
+
+      .brand-mark::before {
+        width: 9px;
+        height: 9px;
+        content: "";
+        background: var(--green);
+      }
+
+      .navigation-panel {
+        position: relative;
+        display: grid;
+        min-height: calc(100vh - 206px);
+        border: 1px solid var(--ink);
+        background: rgba(251, 251, 250, 0.88);
+        box-shadow:
+          14px 14px 0 rgba(17, 19, 17, 0.06),
+          28px 28px 45px rgba(17, 19, 17, 0.07);
+        grid-template-rows: minmax(290px, 0.92fr) minmax(360px, 1.08fr);
+      }
+
+      .message-band {
+        position: relative;
+        display: grid;
+        padding: clamp(44px, 5vw, 76px);
+        border-bottom: 1px solid var(--ink);
+        grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1.58fr);
+      }
+
+      .message-band::after {
+        position: absolute;
+        top: 0;
+        right: clamp(38px, 5vw, 78px);
+        width: 74px;
+        height: 8px;
+        content: "";
+        background: var(--green);
+      }
+
+      .eyebrow {
+        align-self: start;
+        margin: 4px 0 0;
+        color: var(--gray);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+      }
+
+      .eyebrow::before {
+        display: inline-block;
+        width: 32px;
+        height: 2px;
+        margin: 0 13px 3px 0;
+        content: "";
+        background: var(--green);
+      }
+
+      .message-copy {
+        align-self: center;
+      }
+
+      .message {
+        max-width: 900px;
+        margin: 0;
+        font-size: clamp(42px, 4vw, 68px);
+        font-weight: 500;
+        letter-spacing: 0.035em;
+        line-height: 1.22;
+      }
+
+      .submessage {
+        max-width: 720px;
+        margin: 34px 0 0;
+        color: var(--gray);
+        font-size: clamp(14px, 1.2vw, 18px);
+        letter-spacing: 0.08em;
+        line-height: 1.9;
+      }
+
+      .link-grid {
+        display: grid;
+        min-height: 0;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(2, minmax(160px, 1fr));
+      }
+
+      .nav-tile {
+        --tile-padding: clamp(24px, 2.6vw, 42px);
+        position: relative;
+        display: flex;
+        min-width: 0;
+        padding: var(--tile-padding);
+        overflow: hidden;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+        text-decoration: none;
+        isolation: isolate;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .nav-tile::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        content: "";
+        background: var(--green);
+        transform: translateY(calc(100% - 6px));
+        transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-tile::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 22px;
+        height: 22px;
+        border-top: 1px solid var(--ink);
+        border-right: 1px solid var(--ink);
+        content: "";
+        opacity: 0;
+        transform: translate(-12px, 12px);
+        transition:
+          opacity 180ms ease,
+          transform 300ms ease;
+      }
+
+      .nav-tile:hover::before,
+      .nav-tile:focus-visible::before {
+        transform: translateY(0);
+      }
+
+      .nav-tile:hover::after,
+      .nav-tile:focus-visible::after {
+        opacity: 1;
+        transform: translate(-18px, 18px);
+      }
+
+      .nav-tile:focus-visible {
+        z-index: 3;
+        outline: 3px solid var(--ink);
+        outline-offset: -5px;
+      }
+
+      .tile-number {
+        color: var(--gray);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        transition: color 180ms ease;
+      }
+
+      .tile-bottom {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        justify-content: space-between;
+      }
+
+      .tile-label {
+        font-size: clamp(17px, 1.45vw, 23px);
+        font-weight: 500;
+        letter-spacing: 0.055em;
+        line-height: 1.45;
+      }
+
+      .tile-arrow {
+        display: grid;
+        width: 37px;
+        height: 37px;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        font-size: 17px;
+        flex: 0 0 auto;
+        place-items: center;
+        transition:
+          color 180ms ease,
+          background 180ms ease,
+          transform 300ms ease;
+      }
+
+      .nav-tile:hover .tile-number,
+      .nav-tile:focus-visible .tile-number {
+        color: var(--green-dark);
+      }
+
+      .nav-tile:hover .tile-arrow,
+      .nav-tile:focus-visible .tile-arrow {
+        color: var(--green);
+        background: var(--ink);
+        transform: rotate(-45deg);
+      }
+
+      .tile-about {
+        grid-column: span 5;
+      }
+
+      .tile-mvv {
+        grid-column: span 4;
+      }
+
+      .tile-business {
+        border-right: 0;
+        grid-column: span 3;
+      }
+
+      .tile-members {
+        border-bottom: 0;
+        grid-column: span 3;
+      }
+
+      .tile-recruit {
+        border-bottom: 0;
+        grid-column: span 5;
+      }
+
+      .tile-contact {
+        border-right: 0;
+        border-bottom: 0;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(17, 19, 17, 0.035) 25%,
+            transparent 25%
+          ),
+          var(--surface);
+        background-size: 24px 24px;
+        grid-column: span 4;
+      }
+
+      .tile-about .tile-label,
+      .tile-recruit .tile-label {
+        font-size: clamp(20px, 1.75vw, 29px);
+      }
+
+      @media (max-width: 900px) {
+        .modular-nav {
+          padding: 42px 36px 50px;
+        }
+
+        .frame {
+          inset: 18px;
+        }
+
+        .brand {
+          margin-bottom: 34px;
+        }
+
+        .navigation-panel {
+          grid-template-rows: auto auto;
+        }
+
+        .message-band {
+          gap: 34px;
+          grid-template-columns: 1fr;
+        }
+
+        .link-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-rows: repeat(3, minmax(150px, 1fr));
+        }
+
+        .nav-tile {
+          border-right: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
+          grid-column: span 1;
+        }
+
+        .nav-tile:nth-child(even) {
+          border-right: 0;
+        }
+
+        .nav-tile:nth-child(5),
+        .nav-tile:nth-child(6) {
+          border-bottom: 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .modular-nav {
+          padding: 24px 18px 32px;
+        }
+
+        .frame {
+          inset: 8px;
+        }
+
+        .brand {
+          margin: 0 8px 22px;
+        }
+
+        .navigation-panel {
+          box-shadow:
+            7px 7px 0 rgba(17, 19, 17, 0.06),
+            12px 16px 28px rgba(17, 19, 17, 0.08);
+        }
+
+        .message-band {
+          gap: 28px;
+          padding: 38px 24px 42px;
+        }
+
+        .message-band::after {
+          right: 24px;
+          width: 48px;
+          height: 6px;
+        }
+
+        .message {
+          font-size: clamp(34px, 11vw, 48px);
+        }
+
+        .submessage {
+          margin-top: 24px;
+          font-size: 14px;
+        }
+
+        .link-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: none;
+        }
+
+        .nav-tile,
+        .nav-tile:nth-child(even),
+        .nav-tile:nth-child(5) {
+          min-height: 136px;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .nav-tile:last-child {
+          border-bottom: 0;
+        }
+
+        .tile-label,
+        .tile-about .tile-label,
+        .tile-recruit .tile-label {
+          font-size: 18px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="accelhack-modular-grid-b" class="modular-nav">
+      <div class="frame" aria-hidden="true"></div>
+
+      <div class="brand" aria-label="AccelHack">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ACCELHACK.INC</span>
+      </div>
+
+      <section class="navigation-panel" aria-labelledby="page-message">
+        <header class="message-band">
+          <p class="eyebrow">ACCELHACK / ABOUT</p>
+          <div class="message-copy">
+            <h1 id="page-message" class="message">
+              まだ見ぬ価値を、<br />最短距離で。
+            </h1>
+            <p class="submessage">
+              技術と対話で、事業と社会の可能性を加速させます。
+            </p>
+          </div>
+        </header>
+
+        <nav class="link-grid" aria-label="Aboutページ内ナビゲーション">
+          <a class="nav-tile tile-about" href="#about">
+            <span class="tile-number">01 / ABOUT</span>
+            <span class="tile-bottom">
+              <span class="tile-label">私たちについて</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="nav-tile tile-mvv" href="#mvv">
+            <span class="tile-number">02 / IDENTITY</span>
+            <span class="tile-bottom">
+              <span class="tile-label">Mission・Vision・Value</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="nav-tile tile-business" href="#business">
+            <span class="tile-number">03 / BUSINESS</span>
+            <span class="tile-bottom">
+              <span class="tile-label">事業内容</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="nav-tile tile-members" href="#members">
+            <span class="tile-number">04 / PEOPLE</span>
+            <span class="tile-bottom">
+              <span class="tile-label">メンバー</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="nav-tile tile-recruit" href="#recruit">
+            <span class="tile-number">05 / CAREERS</span>
+            <span class="tile-bottom">
+              <span class="tile-label">採用情報</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="nav-tile tile-contact" href="#contact">
+            <span class="tile-number">06 / CONTACT</span>
+            <span class="tile-bottom">
+              <span class="tile-label">お問い合わせ</span>
+              <span class="tile-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>

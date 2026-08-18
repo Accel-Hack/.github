@@ -20,5 +20,5 @@
   line-height: 24px;
   width: 100%;
   position: relative;
-  font-size: 0.5rem;
+  font-size: calc(0.5rem + var(--font-size-adjustment));
 }

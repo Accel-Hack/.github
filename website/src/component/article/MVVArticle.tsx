@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const MVVArticle: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="mvv">
       <Article caption="MVV">
         <div className={styles.contents}>
           <div className={styles.content}>

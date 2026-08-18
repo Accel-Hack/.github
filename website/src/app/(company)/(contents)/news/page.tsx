@@ -5,7 +5,7 @@ import styles from '@/app/(company)/(contents)/about/page.module.css';
 
 const NewsPage: React.FC = () => {
   return (
-    <div className={styles.articles}>
+    <div className={styles.articles} id="news-list">
       <NewsListArticle newses={NEWSES} />
     </div>
   );

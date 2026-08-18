@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AccelHack Content Sections — Technical Blueprint</title>
+    <style>
+      :root {
+        --background: #f5f4f2;
+        --paper: #ffffff;
+        --ink: #111411;
+        --gray: #707570;
+        --line: rgba(17, 20, 17, 0.22);
+        --line-soft: rgba(17, 20, 17, 0.08);
+        --green: #21ffaa;
+        --green-dark: #08784f;
+        --panel-gap: clamp(18px, 2vw, 32px);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--background);
+        color: var(--ink);
+        font-family:
+          "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+          "Noto Sans JP", sans-serif;
+      }
+
+      .main-panel {
+        position: relative;
+        width: min(calc(100% - 60px), 1540px);
+        margin: 30px auto;
+        overflow: hidden;
+        border: 1px solid rgba(17, 20, 17, 0.18);
+        background: var(--paper);
+        box-shadow:
+          0 24px 52px rgba(17, 20, 17, 0.1),
+          10px 12px 0 rgba(33, 255, 170, 0.11);
+      }
+
+      .blueprint-section {
+        position: relative;
+        min-height: calc(100vh - 60px);
+        padding: clamp(54px, 6vw, 94px) clamp(38px, 6.2vw, 98px);
+        overflow: hidden;
+        scroll-snap-align: start;
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(var(--line-soft) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line-soft) 1px, transparent 1px),
+          linear-gradient(rgba(33, 255, 170, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(33, 255, 170, 0.08) 1px, transparent 1px);
+        background-position: -1px -1px;
+        background-size:
+          40px 40px,
+          40px 40px,
+          200px 200px,
+          200px 200px;
+      }
+
+      .blueprint-section + .blueprint-section {
+        border-top: 1px solid var(--ink);
+      }
+
+      .blueprint-section::before,
+      .blueprint-section::after {
+        position: absolute;
+        z-index: 2;
+        content: "";
+        pointer-events: none;
+      }
+
+      .blueprint-section::before {
+        top: 20px;
+        right: 28px;
+        left: 28px;
+        height: 7px;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--line) 0 1px,
+          transparent 1px 20px,
+          var(--line) 20px 21px,
+          transparent 21px 100px
+        );
+      }
+
+      .blueprint-section::after {
+        top: 28px;
+        right: 20px;
+        bottom: 28px;
+        width: 7px;
+        background: repeating-linear-gradient(
+          180deg,
+          var(--line) 0 1px,
+          transparent 1px 20px,
+          var(--line) 20px 21px,
+          transparent 21px 100px
+        );
+      }
+
+      .coordinates {
+        position: absolute;
+        top: 38px;
+        right: 48px;
+        color: var(--gray);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .section-header {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        gap: clamp(28px, 4vw, 62px);
+        grid-template-columns: minmax(190px, 0.45fr) minmax(0, 1.55fr);
+      }
+
+      .caption-block {
+        align-self: start;
+      }
+
+      .section-index {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 22px;
+        border: 1px solid var(--ink);
+        background: var(--green);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        place-items: center;
+      }
+
+      .caption {
+        max-width: 230px;
+        margin: 0;
+        color: var(--gray);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1.8;
+      }
+
+      .caption::after {
+        display: block;
+        width: 76px;
+        height: 1px;
+        margin-top: 24px;
+        content: "";
+        background: var(--ink);
+      }
+
+      .headline {
+        max-width: 980px;
+        margin: 0;
+        font-size: clamp(36px, 4.2vw, 68px);
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        line-height: 1.3;
+      }
+
+      .headline-mark {
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .headline-mark::after {
+        position: absolute;
+        z-index: -1;
+        right: -4px;
+        bottom: 5px;
+        left: -4px;
+        height: 12px;
+        content: "";
+        background: rgba(33, 255, 170, 0.54);
+      }
+
+      .intro {
+        max-width: 760px;
+        margin: 30px 0 0;
+        color: var(--gray);
+        font-size: clamp(14px, 1.15vw, 18px);
+        letter-spacing: 0.04em;
+        line-height: 2;
+      }
+
+      .problem-system {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        margin-top: clamp(56px, 7vh, 88px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .problem-system::before {
+        position: absolute;
+        top: -34px;
+        right: 16.66%;
+        left: 16.66%;
+        height: 34px;
+        border-top: 1px solid var(--ink);
+        border-right: 1px solid var(--ink);
+        border-left: 1px solid var(--ink);
+        content: "";
+      }
+
+      .problem-system::after {
+        position: absolute;
+        top: -56px;
+        left: 50%;
+        width: 1px;
+        height: 56px;
+        content: "";
+        background: var(--ink);
+      }
+
+      .problem-module {
+        position: relative;
+        min-height: 176px;
+        padding: 28px 28px 26px;
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+        border-left: 1px solid var(--ink);
+        background: rgba(255, 255, 255, 0.82);
+        transition:
+          background 260ms ease,
+          transform 260ms ease,
+          box-shadow 260ms ease;
+      }
+
+      .problem-module:last-child {
+        border-right: 1px solid var(--ink);
+      }
+
+      .problem-module::before {
+        position: absolute;
+        top: -5px;
+        left: calc(50% - 5px);
+        width: 9px;
+        height: 9px;
+        border: 1px solid var(--ink);
+        content: "";
+        background: var(--paper);
+        transform: rotate(45deg);
+      }
+
+      .problem-module:hover {
+        z-index: 2;
+        background: rgba(33, 255, 170, 0.15);
+        box-shadow: 8px 8px 0 rgba(33, 255, 170, 0.34);
+        transform: translate(-4px, -4px);
+      }
+
+      .module-id {
+        color: var(--green-dark);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .module-text {
+        margin: 40px 0 0;
+        font-size: clamp(17px, 1.45vw, 23px);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        line-height: 1.6;
+      }
+
+      .answer-label {
+        position: absolute;
+        top: -84px;
+        left: calc(50% - 53px);
+        display: grid;
+        width: 106px;
+        height: 28px;
+        border: 1px solid var(--ink);
+        background: var(--paper);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        place-items: center;
+      }
+
+      .process-headline {
+        max-width: 900px;
+      }
+
+      .process-system {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        margin-top: clamp(62px, 9vh, 112px);
+        padding-top: 42px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .process-system::before {
+        position: absolute;
+        top: 18px;
+        right: 12.5%;
+        left: 12.5%;
+        height: 1px;
+        content: "";
+        background: var(--ink);
+      }
+
+      .process-step {
+        position: relative;
+        min-height: 250px;
+        padding: 48px 30px 30px;
+        border-left: 1px solid var(--line);
+        transition:
+          background 260ms ease,
+          transform 260ms ease;
+      }
+
+      .process-step:last-child {
+        border-right: 1px solid var(--line);
+      }
+
+      .process-step::before {
+        position: absolute;
+        top: -30px;
+        left: calc(50% - 12px);
+        width: 22px;
+        height: 22px;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        content: "";
+        background: var(--paper);
+        box-shadow: 0 0 0 7px var(--paper);
+        transition:
+          background 200ms ease,
+          box-shadow 200ms ease;
+      }
+
+      .process-step::after {
+        position: absolute;
+        top: -19px;
+        left: calc(50% - 4px);
+        width: 8px;
+        height: 1px;
+        content: "";
+        background: var(--ink);
+        box-shadow: 4px -4px 0 -0.1px var(--ink);
+        transform: rotate(-45deg);
+      }
+
+      .process-step:hover {
+        background: linear-gradient(
+          180deg,
+          rgba(33, 255, 170, 0.18),
+          rgba(33, 255, 170, 0.03)
+        );
+        transform: translateY(-5px);
+      }
+
+      .process-step:hover::before {
+        background: var(--green);
+        box-shadow:
+          0 0 0 7px var(--paper),
+          0 0 0 8px var(--green);
+      }
+
+      .step-number {
+        display: block;
+        color: var(--green-dark);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .step-title {
+        margin: 22px 0 18px;
+        font-size: clamp(22px, 2vw, 31px);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+      }
+
+      .step-description {
+        max-width: 245px;
+        margin: 0;
+        color: var(--gray);
+        font-size: clamp(13px, 1vw, 16px);
+        letter-spacing: 0.04em;
+        line-height: 1.85;
+      }
+
+      .sheet-label {
+        position: absolute;
+        right: 48px;
+        bottom: 36px;
+        color: var(--gray);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+
+      @media (max-width: 900px) {
+        .main-panel {
+          width: calc(100% - 32px);
+          margin: 16px auto;
+        }
+
+        .blueprint-section {
+          min-height: calc(100vh - 32px);
+          padding: 62px 38px 72px;
+        }
+
+        .section-header {
+          grid-template-columns: 1fr;
+        }
+
+        .caption {
+          max-width: none;
+        }
+
+        .headline-mark {
+          white-space: normal;
+        }
+
+        .problem-system {
+          gap: 28px 0;
+          grid-template-columns: 1fr;
+        }
+
+        .problem-system::before,
+        .problem-system::after,
+        .answer-label {
+          display: none;
+        }
+
+        .problem-module,
+        .problem-module:last-child {
+          min-height: 130px;
+          border: 1px solid var(--ink);
+        }
+
+        .problem-module::before {
+          top: -15px;
+          left: 28px;
+          width: 1px;
+          height: 14px;
+          border: 0;
+          background: var(--ink);
+          transform: none;
+        }
+
+        .module-text {
+          margin-top: 25px;
+        }
+
+        .process-system {
+          gap: 0;
+          padding: 0 0 0 42px;
+          grid-template-columns: 1fr;
+        }
+
+        .process-system::before {
+          top: 22px;
+          bottom: 22px;
+          left: 12px;
+          width: 1px;
+          height: auto;
+        }
+
+        .process-step,
+        .process-step:last-child {
+          min-height: 180px;
+          padding: 28px 26px 34px;
+          border-top: 1px solid var(--line);
+          border-right: 0;
+          border-bottom: 0;
+          border-left: 0;
+        }
+
+        .process-step::before {
+          top: 22px;
+          left: -41px;
+        }
+
+        .process-step::after {
+          top: 33px;
+          left: -33px;
+        }
+
+        .step-title {
+          margin-top: 16px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .main-panel {
+          width: calc(100% - 16px);
+          margin: 8px auto;
+          box-shadow:
+            0 12px 30px rgba(17, 20, 17, 0.1),
+            5px 6px 0 rgba(33, 255, 170, 0.11);
+        }
+
+        .blueprint-section {
+          min-height: calc(100vh - 16px);
+          padding: 54px 22px 62px;
+          background-size:
+            24px 24px,
+            24px 24px,
+            120px 120px,
+            120px 120px;
+        }
+
+        .blueprint-section::before {
+          right: 16px;
+          left: 16px;
+        }
+
+        .blueprint-section::after {
+          right: 12px;
+        }
+
+        .coordinates,
+        .sheet-label {
+          display: none;
+        }
+
+        .section-header {
+          gap: 30px;
+        }
+
+        .headline {
+          font-size: clamp(31px, 10vw, 43px);
+        }
+
+        .intro {
+          font-size: 14px;
+        }
+
+        .problem-system {
+          margin-top: 48px;
+        }
+
+        .problem-module {
+          padding: 24px 20px;
+        }
+
+        .process-system {
+          margin-top: 52px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="accelhack-technical-blueprint-b" class="main-panel">
+      <section class="blueprint-section" aria-labelledby="section-one-title">
+        <span class="coordinates" aria-hidden="true">X:000–1600 / Y:000–1000</span>
+
+        <header class="section-header">
+          <div class="caption-block">
+            <span class="section-index" aria-hidden="true">01</span>
+            <p class="caption">生成AI時代のシステム開発</p>
+          </div>
+          <div>
+            <h1 id="section-one-title" class="headline">
+              <span class="headline-mark">「実装」</span>だけでは<br />
+              もう価値にはならない
+            </h1>
+            <p class="intro">
+              生成AIが当たり前になり、作ること自体のハードルは急速に下がっています。
+              だからこそ私たちは、実装の前後にある本質的な問いに向き合います。
+            </p>
+          </div>
+        </header>
+
+        <div class="problem-system" aria-label="AccelHackが向き合う3つの問い">
+          <span class="answer-label" aria-hidden="true">CORE QUESTIONS</span>
+          <article class="problem-module">
+            <span class="module-id">Q-01 / DISCOVER</span>
+            <p class="module-text">何を解決したらいいのか</p>
+          </article>
+          <article class="problem-module">
+            <span class="module-id">Q-02 / DEFINE</span>
+            <p class="module-text">何を作ればいいのか</p>
+          </article>
+          <article class="problem-module">
+            <span class="module-id">Q-03 / SUSTAIN</span>
+            <p class="module-text">作ったものをどう維持するのか</p>
+          </article>
+        </div>
+
+        <span class="sheet-label" aria-hidden="true">SHEET AH-01 / SCALE 1:1</span>
+      </section>
+
+      <section class="blueprint-section" aria-labelledby="section-two-title">
+        <span class="coordinates" aria-hidden="true">X:000–1600 / Y:1001–2000</span>
+
+        <header class="section-header">
+          <div class="caption-block">
+            <span class="section-index" aria-hidden="true">02</span>
+            <p class="caption">AccelHackの課題解決プロセス</p>
+          </div>
+          <div>
+            <h2 id="section-two-title" class="headline process-headline">
+              <span class="headline-mark">「見つける」</span>「深ぼる」<br />
+              「解を出す」「実装する」
+            </h2>
+          </div>
+        </header>
+
+        <div class="process-system" aria-label="4段階の課題解決プロセス">
+          <article class="process-step">
+            <span class="step-number">STEP 01 / FIND</span>
+            <h3 class="step-title">見つける</h3>
+            <p class="step-description">
+              対話と観察から、事業の前進を阻む本当の課題を特定します。
+            </p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">STEP 02 / EXPLORE</span>
+            <h3 class="step-title">深ぼる</h3>
+            <p class="step-description">
+              背景や制約、利用者の行動まで掘り下げ、課題の構造を明確にします。
+            </p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">STEP 03 / SOLVE</span>
+            <h3 class="step-title">解を出す</h3>
+            <p class="step-description">
+              技術と事業の両面から検証し、最短で価値につながる解を設計します。
+            </p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">STEP 04 / BUILD</span>
+            <h3 class="step-title">実装する</h3>
+            <p class="step-description">
+              小さく素早く形にし、学びを取り込みながら継続的に育てます。
+            </p>
+          </article>
+        </div>
+
+        <span class="sheet-label" aria-hidden="true">SHEET AH-02 / PROCESS FLOW</span>
+      </section>
+    </main>
+  </body>
+</html>

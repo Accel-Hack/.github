@@ -7,7 +7,7 @@
 }
 
 .label {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem + var(--font-size-adjustment));
   font-weight: 700;
 }
 
@@ -26,6 +26,6 @@
 
 @media screen and (max-width: 768px) {
   .label {
-    font-size: 0.8rem;
+    font-size: calc(0.8rem + var(--font-size-adjustment));
   }
 }

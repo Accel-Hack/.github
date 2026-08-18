@@ -3,13 +3,14 @@ import ArticleHeader from '@/component/molecule/ArticleHeader';
 import styles from './Article.module.css';
 
 type Props = {
+  id?: string;
   caption: string;
   children: React.ReactNode;
 };
 
-const Article: React.FC<Props> = ({ caption, children }: Props) => {
+const Article: React.FC<Props> = ({ id, caption, children }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={id}>
       <ArticleHeader caption={caption} />
       <div className={styles.content}>{children}</div>
     </div>

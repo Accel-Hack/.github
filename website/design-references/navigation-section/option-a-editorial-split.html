@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccelHack — Editorial Split Navigation</title>
+  <style>
+    :root {
+      --paper: #f5f4f2;
+      --ink: #111311;
+      --gray: #707070;
+      --green: #21ffaa;
+      --line: rgba(17, 19, 17, .22);
+      --page-x: clamp(24px, 5.5vw, 88px);
+      --page-y: clamp(26px, 4.8vw, 68px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+      font-family:
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100dvh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 44% 35%, rgba(255, 255, 255, .58), transparent 38%),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      width: 100%;
+      min-height: 100dvh;
+      padding: 0 var(--page-x);
+      overflow: hidden;
+    }
+
+    .frame {
+      position: absolute;
+      z-index: -1;
+      inset: 22px;
+      pointer-events: none;
+    }
+
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: absolute;
+      background: var(--ink);
+      opacity: .74;
+    }
+
+    .frame::before {
+      top: 0;
+      left: clamp(64px, 8vw, 128px);
+      width: calc(100% - clamp(128px, 16vw, 256px));
+      height: 1px;
+    }
+
+    .frame::after {
+      right: 0;
+      top: clamp(110px, 17vh, 170px);
+      width: 1px;
+      height: clamp(210px, 37vh, 370px);
+    }
+
+    .frame-left,
+    .frame-bottom {
+      position: absolute;
+      background: var(--ink);
+      opacity: .74;
+    }
+
+    .frame-left {
+      left: 0;
+      bottom: clamp(88px, 15vh, 150px);
+      width: 1px;
+      height: clamp(170px, 29vh, 290px);
+    }
+
+    .frame-bottom {
+      right: clamp(64px, 8vw, 128px);
+      bottom: 0;
+      width: clamp(180px, 35vw, 560px);
+      height: 1px;
+    }
+
+    .frame-node {
+      position: absolute;
+      right: -4px;
+      top: calc(clamp(110px, 17vh, 170px) + clamp(105px, 18.5vh, 185px));
+      width: 9px;
+      height: 9px;
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      transform: rotate(45deg);
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: clamp(88px, 11vh, 112px);
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(18px, 1.5vw, 24px);
+      font-weight: 800;
+      letter-spacing: -.055em;
+    }
+
+    .wordmark-mark {
+      position: relative;
+      width: 23px;
+      height: 23px;
+      border: 5px solid var(--green);
+      transform: rotate(45deg);
+    }
+
+    .wordmark-mark::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      background: var(--ink);
+    }
+
+    .wordmark-light {
+      font-weight: 400;
+    }
+
+    .header-hint {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .header-hint::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    .hero-nav {
+      display: grid;
+      grid-template-columns: minmax(0, 55fr) minmax(360px, 45fr);
+      align-items: stretch;
+      min-height: 0;
+      padding: clamp(54px, 9vh, 90px) 0 clamp(70px, 11vh, 110px);
+    }
+
+    .editorial-message {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: clamp(52px, 7vw, 112px);
+    }
+
+    .editorial-message::after {
+      content: "";
+      position: absolute;
+      top: 4%;
+      right: 0;
+      width: 1px;
+      height: 92%;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--line) 16%,
+        var(--line) 84%,
+        transparent
+      );
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 0 clamp(32px, 5vh, 50px);
+      color: var(--gray);
+      font-size: clamp(10px, .75vw, 12px);
+      font-weight: 700;
+      letter-spacing: .2em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(48px, 5.25vw, 84px);
+      font-weight: 500;
+      line-height: 1.28;
+      letter-spacing: -.075em;
+      text-wrap: balance;
+    }
+
+    .accent-period {
+      color: var(--green);
+    }
+
+    .submessage {
+      max-width: 620px;
+      margin: clamp(32px, 4.5vh, 48px) 0 0;
+      color: #575c58;
+      font-size: clamp(14px, 1.12vw, 18px);
+      line-height: 2;
+      letter-spacing: .055em;
+    }
+
+    .link-panel {
+      display: flex;
+      align-items: center;
+      padding-left: clamp(48px, 6vw, 96px);
+    }
+
+    .link-list {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: navigation;
+      border-top: 1px solid var(--line);
+    }
+
+    .link-item {
+      counter-increment: navigation;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-link {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr 24px;
+      align-items: center;
+      min-height: clamp(66px, 8.2vh, 82px);
+      padding: 0 6px;
+      overflow: hidden;
+      transition:
+        color 280ms ease,
+        padding 280ms cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .nav-link::before {
+      content: counter(navigation, decimal-leading-zero);
+      position: relative;
+      z-index: 1;
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      transition: color 280ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      background: var(--green);
+      transform: translateX(-102%);
+      transition: transform 360ms cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .link-label {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(15px, 1.16vw, 18px);
+      font-weight: 500;
+      letter-spacing: .035em;
+    }
+
+    .link-arrow {
+      position: relative;
+      z-index: 1;
+      width: 17px;
+      height: 17px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      transition:
+        transform 280ms cubic-bezier(.22, 1, .36, 1),
+        background-color 280ms ease,
+        border-color 280ms ease;
+    }
+
+    .link-arrow::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      transform: translate(-64%, -50%) rotate(45deg);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      padding-left: 15px;
+      outline: none;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+      transform: translateX(0);
+    }
+
+    .nav-link:hover::before,
+    .nav-link:focus-visible::before {
+      color: var(--ink);
+    }
+
+    .nav-link:hover .link-arrow,
+    .nav-link:focus-visible .link-arrow {
+      color: white;
+      border-color: var(--ink);
+      background: var(--ink);
+      transform: translateX(3px);
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      min-height: 54px;
+      color: var(--gray);
+      font-size: 9px;
+      letter-spacing: .16em;
+    }
+
+    .footer-index {
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        overflow: auto;
+      }
+
+      .hero-nav {
+        grid-template-columns: 1fr;
+        padding-top: clamp(40px, 7vh, 64px);
+      }
+
+      .editorial-message {
+        min-height: 46vh;
+        padding: 0 0 clamp(58px, 9vh, 84px);
+      }
+
+      .editorial-message::after {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, var(--line), var(--line) 62%, transparent);
+      }
+
+      .link-panel {
+        padding: clamp(52px, 8vh, 76px) 0 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      :root {
+        --page-x: 24px;
+      }
+
+      .frame {
+        inset: 12px;
+      }
+
+      .frame::before {
+        left: 54px;
+        width: calc(100% - 108px);
+      }
+
+      .frame::after,
+      .frame-left,
+      .frame-node {
+        display: none;
+      }
+
+      .site-header {
+        min-height: 82px;
+      }
+
+      .header-hint {
+        font-size: 8px;
+        letter-spacing: .14em;
+      }
+
+      .header-hint::before {
+        width: 14px;
+      }
+
+      .hero-nav {
+        padding: 32px 0 62px;
+      }
+
+      .editorial-message {
+        min-height: auto;
+        padding-bottom: 52px;
+      }
+
+      .eyebrow {
+        gap: 10px;
+        margin-bottom: 30px;
+        font-size: 9px;
+      }
+
+      .eyebrow::before {
+        width: 24px;
+      }
+
+      h1 {
+        max-width: 300px;
+        font-size: clamp(38px, 12vw, 54px);
+        line-height: 1.34;
+      }
+
+      .submessage {
+        margin-top: 28px;
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      .link-panel {
+        padding-top: 44px;
+      }
+
+      .nav-link {
+        grid-template-columns: 36px 1fr 22px;
+        min-height: 67px;
+      }
+
+      .link-label {
+        font-size: 14px;
+      }
+
+      .site-footer {
+        min-height: 44px;
+      }
+
+      .site-footer span:last-child {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="frame" aria-hidden="true">
+      <span class="frame-left"></span>
+      <span class="frame-bottom"></span>
+      <span class="frame-node"></span>
+    </div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="AccelHack ホーム">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span>Accel<span class="wordmark-light">Hack</span></span>
+      </a>
+      <div class="header-hint">Section navigation</div>
+    </header>
+
+    <main class="hero-nav">
+      <section class="editorial-message" aria-labelledby="page-message">
+        <p class="eyebrow">ACCELHACK / ABOUT</p>
+        <h1 id="page-message">まだ見ぬ価値を、<br>最短距離で<span class="accent-period">。</span></h1>
+        <p class="submessage">技術と対話で、事業と社会の可能性を加速させます。</p>
+      </section>
+
+      <nav class="link-panel" aria-label="About ページ内ナビゲーション">
+        <ol class="link-list">
+          <li class="link-item">
+            <a class="nav-link" href="#about"><span class="link-label">私たちについて</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+          <li class="link-item">
+            <a class="nav-link" href="#mvv"><span class="link-label">Mission・Vision・Value</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+          <li class="link-item">
+            <a class="nav-link" href="#business"><span class="link-label">事業内容</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+          <li class="link-item">
+            <a class="nav-link" href="#members"><span class="link-label">メンバー</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+          <li class="link-item">
+            <a class="nav-link" href="#recruit"><span class="link-label">採用情報</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+          <li class="link-item">
+            <a class="nav-link" href="#contact"><span class="link-label">お問い合わせ</span><span class="link-arrow" aria-hidden="true"></span></a>
+          </li>
+        </ol>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-index">01 / ABOUT</span>
+      <span>ACCELHACK CORPORATE WEBSITE</span>
+    </footer>
+  </div>
+</body>
+</html>

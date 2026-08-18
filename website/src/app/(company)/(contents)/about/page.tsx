@@ -1,14 +1,14 @@
 import React from 'react';
-import MVVArticle from '@/component/article/MVVArticle';
-import AboutArticle from '@/component/article/AboutArticle';
-import WorkArticle from '@/component/article/WorkArticle';
+import AboutSections from '@/component/article/AboutSections';
+import ContentNavigation from '@/component/organism/ContentNavigation';
+import ContentSectionRail from '@/component/organism/ContentSectionRail';
 
 const AboutPage: React.FC = () => {
   return (
     <>
-      <MVVArticle />
-      <AboutArticle />
-      <WorkArticle />
+      <ContentSectionRail page="about" />
+      <ContentNavigation page="about" />
+      <AboutSections />
     </>
   );
 };

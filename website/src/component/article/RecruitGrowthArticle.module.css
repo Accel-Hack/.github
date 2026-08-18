@@ -1,0 +1,103 @@
+.container {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: minmax(17rem, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 4.5rem);
+}
+
+.message h2 {
+  margin: 0 0 1.5rem;
+  font-size: calc(clamp(2rem, 3.5vw, 4.1rem) + var(--font-size-adjustment));
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.055em;
+}
+
+.message p {
+  margin: 0;
+  color: var(--gray);
+  font-size: calc(clamp(0.78rem, 1vw, 0.92rem) + var(--font-size-adjustment));
+  line-height: 2;
+}
+
+.track {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track li {
+  display: grid;
+  min-height: 6.6rem;
+  grid-template-columns: 5rem 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.35rem;
+  border: 1px solid rgba(17, 19, 17, 0.16);
+  background: var(--white);
+  box-shadow: 7px 7px 0 rgba(237, 240, 237, 0.94);
+}
+
+.track li:nth-child(2) {
+  margin-left: 7%;
+}
+
+.track li:nth-child(3) {
+  margin-left: 14%;
+  border-color: rgba(33, 255, 170, 0.78);
+  background: rgba(237, 255, 247, 0.92);
+}
+
+.track span {
+  color: var(--company-color-text);
+  font-family: var(--font-axia);
+  font-size: calc(0.58rem + var(--font-size-adjustment));
+  letter-spacing: 0.12em;
+}
+
+.track strong {
+  font-size: calc(clamp(0.9rem, 1.2vw, 1.08rem) + var(--font-size-adjustment));
+}
+
+.track small {
+  color: var(--gray);
+  font-family: var(--font-axia);
+  font-size: calc(0.52rem + var(--font-size-adjustment));
+  letter-spacing: 0.12em;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .track li:nth-child(2),
+  .track li:nth-child(3) {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .message h2 {
+    font-size: calc(1.8rem + var(--font-size-adjustment));
+  }
+
+  .track li {
+    min-height: 5.6rem;
+    grid-template-columns: 3.8rem 1fr;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .track small {
+    display: none;
+  }
+}

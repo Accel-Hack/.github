@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A｜Two Pillars</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .intro {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: clamp(30px, 6vw, 90px);
+        align-items: end;
+        margin-bottom: 54px;
+      }
+      .pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .pillar {
+        min-width: 0;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 20px 48px rgba(26, 34, 29, 0.055);
+      }
+      .pillar-head {
+        min-height: 122px;
+        padding: 24px 28px;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(145deg, #fff, #f4f7f4);
+      }
+      .pillar:nth-child(2) .pillar-head {
+        background: linear-gradient(145deg, #f1fff8, #fff);
+      }
+      .pillar-head h3 {
+        margin: 0;
+        font-size: clamp(23px, 2.5vw, 34px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+      .pillar-head span {
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.18em;
+      }
+      .needs {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: need;
+      }
+      .needs li {
+        counter-increment: need;
+        min-height: 100px;
+        padding: 22px 26px 22px 72px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+        line-height: 1.75;
+      }
+      .needs li:last-child {
+        border-bottom: 0;
+      }
+      .needs li::before {
+        content: counter(need, decimal-leading-zero);
+        position: absolute;
+        left: 25px;
+        top: 25px;
+        color: var(--green-ink);
+        font-size: 9px;
+        letter-spacing: 0.12em;
+      }
+      .needs li:hover {
+        background: rgba(33, 255, 170, 0.055);
+      }
+      .cta {
+        margin-top: 22px;
+        margin-left: auto;
+        width: min(100%, 540px);
+      }
+      @media (max-width: 760px) {
+        .intro,
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+        .intro {
+          align-items: start;
+        }
+        .pillar-head {
+          min-height: 94px;
+        }
+        .needs li {
+          min-height: 86px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="logo">ACCELHACK<small>.inc</small></div>
+      <div class="option">OPTION A / TWO PILLARS</div>
+    </header>
+    <main class="frame">
+      <div class="panel">
+        <header class="page-head">
+          <h1>About</h1>
+        </header>
+        <section class="section">
+          <header class="floating-title">
+            <span class="number">02</span>
+            <h2>私たちのできること</h2>
+            <small>CAPABILITIES</small>
+          </header>
+          <div class="pillars">
+            <article class="pillar">
+              <header class="pillar-head">
+                <h3>システム開発</h3>
+                <span>DEVELOPMENT / 03</span>
+              </header>
+              <ol class="needs">
+                <li>生成AIを組み込んだシステムを一から開発したい</li>
+                <li>
+                  ベンダーロックされてしまったシステムの新しい保守先を探したい
+                </li>
+                <li>
+                  システム開発の見積もりが高すぎる。もっと安く効率的に作れるベンダーに頼みたい
+                </li>
+              </ol>
+            </article>
+            <article class="pillar">
+              <header class="pillar-head">
+                <h3>AI導入支援</h3>
+                <span>AI ENABLEMENT / 02</span>
+              </header>
+              <ol class="needs">
+                <li>今契約しているMicrosoftだけでAI効率化を図りたい</li>
+                <li>CLaude / ClaudeCodeを安全に会社に導入したい</li>
+              </ol>
+            </article>
+          </div>
+          <a class="cta" href="#"
+            ><span>実績を確認</span><span aria-hidden="true">→</span></a
+          >
+        </section>
+      </div>
+    </main>
+    <nav class="mini-nav">
+      <a href="#">Top</a><a href="#">Members</a><a href="#">History</a>
+    </nav>
+  </body>
+</html>

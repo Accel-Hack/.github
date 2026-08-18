@@ -21,8 +21,8 @@
 .main {
   position: relative;
   height: calc(100% - var(--header-height) - var(--footer-height));
-  width: calc(100% - 60px);
-  margin: 0 30px;
+  width: calc(100% - clamp(16px, 2.5vw, 48px));
+  margin: 0 clamp(8px, 1.25vw, 24px);
   flex: 1;
 }
 

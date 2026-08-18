@@ -5,7 +5,7 @@ import AccessMap from '@/component/organism/AccessMap';
 
 const AboutArticle: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="company">
       <div className={styles.contents}>
         <Article caption="About">
           <div className={styles.content}>

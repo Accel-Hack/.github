@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A｜Editorial Marker</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .section-title {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 22px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid #bcc4bf;
+      position: sticky;
+      top: 52px;
+      z-index: 5;
+      background: linear-gradient(90deg, rgba(249,250,248,.98), rgba(249,250,248,.88));
+      backdrop-filter: blur(12px);
+    }
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: clamp(84px, 13vw, 170px);
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), rgba(33,255,170,0));
+    }
+    .section-number { color: #138961; font-size: 11px; letter-spacing: .16em; }
+    .section-title h3 { margin: 0; font-size: clamp(20px, 2.3vw, 31px); line-height: 1.25; font-weight: 500; letter-spacing: -.025em; }
+    .section-title small { color: #7a817d; font-size: 8px; letter-spacing: .18em; }
+    @media (max-width:760px) {
+      .section-title { grid-template-columns: 46px 1fr; gap: 10px; top: 52px; }
+      .section-title small { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-head"><div class="logo">ACCELHACK<small>.inc</small></div><div class="option">OPTION A / EDITORIAL MARKER</div></header>
+  <main class="frame"><div class="panel">
+    <header class="page-head"><h1>About</h1><p>黒い面をなくし、細い罫線とアクセントだけで章を切り替える、余白重視の案です。</p></header>
+    <div class="sections">
+      <section class="section" id="section-01"><header class="section-title"><span class="section-number">01</span><h3>生成AI時代のシステム開発</h3><small>AI DEVELOPMENT</small></header><div class="section-body"><div class="copy"><p class="eyebrow">SYSTEM DEVELOPMENT</p><h2>テクノロジーの恩恵を、<br>すべての企業に届ける。</h2><p>変化の速い生成AIの時代に、事業と開発を切り離さず、課題の発見から実装・改善までをひと続きのプロセスとして支援します。</p></div><div class="visual"></div></div></section>
+      <section class="section" id="section-02"><header class="section-title"><span class="section-number">02</span><h3>AccelHackの課題解決プロセス</h3><small>PROCESS</small></header><div class="section-body"><div class="copy"><p class="eyebrow">OUR PROCESS</p><h2>見つける。決める。<br>解を出し、実装する。</h2><p>曖昧な課題をそのまま開発へ持ち込まず、問いを定め、試し、学びながら、成果につながる解へと進めていきます。</p></div><div class="visual"></div></div></section>
+      <section class="section" id="section-03"><header class="section-title"><span class="section-number">03</span><h3>Members</h3><small>PEOPLE</small></header><div class="section-body"><div class="copy"><p class="eyebrow">OUR TEAM</p><h2>領域を越えて考え、<br>手を動かすチーム。</h2><p>プロダクト、業務、技術を横断するメンバーが、クライアントと同じ視点に立って課題解決に取り組みます。</p></div><div class="visual"></div></div></section>
+    </div>
+  </div></main>
+  <nav class="mini-nav" aria-label="セクション移動"><a href="#section-01">AI</a><a href="#section-02">Process</a><a href="#section-03">Members</a></nav>
+</body>
+</html>

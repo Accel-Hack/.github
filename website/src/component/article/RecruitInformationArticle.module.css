@@ -1,0 +1,155 @@
+.container {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: clamp(2rem, 4vw, 4.5rem);
+}
+
+.card {
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid rgba(17, 19, 17, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.about,
+.faq {
+  grid-column: 1 / -1;
+}
+
+.about {
+  min-height: 16rem;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.96) 0 68%,
+    rgba(33, 255, 170, 0.16) 68%
+  );
+}
+
+.label {
+  margin: 0;
+  color: var(--company-color-text);
+  font-family: var(--font-axia);
+  font-size: calc(0.58rem + var(--font-size-adjustment));
+  letter-spacing: 0.16em;
+}
+
+.card h2 {
+  margin: 1.4rem 0 1rem;
+  font-size: calc(clamp(1.4rem, 2.3vw, 2.5rem) + var(--font-size-adjustment));
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.04em;
+}
+
+.card > p:last-child {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--gray);
+  font-size: calc(0.78rem + var(--font-size-adjustment));
+  line-height: 2;
+}
+
+.positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.positions span {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(17, 19, 17, 0.24);
+  font-family: var(--font-axia);
+  font-size: calc(0.62rem + var(--font-size-adjustment));
+  font-weight: 700;
+  white-space: pre-line;
+}
+
+.conditions,
+.environment {
+  margin: 0;
+}
+
+.conditions > div,
+.environment > div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(17, 19, 17, 0.14);
+}
+
+.conditions > div:last-child,
+.environment > div:last-child {
+  border-bottom: 1px solid rgba(17, 19, 17, 0.14);
+}
+
+.conditions dt,
+.environment dt {
+  color: var(--gray);
+  font-size: calc(0.66rem + var(--font-size-adjustment));
+  font-weight: 700;
+}
+
+.conditions dd,
+.environment dd {
+  margin: 0;
+  font-size: calc(0.7rem + var(--font-size-adjustment));
+  line-height: 1.75;
+}
+
+.questions {
+  border-top: 1px solid rgba(17, 19, 17, 0.18);
+}
+
+.questions details {
+  border-bottom: 1px solid rgba(17, 19, 17, 0.18);
+}
+
+.questions summary {
+  padding: 1.15rem 0;
+  cursor: pointer;
+  font-size: calc(0.78rem + var(--font-size-adjustment));
+  font-weight: 700;
+}
+
+.questions details p {
+  margin: 0;
+  padding: 0 0 1.25rem;
+  color: var(--gray);
+  font-size: calc(0.72rem + var(--font-size-adjustment));
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .about,
+  .faq {
+    grid-column: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .about {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(33, 255, 170, 0.12)
+    );
+  }
+
+  .conditions > div,
+  .environment > div {
+    grid-template-columns: 4.8rem 1fr;
+  }
+}

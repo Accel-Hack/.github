@@ -1,17 +1,8 @@
 import React from 'react';
-import SERVICES from '../../../../data/services.json';
-import ServiceListArticle from '@/component/article/ServiceListArticle';
-import ServiceArticle from '@/component/article/ServiceArticle';
+import WorkCatalogArticle from '@/component/article/WorkCatalogArticle';
 
 const ServicePage: React.FC = () => {
-  return (
-    <>
-      <ServiceListArticle services={SERVICES} />
-      {SERVICES.map((service, i) => {
-        return <ServiceArticle key={i} service={service} />;
-      })}
-    </>
-  );
+  return <WorkCatalogArticle />;
 };
 
 export default ServicePage;

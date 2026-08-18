@@ -1,11 +1,11 @@
 .container {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  counter-increment: article-section;
+  min-height: 0;
+  display: block;
 }
 
 .content {
-  flex-grow: 1;
+  min-width: 0;
 }
 
 .scroll {
@@ -16,7 +16,7 @@
 
 .scroll > p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: calc(0.9rem + var(--font-size-adjustment));
   font-weight: bold;
 }
 
@@ -29,10 +29,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media screen and (min-width: 780px) and (max-aspect-ratio: 10 / 8) {
-  .container {
-    height: auto;
-  }
 }

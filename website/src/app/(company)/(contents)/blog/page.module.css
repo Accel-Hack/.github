@@ -1,19 +1,117 @@
 .container {
-  display: flex;
-  gap: 0.625rem;
-  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(2rem, 4vw, 4.5rem);
 }
 
-.content {
-  width: 46%;
+.intro {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  border-left: 1px solid var(--company-color);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.intro p,
+.intro h2 {
+  margin: 0;
+}
+
+.intro p,
+.noteProfile > span:first-child {
+  font-family: var(--font-axia);
+  letter-spacing: 0.14em;
+}
+
+.intro p {
+  color: var(--company-color-text);
+  font-size: calc(0.58rem + var(--font-size-adjustment));
+}
+
+.intro h2 {
+  font-size: calc(clamp(1.4rem, 2.7vw, 2.7rem) + var(--font-size-adjustment));
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.embedList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+}
+
+.embedItem {
+  display: flex;
+  min-width: 0;
+  justify-content: center;
+  padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  border: 1px solid rgba(17, 19, 17, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.embed {
+  position: static;
+  display: block;
+  visibility: visible;
+  width: 494px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.noteProfile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--background-black);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.noteProfile > span:first-child {
+  color: var(--company-color);
+  font-size: calc(0.56rem + var(--font-size-adjustment));
+}
+
+.noteProfile strong {
+  font-size: calc(clamp(0.9rem, 1.3vw, 1.15rem) + var(--font-size-adjustment));
+}
+
+.noteProfile > span:last-child {
+  font-size: calc(1.4rem + var(--font-size-adjustment));
+}
+
+.noteProfile:focus-visible {
+  outline: 3px solid var(--background-black);
+  outline-offset: -3px;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    flex-direction: column;
+    padding: 1.5rem 0.75rem;
   }
 
-  .content {
-    width: 100%;
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .embedList {
+    grid-template-columns: 1fr;
+  }
+
+  .noteProfile {
+    grid-template-columns: 1fr auto;
+  }
+
+  .noteProfile > span:first-child {
+    grid-column: 1 / -1;
   }
 }
