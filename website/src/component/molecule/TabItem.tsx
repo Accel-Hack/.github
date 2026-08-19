@@ -47,6 +47,7 @@ const TabItem: React.FC<Props> = ({
           <small>{detail}</small>
         </span>
         <div className={styles.arrow}>→</div>
+        {isCurrent && <span className={styles.current_label}>CURRENT</span>}
       </div>
     </Link>
   );
