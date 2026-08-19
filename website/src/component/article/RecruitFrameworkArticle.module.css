@@ -39,7 +39,7 @@
 
 .statement .annotation {
   grid-column: 1 / -1;
-  max-width: 48rem;
+  max-width: 60rem;
 }
 
 .annotation strong {
@@ -171,7 +171,7 @@
 }
 
 .scaleMessage {
-  max-width: 55rem;
+  max-width: 60rem;
   margin: 0 auto 2.5rem;
   font-size: calc(clamp(1.25rem, 2.5vw, 2.5rem) + var(--font-size-adjustment));
   line-height: 1.55;

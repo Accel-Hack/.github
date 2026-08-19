@@ -146,7 +146,7 @@ const AboutSections: React.FC = () => {
         </section>
       </Article>
 
-      <Article id="members" caption="Members">
+      <Article id="members" caption="代表紹介">
         <section className={styles.membersSection}>
           <span className={styles.ghostType} aria-hidden="true">
             02
@@ -182,7 +182,7 @@ const AboutSections: React.FC = () => {
         </section>
       </Article>
 
-      <Article id="history" caption="History & Clients">
+      <Article id="history" caption="沿革">
         <section className={styles.historySection}>
           <span className={styles.ghostType} aria-hidden="true">
             25
