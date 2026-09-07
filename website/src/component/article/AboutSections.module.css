@@ -432,12 +432,6 @@
   font-weight: 500;
 }
 
-.historyHeading > p:last-child {
-  margin: 0;
-  color: var(--gray);
-  font-size: calc(0.63rem + var(--font-size-adjustment));
-}
-
 .historyList {
   display: flex;
   flex-direction: column;
@@ -491,7 +485,7 @@
   display: flex;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 1rem;
   font-family: var(--font-axia);
   font-size: calc(0.68rem + var(--font-size-adjustment));

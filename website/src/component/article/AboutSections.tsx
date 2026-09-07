@@ -53,10 +53,10 @@ const members = [
 ];
 
 const history = [
-  { year: '2022', note: '創業', clients: 7, sales: 47000, width: '52%' },
-  { year: '2023', note: '', clients: 11, sales: 85000, width: '94%' },
-  { year: '2024', note: '', clients: 17, sales: 88000, width: '98%' },
-  { year: '2025', note: '', clients: 23, sales: 90000, width: '100%' },
+  { year: '2022', note: '創業', clients: 7, width: '30%' },
+  { year: '2023', note: '', clients: 11, width: '48%' },
+  { year: '2024', note: '', clients: 17, width: '74%' },
+  { year: '2025', note: '', clients: 23, width: '100%' },
 ];
 
 const clients = [
@@ -192,8 +192,7 @@ const AboutSections: React.FC = () => {
           <div className={styles.historyChart}>
             <div className={styles.historyHeading}>
               <p className={styles.kicker}>GROWTH</p>
-              <h2>取引社数／売上推移</h2>
-              <p>売上単位：千円</p>
+              <h2>取引社数推移</h2>
             </div>
             <ol className={styles.historyList}>
               {history.map((item) => (
@@ -206,7 +205,6 @@ const AboutSections: React.FC = () => {
                     <div className={styles.bar} style={{ width: item.width }} />
                     <div className={styles.historyValues}>
                       <span>{item.clients}社</span>
-                      <span>¥{item.sales.toLocaleString()}</span>
                     </div>
                   </div>
                 </li>
