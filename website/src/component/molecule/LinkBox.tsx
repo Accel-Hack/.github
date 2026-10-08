@@ -6,11 +6,7 @@ import Logo from '@/asset/img/about/logo.svg';
 
 export type LinkBoxSize = 'lg' | 'md' | 'sm';
 export type LinkBoxVariant =
-  | 'default'
-  | 'recruit'
-  | 'blog'
-  | 'contact'
-  | 'privacy';
+  'default' | 'recruit' | 'blog' | 'contact' | 'privacy';
 
 type Props = {
   href: string;
