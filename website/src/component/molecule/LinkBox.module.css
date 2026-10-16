@@ -2,7 +2,6 @@
   box-shadow:
     10px 12px 16px rgba(0, 0, 0, 0.13),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
-  font-size: calc(2rem + var(--font-size-adjustment));
   font-weight: 500;
   background-color: var(--white);
   opacity: 0.8;
@@ -32,6 +31,7 @@
 
 /* 大サイズ（lg）のスタイル */
 .link_box_lg {
+  background-color: var(--color-neutral-100);
   width: 304px;
   aspect-ratio: 1/1;
   justify-content: center;
@@ -66,6 +66,7 @@
 
 /* 中サイズ（md）のスタイル */
 .link_box_md {
+  background-color: var(--color-neutral-100);
   height: 100%;
   box-sizing: border-box;
   padding: var(--spacing-md) var(--spacing-lg);
@@ -178,16 +179,93 @@
 }
 
 @media screen and (max-width: 768px) {
-  .link_box {
-    font-size: calc(24px + var(--font-size-adjustment));
+  /* 大サイズ（lg）のスタイル */
+  .link_box_lg {
+    width: 134px;
+    padding: var(--spacing-sm);
   }
 
+  .link_box_lg_textContainer {
+    gap: 4px;
+    align-items: center;
+  }
+
+  .link_box_lg_text {
+    font-family: 'axia', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_lg_subtext {
+    font-family: 'axia', 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0em;
+  }
+
+  /* 中サイズ（md）のスタイル */
   .link_box_md {
-    height: 60px;
-    font-size: calc(20px + var(--font-size-adjustment));
+    padding: var(--spacing-sm);
   }
 
+  .link_box_md_textContainer {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .link_box_md_text {
+    font-family: 'axia', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_md_subtext {
+    font-size: 11px;
+  }
+
+  /* 小サイズ（sm）のスタイル */
   .link_box_sm {
-    font-size: calc(12px + var(--font-size-adjustment));
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 44px;
+  }
+
+  .link_box_sm_text {
+    font-family: 'axia', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_sm_subtext {
+    font-family: 'axia', 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0em;
+  }
+
+  /* カーソルアイコン */
+  .cursor {
+    bottom: 16px;
+    right: 16px;
+    width: 14px;
+  }
+
+  .mint_cursor {
+    width: 14px;
+  }
+
+  .link_box_blog {
+    width: 114px;
+  }
+
+  .link_box_contact {
+    width: auto;
   }
 }

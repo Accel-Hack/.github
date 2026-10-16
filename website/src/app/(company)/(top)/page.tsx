@@ -25,7 +25,7 @@ export default function Home() {
             <br />
             すべての企業に届ける
           </p>
-          <div className={styles.news_summary_container}>
+          <div className={styles.news_summary_container_pc}>
             <NewsSummary newses={NEWSES} />
           </div>
         </div>
@@ -90,6 +90,10 @@ export default function Home() {
             {/*  showCursor={false}*/}
             {/*/>*/}
           </LinkBoxContainer>
+        </div>
+
+        <div className={styles.news_summary_container_sp}>
+          <NewsSummary newses={NEWSES} />
         </div>
       </div>
 
