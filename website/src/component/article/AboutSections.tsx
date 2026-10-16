@@ -139,7 +139,7 @@ const AboutSections: React.FC = () => {
               </section>
             ))}
           </div>
-          <a className={styles.worksLink} href={Page.SERVICE}>
+          <a className={styles.worksLink} href={Page.WORKS}>
             実績を確認
             <span aria-hidden="true">→</span>
           </a>
