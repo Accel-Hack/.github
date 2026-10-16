@@ -7,13 +7,16 @@ import Logo from '@/asset/img/about/logo.svg';
 export type LinkBoxSize = 'lg' | 'md' | 'sm';
 export type LinkBoxVariant =
   'default' | 'recruit' | 'blog' | 'contact' | 'privacy';
+export type CursorVariant = 'default' | 'mint';
 
 type Props = {
   href: string;
   text: string;
+  subtext: string;
   size: LinkBoxSize;
   variant?: LinkBoxVariant;
   showCursor?: boolean;
+  cursorVariant?: CursorVariant;
   className?: string;
   hoverIcon?: boolean;
 };
@@ -21,27 +24,34 @@ type Props = {
 const LinkBox: React.FC<Props> = ({
   href,
   text,
+  subtext,
   size,
   variant = 'default',
-  showCursor = true,
+  cursorVariant,
   className = '',
   hoverIcon = false,
 }) => {
   const sizeClass = styles[`link_box_${size}`];
   const variantClass =
     variant !== 'default' ? styles[`link_box_${variant}`] : '';
+  const cursorClass = cursorVariant
+    ? styles[`${cursorVariant}_cursor`]
+    : styles[`cursor`];
+  const textContainer = styles[`link_box_${size}_textContainer`];
   const textClass = styles[`link_box_${size}_text`];
-
-  // sm サイズには基本的にカーソルアイコンを表示しない
-  const displayCursor = showCursor && size !== 'sm';
+  const subtextClass = styles[`link_box_${size}_subtext`];
 
   return (
     <Link
       href={href}
       className={`${styles.link_box} ${sizeClass} ${variantClass} ${className}`}
     >
-      <span className={textClass}>{text}</span>
-      {displayCursor && <Cursor className={styles.cursor} />}
+      <div className={textContainer}>
+        <span className={textClass}>{text}</span>
+        <span className={subtextClass}>{subtext}</span>
+      </div>
+
+      <Cursor className={cursorClass} />
       {hoverIcon && <Logo className={styles.logo} />}
     </Link>
   );
