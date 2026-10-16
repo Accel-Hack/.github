@@ -7,13 +7,13 @@ import TabItem from '@/component/molecule/TabItem';
 import { Page } from '@/enum/Page';
 import styles from './TabMenu.module.css';
 
-const MainTabs = [Page.ABOUT, Page.SERVICE, Page.RECRUIT, Page.BLOG];
+const MainTabs = [Page.ABOUT, Page.WORKS, Page.RECRUIT, Page.BLOG];
 const SubTabs = [Page.CONTACT];
 
 const MobileTabs = [
   { page: Page.TOP, number: '00', caption: 'Top', detail: 'HOME' },
   { page: Page.ABOUT, number: '01', caption: 'About', detail: 'COMPANY' },
-  { page: Page.SERVICE, number: '02', caption: 'Works', detail: 'PROJECTS' },
+  { page: Page.WORKS, number: '02', caption: 'Works', detail: 'PROJECTS' },
   { page: Page.RECRUIT, number: '03', caption: 'Recruit', detail: 'PEOPLE' },
   { page: Page.BLOG, number: '04', caption: 'Blog', detail: 'JOURNAL' },
 ];
