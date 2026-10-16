@@ -20,7 +20,7 @@ const NewsSummary: React.FC<Props> = ({ newses }: Props) => {
           <Cursor className={styles.cursor} />
         </Link>
       </div>
-      {newses.slice(0, 4).map((news, i) => {
+      {newses.slice(0, 2).map((news, i) => {
         return (
           <div key={i} className={styles.news_one_line}>
             <span className={styles.news_one_line_date}>{news.date}</span>
