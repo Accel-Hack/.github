@@ -167,10 +167,10 @@ body {
   --opacity-80: 80%;
 
   /* elevation の定義 */
-  --elevation-1: box-shadow: 0 2px 8px rgba(17, 19, 17, 0.08);
-  --elevation-2: box-shadow: 0 8px 24px rgba(17, 19, 17, 0.12);
-  --elevation-3: box-shadow: 8px 12px 24px rgba(17, 19, 17, 0.24);
-  --shadow-offset: box-shadow: 7px 7px 0 rgba(233, 237, 233, 0.88);
+  --elevation-1: 0 2px 8px rgba(17, 19, 17, 0.08);
+  --elevation-2: 0 8px 24px rgba(17, 19, 17, 0.12);
+  --elevation-3: 8px 12px 24px rgba(17, 19, 17, 0.24);
+  --shadow-offset: 7px 7px 0 rgba(233, 237, 233, 0.88);
 }
 
 /* 日本語フォントクラスの定義 */

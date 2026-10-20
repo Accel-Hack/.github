@@ -132,6 +132,9 @@ export default function CompanyLayout({
             }}
             className={'small_media_visible'}
           />
+          <footer className={styles.footer_sp}>
+            <Footer />
+          </footer>
           <Square
             style={{
               width: '29.75px',
@@ -140,7 +143,7 @@ export default function CompanyLayout({
             className={'small_media_visible'}
           />
         </div>
-        <footer className={styles.footer}>
+        <footer className={styles.footer_pc}>
           <Footer />
         </footer>
       </Transition>
