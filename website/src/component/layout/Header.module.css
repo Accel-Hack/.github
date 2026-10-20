@@ -11,10 +11,8 @@
 
 .logo_container {
   cursor: pointer;
-
   width: auto;
   height: auto;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
