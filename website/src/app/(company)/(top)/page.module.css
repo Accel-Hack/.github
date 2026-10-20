@@ -238,6 +238,7 @@
 
   .news_summary_container_sp {
     display: flex;
+    animation: topRevealLeft 0.9s 1.75s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .left_container {
