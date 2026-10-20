@@ -46,7 +46,6 @@ export default function Home() {
               text="About"
               subtext="私たちについて"
               size="lg"
-              hoverIcon={true}
             />
             <LinkBox
               href={Page.WORKS}
