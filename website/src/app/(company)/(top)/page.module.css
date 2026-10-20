@@ -4,6 +4,8 @@
   min-height: 100%;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  align-items: center;
   padding: clamp(2.5rem, 5vh, 5rem) 10%;
   box-sizing: border-box;
 }
@@ -11,7 +13,16 @@
 .container {
   display: flex;
   width: 100%;
+  max-width: 1120px;
   align-items: stretch;
+  margin: auto;
+  box-sizing: border-box;
+}
+@media (min-width: 1440px) {
+  .container {
+    margin-left: clamp(64px, 11.11vw, 160px);
+    margin-right: clamp(64px, 11.11vw, 160px);
+  }
 }
 
 .left_container {
