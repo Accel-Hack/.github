@@ -21,8 +21,7 @@
 }
 
 .logo_img {
-  height: 210px;
-  width: 100%;
+  width: clamp(280px, 27.78vw, 480px);
 }
 
 .catch_copy {
@@ -214,8 +213,7 @@
   }
 
   .logo_img {
-    width: 160px;
-    height: 84px;
+    width: clamp(136px, 42.67vw, 184px);
     float: right;
   }
 
