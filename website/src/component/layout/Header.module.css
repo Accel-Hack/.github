@@ -9,10 +9,9 @@
 
 .logo_container {
   cursor: pointer;
-  padding: 0 var(--spacing-xl);
-  margin: 0 1%;
-  width: 10%;
+  margin-left: 32px;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -28,11 +27,6 @@
 
 @media screen and (max-width: 768px) {
   .logo_container {
-    width: 30%;
-  }
-
-  .logo {
-    max-height: 40px;
-    max-width: 200px;
+    margin-left: 8px;
   }
 }
