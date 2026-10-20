@@ -5,13 +5,16 @@
   justify-content: space-between;
   padding: 0 var(--spacing-xl);
   box-sizing: border-box;
+
   background-color: var(--color-background-default);
 }
 
 .logo_container {
   cursor: pointer;
+
   width: auto;
   height: auto;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
