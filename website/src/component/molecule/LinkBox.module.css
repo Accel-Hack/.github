@@ -17,11 +17,23 @@
 }
 
 .link_box:hover {
-  background-color: var(--company-color);
+  background-color: var(--color-background-inverse-translucent);
   transform: translate(-4px, -4px);
-  box-shadow:
-    17px 20px 24px rgba(0, 0, 0, 0.17),
-    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  box-shadow: var(--elevation-3);
+  color: var(--color-text-inverse);
+  z-index: 50;
+}
+
+.link_box:hover .cursor {
+  fill: var(--color-text-inverse);
+}
+
+.link_box:hover .link_box_lg_subtext {
+  color: var(--color-text-inverse);
+}
+
+.link_box:hover .link_box_md_subtext {
+  color: var(--color-text-inverse);
 }
 
 .link_box:focus-visible {
@@ -145,6 +157,17 @@
   width: 266px;
 }
 
+.link_box_contact:hover {
+  background-color: var(--color-background-inverse);
+  color: var(--color-neural-10);
+  outline: 1px solid var(--color-mint-50);
+  outline-offset: -3px;
+}
+
+.link_box_contact:hover .mint_cursor {
+  transform: translateX(4px);
+}
+
 /* .link_box_privacy {
   width: 35%;
   margin-left: 0.5rem;
@@ -162,20 +185,6 @@
   margin-left: auto;
   width: 24px;
   fill: var(--color-mint-50);
-}
-
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0.8;
-}
-
-.logo:not(:hover) {
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 @media screen and (max-width: 768px) {

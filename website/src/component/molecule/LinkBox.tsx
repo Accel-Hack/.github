@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './LinkBox.module.css';
 import Cursor from '@/asset/img/common/cursor.svg';
-import Logo from '@/asset/img/about/logo.svg';
 
 export type LinkBoxSize = 'lg' | 'md' | 'sm';
 export type LinkBoxVariant =
@@ -18,7 +17,6 @@ type Props = {
   showCursor?: boolean;
   cursorVariant?: CursorVariant;
   className?: string;
-  hoverIcon?: boolean;
 };
 
 const LinkBox: React.FC<Props> = ({
@@ -29,7 +27,6 @@ const LinkBox: React.FC<Props> = ({
   variant = 'default',
   cursorVariant,
   className = '',
-  hoverIcon = false,
 }) => {
   const sizeClass = styles[`link_box_${size}`];
   const variantClass =
@@ -52,7 +49,6 @@ const LinkBox: React.FC<Props> = ({
       </div>
 
       <Cursor className={cursorClass} />
-      {hoverIcon && <Logo className={styles.logo} />}
     </Link>
   );
 };
