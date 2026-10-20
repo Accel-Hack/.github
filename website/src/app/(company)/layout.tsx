@@ -49,6 +49,7 @@ export default function CompanyLayout({
           <FrameTopLine
             className={`${styles.frame_top_line} small_media_hidden`}
           />
+
           <FrameBottomLine
             className={`${styles.small_media_frame_top_line} small_media_vissible`}
           />
