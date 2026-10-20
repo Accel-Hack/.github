@@ -284,7 +284,8 @@
   .right_container,
   .decorations,
   .right_container > div,
-  .background_box {
+  .background_box,
+  .news_summary_container_sp {
     animation: none;
   }
 }
