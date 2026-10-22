@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/legacy/image';
 import { Page } from '@/enum/Page';
-import HeaderLogo from '@/asset/img/layout/header_logo.png';
+import HeaderLogo from '@/asset/img/layout/accelhack_logo_transparent_logo_only.png';
 import styles from './Header.module.css';
 import Link from 'next/link';
 

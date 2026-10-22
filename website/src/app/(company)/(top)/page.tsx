@@ -9,12 +9,10 @@ import COLOR_SQUARES from '@/asset/img/layout/color_squares.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
-import TopIntro from '@/component/organism/TopIntro';
 
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
-      <TopIntro />
       <div className={styles.container}>
         <div className={styles.left_container}>
           <div className={styles.image_container}>
@@ -25,7 +23,7 @@ export default function Home() {
             <br />
             すべての企業に届ける
           </p>
-          <div className={styles.news_summary_container}>
+          <div className={styles.news_summary_container_pc}>
             <NewsSummary newses={NEWSES} />
           </div>
         </div>
@@ -44,29 +42,42 @@ export default function Home() {
             <LinkBox
               href={Page.ABOUT}
               text="About"
+              subtext="私たちについて"
               size="lg"
-              hoverIcon={true}
             />
-            <LinkBox href={Page.SERVICE} text="Service" size="lg" />
+            <LinkBox
+              href={Page.WORKS}
+              text="Works"
+              subtext="実績一覧"
+              size="lg"
+            />
           </LinkBoxContainer>
 
           <LinkBoxContainer size="md">
             <LinkBox
               href={Page.RECRUIT}
               text="Recruit"
+              subtext="採用情報"
               size="md"
               variant="recruit"
             />
-            <LinkBox href={Page.BLOG} text="Blog" size="md" variant="blog" />
+            <LinkBox
+              href={Page.BLOG}
+              text="Blog"
+              subtext="技術ブログ"
+              size="md"
+              variant="blog"
+            />
           </LinkBoxContainer>
 
           <LinkBoxContainer size="sm">
             <LinkBox
               href={Page.CONTACT}
               text="Contact"
+              subtext="お問い合わせ"
               size="sm"
               variant="contact"
-              showCursor={false}
+              cursorVariant="mint"
             />
             {/*<LinkBox*/}
             {/*  href={Page.PRIVACY_POLICY}*/}
@@ -76,6 +87,10 @@ export default function Home() {
             {/*  showCursor={false}*/}
             {/*/>*/}
           </LinkBoxContainer>
+        </div>
+
+        <div className={styles.news_summary_container_sp}>
+          <NewsSummary newses={NEWSES} />
         </div>
       </div>
 

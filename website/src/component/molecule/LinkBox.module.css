@@ -2,7 +2,6 @@
   box-shadow:
     10px 12px 16px rgba(0, 0, 0, 0.13),
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
-  font-size: calc(2rem + var(--font-size-adjustment));
   font-weight: 500;
   background-color: var(--white);
   opacity: 0.8;
@@ -18,11 +17,23 @@
 }
 
 .link_box:hover {
-  background-color: var(--company-color);
-  transform: translate3d(-3px, -5px, 0);
-  box-shadow:
-    17px 20px 24px rgba(0, 0, 0, 0.17),
-    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  background-color: var(--color-background-inverse-translucent);
+  transform: translate(-4px, -4px);
+  box-shadow: var(--elevation-3);
+  color: var(--color-text-inverse);
+  z-index: 50;
+}
+
+.link_box:hover .cursor {
+  fill: var(--color-text-inverse);
+}
+
+.link_box:hover .link_box_lg_subtext {
+  color: var(--color-text-inverse);
+}
+
+.link_box:hover .link_box_md_subtext {
+  color: var(--color-text-inverse);
 }
 
 .link_box:focus-visible {
@@ -32,95 +43,238 @@
 
 /* 大サイズ（lg）のスタイル */
 .link_box_lg {
-  max-width: 700px;
-  width: 50%;
+  background-color: var(--color-neutral-100);
+  width: 304px;
   aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+}
+
+.link_box_lg_textContainer {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
 }
 
 .link_box_lg_text {
-  margin: auto;
+  font-family: 'axia', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.link_box_lg_subtext {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-subtle);
   z-index: 10;
 }
 
 /* 中サイズ（md）のスタイル */
 .link_box_md {
-  height: 90px;
+  background-color: var(--color-neutral-100);
+  height: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.link_box_md_textContainer {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .link_box_md_text {
-  margin: auto auto auto 1rem;
+  font-family: 'axia', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.link_box_md_subtext {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-subtle);
+  z-index: 10;
 }
 
 /* 小サイズ（sm）のスタイル */
 .link_box_sm {
-  background-color: var(--background-black);
-  opacity: 0.8;
-  color: var(--white);
-  font-size: calc(15px + var(--font-size-adjustment));
+  background-color: var(--color-background-inverse);
+  box-sizing: border-box;
+  padding: var(--spacing-md) var(--spacing-lg);
+  justify-content: right;
+}
+
+.link_box_sm_textContainer {
+  align-items: center;
   display: flex;
-  height: 36px;
 }
 
 .link_box_sm_text {
-  margin: auto auto auto 10px;
+  font-family: 'axia', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-mint-50);
+}
+
+.link_box_sm_subtext {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0em;
+  color: var(--color-text-inverse);
+  z-index: 10;
+  padding: 0 12px;
 }
 
 /* バリエーションのスタイル */
 .link_box_recruit {
-  max-width: 700px;
-  width: 50%;
-  margin-left: auto;
+  flex: 1;
+  min-width: 0;
 }
 
 .link_box_blog {
-  max-width: 500px;
-  width: 40%;
-  margin-left: 0.75rem;
+  width: 252px;
+  flex-shrink: 0;
 }
 
 .link_box_contact {
-  width: 30%;
-  margin-left: auto;
+  width: 266px;
 }
 
-.link_box_privacy {
+.link_box_contact:hover {
+  background-color: var(--color-background-inverse);
+  color: var(--color-neutral-10);
+  outline: 1px solid var(--color-mint-50);
+  outline-offset: -3px;
+}
+
+.link_box_contact:hover .mint_cursor {
+  transform: translateX(4px);
+}
+
+/* .link_box_privacy {
   width: 35%;
   margin-left: 0.5rem;
-}
+} */
 
 /* カーソルアイコン */
 .cursor {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 1.25rem;
+  bottom: 24px;
+  right: 24px;
+  width: 24px;
 }
 
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0.8;
-}
-
-.logo:not(:hover) {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.mint_cursor {
+  margin-left: auto;
+  width: 24px;
+  fill: var(--color-mint-50);
 }
 
 @media screen and (max-width: 768px) {
-  .link_box {
-    font-size: calc(24px + var(--font-size-adjustment));
+  /* 大サイズ（lg）のスタイル */
+  .link_box_lg {
+    width: 134px;
+    padding: var(--spacing-sm);
   }
 
+  .link_box_lg_textContainer {
+    gap: 4px;
+    align-items: center;
+  }
+
+  .link_box_lg_text {
+    font-family: 'axia', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_lg_subtext {
+    font-family: 'axia', 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0em;
+  }
+
+  /* 中サイズ（md）のスタイル */
   .link_box_md {
-    height: 60px;
-    font-size: calc(20px + var(--font-size-adjustment));
+    padding: var(--spacing-sm);
   }
 
+  .link_box_md_textContainer {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .link_box_md_text {
+    font-family: 'axia', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_md_subtext {
+    font-size: 11px;
+  }
+
+  /* 小サイズ（sm）のスタイル */
   .link_box_sm {
-    font-size: calc(12px + var(--font-size-adjustment));
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 44px;
+  }
+
+  .link_box_sm_text {
+    font-family: 'axia', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .link_box_sm_subtext {
+    font-family: 'axia', 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0em;
+  }
+
+  /* カーソルアイコン */
+  .cursor {
+    bottom: 16px;
+    right: 16px;
+    width: 14px;
+  }
+
+  .mint_cursor {
+    width: 14px;
+  }
+
+  .link_box_blog {
+    width: 114px;
+  }
+
+  .link_box_contact {
+    width: auto;
   }
 }

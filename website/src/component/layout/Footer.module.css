@@ -8,17 +8,29 @@
 }
 
 .logo_container {
-  margin: 0 1%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 .copyright {
-  height: 24px;
-  line-height: 24px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
-  font-size: calc(0.5rem + var(--font-size-adjustment));
+  font-family: 'axia', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-subtle);
+}
+
+@media screen and (max-width: 768px) {
+  .logo_container {
+    height: 40px;
+  }
+  .copyright {
+    justify-content: center;
+    align-items: center;
+  }
 }
