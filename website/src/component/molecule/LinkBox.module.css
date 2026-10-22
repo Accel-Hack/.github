@@ -159,7 +159,7 @@
 
 .link_box_contact:hover {
   background-color: var(--color-background-inverse);
-  color: var(--color-neural-10);
+  color: var(--color-neutral-10);
   outline: 1px solid var(--color-mint-50);
   outline-offset: -3px;
 }
