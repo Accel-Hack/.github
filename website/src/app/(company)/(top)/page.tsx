@@ -17,7 +17,6 @@ import SmallMediaFooter from '@/component/layout/SmallMediaFooter';
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
-      <TopIntro />
       <div className={styles.container}>
         <div className={styles.left_container}>
           <div className={styles.image_container}>
