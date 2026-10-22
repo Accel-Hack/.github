@@ -9,12 +9,10 @@ import COLOR_SQUARES from '@/asset/img/layout/color_squares.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
-import TopIntro from '@/component/organism/TopIntro';
 
 export default function Home() {
   return (
     <div className={`${styles.page}`}>
-      <TopIntro />
       <div className={styles.container}>
         <div className={styles.left_container}>
           <div className={styles.image_container}>
