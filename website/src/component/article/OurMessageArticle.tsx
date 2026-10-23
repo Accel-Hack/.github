@@ -31,18 +31,14 @@ const OurMessageArticle: React.FC = () => {
             ともにつくる仲間へ。
           </div>
           <div className={styles.contents_message}>
-            <>
+            <div className={styles.message_paragraph}>
               私たちが大切にしているのは、技術を使って誰かの困りごとを解決すること
-              <br />
               です。何をつくるべきかを考え、相手の声に耳を傾け、よりよい答えを探し
-              <br />
               ていきたいと考えています。
-            </>
+            </div>
             <>
               自分の考えを持ちながら、違う意見にも向き合える。そんな方と一緒に働き
-              <br />
               たいと思っています。まずは、これまでの経験やこれから挑戦したいことを
-              <br />
               聞かせてください。
             </>
           </div>
@@ -50,12 +46,14 @@ const OurMessageArticle: React.FC = () => {
         <div className={styles.right}>
           {portraitItems.map((item, i) => (
             <div className={`${styles[`container_${i}`]}`} key={i}>
-              <Image
-                src={item.photo}
-                alt={item.name}
-                width={200}
-                height={250}
-              />
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={item.photo}
+                  alt={item.name}
+                  fill
+                  className={styles.image}
+                />
+              </div>
               <div className={styles.title}>
                 <div className={styles.role}>{item.role}</div>
                 <div className={styles.name}>{item.name}</div>

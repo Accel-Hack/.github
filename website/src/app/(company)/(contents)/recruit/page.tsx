@@ -8,12 +8,14 @@ import CONDITIONS from '../../../../data/conditions.json';
 import QAS from '../../../../data/qas.json';
 import styles from './page.module.css';
 import JoinUsArticle from '@/component/article/JoinUsArticle';
+import OurMessageArticle from '@/component/article/OurMessageArticle';
 
 const RecruitPage: React.FC = () => {
   return (
     <>
       <span className={styles.pageAnchor} id="recruit-overview" />
       <JoinUsArticle />
+      <OurMessageArticle />
       <RecruitFrameworkArticle />
       <RecruitGrowthArticle />
       <RecruitInformationArticle
