@@ -19,38 +19,35 @@ const portraitItems = [
 const OurMessageArticle: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.left}>
-        <div className={styles.text_container}>
-          <div className={styles.section_head}>
-            <div className={styles.section_head_index}>02 / Our Message</div>
-            <div className={styles.section_head_title}>代表の挨拶</div>
-          </div>
+      <div className={styles.section_head}>
+        <div className={styles.section_head_index}>02 / Our Message</div>
+        <div className={styles.section_head_title}>代表の挨拶</div>
+      </div>
+      <div className={styles.contents}>
+        <div className={styles.left}>
           <div className={styles.contents_title}>
-            <p>
-              問いを持ち、
-              <br />
-              ともにつくる仲間へ。
-            </p>
+            問いを持ち、
+            <br />
+            ともにつくる仲間へ。
           </div>
           <div className={styles.contents_message}>
-            <div>
+            <>
               私たちが大切にしているのは、技術を使って誰かの困りごとを解決すること
               <br />
               です。何をつくるべきかを考え、相手の声に耳を傾け、よりよい答えを探し
               <br />
               ていきたいと考えています。
-            </div>
-            <div>
+            </>
+            <>
               自分の考えを持ちながら、違う意見にも向き合える。そんな方と一緒に働き
               <br />
               たいと思っています。まずは、これまでの経験やこれから挑戦したいことを
               <br />
               聞かせてください。
-            </div>
+            </>
           </div>
         </div>
-
-        <div className={styles.left}>
+        <div className={styles.right}>
           {portraitItems.map((item, i) => (
             <div className={`${styles[`container_${i}`]}`} key={i}>
               <Image
