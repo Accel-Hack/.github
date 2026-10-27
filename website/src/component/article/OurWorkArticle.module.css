@@ -1,0 +1,177 @@
+.wrapper {
+  width: 100%;
+  margin-top: var(--spacing-6xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.section_head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.section_head_index {
+  font-family: 'axia', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-accent);
+}
+
+.section_head_title {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--color-text-default);
+}
+
+.statement {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.statement_title {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-lg);
+}
+
+.statement_message {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0em;
+}
+
+.section_card {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-neutral-100);
+  border: var(--border-width-sm) solid var(--color-border-default);
+}
+
+.card_image {
+  background-color: var(--color-background-subtle);
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.card_text {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  color: var(--color-text-default);
+  box-sizing: border-box;
+}
+
+.card_header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.category {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-accent);
+}
+
+.title {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.card_discription {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0em;
+}
+
+.card_position {
+  padding-top: var(--spacing-md);
+  border-top: var(--border-width-sm) dotted var(--color-border-default);
+  box-sizing: border-box;
+}
+
+.card_position_textbox {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.position_title {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-subtle);
+}
+
+.position_name {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: 0em;
+}
+
+.card_footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-top: var(--border-width-sm) solid var(--color-border-default);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+.section_note {
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-subtle);
+}
+
+.note_highlight_text {
+  color: var(--color-text-default);
+  text-decoration: underline;
+}

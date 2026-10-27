@@ -10,6 +10,7 @@ import styles from './page.module.css';
 
 import JoinUsArticle from '@/component/article/JoinUsArticle';
 import OurMessageArticle from '@/component/article/OurMessageArticle';
+import OurWorkArticle from '@/component/article/OurWorkArticle';
 
 const RecruitPage: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const RecruitPage: React.FC = () => {
       <span className={styles.pageAnchor} id="recruit-overview" />
       <JoinUsArticle />
       <OurMessageArticle />
+      <OurWorkArticle />
       <RecruitFrameworkArticle />
       <RecruitGrowthArticle />
       <RecruitInformationArticle
