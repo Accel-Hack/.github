@@ -18,7 +18,7 @@ const TabItem: React.FC<Props> = ({
     switch (page) {
       case Page.ABOUT:
         return { caption: 'About', detail: '01 / COMPANY' };
-      case Page.SERVICE:
+      case Page.WORKS:
         return { caption: 'Works', detail: '02 / PROJECTS' };
       case Page.RECRUIT:
         return { caption: 'Recruit', detail: '03 / PEOPLE' };
