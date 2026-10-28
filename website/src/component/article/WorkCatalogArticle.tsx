@@ -53,6 +53,9 @@ const WorkImage: React.FC<{
       <figcaption className={styles.visualCaption}>
         PROJECT IMAGE / {work.number}
       </figcaption>
+      {work.image?.note && (
+        <span className={styles.visualNote}>{work.image.note}</span>
+      )}
     </figure>
   );
 };
