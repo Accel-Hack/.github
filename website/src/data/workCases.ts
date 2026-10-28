@@ -20,7 +20,6 @@ export type WorkCase = {
     src: string;
     alt: string;
     objectPosition?: string;
-    note?: string;
   };
   category: WorkCategory;
   supports: WorkSupport[];
@@ -159,7 +158,6 @@ export const WORK_CASES: WorkCase[] = [
     image: {
       src: '/image/works/ai-seminar.jpg',
       alt: 'AIの活用イメージをスクリーンで説明する講師と、ノートPCで受講する参加者を表した立体イラスト',
-      note: '※写真はイメージです',
     },
     category: '研修・セミナー',
     supports: ['課題発見', '設計', '開発'],

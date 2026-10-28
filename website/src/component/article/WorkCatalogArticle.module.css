@@ -344,16 +344,6 @@
   letter-spacing: 0.16em;
 }
 
-.visualNote {
-  position: absolute;
-  right: 0.9rem;
-  bottom: 0.8rem;
-  color: var(--gray);
-  padding: 0.35rem 0.5rem;
-  background: rgba(250, 250, 250, 0.82);
-  font-size: calc(0.6rem + var(--font-size-adjustment));
-}
-
 .emptyState {
   margin: 0;
   padding: 5rem 2rem;
