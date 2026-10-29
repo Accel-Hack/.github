@@ -10,6 +10,7 @@ import styles from './page.module.css';
 import JoinUsArticle from '@/component/article/JoinUsArticle';
 import OurMessageArticle from '@/component/article/OurMessageArticle';
 import OurWorkArticle from '@/component/article/OurWorkArticle';
+import WhyAccelHackArticle from '@/component/article/WhyAccelHackArticle';
 
 const RecruitPage: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const RecruitPage: React.FC = () => {
       <JoinUsArticle />
       <OurMessageArticle />
       <OurWorkArticle />
+      <WhyAccelHackArticle />
       <RecruitFrameworkArticle />
       <RecruitGrowthArticle />
       <RecruitInformationArticle
