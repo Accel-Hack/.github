@@ -15,7 +15,7 @@ const positionItems = [
     ],
   },
   {
-    name: 'Prject Manager',
+    name: 'Project Manager',
     jname: 'プロジェクトマネージャー',
     target: '案件推進の経験をお持ちの方',
     description:
