@@ -32,7 +32,7 @@ const positionItems = [
     description:
       '現役エンジニアのサポートのもと、実際の開発案件に参加します。入社後は初心者向けの研修（目安2ヶ月）があります。',
     conditions: [
-      { label: '雇用形態', value: '正社員・契約社員' },
+      { label: '雇用形態', value: 'パートタイム' },
       { label: '給与', value: '時給〇〇〇〇円〜' },
     ],
   },
