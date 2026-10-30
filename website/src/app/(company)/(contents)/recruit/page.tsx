@@ -14,6 +14,7 @@ import WhyAccelHackArticle from '@/component/article/WhyAccelHackArticle';
 import WorkStyleArticle from '@/component/article/WorkStyleArticle';
 import OpenPositionArticle from '@/component/article/OpenPositionArticle';
 import SelectionFAQArticle from '@/component/article/SelectionFAQArticle';
+import EntryTalkArticle from '@/component/article/EntryTalkArticle';
 
 const RecruitPage: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const RecruitPage: React.FC = () => {
       <WorkStyleArticle />
       <OpenPositionArticle />
       <SelectionFAQArticle />
+      <EntryTalkArticle />
       <RecruitFrameworkArticle />
       <RecruitGrowthArticle />
       <RecruitInformationArticle
