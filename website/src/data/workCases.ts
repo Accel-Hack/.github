@@ -1,4 +1,5 @@
 export type WorkCategory = 'プロダクト' | '業務・事業' | '社内事例';
+
 export type WorkSupport = '課題発見' | '設計' | '開発';
 
 export type WorkCase = {
