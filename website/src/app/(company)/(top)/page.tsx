@@ -47,7 +47,7 @@ export default function Home() {
               size="lg"
               hoverIcon={true}
             />
-            <LinkBox href={Page.SERVICE} text="Service" size="lg" />
+            <LinkBox href={Page.WORKS} text="Service" size="lg" />
           </LinkBoxContainer>
 
           <LinkBoxContainer size="md">
