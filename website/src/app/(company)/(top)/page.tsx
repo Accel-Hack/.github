@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 import NewsSummary from '@/component/organism/NewsSummary';
 import { Page } from '@/enum/Page';
@@ -28,6 +30,25 @@ export default function Home() {
           <div className={styles.news_summary_container}>
             <NewsSummary newses={NEWSES} />
           </div>
+          <Link
+            href="/services/meguru"
+            className={styles.meguru_link}
+            aria-label="心付けサービス「めぐる」の紹介を見る"
+          >
+            <Image
+              src="/images/meguru/logo.webp"
+              alt="めぐる"
+              width={90}
+              height={49}
+              className={styles.meguru_logo}
+            />
+            <span className={styles.meguru_label}>
+              『めぐる』についてはこちら
+            </span>
+            <span className={styles.meguru_arrow} aria-hidden="true">
+              →
+            </span>
+          </Link>
         </div>
         <div className={styles.right_container}>
           <div

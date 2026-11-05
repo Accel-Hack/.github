@@ -260,3 +260,69 @@
     animation: none;
   }
 }
+
+.meguru_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 4px 6px 4px 0;
+  min-height: 44px;
+  color: #52675d;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.meguru_logo {
+  display: block;
+  width: 90px;
+  height: auto;
+}
+
+.meguru_arrow {
+  font-size: 16px;
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.meguru_link:hover .meguru_arrow {
+  transform: translateX(3px);
+  color: #0a7a52;
+}
+
+.meguru_link:focus-visible {
+  outline: 2px solid #0a7a52;
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .meguru_link {
+    margin-top: 12px;
+  }
+  .meguru_logo {
+    width: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meguru_arrow {
+    transition: none;
+  }
+}
+
+.meguru_label {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .meguru_link {
+    gap: 8px;
+  }
+  .meguru_label {
+    font-size: 11px;
+  }
+}
