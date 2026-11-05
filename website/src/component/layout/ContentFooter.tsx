@@ -21,6 +21,7 @@ const ContentFooter: React.FC = () => {
           className={styles.dot_right}
         />
       </div>
+
       <FrameBottomLine className={styles.frame_bottom_line} />
     </div>
   );
