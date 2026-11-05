@@ -3,7 +3,6 @@
 import React from 'react';
 import TabMenu from '@/component/layout/TabMenu';
 import styles from './layout.module.css';
-import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
 import Squares from '@/asset/img/layout/squares.svg';
 import ContentHeader from '@/component/molecule/ContentHeader';
 import { usePathname } from 'next/navigation';
@@ -57,7 +56,7 @@ export default function ContentLayout({
             </div>
           </div>
         </div>
-        <BackgroundLeftTopLine className={styles.background_left_top_line} />
+
         <Squares className={`${styles.squares} small_media_hidden`} />
       </div>
       <TabMenu />
