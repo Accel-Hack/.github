@@ -10,8 +10,8 @@
     "start": "next start",
     "homepage": "npx serve out",
     "typecheck": "tsc --noEmit",
-    "lint": "prettier -c ./src && next lint",
-    "lint:fix": "prettier -w ./src && next lint --fix"
+    "lint": "prettier --config .prettierrc.json -c ./src && next lint",
+    "lint:fix": "prettier --config .prettierrc.json -w ./src && next lint --fix"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
