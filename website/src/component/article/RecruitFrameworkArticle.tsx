@@ -76,7 +76,11 @@ const RecruitFrameworkArticle: React.FC = () => {
 
         <div className={styles.scaleBlock}>
           <p className={styles.scaleMessage}>
-            何かを「見つけ」ようと思えば、<br />さらにこのダイヤモンドが現れ、<br />「実装する」にもこのダイヤモンドが現れます。
+            何かを「見つけ」ようと思えば、
+            <br />
+            さらにこのダイヤモンドが現れ、
+            <br />
+            「実装する」にもこのダイヤモンドが現れます。
           </p>
           <div className={styles.scaleGrid}>
             {scales.map((scale, index) => (
