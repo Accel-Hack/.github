@@ -108,10 +108,10 @@ export default function BenefitsSlider() {
               {index === 0 && (
                 <figure className={styles.staffIllustration}>
                   <Image
-                    src="/images/meguru/staff-gratitude.png"
+                    src="/images/meguru/staff-gratitude.webp"
                     alt="お客様がスマートフォンから送った感謝と心付けが、笑顔のスタッフへ届くイラスト"
-                    width={1619}
-                    height={971}
+                    width={1200}
+                    height={720}
                   />
                   <figcaption>
                     お客様の気持ちが、日々のおもてなしの励みに。
@@ -133,7 +133,7 @@ export default function BenefitsSlider() {
                 <figure className={styles.review}>
                   <span>お支払いのあとに</span>
                   <Image
-                    src="/images/meguru/review.png"
+                    src="/images/meguru/review.webp"
                     alt="決済後の画面。Googleにクチコミを書くボタンから投稿ページへ進めます。"
                     width={281}
                     height={134}
