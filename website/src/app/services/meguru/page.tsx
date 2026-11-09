@@ -3,11 +3,136 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import Motion from './Motion';
 import BenefitsSlider from './BenefitsSlider';
+import { COMPANY_NAME, SITE_URL } from '@/config/site';
+
+const PATH = '/services/meguru';
+const PAGE_URL = `${SITE_URL}${PATH}`;
+const TITLE = 'めぐる｜旅館・ホテルのキャッシュレス心付け・チップサービス';
+const DESCRIPTION =
+  '旅館・ホテル向けのキャッシュレス心付け（デジタルチップ）サービス「めぐる」。客室や食事会場のQRコードから、お客様の感謝をスタッフや施設へ届けます。英語表示で訪日外国人のお客様にも対応。初期費用・月額費用0円。';
+const OG_IMAGE = {
+  url: '/images/meguru/ogp.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'めぐる ─ 旅館・ホテル向けキャッシュレス心付け・チップサービス。初期費用0円・月額費用0円',
+};
 
 export const metadata: Metadata = {
-  title: 'めぐる | 「ありがとう」を、キャッシュレスの心付けに。',
-  description:
-    'QRコードを読み取るだけ。お客様の感謝をスタッフや施設へ届ける、キャッシュレスの心付けサービス「めぐる」。初期費用・月額費用0円。',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: PATH,
+    siteName: 'めぐる',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [OG_IMAGE.url],
+  },
+};
+
+const FAQS = [
+  {
+    q: '導入や利用に費用はかかりますか？',
+    a: '初期費用・月額費用は0円です。手数料は、受け取った心付けの入金額に対して15％（システム・決済手数料込み）のみです。',
+  },
+  {
+    q: '訪日外国人のお客様も使えますか？',
+    a: '支払い画面は英語表示・通貨切替に対応しています。チップの習慣がある海外のお客様も、現金を両替せずにスマートフォンから心付けを届けられます。',
+  },
+  {
+    q: '旅館・ホテルのどこに設置できますか？',
+    a: '客室、食事会場、スタッフの名札や案内カードなど、おもてなしの場面に合わせて設置できます。設置時に、場所ごとの専用QRコードと担当者名を設定します。',
+  },
+  {
+    q: 'スタッフ個人宛てにも心付けを送れますか？',
+    a: 'はい。お客様は施設やスタッフなど、届けたい相手と金額を選び、メッセージを添えて心付けを送れます。',
+  },
+  {
+    q: '受け取った心付けはどのように確認できますか？',
+    a: '管理画面で、期間別の受取額・件数や、宛先別・QRコード別の集計を確認できます。',
+  },
+  {
+    q: 'Googleの口コミを増やすことにも役立ちますか？',
+    a: '心付けのお支払い後の画面に「Googleにクチコミを書く」ボタンを表示し、お客様を口コミ投稿ページへご案内します。',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: COMPANY_NAME,
+      alternateName: 'AccelHack Inc.',
+      url: SITE_URL,
+    },
+    {
+      '@type': 'Service',
+      '@id': `${PAGE_URL}#service`,
+      name: 'めぐる',
+      alternateName: 'MEGURU',
+      serviceType: 'キャッシュレス心付け・デジタルチップサービス',
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: '旅館・ホテルなどの宿泊施設',
+      },
+      description: DESCRIPTION,
+      url: PAGE_URL,
+      image: `${SITE_URL}${OG_IMAGE.url}`,
+      areaServed: { '@type': 'Country', name: 'JP' },
+      provider: { '@id': `${SITE_URL}/#organization` },
+      offers: {
+        '@type': 'Offer',
+        price: 0,
+        priceCurrency: 'JPY',
+        description:
+          '初期費用0円・月額費用0円。手数料は入金額の15％（システム・決済手数料込み）。',
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: TITLE,
+      description: DESCRIPTION,
+      inLanguage: 'ja',
+      about: { '@id': `${PAGE_URL}#service` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${PAGE_URL}#breadcrumb` },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${PAGE_URL}#faq`,
+      mainEntity: FAQS.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE_URL },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'サービス',
+          item: `${SITE_URL}/service`,
+        },
+        { '@type': 'ListItem', position: 3, name: 'めぐる', item: PAGE_URL },
+      ],
+    },
+  ],
 };
 
 const asset = (name: string) => `/images/meguru/${name}.webp`;
@@ -58,6 +183,12 @@ function Icon({ kind }: { kind: 'scan' | 'heart' | 'pay' }) {
 export default function MeguruPage() {
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <Motion />
       <a className={styles.skip} href="#main">
         本文へスキップ
@@ -79,6 +210,7 @@ export default function MeguruPage() {
           <a href="#places">設置例</a>
           <a href="#benefits">導入メリット</a>
           <a href="#pricing">料金</a>
+          <a href="#faq">よくある質問</a>
         </nav>
         <Consult />
       </header>
@@ -89,7 +221,7 @@ export default function MeguruPage() {
         >
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>
-              感謝が届く。おもてなしが、めぐりだす。
+              旅館・ホテル向け キャッシュレス心付け・チップサービス
             </p>
             <h1 id="hero-title">
               「ありがとう」を、
@@ -101,7 +233,7 @@ export default function MeguruPage() {
             <p className={styles.lead}>
               QRコードを読み取るだけ。
               <br />
-              お客様の感謝を、スタッフや施設へ届けるサービスです。
+              お客様の感謝を、心付け（チップ）としてスタッフや施設へ届けるサービスです。
             </p>
             <div className={styles.heroPrice}>
               <p>
@@ -124,7 +256,7 @@ export default function MeguruPage() {
           </div>
           <div className={styles.heroVisual}>
             <Image
-              src="/images/meguru/hospitality.png"
+              src="/images/meguru/hospitality.webp"
               alt="お客様を笑顔でお迎えするスタッフ"
               width={893}
               height={631}
@@ -180,7 +312,9 @@ export default function MeguruPage() {
               ))}
             </ol>
             <p className={styles.language}>
-              英語表示・通貨切替にも対応しています。
+              英語表示・通貨切替に対応。
+              <br className={styles.mobileBreak} />
+              訪日外国人のお客様も、迷わずチップを届けられます。
             </p>
           </div>
         </section>
@@ -192,7 +326,7 @@ export default function MeguruPage() {
               感謝の入口を。
             </h2>
             <p>
-              客室や食事会場、スタッフの名札など。
+              旅館・ホテルの客室や食事会場、スタッフの名札など。
               <br />
               おもてなしの場面に合わせて設置できます。
             </p>
@@ -289,9 +423,27 @@ export default function MeguruPage() {
             </div>
           </div>
         </section>
+        <section
+          id="faq"
+          className={`${styles.section} ${styles.faqSection} ${styles.wrap}`}
+          aria-labelledby="faq-title"
+        >
+          <div className={styles.sectionHead}>
+            <h2 id="faq-title">よくある質問</h2>
+            <p>旅館・ホテルでの心付け・チップ導入について。</p>
+          </div>
+          <div className={styles.faq}>
+            {FAQS.map(({ q, a }) => (
+              <details key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
         <section className={styles.contact}>
           <h2>
-            あなたの施設にも、
+            あなたの旅館・ホテルにも、
             <br />
             感謝がめぐる仕組みを。
           </h2>

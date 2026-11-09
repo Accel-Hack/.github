@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist } from 'next/font/google';
 import './globals.css';
+import { SITE_URL } from '@/config/site';
+import GoogleAnalytics from '@/component/analytics/GoogleAnalytics';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -8,6 +10,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'AccelHack',
   description: 'Website of AccelHack.',
 };
@@ -32,7 +35,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={geistSans.variable}>{children}</body>
+      <body className={geistSans.variable}>
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
