@@ -5,7 +5,7 @@ import { Page } from '@/enum/Page';
 const EntryTalkArticle: React.FC = () => {
   return (
     <div className={styles.wrapper} data-content-section-rail>
-      <div className={styles.section_head}>
+      <div id="section8" className={styles.section_head}>
         <div className={styles.section_head_index}>08 / Entry & Talk</div>
         <div className={styles.section_head_title}>応募・カジュアル面談</div>
         <div className={styles.section_head_note}>

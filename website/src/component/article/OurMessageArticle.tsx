@@ -19,7 +19,7 @@ const portraitItems = [
 const OurMessageArticle: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.section_head}>
+      <div id="section2" className={styles.section_head}>
         <div className={styles.section_head_index}>02 / Our Message</div>
         <div className={styles.section_head_title}>代表の挨拶</div>
       </div>

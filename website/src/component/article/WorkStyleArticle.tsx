@@ -51,7 +51,7 @@ const items = [
 const WorkStyleArticle: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.section_head}>
+      <div id="section5" className={styles.section_head}>
         <div className={styles.section_head_index}>05 / Workstyle</div>
         <div className={styles.section_head_title}>働き方・制度</div>
       </div>

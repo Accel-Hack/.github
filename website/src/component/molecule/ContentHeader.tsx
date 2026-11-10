@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './ContentHeader.module.css';
-import ArticleHeader from '@/component/molecule/ArticleHeader';
+import PullDown, { NavItem } from './PullDown';
 
 type Props = {
   caption: string;
+  navItems: NavItem[];
 };
 
-const ContentHeader: React.FC<Props> = ({ caption }: Props) => {
+const ContentHeader: React.FC<Props> = ({ caption, navItems }: Props) => {
   return (
-    <>
-      <div className={styles.content_header}>{caption}</div>
-      <div>
-        <ArticleHeader caption={caption} />
-      </div>
-    </>
+    <div className={styles.content_header}>
+      <span className={styles.caption}>{caption}</span>
+      <span className={styles.pulldown}>
+        <PullDown navItems={navItems} />
+      </span>
+    </div>
   );
 };
 
