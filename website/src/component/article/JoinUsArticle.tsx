@@ -11,7 +11,7 @@ const JoinUsArticle: React.FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.left}>
         <div className={styles.text_container}>
-          <div className={styles.section_head}>
+          <div id="section1" className={styles.section_head}>
             <div className={styles.section_head_index}>01 / Join Us</div>
             <div className={styles.section_head_title}>採用メッセージ</div>
           </div>

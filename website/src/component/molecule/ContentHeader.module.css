@@ -1,5 +1,6 @@
 .content_header {
   background-color: var(--color-background-default);
+
   width: 100%;
   height: auto;
   display: flex;

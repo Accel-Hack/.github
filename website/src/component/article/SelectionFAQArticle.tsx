@@ -1,6 +1,7 @@
 import styles from './SelectionFAQArticle.module.css';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
+import React from 'react';
 
 const flowItems = [
   {
@@ -46,7 +47,7 @@ const faqItems = [
 const SelectionFAQArticle: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.section_head}>
+      <div id="section7" className={styles.section_head}>
         <div className={styles.section_head_index}>07 / Selection & FAQ</div>
         <div className={styles.section_head_title}>選考の流れ・FAQ</div>
         <div className={styles.section_head_note}>
@@ -58,8 +59,8 @@ const SelectionFAQArticle: React.FC = () => {
         <div className={styles.sub_heading}>選考の流れ</div>
         <div className={styles.flow_steps}>
           {flowItems.map((item, i) => (
-            <>
-              <div className={styles.card} key={i}>
+            <React.Fragment key={i}>
+              <div className={styles.card}>
                 <div className={styles.label}>{item.label}</div>
                 <div className={styles.title}>{item.title}</div>
                 <div className={styles.text_description}>
@@ -67,7 +68,7 @@ const SelectionFAQArticle: React.FC = () => {
                 </div>
               </div>
               {i !== 3 && <ChevronRightIcon className={styles.toggle_flow} />}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

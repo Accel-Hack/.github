@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useEffect } from 'react';
 import styles from './PullDown.module.css';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
@@ -118,6 +119,7 @@ const PullDown: React.FC<Props> = ({ navItems }: Props) => {
               <a
                 className={styles.item}
                 href={`#${item.id}`}
+
                 onClick={() => {
                   setActiveId(item.id);
                   setIsOpen(false);

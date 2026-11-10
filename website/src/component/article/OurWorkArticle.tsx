@@ -36,7 +36,7 @@ const portraitItems = [
 const OurWorkArticle: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.section_head}>
+      <div id="section3" className={styles.section_head}>
         <div className={styles.section_head_index}>03 / Our Work</div>
         <div className={styles.section_head_title}>AccelHackでできる仕事</div>
       </div>
