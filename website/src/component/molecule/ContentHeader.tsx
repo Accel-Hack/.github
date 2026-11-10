@@ -4,16 +4,19 @@ import PullDown, { NavItem } from './PullDown';
 
 type Props = {
   caption: string;
-  navItems: NavItem[];
+  navItems?: NavItem[];
 };
 
 const ContentHeader: React.FC<Props> = ({ caption, navItems }: Props) => {
   return (
     <div className={styles.content_header}>
       <span className={styles.caption}>{caption}</span>
-      <span className={styles.pulldown}>
-        <PullDown navItems={navItems} />
-      </span>
+
+      {navItems && (
+        <span className={styles.pulldown}>
+          <PullDown navItems={navItems} />
+        </span>
+      )}
     </div>
   );
 };

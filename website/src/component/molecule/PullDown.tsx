@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect } from 'react';
 import styles from './PullDown.module.css';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';

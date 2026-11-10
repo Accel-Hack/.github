@@ -7,39 +7,41 @@ import { usePathname } from 'next/navigation';
 
 export default function Transition({ children }: { children?: ReactNode }) {
   const path = usePathname() ?? '/';
-  console.log('Transition path:', path); // デバッグ用のログ
+  // console.log('Transition path:', path); // デバッグ用のログ
 
   return (
     <AnimatePresence mode={'wait'}>
-      <motion.div key={path}>
-        <motion.div
-          key={`top-left-${path}`}
-          initial={{ transform: 'scale(1)' }}
-          animate={{
-            transform: 'scale(0)',
-            transition: { duration: 0.5, ease: 'easeInOut' },
-          }}
-          exit={{
-            transform: 'scale(1)',
-            transition: { duration: 0.5, ease: 'easeInOut' },
-          }}
-          className={`${styles.overlay} ${styles.topRight}`}
-        />
-        <motion.div
-          key={`bottom-right-${path}`}
-          initial={{ transform: 'scale(1)' }}
-          animate={{
-            transform: 'scale(0)',
-            transition: { duration: 0.5, ease: 'easeInOut' },
-          }}
-          exit={{
-            transform: 'scale(1)',
-            transition: { duration: 0.5, ease: 'easeInOut' },
-          }}
-          className={`${styles.overlay} ${styles.bottomLeft}`}
-        />
-      </motion.div>
-      {children}
+      <>
+        <motion.div key={path}>
+          <motion.div
+            key={`top-left-${path}`}
+            initial={{ transform: 'scale(1)' }}
+            animate={{
+              transform: 'scale(0)',
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{
+              transform: 'scale(1)',
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            className={`${styles.overlay} ${styles.topRight}`}
+          />
+          <motion.div
+            key={`bottom-right-${path}`}
+            initial={{ transform: 'scale(1)' }}
+            animate={{
+              transform: 'scale(0)',
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{
+              transform: 'scale(1)',
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            className={`${styles.overlay} ${styles.bottomLeft}`}
+          />
+        </motion.div>
+        {children}
+      </>
     </AnimatePresence>
   );
 }

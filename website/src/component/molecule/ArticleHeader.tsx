@@ -13,11 +13,10 @@ const ArticleHeader: React.FC<Props> = ({ caption, navItems }: Props) => {
     <div className={styles.article_header_container}>
       <span className={styles.article_header_index} aria-hidden="true" />
       <span className={styles.article_header_caption}>{caption}</span>
-      {navItems && (
-        <span className={styles.article_header_pulldown}>
-          <PullDown navItems={navItems} />
-        </span>
-      )}
+
+      <span className={styles.article_header_pulldown}>
+        {navItems && navItems.length > 0 && <PullDown navItems={navItems} />}
+      </span>
     </div>
   );
 };
