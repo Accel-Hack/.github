@@ -10,18 +10,23 @@ type GlobalIntroProps = {
 };
 
 export default function GlobalIntro({ children, page }: GlobalIntroProps) {
-  const [isAccessed, setIsAccessed] = useState<boolean>(false);
+  const [isAccessed, setIsAccessed] = useState<boolean | null>(null);
 
   useEffect(() => {
     const accessed =
       sessionStorage.getItem('accesskey') !== null ? true : false;
 
     if (accessed) {
-      setIsAccessed(accessed);
+      setIsAccessed(true);
     } else {
+      setIsAccessed(false);
       sessionStorage.setItem('accesskey', page);
     }
   }, []);
+
+  if (isAccessed === null) {
+    return null;
+  }
 
   if (isAccessed === false && page === '/') {
     return (
@@ -30,7 +35,6 @@ export default function GlobalIntro({ children, page }: GlobalIntroProps) {
         {children}
       </>
     );
-  } else {
-    return <Transition>{children}</Transition>;
   }
+  return <Transition>{children}</Transition>;
 }
