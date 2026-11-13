@@ -3,7 +3,10 @@ import styles from './BlogSection.module.css';
 import Image from 'next/image';
 
 export type BlogSectionType =
-  'text' | 'image_center' | 'image_left' | 'image_right';
+  | 'text'
+  | 'image_center'
+  | 'image_left'
+  | 'image_right';
 
 type Props = {
   blockType: BlogSectionType;

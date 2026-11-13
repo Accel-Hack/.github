@@ -7,7 +7,7 @@ import styles from './layout.module.css';
 import Square from '@/asset/img/top/square.svg';
 import ContentHeader from '@/component/molecule/ContentHeader';
 import { usePathname } from 'next/navigation';
-import { NavItem } from '@/component/molecule/PullDown';
+// import { NavItem } from '@/component/molecule/PullDown';
 import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameSideEndLine from '@/asset/img/layout/frame_side_end_line.svg';
