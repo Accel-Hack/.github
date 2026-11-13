@@ -2,8 +2,8 @@ import styles from './JoinUsArticle.module.css';
 import SectionLinkBox from '@/component/molecule/SectionLinkBox';
 
 const buttonItems = [
-  { title: '募集一覧を見る', link: '#position' },
-  { title: 'まずは話を聞く', link: '#entry' },
+  { title: '募集一覧を見る', link: '#section6' },
+  { title: 'まずは話を聞く', link: '#section8' },
 ];
 
 const JoinUsArticle: React.FC = () => {
