@@ -9,7 +9,7 @@ import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
 import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
 import Square from '@/asset/img/top/square.svg';
-import Transition from '@/app/(company)/transition';
+import IntroWrapper from '@/component/organism/IntroWrapper';
 
 export default function CompanyLayout({
   children,
@@ -18,7 +18,7 @@ export default function CompanyLayout({
 }>) {
   return (
     <div className={styles.body}>
-      <Transition>
+      <IntroWrapper>
         <header className={styles.header}>
           <Header />
         </header>
@@ -132,6 +132,9 @@ export default function CompanyLayout({
             }}
             className={'small_media_visible'}
           />
+          <footer className={styles.footer_sp}>
+            <Footer />
+          </footer>
           <Square
             style={{
               width: '29.75px',
@@ -140,10 +143,10 @@ export default function CompanyLayout({
             className={'small_media_visible'}
           />
         </div>
-        <footer className={styles.footer}>
+        <footer className={styles.footer_pc}>
           <Footer />
         </footer>
-      </Transition>
+      </IntroWrapper>
       {/* 左右のAccelHackのレイヤー */}
       <>
         <div className={`${styles.background} ${styles.bg_responsive}`}>
