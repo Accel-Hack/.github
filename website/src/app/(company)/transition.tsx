@@ -1,17 +1,16 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, Fragment } from 'react';
 import styles from './transition.module.css';
 import { usePathname } from 'next/navigation';
 
 export default function Transition({ children }: { children?: ReactNode }) {
   const path = usePathname() ?? '/';
-  // console.log('Transition path:', path); // デバッグ用のログ
 
   return (
     <AnimatePresence mode={'wait'}>
-      <>
+      <Fragment key={path}>
         <motion.div key={path}>
           <motion.div
             key={`top-left-${path}`}
@@ -41,7 +40,7 @@ export default function Transition({ children }: { children?: ReactNode }) {
           />
         </motion.div>
         {children}
-      </>
+      </Fragment>
     </AnimatePresence>
   );
 }
