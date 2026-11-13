@@ -8,7 +8,7 @@ const portraitItems = [
     category: 'システム開発',
     title1: '業務を支える',
     title2: '仕組みをつくる',
-    discription:
+    description:
       '例：案件管理や業務アプリの開発。設計・実装から導入までを担います。',
     position: 'エンジニア・PM',
     // photo: ,
@@ -17,7 +17,7 @@ const portraitItems = [
     category: 'AI・業務改善',
     title1: '日々の仕事を、',
     title2: 'もっとよくする',
-    discription:
+    description:
       '例：書類の読み取りや照合作業の自動化。課題整理から仕組み化に関わります。',
     position: 'エンジニア・PM',
     // photo: ,
@@ -26,7 +26,7 @@ const portraitItems = [
     category: 'サービスづくり',
     title1: 'アイデアを、',
     title2: '使われる形にする',
-    discription:
+    description:
       '例：新しい機能の試作・改善。検証と実装を重ねて価値を届けます。',
     position: 'エンジニア・インターン',
     // photo: ,
@@ -69,7 +69,7 @@ const OurWorkArticle: React.FC = () => {
                   {item.title2}
                 </div>
               </div>
-              <div className={styles.card_discription}>{item.discription}</div>
+              <div className={styles.card_description}>{item.description}</div>
               <div className={styles.card_position}>
                 <div className={styles.card_position_textbox}>
                   <div className={styles.position_title}>関われる職種</div>
