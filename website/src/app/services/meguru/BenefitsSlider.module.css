@@ -1,0 +1,259 @@
+.slider {
+  margin-top: 10px;
+}
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #c9d8d0;
+}
+.tabs button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  padding: 22px 12px;
+  color: #62736d;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.tabs button span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  margin-right: 14px;
+  font-size: 20px;
+}
+.tabs button[aria-selected='true'] {
+  border-bottom-color: #176b5c;
+  color: #176b5c;
+  font-weight: 600;
+}
+.slider button:focus-visible,
+.slider [role='tabpanel']:focus-visible {
+  outline: 2px solid #176b5c;
+  outline-offset: 5px;
+}
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 55px;
+  align-items: center;
+  min-height: 490px;
+  padding: 45px 0;
+  animation: enter 0.45s ease both;
+  touch-action: pan-y;
+}
+.copy .number {
+  font:
+    italic 40px Georgia,
+    serif;
+  color: #6e9280;
+}
+.copy h3 {
+  white-space: pre-line;
+  font-family: var(--serif);
+  font-size: 33px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin: 14px 0 24px;
+}
+.copy p {
+  font-size: 14px;
+  line-height: 2.1;
+  color: #526760;
+  max-width: 430px;
+}
+.copy .detail {
+  font-size: 12px;
+  border-left: 2px solid #a5c5b5;
+  padding-left: 15px;
+  margin-top: 24px;
+}
+.visual {
+  background: #f0f4ec;
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+}
+.visual figure {
+  width: 100%;
+  margin: 0;
+}
+.visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 12px 30px #183e4110;
+}
+.visual figcaption {
+  font-size: 11px;
+  color: #60746a;
+  text-align: center;
+  margin-top: 20px;
+}
+.review {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.review > span {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.review img {
+  width: 340px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+.returnFlow {
+  width: 100%;
+  text-align: center;
+}
+.guest {
+  font-size: 12px;
+}
+.guest span {
+  display: block;
+  font-family: var(--serif);
+  font-size: 30px;
+  margin-top: 3px;
+}
+.arrow {
+  color: #50846b;
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+.arrow small {
+  display: block;
+  font-size: 11px;
+}
+.facility {
+  border: 1px solid #adc9b5;
+  background: white;
+  padding: 8px 25px;
+  font-size: 14px;
+  display: inline-block;
+}
+.staff {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: #176b5c;
+}
+.note {
+  display: block;
+  font-size: 10px;
+  color: #63776a;
+  margin-top: 22px;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #dae3dc;
+  padding-top: 20px;
+}
+.controls p {
+  font:
+    italic 25px Georgia,
+    serif;
+  margin-right: 15px;
+}
+.controls p span {
+  font-size: 16px;
+  color: #81998c;
+}
+.controls button {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 1px solid #aac3b5;
+  border-radius: 50%;
+  font-size: 23px;
+  color: #176b5c;
+  cursor: pointer;
+}
+.controls button:hover {
+  background: #176b5c;
+  color: white;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (max-width: 700px) {
+  .tabs button {
+    font-size: 11px;
+    padding: 14px 5px;
+    line-height: 1.7;
+  }
+  .tabs button span {
+    display: block;
+    font-size: 19px;
+    margin: 0 0 4px;
+  }
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    min-height: 760px;
+    align-content: start;
+    padding: 28px 0;
+  }
+  .copy h3 {
+    font-size: 27px;
+    margin: 10px 0 20px;
+  }
+  .copy .number {
+    font-size: 30px;
+  }
+  .copy p {
+    font-size: 13px;
+  }
+  .copy .detail {
+    font-size: 11px;
+    margin-top: 18px;
+  }
+  .visual {
+    min-height: 300px;
+    padding: 22px 16px;
+  }
+  .staff {
+    font-size: 21px;
+  }
+  .controls {
+    padding-top: 15px;
+  }
+  .controls button {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+  .tabs button {
+    transition: none;
+  }
+}
+.visual:has(.staffIllustration) {
+  background: #fff;
+  padding: 15px 0;
+}
+.staffIllustration img {
+  box-shadow: none;
+}
