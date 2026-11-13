@@ -5,13 +5,13 @@ const items = [
     {
       label: '勤務時間',
       value: 'フレックスタイム制',
-      text1: 'コアタイム ◯:◯◯〜◯:◯◯',
-      text2: '標準労働時間 1日◯時間',
+      text1: 'コアタイム 10:00-15:00',
+      text2: '標準労働時間 1日8時間',
     },
     {
       label: '出社・リモート',
       value: '出社とリモートの併用',
-      text1: '出社は週◯日程度',
+      text1: '出社は週4-5日程度',
       text2: '（職種・案件により異なります）',
     },
     {
@@ -37,7 +37,7 @@ const items = [
     {
       label: '雇用条件',
       value: '職種ごとに異なります',
-      text1: '雇用形態・使用期間は',
+      text1: '雇用形態・試用期間は',
       text2: (
         <>
           「<span className={styles.underline_text}>06 募集ポジション</span>
