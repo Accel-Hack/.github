@@ -22,7 +22,13 @@ const FractalDiamond: React.FC = () => {
         aria-label="プロジェクト全体のダブルダイヤモンドと、各工程の中にあるダブルダイヤモンド"
       >
         <defs>
-          <linearGradient id="small" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="fractal-diamond-small"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="var(--color-neutral-0)" />
             <stop offset="49.6%" stopColor="var(--color-neutral-0)" />
             <stop offset="50%" stopColor="var(--color-mint-50)" />
@@ -31,7 +37,13 @@ const FractalDiamond: React.FC = () => {
             <stop offset="100%" stopColor="var(--color-neutral-80)" />
           </linearGradient>
 
-          <linearGradient id="big" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="fractal-diamond-big"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="var(--color-neutral-90)" />
             <stop offset="50%" stopColor="var(--color-neutral-90)" />
             <stop offset="50.1%" stopColor="var(--color-neutral-95)" />
