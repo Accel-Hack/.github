@@ -110,3 +110,14 @@
   background-color: var(--color-background-subtle);
   border-left: 4px solid var(--color-text-default);
 }
+
+@media screen and (max-width: 768px) {
+  .index {
+    display: none;
+  }
+
+  .button {
+    flex: 1;
+    width: auto;
+  }
+}
