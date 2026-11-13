@@ -1,0 +1,21 @@
+.link_box {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-decoration: none;
+}
+
+.link_text {
+  width: auto;
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0em;
+  color: var(--color-text-default);
+}
+
+.cursor {
+  width: 20px;
+}

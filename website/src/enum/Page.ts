@@ -1,7 +1,7 @@
 export enum Page {
   TOP = '/',
   ABOUT = '/about',
-  SERVICE = '/service',
+  WORKS = '/service',
   RECRUIT = '/recruit',
   BLOG = '/blog',
   NEWS = '/news',

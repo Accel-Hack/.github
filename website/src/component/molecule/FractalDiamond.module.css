@@ -1,0 +1,125 @@
+.framework {
+  object-fit: cover;
+  width: 468px;
+  height: 298px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-neutral-100);
+  border-bottom: var(--border-width-sm) solid var(--color-border-default);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.spaceLabels_up {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 16px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  font-family: 'axia', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-subtle);
+}
+.diamonds {
+  position: absolute;
+  top: 47px;
+}
+.background_diamond {
+  fill: url(#big);
+  stroke: none;
+}
+
+.background_diamond_line {
+  fill: none;
+  stroke: url(#small);
+}
+
+.diamond_contents {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  position: absolute;
+}
+.inner_diamond {
+  fill: url(#small);
+  stroke: none;
+}
+.diamond_contents_DISCOVER {
+  top: 82px;
+  left: 78px;
+}
+
+.diamond_contents_DEFINE {
+  top: 118px;
+  left: 141px;
+}
+
+.diamond_contents_DEVELOP {
+  top: 82px;
+  left: 291px;
+}
+
+.diamond_contents_DELIVER {
+  top: 118px;
+  left: 350px;
+}
+
+.contents_title {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+.contents_label {
+  font-family: 'axia', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-subtle);
+  width: auto;
+}
+
+.spaceLabels_bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 214px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  font-family: 'axia', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-subtle);
+}
+
+.caption {
+  font-family: 'axia', 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0em;
+  color: var(--color-text-subtle);
+  position: absolute;
+  top: 240px;
+  left: 16px;
+}
