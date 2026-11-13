@@ -1,9 +1,9 @@
 .container {
   position: fixed;
-  top: 50%;
+  top: var(--spacing-4xl);
   right: 0;
   z-index: 1000;
-  width: clamp(152px, 10vw, 194px);
+  width: 152px;
   perspective: 900px;
   transform: translateY(-50%);
 }
