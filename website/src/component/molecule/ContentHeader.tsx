@@ -12,7 +12,7 @@ const ContentHeader: React.FC<Props> = ({ caption, navItems }: Props) => {
     <div className={styles.content_header}>
       <span className={styles.caption}>{caption}</span>
 
-      {navItems && (
+      {navItems && navItems.length > 0 && (
         <span className={styles.pulldown}>
           <PullDown navItems={navItems} />
         </span>

@@ -96,7 +96,8 @@ const PullDown: React.FC<Props> = ({ navItems }: Props) => {
     <div className={styles.pulldown} ref={pullDownRef}>
       <button
         className={styles.button}
-        onClick={() => setIsOpen(isOpen ? false : true)}
+        onClick={() => setIsOpen((isOpen) => !isOpen)}
+        aria-expanded={isOpen}
       >
         <div className={styles.button_value}>
           <span className={styles.index}>Index</span>
@@ -117,7 +118,10 @@ const PullDown: React.FC<Props> = ({ navItems }: Props) => {
               <a
                 className={styles.item}
                 href={`#${item.id}`}
-                onClick={() => setActiveId(item.id)}
+                onClick={() => {
+                  setActiveId(item.id);
+                  setIsOpen(false);
+                }}
               >
                 <span className={styles.num}>{item.num}</span>
                 <span className={styles.item_title}>{item.title}</span>
