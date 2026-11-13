@@ -22,7 +22,7 @@ export default function GlobalIntro({ children, page }: GlobalIntroProps) {
       setIsAccessed(false);
       sessionStorage.setItem('accesskey', page);
     }
-  }, []);
+  }, [page]);
 
   if (isAccessed === null) {
     return null;

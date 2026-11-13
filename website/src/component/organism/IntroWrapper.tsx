@@ -6,9 +6,5 @@ import { ReactNode } from 'react';
 export default function IntroWrapper({ children }: { children?: ReactNode }) {
   const path = usePathname() ?? '/';
 
-  return (
-    <GlobalIntro key={path} page={path}>
-      {children}
-    </GlobalIntro>
-  );
+  return <GlobalIntro page={path}>{children}</GlobalIntro>;
 }
