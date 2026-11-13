@@ -6,13 +6,13 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 const items = [
   {
     title: 'AIを仕事の力にする',
-    discription: 'AIを活用しながら、設計や判断に向き合う。',
+    description: 'AIを活用しながら、設計や判断に向き合う。',
     example_text: '実装の下書きをAIで作り、人が品質を確かめる。',
     // image: ,
   },
   {
     title: '何をつくるかから関わる',
-    discription: '顧客の課題を理解し、解決策を考える。',
+    description: '顧客の課題を理解し、解決策を考える。',
     example_text: '依頼された機能だけでなく、業務全体から提案する。',
     // image: ,
   },
@@ -45,7 +45,7 @@ const WhyAccelHackArticle: React.FC = () => {
               <div className={styles.card_body}>
                 <div className={styles.card_header}>
                   <div className={styles.title}>{item.title}</div>
-                  <div className={styles.discription}>{item.discription}</div>
+                  <div className={styles.description}>{item.description}</div>
                 </div>
 
                 <div className={styles.card_example}>
