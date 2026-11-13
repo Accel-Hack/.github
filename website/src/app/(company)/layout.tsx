@@ -8,6 +8,7 @@ import FrameSideMiddleLine from '@/asset/img/layout/frame_side_middle_line.svg';
 import FrameCornerTriangle from '@/asset/img/layout/frame_corner_triangle.svg';
 import FrameTopLine from '@/asset/img/layout/frame_top_line.svg';
 import FrameBottomLine from '@/asset/img/layout/frame_bottom_line.svg';
+
 import Transition from '@/app/(company)/transition';
 
 export default function CompanyLayout({
@@ -50,24 +51,7 @@ export default function CompanyLayout({
               }}
               className={styles.triangle}
             />
-            <FrameCornerTriangle
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '0',
-                transform: 'rotate(-180deg) scaleX(-1)',
-              }}
-              className={styles.triangle}
-            />
-            <FrameCornerTriangle
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                right: '0',
-                transform: 'rotate(-180deg)',
-              }}
-              className={styles.triangle}
-            />
+
             <FrameSideEndLine
               style={{
                 position: 'absolute',
@@ -85,24 +69,7 @@ export default function CompanyLayout({
               }}
               className={styles.side_end_line}
             />
-            <FrameSideEndLine
-              style={{
-                position: 'absolute',
-                bottom: '7px',
-                left: '0',
-                transform: 'rotate(-180deg) scaleX(-1)',
-              }}
-              className={styles.side_end_line}
-            />
-            <FrameSideEndLine
-              style={{
-                position: 'absolute',
-                bottom: '7px',
-                right: '0',
-                transform: 'rotate(-180deg)',
-              }}
-              className={styles.side_end_line}
-            />
+
             <FrameSideMiddleLine
               style={{
                 position: 'absolute',
@@ -124,7 +91,7 @@ export default function CompanyLayout({
             />
           </div>
         </main>
-        <div className={styles.small_media_footer}></div>
+
         <footer className={styles.footer}>
           <Footer />
         </footer>
