@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+  z-index: 10;
 }
 
 .dot_container {
@@ -15,6 +16,7 @@
   height: 40px;
   padding: 0 25px;
   box-sizing: border-box;
+  margin-right: 50px;
 }
 
 .dot_middle {
@@ -29,4 +31,29 @@
 
 .frame_bottom_line {
   width: 50%;
+  margin-right: 70px;
+}
+
+.triangle_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  padding: 0 25px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+.triangle {
+  width: 14px;
+  height: 14px;
+}
+.side_end_line {
+  height: 240px;
+}
+
+.cover_side_line {
+  width: 16px;
+  z-index: 1;
 }

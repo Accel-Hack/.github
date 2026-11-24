@@ -1,4 +1,5 @@
 .content_header {
+  background-color: var(--color-background-default);
   width: 100%;
   height: auto;
   display: flex;
@@ -11,7 +12,7 @@
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 20;
 }
 .caption {
   font-family: 'axia', sans-serif;
@@ -25,18 +26,15 @@
 }
 
 .pulldown {
-  display: flex;
   width: auto;
   height: auto;
 }
 
 @media screen and (max-width: 768px) {
-  .caption {
-    font-size: 24px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-  }
-  .pulldown {
-    flex: 1;
+  .content_header {
+    font-size: calc(1.5rem + var(--font-size-adjustment));
+    padding: 0;
+    margin: 0.3rem 0 0.45rem;
+    margin-left: 0.5rem;
   }
 }

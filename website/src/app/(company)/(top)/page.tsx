@@ -7,7 +7,7 @@ import NEWSES from '@/data/news.json';
 import AccelHackLogo from '@/asset/img/top/logo.svg';
 import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
 import Square from '@/asset/img/top/square.svg';
-import COLOR_SQUARES from '@/asset/img/layout/color_squares.svg';
+// import COLOR_SQUARES from '@/asset/img/layout/color_squares.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
@@ -105,13 +105,13 @@ export default function Home() {
           踏み込め
         </span>
         <TopDiagonalLine className={styles.top_diagonal_line} />
-        <COLOR_SQUARES
+        {/* <COLOR_SQUARES
           style={{
             position: 'absolute',
             left: '69px',
             top: '22px',
           }}
-        />
+        /> */}
         <Square
           style={{
             position: 'absolute',

@@ -1,11 +1,11 @@
 .container {
   position: fixed;
-  top: var(--spacing-4xl);
+  top: 128px;
   right: 0;
   z-index: 1000;
   width: 152px;
   perspective: 900px;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
 }
 
 .tab {
