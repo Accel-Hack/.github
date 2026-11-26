@@ -33,7 +33,6 @@ export default function TopIntro() {
         animate={{ x: '102%' }}
         transition={{ duration, delay, ease: [0.76, 0, 0.24, 1] }}
       />
-
       <motion.div
         className={styles.brand}
         initial={{ opacity: 0, scale: 0.92 }}

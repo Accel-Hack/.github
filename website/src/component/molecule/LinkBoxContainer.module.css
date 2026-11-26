@@ -1,29 +1,36 @@
 .container {
-  width: 100%;
   max-width: 800px;
   /*width: 480px;*/
   display: flex;
 }
 
 .container_lg {
-  gap: 1rem;
+  gap: 16px;
 }
 
 .container_md {
-  margin-top: 0.75rem;
+  margin-top: 12px;
+  gap: 12px;
+  justify-content: right;
+  padding-left: 48px;
+  flex: 1;
 }
 
 .container_sm {
-  height: 36px;
-  margin-top: 1.5rem;
+  margin-top: 24px;
+  justify-content: right;
 }
 
 @media screen and (max-width: 768px) {
   .container_md {
+    margin-top: 8px;
+    gap: 8px;
+    padding-left: 16px;
     height: auto;
   }
 
   .container_sm {
+    margin-top: 16px;
     height: auto;
   }
 }
