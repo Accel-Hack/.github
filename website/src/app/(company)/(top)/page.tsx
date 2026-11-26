@@ -6,12 +6,13 @@ import { Page } from '@/enum/Page';
 import NEWSES from '@/data/news.json';
 import AccelHackLogo from '@/asset/img/top/logo.svg';
 import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
-import Square from '@/asset/img/top/square.svg';
-import COLOR_SQUARES from '@/asset/img/layout/color_squares.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
 import TopIntro from '@/component/organism/TopIntro';
+import ContentFooter from '@/component/layout/ContentFooter';
+import Footer from '@/component/layout/Footer';
+import SmallMediaFooter from '@/component/layout/SmallMediaFooter';
 
 export default function Home() {
   return (
@@ -105,34 +106,18 @@ export default function Home() {
           踏み込め
         </span>
         <TopDiagonalLine className={styles.top_diagonal_line} />
-        <COLOR_SQUARES
-          style={{
-            position: 'absolute',
-            left: '69px',
-            top: '22px',
-          }}
-        />
-        <Square
-          style={{
-            position: 'absolute',
-            bottom: '50px',
-            right: '90px',
-            width: '29.75px',
-            height: 'auto',
-          }}
-          className={'small_media_hidden'}
-        />
-        <Square
-          style={{
-            position: 'absolute',
-            bottom: '50px',
-            right: '50%',
-            width: '29.75px',
-            height: 'auto',
-          }}
-          className={'small_media_hidden'}
-        />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
+      </div>
+      <div className="small_media_hidden">
+        <footer className={styles.footer}>
+          <ContentFooter />
+          <Footer />
+        </footer>
+      </div>
+      <div className="small_media_visible">
+        <footer className={styles.small_media_footer}>
+          <SmallMediaFooter />
+        </footer>
       </div>
     </div>
   );

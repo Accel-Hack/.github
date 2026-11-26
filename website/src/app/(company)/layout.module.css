@@ -4,7 +4,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  font-family: Noto Sans JP;
   overflow: hidden;
   overscroll-behavior: none;
   display: flex;
@@ -15,78 +14,142 @@
 .header {
   position: relative;
   width: inherit;
-  height: var(--header-height);
+  height: var(--spacing-4xl);
+  display: flex;
+  z-index: 40;
 }
 
 .main {
   position: relative;
-  height: calc(100% - var(--header-height) - var(--footer-height));
-  width: calc(100% - clamp(16px, 2.5vw, 48px));
-  margin: 0 clamp(8px, 1.25vw, 24px);
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  background-color: var(--color-background-default);
+  display: flex;
+  flex-direction: column;
+}
+
+.main_content {
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  min-height: 0;
   flex: 1;
 }
 
 .frame {
   pointer-events: none;
-  z-index: 100;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .frame_top_line {
   position: absolute;
-  top: 0;
-  left: 5%;
+  top: 64px;
+  left: 88px;
   width: 90%;
 }
 
-.frame_bottom_line {
-  position: absolute;
-  bottom: 21px;
-  right: 5%;
-  width: 50%;
+.color_square {
+  top: 86px;
+  left: 87px;
 }
 
-.footer {
-  position: relative;
-  width: inherit;
-  height: var(--footer-height);
-}
-
-.content {
-  height: 100%;
+.sticky_decoration {
+  position: sticky;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  overflow: auto;
+  height: 0;
+  pointer-events: none;
+  /* z-index: -1; */
+}
+.top_frame {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
 }
 
 .background {
-  z-index: -100;
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+  pointer-events: none;
 }
 
-.triangle {
+.triangle_left {
   width: 14px;
   height: 14px;
+  top: 64px;
+  left: 18px;
 }
 
-.side_end_line {
-  height: var(--end-line-height);
+.triangle_right {
+  width: 14px;
+  height: 14px;
+  top: 64px;
+  right: 18px;
 }
 
-.side_middle_line {
-  height: var(--middle-line-height);
+.sticky_decoration {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  overflow: visible;
 }
 
-@media (width <= 450px) {
+/* SVGのスタイリング */
+.background_logo_img {
+  width: 100%;
+  height: 100%;
+}
+
+.side_end_line_left {
+  height: 240px;
+  left: 18px;
+}
+
+.side_end_line_right {
+  height: 240px;
+  right: 18px;
+}
+
+.middle_line_left {
+  top: 143px;
+  left: 18px;
+  width: 5px;
+  height: 870px;
+}
+
+.middle_line_right {
+  top: 143px;
+  right: 18px;
+  width: 5px;
+  height: 870px;
+}
+
+.side_top_line_left {
+  height: 240px;
+  left: 18px;
+  top: 71px;
+}
+
+.side_top_line_right {
+  height: 240px;
+  right: 18px;
+  top: 71px;
+}
+/* @media (width <= 450px) {
   .bg_responsive {
     flex-direction: column;
   }
@@ -102,40 +165,21 @@
   .background_logo {
     height: calc(20vw);
     width: 100%;
-    /* background-color: rgba(0, 255, 0, 1); */
+    background-color: rgba(0, 255, 0, 1);
   }
 }
 
 @media (width > 450px) {
   .background_logo {
     height: 100%;
-    width: calc(20vh);
-    /* background-color: rgba(0, 255, 0, 1); */
+    width: auto;
+    background-color: rgba(0, 255, 0, 1);
   }
-}
-
-/* SVGのスタイリング */
-.background_logo_img {
-  width: 100%;
-  height: 100%;
-}
-
-/* 右側のSVGを180度回転 */
-.background_logo_img_rotate {
-  transform: rotate(180deg);
-}
+} */
 
 @media screen and (max-width: 768px) {
   .header {
-    height: var(--header-height-sm);
-  }
-
-  .main {
-    margin: 0 10px;
-    height: calc(
-      100% - var(--header-height-sm) - var(--footer-height-sm) - 60px
-    );
-    width: calc(100% - 20px);
+    height: var(--spacing-xl);
   }
 
   .small_media_footer {
@@ -147,25 +191,74 @@
     box-sizing: border-box;
   }
 
-  .footer {
-    height: 20px;
+  .small_media_frame_top_line {
+    height: 8.06px;
+    width: 319.5px;
+    position: absolute;
+    top: 32px;
+    left: 27.75px;
+    transform: rotate(180deg);
   }
 
-  .frame_top_line {
-    width: 90%;
-    top: 0;
-    transform: rotate(
-      180deg
-    ); /* スマホサイズの時はボトムラインを上下反転させる */
+  .color_square {
+    top: 54px;
+    left: 79px;
   }
-
   .frame_bottom_line {
     width: 90%;
     bottom: 0;
   }
 
-  .side_end_line {
-    height: calc(var(--end-line-height) * 0.7);
+  .triangle_left {
+    width: 11px;
+    height: 11px;
+    top: 32px;
+    left: 10px;
+  }
+
+  .triangle_right {
+    width: 11px;
+    height: 11px;
+    top: 32px;
+    right: 10px;
+  }
+
+  .side_end_line_left {
+    height: 168px;
+    left: 10px;
+    transform: scaleX(-1);
+  }
+
+  .side_end_line_right {
+    height: 168px;
+    right: 10px;
+  }
+
+  .side_top_line_left {
+    height: 168px;
+    top: 39px;
+    left: 10px;
+  }
+
+  .side_top_line_right {
+    height: 168px;
+    top: 39px;
+    right: 10px;
+    transform: scaleX(-1);
+  }
+
+  .middle_line_left {
+    top: 99.5px;
+    left: 10px;
+    width: 4.4px;
+    height: 558.5px;
+  }
+
+  .middle_line_right {
+    top: 99.5px;
+    right: 10px;
+    width: 4.4px;
+    height: 558.5px;
   }
 
   .triangle {
