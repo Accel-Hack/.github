@@ -118,6 +118,12 @@
 
   .button {
     flex: 1;
-    width: auto;
+    width: 225px;
+  }
+  .button_value {
+    gap: var(--spacing-xs);
+  }
+  .button_title {
+    font-size: 12px;
   }
 }

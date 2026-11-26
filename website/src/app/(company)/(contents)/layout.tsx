@@ -10,6 +10,7 @@ import { NavItem } from '@/component/molecule/PullDown';
 
 import ContentFooter from '@/component/layout/ContentFooter';
 import Footer from '@/component/layout/Footer';
+import SmallMediaFooter from '@/component/layout/SmallMediaFooter';
 
 const titleMap: { [key: string]: string } = {
   about: 'About',
@@ -84,16 +85,21 @@ export default function ContentLayout({
               <div className={styles.articles}>{children}</div>
             </div>
           </div>
-          <div className={styles.tabmenu_container}>
+          <div className={`${styles.tabmenu_container} small_media_hidden`}>
             <TabMenu />
           </div>
         </div>
-        <footer className={styles.footer}>
-          <ContentFooter />
-          <Footer />
-        </footer>
-        {/* <div className={styles.line_cover_right} />
-        <div className={styles.line_cover_left} /> */}
+        <div className="small_media_hidden">
+          <footer className={styles.footer}>
+            <ContentFooter />
+            <Footer />
+          </footer>
+        </div>
+        <div className="small_media_visible">
+          <footer className={styles.small_media_footer}>
+            <SmallMediaFooter />
+          </footer>
+        </div>
       </div>
     </div>
   );

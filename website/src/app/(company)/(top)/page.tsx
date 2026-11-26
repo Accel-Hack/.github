@@ -12,6 +12,7 @@ import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.sv
 import TopIntro from '@/component/organism/TopIntro';
 import ContentFooter from '@/component/layout/ContentFooter';
 import Footer from '@/component/layout/Footer';
+import SmallMediaFooter from '@/component/layout/SmallMediaFooter';
 
 export default function Home() {
   return (
@@ -107,10 +108,17 @@ export default function Home() {
         <TopDiagonalLine className={styles.top_diagonal_line} />
         <BackgroundLeftTopLine className={styles.background_left_top_line} />
       </div>
-      <footer className={styles.footer}>
-        <ContentFooter />
-        <Footer />
-      </footer>
+      <div className="small_media_hidden">
+        <footer className={styles.footer}>
+          <ContentFooter />
+          <Footer />
+        </footer>
+      </div>
+      <div className="small_media_visible">
+        <footer className={styles.small_media_footer}>
+          <SmallMediaFooter />
+        </footer>
+      </div>
     </div>
   );
 }
