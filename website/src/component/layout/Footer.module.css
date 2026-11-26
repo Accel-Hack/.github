@@ -8,18 +8,34 @@
   z-index: 10;
 }
 
-.logo_container {
-  margin: 0 1%;
-  height: 100%;
+.footer_container {
+  height: auto;
+  width: 480px;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  gap: var(--spacing-lg);
+  box-sizing: border-box;
+  padding: 0 25px 20px 25px;
 }
 
 .copyright {
-  height: 24px;
-  line-height: 24px;
-  width: 100%;
-  position: relative;
-  font-size: calc(0.5rem + var(--font-size-adjustment));
+  height: auto;
+  width: auto;
+  font-family: 'axia', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: +0.16em;
+  color: var(--color-text-subtle);
+}
+
+.pivacy_policy {
+  height: auto;
+  width: auto;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+  color: var(--color-text-default);
 }
