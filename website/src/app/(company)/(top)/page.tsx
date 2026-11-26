@@ -9,7 +9,7 @@ import TopDiagonalLine from '@/asset/img/layout/top_diagonal_line.svg';
 import LinkBox from '@/component/molecule/LinkBox';
 import LinkBoxContainer from '@/component/molecule/LinkBoxContainer';
 import BackgroundLeftTopLine from '@/asset/img/layout/backgound_left_top_line.svg';
-import TopIntro from '@/component/organism/TopIntro';
+// import TopIntro from '@/component/organism/TopIntro';
 import ContentFooter from '@/component/layout/ContentFooter';
 import Footer from '@/component/layout/Footer';
 import SmallMediaFooter from '@/component/layout/SmallMediaFooter';

@@ -5,11 +5,7 @@ import Cursor from '@/asset/img/common/cursor.svg';
 
 export type LinkBoxSize = 'lg' | 'md' | 'sm';
 export type LinkBoxVariant =
-  | 'default'
-  | 'recruit'
-  | 'blog'
-  | 'contact'
-  | 'privacy';
+  'default' | 'recruit' | 'blog' | 'contact' | 'privacy';
 export type CursorVariant = 'default' | 'mint';
 
 type Props = {
