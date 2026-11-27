@@ -118,7 +118,6 @@ const PullDown: React.FC<Props> = ({ navItems }: Props) => {
               <a
                 className={styles.item}
                 href={`#${item.id}`}
-
                 onClick={() => {
                   setActiveId(item.id);
                   setIsOpen(false);
