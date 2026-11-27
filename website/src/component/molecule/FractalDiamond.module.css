@@ -32,13 +32,13 @@
   top: 47px;
 }
 .background_diamond {
-  fill: url(#big);
+  fill: url(#fractal-diamond-big);
   stroke: none;
 }
 
 .background_diamond_line {
   fill: none;
-  stroke: url(#small);
+  stroke: url(#fractal-diamond-small);
 }
 
 .diamond_contents {
@@ -51,7 +51,7 @@
   position: absolute;
 }
 .inner_diamond {
-  fill: url(#small);
+  fill: url(#fractal-diamond-small);
   stroke: none;
 }
 .diamond_contents_DISCOVER {
