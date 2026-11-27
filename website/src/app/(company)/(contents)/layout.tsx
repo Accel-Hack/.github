@@ -81,6 +81,7 @@ export default function ContentLayout({
         <div className={styles.content_wrapper}>
           <div className={styles.content}>
             <ContentHeader caption={title} navItems={navItemMap[page]} />
+
             <div className={styles.article_container} data-article-container>
               <div className={styles.articles}>{children}</div>
             </div>
